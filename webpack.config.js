@@ -36,7 +36,6 @@ Encore
   .cleanupOutputBeforeBuild()
   .enableBuildNotifications()
   .enableSourceMaps(!Encore.isProduction())
-  .enableVersioning(Encore.isProduction())
 
   // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {
