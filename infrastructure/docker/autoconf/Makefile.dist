@@ -19,7 +19,7 @@ stop: ## Do nothing
 	$(DOCKER_COMPOSE) kill
 	$(DOCKER_COMPOSE) rm -v --force
 
-reset: clear start ## Stop clear and install
+reset: clear build ## Stop clear and install
 
 clear: stop ## clear project
 	rm -Rf node_modules npm-cache public/build
