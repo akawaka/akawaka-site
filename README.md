@@ -6,9 +6,10 @@ This project handle multiple environments with target through
 `./configure`.
 
 ```bash
-./configure --env=dev # If you have npm on your computer
-./configure --env=docker # If you want docker with http://localhost
-./configure --env=docker --with-proxy # Docker with traefik
+./configure --env=dev # If you have everything on your computer
+./configure --env=dev --with-docker=light # If you want local php/npm but pgsql and mailhog in container
+./configure --env=dev --with-docker=full # Full docker installation
+./configure --env=dev --with-docker=full --with-proxy # Docker with traefik
 ```
 
 And extra flag for cleaning files is also available: `--clean-before-tasks`.

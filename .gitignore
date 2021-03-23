@@ -8,12 +8,16 @@
 
 ###> dev environment ##
 .editorconfig
+.php_cs.dist
+phpstan.neon
+rector.php
 ###< dev environment ###
 
 ###> docker environment ##
+.dockerignore
 /docker-compose*
 /docker-dev.lock
-.dockerignore
+/infrastructure/docker/**/data
 ###< docker environment ###
 
 ###> prod environment ##
@@ -26,3 +30,32 @@
 npm-debug.log
 yarn-error.log
 ###< javascript ###
+
+###> symfony/framework-bundle ###
+/.env.*
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###

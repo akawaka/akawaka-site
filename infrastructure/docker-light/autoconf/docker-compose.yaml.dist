@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  backend: ~
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=akawaka
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./infrastructure/dev/docker/db/data:/var/lib/postgresql/data
+    ports:
+      - "${APP_MYSQL_PORT:-5432}:5432"
+    networks:
+      backend: ~
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "${APP_MAILHOG_PORT:-8025}:8025"
+    networks:
+      backend: ~
+
+volumes:
+  db-data: {}
+
