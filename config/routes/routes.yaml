@@ -1,0 +1,6 @@
+admin:
+    prefix: /admin
+    resource: 'admin/routes.yaml'
+
+front:
+    resource: 'front/routes.yaml'
