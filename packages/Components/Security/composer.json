@@ -1,0 +1,27 @@
+{
+    "name": "black/security-component",
+    "description": "Security component",
+    "type": "black-component",
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "component@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Black\\Component\\Security\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "phpstan/phpstan-symfony": "^0.12",
+        "psalm/plugin-symfony": "^1.2",
+        "thecodingmachine/phpstan-safe-rule": "^1.0",
+        "vimeo/psalm": "^3.11",
+        "roave/security-advisories": "dev-master"
+    }
+}

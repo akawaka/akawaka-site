@@ -1,0 +1,9 @@
+extensions:
+    Memio\SpecGen\MemioSpecGenExtension: ~
+
+suites:
+    page:
+        namespace: Black\Component\Page
+        psr4_prefix: Black\Component\Page
+        src_path: src/Black/Component/Page
+        spec_path: src/Black/Component/Page

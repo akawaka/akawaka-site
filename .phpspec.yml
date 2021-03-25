@@ -1,0 +1,8 @@
+composer_suite_detection: true
+
+suites:
+    primitive-email:
+        namespace: Black\Primitive\EmailAddress
+        psr4_prefix: Black\Primitive\EmailAddress
+        src_path: packages/Primitive/EmailAddress/src
+        spec_path: packages/Primitive/EmailAddress/

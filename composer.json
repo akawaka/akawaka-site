@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/*"
+            "url": "./packages/Primitive/*"
         }
     ],
     "require": {
@@ -14,6 +14,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "black/email-adress-primitive": "^1.0",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^3.0",

@@ -7,10 +7,12 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
   .setOutputPath('public/build/front/')
   .setPublicPath('/build/front')
+
   // only needed for CDN's or sub-directory deploy
   //.setManifestKeyPrefix('build/')
 
   .addEntry('front', './assets/front/app.js')
+  .enableStimulusBridge('./assets/front/controllers.json')
   .splitEntryChunks()
   .enableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild()

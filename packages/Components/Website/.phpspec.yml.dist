@@ -1,0 +1,7 @@
+extensions:
+    Memio\SpecGen\MemioSpecGenExtension: ~
+
+suites:
+    default:
+        namespace: Black\Component\Website
+        psr4_prefix: Black\Component\Website

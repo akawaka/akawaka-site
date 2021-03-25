@@ -1,0 +1,48 @@
+{
+    "name": "black/core-bundle",
+    "description": "Core infrastructure",
+    "type": "black-symfony-bundle",
+    "license": "Propriatary",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "hades@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Black\\Bundle\\CoreBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Black\\Bundle\\CoreBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "league/flysystem-bundle": "^1.4",
+        "psr/log": "^1.1",
+        "ramsey/uuid": "^3.7",
+        "symfony/form": "^5.0",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/orm-pack": "^1.0",
+        "symfony/property-access": "^5.0",
+        "symfony/psr-http-message-bridge": "^1.2",
+        "symfony/security-bundle": "^5.0",
+        "symfony/validator": "^5.0",
+        "symfony/workflow": "5.0.*",
+        "thecodingmachine/safe": "^1.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.9",
+        "league/flysystem-memory": "^1.0",
+        "phpstan/phpstan-symfony": "^0.12",
+        "thecodingmachine/phpstan-safe-rule": "^1.0",
+        "webmozart/assert": "^1.5",
+        "roave/security-advisories": "dev-master"
+    }
+}
