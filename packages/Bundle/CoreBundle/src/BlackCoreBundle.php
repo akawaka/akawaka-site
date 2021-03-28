@@ -14,4 +14,16 @@ final class BlackCoreBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
+
+    /**
+     * Returns the bundle's container extension class.
+     *
+     * @return string
+     */
+    protected function getContainerExtensionClass()
+    {
+        $basename = preg_replace('/Bundle$/', '', $this->getName());
+
+        return $this->getNamespace().'\\Infrastructure\\DependencyInjection\\'.$basename.'Extension';
+    }
 }

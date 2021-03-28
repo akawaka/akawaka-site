@@ -1,12 +1,12 @@
 {
     "name": "black/core-bundle",
-    "description": "Core infrastructure",
+    "description": "Core infrastructure bundle for Symfony",
     "type": "black-symfony-bundle",
-    "license": "Propriatary",
+    "license": "EUPLv1-2",
     "authors": [
         {
             "name": "Alexandre Balmes",
-            "email": "hades@alexandre.balmes.co"
+            "email": "oss@alexandre.balmes.co"
         }
     ],
     "autoload": {
@@ -20,29 +20,34 @@
         }
     },
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "league/flysystem-bundle": "^1.4",
-        "psr/log": "^1.1",
-        "ramsey/uuid": "^3.7",
-        "symfony/form": "^5.0",
-        "symfony/framework-bundle": "^5.0",
-        "symfony/orm-pack": "^1.0",
-        "symfony/property-access": "^5.0",
-        "symfony/psr-http-message-bridge": "^1.2",
-        "symfony/security-bundle": "^5.0",
-        "symfony/validator": "^5.0",
-        "symfony/workflow": "5.0.*",
-        "thecodingmachine/safe": "^1.0"
+        "black/core": "^1.0",
+        "ramsey/uuid": "^4.1",
+        "symfony/form": "^5.2",
+        "symfony/framework-bundle": "^5.2",
+        "symfony/orm-pack": "^2.1",
+        "symfony/psr-http-message-bridge": "^2.1",
+        "symfony/security-bundle": "^5.2",
+        "symfony/validator": "^5.2",
+        "thecodingmachine/safe": "^1.3",
+        "webmozart/assert": "^1.5"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.9",
-        "league/flysystem-memory": "^1.0",
+        "fakerphp/faker": "^1.13",
+        "league/flysystem-memory": "^2.0",
+        "phpspec/phpspec": "^7.0",
+        "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
         "thecodingmachine/phpstan-safe-rule": "^1.0",
-        "webmozart/assert": "^1.5",
-        "roave/security-advisories": "dev-master"
+        "vimeo/psalm": "^3.11",
+        "roave/security-advisories": "dev-latest"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
     }
 }

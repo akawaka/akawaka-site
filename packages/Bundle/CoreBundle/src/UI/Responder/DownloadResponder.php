@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Black\Bundle\CoreBundle\UI\Responder;
 
-use Black\Bundle\CoreBundle\Infrastructure\FileManager\FileDownloader;
+use Black\Component\Core\Infrastructure\FileManager\FileDownloader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;

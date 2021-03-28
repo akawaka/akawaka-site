@@ -7,6 +7,14 @@
         {
             "type": "path",
             "url": "./packages/Primitive/*"
+        },
+        {
+            "type": "path",
+            "url": "./packages/Component/*"
+        },
+        {
+            "type": "path",
+            "url": "./packages/Bundle/*"
         }
     ],
     "require": {
@@ -14,7 +22,12 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "black/email-adress-primitive": "^1.0",
+        "black/channel": "^1.0",
+        "black/cms-bundle": "^1.0",
+        "black/core": "^1.0",
+        "black/core-bundle": "1.0.x-dev",
+        "black/email-address-primitive": "^1.0",
+        "black/page": "^1.0",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^3.0",
@@ -91,6 +104,7 @@
         }
     },
     "require-dev": {
+        "behat/behat": "^3.8",
         "friends-of-behat/symfony-extension": "^2.2",
         "friendsofphp/php-cs-fixer": "^2.18",
         "phpspec/phpspec": "^7.0",

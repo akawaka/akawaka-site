@@ -1,7 +1,0 @@
-extensions:
-    Memio\SpecGen\MemioSpecGenExtension: ~
-
-suites:
-    default:
-        namespace: Black\Component\Page
-        psr4_prefix: Black\Component\Page

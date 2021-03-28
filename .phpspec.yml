@@ -1,8 +1,9 @@
-composer_suite_detection: true
+extensions:
+    Memio\SpecGen\MemioSpecGenExtension: ~
 
 suites:
-    primitive-email:
-        namespace: Black\Primitive\EmailAddress
-        psr4_prefix: Black\Primitive\EmailAddress
-        src_path: packages/Primitive/EmailAddress/src
-        spec_path: packages/Primitive/EmailAddress/
+    page:
+        namespace: Black\Component\Page
+        psr4_prefix: Black\Component\Page
+        src_path: src/Black/Component/Page
+        spec_path: src/Black/Component/Page

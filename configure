@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 env=prod
 docker=false
@@ -108,7 +108,7 @@ fi
 
 if [ $tests = true ]; then
   echo "Oh! You are probably a 10x developer!"
-  cp ./infrastructure/tests/autoconf/* ./
+  cp -rT ./infrastructure/tests/autoconf/ ./
 fi
 
 if [ $env = prod ]; then

@@ -16,15 +16,19 @@ services:
     App\:
         resource: '../src/'
         exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Cms/Infrastructure/DependencyInjection/'
             - '../src/Kernel.php'
-            - '../src/Tests/'
+
+    Black\Component\Channel\:
+        resource: '../packages/Component/Channel/src/'
+
+    Black\Component\Page\:
+        resource: '../packages/Component/Page/src/'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller/'
+    App\UI\Action\:
+        resource: '../src/UI/Action/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed

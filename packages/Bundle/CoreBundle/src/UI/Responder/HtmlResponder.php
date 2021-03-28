@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Black\Bundle\CoreBundle\UI\Responder;
 
-use Black\Bundle\CoreBundle\Infrastructure\Templating\TemplatingInterface;
+use Black\Component\Core\Infrastructure\Templating\TemplatingInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
 
 final class HtmlResponder
 {
@@ -24,7 +23,7 @@ final class HtmlResponder
         array $headers = []
     ): Response {
         $template = $this->templating->render(
-            \Safe\sprintf('%s.html.twig', $template),
+            $template,
             $parameters
         );
 
