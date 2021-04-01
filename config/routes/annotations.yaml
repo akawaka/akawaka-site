@@ -1,5 +1,9 @@
-controllers:
-    resource: ../../src/UI/Action/
+front:
+    resource: ../../src/UI/Front/Action/
+    type: annotation
+
+admin:
+    resource: ../../src/UI/Admin/Action/
     type: annotation
 
 kernel:
