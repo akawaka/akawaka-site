@@ -1,9 +1,9 @@
 front:
-    resource: ../../src/UI/Front/Action/
+    resource: ../../src/UI/Front/Controller/**/Action
     type: annotation
 
 admin:
-    resource: ../../src/UI/Admin/Action/
+    resource: ../../src/UI/Admin/Controller/**/Action
     type: annotation
 
 kernel:
