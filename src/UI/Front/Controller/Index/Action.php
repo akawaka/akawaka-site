@@ -9,16 +9,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class Action
 {
-    private HtmlResponder $responder;
+    private HtmlResponder $htmlResponder;
 
     public function __construct(
-        HtmlResponder $responder
+        HtmlResponder $htmlResponder
     ) {
-        $this->responder = $responder;
+        $this->htmlResponder = $htmlResponder;
     }
 
     public function __invoke(): Response
     {
-        return ($this->responder)('front/index');
+        return ($this->htmlResponder)('front/index');
     }
 }

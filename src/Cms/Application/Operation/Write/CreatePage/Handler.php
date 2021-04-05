@@ -34,7 +34,7 @@ final class Handler implements MessageHandlerInterface
         );
 
         $this->repository->insert($page);
-        $this->bus->dispatch(new Event($page));
+        $this->bus->dispatch(new PageWasCreated($page));
 
         return $page;
     }

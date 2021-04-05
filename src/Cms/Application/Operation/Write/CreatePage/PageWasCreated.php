@@ -6,7 +6,7 @@ namespace App\Cms\Application\Operation\Write\CreatePage;
 
 use Black\Component\Page\Domain\Entity\PageInterface;
 
-final class Event
+final class PageWasCreated
 {
     private PageInterface $page;
 

@@ -34,7 +34,7 @@ final class Handler implements MessageHandlerInterface
 
         $this->repository->insert($channel);
 
-        $this->bus->dispatch(new Event($channel));
+        $this->bus->dispatch(new ChannelWasCreated($channel));
 
         return $channel;
     }

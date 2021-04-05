@@ -37,3 +37,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Infrastructure\Mailer\SymfonyMailer:
+        bind:
+            $senderEmail: '%env(resolve:SENDER_EMAIL)%'
+            $senderName: '%env(resolve:SENDER_NAME)%'

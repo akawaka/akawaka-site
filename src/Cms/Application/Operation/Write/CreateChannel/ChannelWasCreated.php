@@ -6,7 +6,7 @@ namespace App\Cms\Application\Operation\Write\CreateChannel;
 
 use Black\Component\Channel\Domain\Entity\ChannelInterface;
 
-final class Event
+final class ChannelWasCreated
 {
     private ChannelInterface $channel;
 
