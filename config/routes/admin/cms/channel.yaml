@@ -1,0 +1,19 @@
+admin_channels_index:
+    path: /
+    controller: App\UI\Admin\Controller\CMS\Channel\List\Action
+    methods: ['GET']
+
+admin_channels_create:
+    path: /new
+    controller: App\UI\Admin\Controller\CMS\Channel\Create\Action
+    methods: ['GET', 'POST']
+
+admin_channels_update:
+    path: /{identifier}/update
+    controller: App\UI\Admin\Controller\CMS\Channel\Update\Action
+    methods: ['GET', 'POST']
+
+admin_channels_delete:
+    path: /{identifier}/delete
+    controller: App\UI\Admin\Controller\CMS\Channel\Delete\Action
+    methods: ['GET']

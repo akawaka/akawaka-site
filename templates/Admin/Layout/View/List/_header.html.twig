@@ -1,0 +1,19 @@
+<div class="max-w-12xl mx-auto px-4 sm:px-6 lg:px-8">
+
+</div>
+
+<div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+    <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
+        <div class="ml-4 mt-2">
+            {% include 'Admin/Layout/View/List/_headerTitle.html.twig' with {
+                'title': title
+            } %}
+        </div>
+        <div class="ml-4 mt-2 flex-shrink-0">
+            {% include 'Admin/Layout/View/List/_headerAction.html.twig' with {
+                'name': action.name,
+                'link': action.link
+            } %}
+        </div>
+    </div>
+</div>

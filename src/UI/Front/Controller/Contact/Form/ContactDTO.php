@@ -6,36 +6,15 @@ namespace App\UI\Front\Controller\Contact\Form;
 
 final class ContactDTO
 {
-    private string $firstname;
-
-    private string $lastname;
-
-    private string $email;
-
-    private ?string $phone;
-
-    private string $message;
-
-    private string $budget;
-
-    private ?string $how;
-
     public function __construct(
-        string $firstname,
-        string $lastname,
-        string $email,
-        ?string $phone,
-        string $message,
-        string $budget,
-        ?string $how,
+        private string $firstname,
+        private string $lastname,
+        private string $email,
+        private ?string $phone,
+        private string $message,
+        private string $budget,
+        private ?string $how,
     ) {
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->email = $email;
-        $this->phone = $phone;
-        $this->message = $message;
-        $this->budget = $budget;
-        $this->how = $how;
     }
 
     public function getFirstname(): string

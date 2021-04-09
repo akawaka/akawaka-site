@@ -16,37 +16,22 @@
                     <p class="mt-4 text-lg text-gray-500 sm:mt-3">
                         We’d love to hear from you! Send us a message using the form opposite, or email us. We’d love to hear from you! Send us a message using the form opposite, or email us.
                     </p>
-                    {{ form_start(form, {'attr': {'class': 'mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8'}}) }}
+                    {{ form_start(form) }}
                         <div>
-                            {{ form_label(form.firstname, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                            <div class="mt-1">
-                                {{ form_widget(form.firstname, {'attr': {'autocomplete': 'firstname', 'class': 'block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'}}) }}
-                            </div>
+                            {{ form_row(form.firstname, {'attr': {'autocomplete': 'firstname'}}) }}
                         </div>
                         <div>
-                            {{ form_label(form.lastname, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                            <div class="mt-1">
-                                {{ form_widget(form.lastname, {'attr': {'autocomplete': 'lastname', 'class': 'block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'}}) }}
-                            </div>
+                            {{ form_row(form.lastname, {'attr': {'autocomplete': 'firstname'}}) }}
                         </div>
                         <div class="sm:col-span-2">
-                            {{ form_label(form.email, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                            <div class="mt-1">
-                                {{ form_widget(form.email, {'attr': {'autocomplete': 'email', 'class': 'block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'}}) }}
-                            </div>
+                            {{ form_row(form.email, {'attr': {'autocomplete': 'firstname'}}) }}
+                        </div>
+                        <div class="sm:col-span-2">
+                            {{ form_row(form.phone) }}
                         </div>
                         <div class="sm:col-span-2">
                             <div class="flex justify-between">
-                                {{ form_label(form.phone, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                                <span id="phone_description" class="text-sm text-gray-500">Optional</span>
-                            </div>
-                            <div class="mt-1">
-                                {{ form_widget(form.phone, {'attr': {'autocomplete': 'tel', 'class': 'block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'}}) }}
-                            </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <div class="flex justify-between">
-                                {{ form_label(form.message, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                                {{ form_label(form.message) }}
                                 <span id="how_can_we_help_description" class="text-sm text-gray-500">Max. 500 characters</span>
                             </div>
                             <div class="mt-1">
@@ -54,18 +39,10 @@
                             </div>
                         </div>
                         <fieldset class="sm:col-span-2">
-                            {{ form_label(form.budget, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                            {{ form_widget(form.budget, {
-                                'attr': {'class': 'mt-4 grid grid-cols-1 gap-y-4'},
-                                'choice_label': {'class': 'ml-3'},
-                                'choice_attr': {'class': 'focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'}
-                            }) }}
+                            {{ form_row(form.budget) }}
                         </fieldset>
                         <div class="sm:col-span-2">
-                            {{ form_label(form.how, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-                            <div class="mt-1">
-                                {{ form_widget(form.how, {'attr': {'class': 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md'}}) }}
-                            </div>
+                            {{ form_row(form.how, {'attr': {'autocomplete': 'firstname'}}) }}
                         </div>
                         <div class="text-right sm:col-span-2">
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

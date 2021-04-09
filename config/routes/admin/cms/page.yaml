@@ -1,0 +1,29 @@
+admin_pages_index:
+    path: /
+    controller: App\UI\Admin\Controller\CMS\Page\List\Action
+    methods: ['GET']
+
+admin_pages_create:
+    path: /new
+    controller: App\UI\Admin\Controller\CMS\Page\Create\Action
+    methods: ['GET', 'POST']
+
+admin_pages_update:
+    path: /{identifier}/update
+    controller: App\UI\Admin\Controller\CMS\Page\Update\Action
+    methods: ['GET', 'POST']
+
+admin_pages_delete:
+    path: /{identifier}/delete
+    controller: App\UI\Admin\Controller\CMS\Page\Delete\Action
+    methods: ['GET']
+
+admin_pages_publish:
+    path: /{identifier}/publish
+    controller: App\UI\Admin\Controller\CMS\Page\Publish\Action
+    methods: ['GET']
+
+admin_pages_unpublish:
+    path: /{identifier}/unpublish
+    controller: App\UI\Admin\Controller\CMS\Page\Unpublish\Action
+    methods: ['GET']

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\UI\Front\Controller\Contact;
 
-use App\Cms\Application\Gateway\SendContact;
+use App\CMS\Application\Gateway\SendContact;
 use App\UI\Front\Controller\Contact\Form\ContactType;
-use Black\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Black\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
+use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,20 +16,11 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 final class Action
 {
-    private FormFactoryInterface $formFactory;
-
-    private SendContact\Gateway $sendContactGateway;
-
-    private HtmlResponder $htmlResponder;
-
     public function __construct(
-        FormFactoryInterface $formFactory,
-        SendContact\Gateway $sendContactGateway,
-        HtmlResponder $htmlResponder
+        private FormFactoryInterface $formFactory,
+        private SendContact\Gateway $sendContactGateway,
+        private HtmlResponder $htmlResponder
     ) {
-        $this->formFactory = $formFactory;
-        $this->sendContactGateway = $sendContactGateway;
-        $this->htmlResponder = $htmlResponder;
     }
 
     public function __invoke(Request $request): Response

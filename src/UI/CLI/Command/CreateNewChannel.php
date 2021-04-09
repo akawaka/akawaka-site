@@ -4,23 +4,20 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command;
 
-use Black\Component\Core\Application\Gateway\GatewayException;
+use App\CMS\Application\Gateway\CreateChannel;
+use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use App\Cms\Application\Gateway\CreateChannel;
 
 final class CreateNewChannel extends Command
 {
     protected static $defaultName = 'cms:create-channel';
 
-    private CreateChannel\Gateway $gateway;
-
-    public function __construct(CreateChannel\Gateway $gateway)
-    {
-        $this->gateway = $gateway;
-
+    public function __construct(
+        private CreateChannel\Gateway $gateway
+    ) {
         parent::__construct();
     }
 

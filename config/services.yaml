@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+imports:
+    - 'services/*.yaml'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -16,14 +19,20 @@ services:
     App\:
         resource: '../src/'
         exclude:
-            - '../src/Cms/Infrastructure/DependencyInjection/'
+            - '../src/CMS/Infrastructure/DependencyInjection/'
             - '../src/Kernel.php'
 
-    Black\Component\Channel\:
+    Mono\Component\Channel\:
         resource: '../packages/Component/Channel/src/'
 
-    Black\Component\Page\:
+    Mono\Component\Page\:
         resource: '../packages/Component/Page/src/'
+
+    Mono\Component\Article\:
+        resource: '../packages/Component/Article/src/'
+
+    Mono\Component\AdminSecurity\:
+        resource: '../packages/Component/AdminSecurity/src/'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class

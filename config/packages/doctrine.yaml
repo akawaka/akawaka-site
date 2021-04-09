@@ -10,9 +10,15 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Cms:
+            CMS:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/config/doctrine/cms/entity'
-                prefix: 'App\Cms\Domain\Entity'
-                alias: Cms
+                prefix: 'App\CMS\Domain\Entity'
+                alias: CMS
+            Security:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/security/entity'
+                prefix: 'App\Security\Domain\Entity'
+                alias: Security

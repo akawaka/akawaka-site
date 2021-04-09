@@ -1,0 +1,20 @@
+admins_index:
+    path: /
+    controller: App\UI\Admin\Controller\Security\Admin\List\Action
+    methods: ['GET']
+
+admins_create:
+    path: /new
+    controller: App\UI\Admin\Controller\Security\Admin\Create\Action
+    methods: ['GET', 'POST']
+
+admins_update:
+    path: /{identifier}/update
+    controller: App\UI\Admin\Controller\Security\Admin\Update\Action
+    methods: ['GET', 'POST']
+
+admins_delete:
+    path: /{identifier}/delete
+    controller: App\UI\Admin\Controller\Security\Admin\Delete\Action
+    methods: ['GET']
+

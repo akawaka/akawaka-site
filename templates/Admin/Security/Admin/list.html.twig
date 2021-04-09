@@ -1,0 +1,82 @@
+{% extends 'Admin/base.html.twig' %}
+
+{% block sidebar %}
+    {% include "Admin/Security/Layout/_sidebar.html.twig" %}
+{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <div class="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
+            <button class="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="py-6">
+            <div class="hidden sm:block">
+                <div class="max-w-12xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {% include "Admin/Layout/_flashes.html.twig" %}
+
+                    <div class="flex flex-col mt-2">
+                        {% include 'Admin/Layout/View/List/_header.html.twig' with {
+                            'title': "admin.security.ui.admin.list.title",
+                            'action': {
+                                'name': "admin.security.ui.admin.list.actions.create",
+                                'link': url('admins_create')
+                            }
+                        } %}
+
+                        <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ 'admin.security.ui.admin.list.table.head.username'|trans }}
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ 'admin.security.ui.admin.list.table.head.email'|trans }}
+                                    </th>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">{{ 'admin.security.ui.admin.list.table.head.actions'|trans }}</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for result in results %}
+                                    <tr class="{{ loop.index is odd ? 'bg-white' : 'bg-gray-50' }}">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            {{ result.username }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            {{ result.email }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a
+                                                href="{{ url('admins_update', {'identifier': result.identifier }) }}"
+                                                class="text-indigo-600 hover:text-indigo-900">
+                                                {{ 'admin.security.ui.admin.list.table.actions.edit'|trans }}
+                                            </a>
+                                            <a
+                                                href="{{ url('admins_delete', {'identifier': result.identifier }) }}"
+                                                class="text-indigo-600 hover:text-indigo-900">
+                                                {{ 'admin.security.ui.admin.list.table.actions.delete'|trans }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            {% include 'Admin/Layout/View/List/_nav.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

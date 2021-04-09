@@ -1,7 +1,7 @@
 {
-    "name": "black/core-bundle",
+    "name": "mono/core-bundle",
     "description": "Core infrastructure bundle for Symfony",
-    "type": "black-symfony-bundle",
+    "type": "mono-symfony-bundle",
     "license": "EUPLv1-2",
     "authors": [
         {
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Black\\Bundle\\CoreBundle\\": "src/"
+            "Mono\\Bundle\\CoreBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Black\\Bundle\\CoreBundle\\Tests\\": "tests/"
+            "Mono\\Bundle\\CoreBundle\\Tests\\": "tests/"
         }
     },
     "require": {
@@ -24,7 +24,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "black/core": "^1.0",
+        "mono/core": "^1.0",
+        "league/flysystem-bundle": "^2.0",
         "ramsey/uuid": "^4.1",
         "symfony/form": "^5.2",
         "symfony/framework-bundle": "^5.2",

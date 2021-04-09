@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Black\Primitive\EmailAddress;
+namespace Mono\Primitive\EmailAddress;
 
 final class InvalidEmailAddressException extends \Exception
 {
-    public function __construct(string $email)
+    public function __construct(string $identifier)
     {
         parent::__construct(
-            \Safe\sprintf('Email %s is not a valid email address', $email)
+            \Safe\sprintf('Email address %s is not valid', $identifier)
         );
     }
 }

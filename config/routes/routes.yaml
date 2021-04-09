@@ -1,6 +1,14 @@
 admin:
     prefix: /admin
-    resource: 'admin/routes.yaml'
+    resource: 'admin/admin.yaml'
+
+admin_cms:
+    prefix: /admin/cms
+    resource: 'admin/cms.yaml'
+
+admin_security:
+    prefix: /admin/security
+    resource: 'admin/security.yaml'
 
 front:
     resource: 'front/routes.yaml'

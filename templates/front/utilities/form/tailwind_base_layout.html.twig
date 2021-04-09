@@ -1,0 +1,13 @@
+{% use "form_div_layout.html.twig" %}
+
+{# Widgets #}
+
+{% block textarea_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-textarea')|trim}) %}
+    {{- parent() -}}
+{%- endblock textarea_widget %}
+
+{% block choice_widget_collapsed -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-select')|trim}) -%}
+    {{- parent() -}}
+{%- endblock choice_widget_collapsed %}

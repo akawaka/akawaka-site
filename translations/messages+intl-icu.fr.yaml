@@ -1,0 +1,213 @@
+admin:
+    layout:
+        ui:
+            site:
+                title: akawaka
+            header:
+                logout: Se déconnecter
+                user_menu:
+                    title: Ouvrir le menu utilisateur
+                main_menu:
+                    title: Ouvrir le menu
+    security:
+        ui:
+            layout:
+                header:
+                    title: Sécurité
+                sidebar:
+                    dashboard: Accueil
+                    content: Accès
+                    admins: Administrateurs
+            login:
+                title: akawaka
+                form:
+                    email:
+                        label: Adresse email ou nom d'utilisateur
+                    password:
+                        label: Mot de passe
+                    remember:
+                        label: Se souvenir de moi
+                    submit: Se connecter
+            dashboard:
+                title: Acceuil
+            admin:
+                list:
+                    title: Gestion des administrateurs
+                    actions:
+                        create: Créer un administrateur
+                    table:
+                        head:
+                            username: Nom d'utilisateur
+                            email: Email
+                            actions: Actions
+                        actions:
+                            edit: Modifier
+                            delete: Supprimer
+                create:
+                    title: Informations
+                    actions:
+                        save: Créer
+                update:
+                    title: Informations
+                    actions:
+                        save: Mettre à jour
+                    password:
+                        title: Modification du mot de passe
+    cms:
+        ui:
+            layout:
+                header:
+                    title: Gestion de contenu
+                sidebar:
+                    dashboard: Accueil
+                    content: Accès
+                    pages: Pages
+                    articles: Articles
+                    configuration: Configuration
+                    categories: Catégories
+                    channels: Canaux
+            article:
+                list:
+                    title: Gestion des articles
+                    actions:
+                        create: Créer un nouvel article
+                    table:
+                        head:
+                            name: Nom de l'article
+                            slug: SEO
+                            status: Statut de publication
+                            actions: Actions
+                        actions:
+                            edit: Modifier
+                            delete: Supprimer
+                create:
+                    title: Nouvel article
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+                        categories:
+                            label: Catégories
+                        channels:
+                            label: Canaux
+                update:
+                    title: Modifier l'article
+                    actions:
+                        save: Enregistrer
+                        publish: Publier
+                        unpublish: Dépublier
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+                        categories:
+                            label: Catégories
+                        content:
+                            label: Contenu
+            page:
+                list:
+                    title: Gestion des pages
+                    actions:
+                        create: Créer une nouvelle page
+                    table:
+                        head:
+                            name: Nom de la page
+                            slug: SEO
+                            status: Statut de publication
+                            actions: Actions
+                        actions:
+                            edit: Modifier
+                            delete: Supprimer
+                create:
+                    title: Nouvelle page
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+                        channel:
+                            label: Canaux
+                update:
+                    title: Modifier la page
+                    actions:
+                        save: Enregistrer
+                        publish: Publier
+                        unpublish: Dépublier
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+                        content:
+                            label: Contenu
+            category:
+                list:
+                    title: Gestion des catégories
+                    actions:
+                        create: Créer une nouvelle catégorie
+                    table:
+                        head:
+                            name: Nom de la catégorie
+                            slug: SEO
+                            actions: Actions
+                        actions:
+                            edit: Modifier
+                            delete: Supprimer
+                create:
+                    title: Nouvelle catégorie
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+                update:
+                    title: Modifier la catégorie
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        slug:
+                            label: Titre (SEO)
+            channel:
+                list:
+                    title: Gestion des canaux
+                    actions:
+                        create: Créer un nouveau canal
+                    table:
+                        head:
+                            name: Nom du canal
+                            code: Code
+                            status: Statut de publication
+                            actions: Actions
+                        actions:
+                            edit: Modifier
+                            delete: Supprimer
+                create:
+                    title: Nouveau canal
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        code:
+                            label: Code
+                update:
+                    title: Modifier le canal
+                    actions:
+                        save: Enregistrer
+                    form:
+                        name:
+                            label: Nom de la page
+                        url:
+                            label: Adresse du canal
+                        description:
+                            label: Description

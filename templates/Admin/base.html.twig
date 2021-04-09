@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('admin', null, 'admin') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('admin', null, 'admin') }}
+        {% endblock %}
+    </head>
+    <body class="antialiased font-sans bg-gray-200">
+        <div class="min-h-screen bg-white">
+            {% block header %}
+                {% include "Admin/Layout/_header.html.twig" %}
+            {% endblock %}
+
+            <div class="h-screen flex overflow-hidden bg-white">
+
+                {% block sidebar %}
+                    {% include "Admin/Layout/_sidebar.html.twig" %}
+                {% endblock %}
+
+                {% block body %}
+                    {% include "Admin/Layout/Alert/_alert.html.twig" %}
+                {% endblock %}
+            </div>
+
+            {% block footer %}
+                {% include "Admin/Layout/_footer.html.twig" %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

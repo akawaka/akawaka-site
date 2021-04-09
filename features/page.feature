@@ -1,3 +1,4 @@
+@cms @page
 Feature:
     As a developer
     I want to manage my pages and tests my gateways

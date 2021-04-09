@@ -2,20 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Black\Bundle\CoreBundle\UI\Responder;
+namespace Mono\Bundle\CoreBundle\UI\Responder;
 
-use Black\Component\Core\Infrastructure\FileManager\FileDownloader;
+use Mono\Component\Core\Infrastructure\FileManager\FileDownloader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 final class DownloadResponder
 {
-    private FileDownloader $downloader;
-
-    public function __construct(FileDownloader $downloader)
-    {
-        $this->downloader = $downloader;
+    public function __construct(
+        private FileDownloader $downloader
+    ) {
     }
 
     public function __invoke(

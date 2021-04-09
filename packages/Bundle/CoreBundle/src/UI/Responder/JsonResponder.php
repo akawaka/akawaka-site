@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Black\Bundle\CoreBundle\UI\Responder;
+namespace Mono\Bundle\CoreBundle\UI\Responder;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

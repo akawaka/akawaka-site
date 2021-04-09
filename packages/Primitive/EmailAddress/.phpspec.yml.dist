@@ -1,4 +1,0 @@
-suites:
-    default:
-        namespace: Black\Primitive\EmailAddress
-        psr4_prefix: Black\Primitive\EmailAddress

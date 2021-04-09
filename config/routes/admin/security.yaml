@@ -1,0 +1,8 @@
+admin_security_index:
+    path: /
+    controller: App\UI\Admin\Controller\Security\Index\Action
+    methods: ['GET']
+
+admin_security_admins:
+    prefix: /admins
+    resource: 'security/admins.yaml'

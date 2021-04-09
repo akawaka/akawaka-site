@@ -1,0 +1,29 @@
+admin_articles_index:
+    path: /
+    controller: App\UI\Admin\Controller\CMS\Article\List\Action
+    methods: ['GET']
+
+admin_articles_create:
+    path: /new
+    controller: App\UI\Admin\Controller\CMS\Article\Create\Action
+    methods: ['GET', 'POST']
+
+admin_articles_update:
+    path: /{identifier}/update
+    controller: App\UI\Admin\Controller\CMS\Article\Update\Action
+    methods: ['GET', 'POST']
+
+admin_articles_delete:
+    path: /{identifier}/delete
+    controller: App\UI\Admin\Controller\CMS\Article\Delete\Action
+    methods: ['GET']
+
+admin_articles_publish:
+    path: /{identifier}/publish
+    controller: App\UI\Admin\Controller\CMS\Article\Publish\Action
+    methods: ['GET']
+
+admin_articles_unpublish:
+    path: /{identifier}/unpublish
+    controller: App\UI\Admin\Controller\CMS\Article\Unpublish\Action
+    methods: ['GET']

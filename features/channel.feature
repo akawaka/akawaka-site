@@ -1,3 +1,4 @@
+@cms @channel
 Feature:
     As a developer
     I want to manage my channels and tests my gateways

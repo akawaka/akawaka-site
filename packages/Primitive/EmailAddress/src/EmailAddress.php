@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Black\Primitive\EmailAddress;
+namespace Mono\Primitive\EmailAddress;
 
 final class EmailAddress
 {

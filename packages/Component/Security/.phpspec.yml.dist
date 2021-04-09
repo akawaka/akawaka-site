@@ -1,7 +1,0 @@
-extensions:
-    Memio\SpecGen\MemioSpecGenExtension: ~
-
-suites:
-    default:
-        namespace: Black\Component\Security
-        psr4_prefix: Black\Component\Security

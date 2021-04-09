@@ -14,22 +14,28 @@
     "behat/transliterator": {
         "version": "v1.3.0"
     },
-    "black/channel": {
+    "mono/admin-security": {
         "version": "1.0.x-dev"
     },
-    "black/cms-bundle": {
+    "mono/article": {
         "version": "1.0.x-dev"
     },
-    "black/core": {
+    "mono/channel": {
         "version": "1.0.x-dev"
     },
-    "black/core-bundle": {
+    "mono/cms-bundle": {
         "version": "1.0.x-dev"
     },
-    "black/email-address-primitive": {
+    "mono/core": {
         "version": "1.0.x-dev"
     },
-    "black/page": {
+    "mono/core-bundle": {
+        "version": "1.0.x-dev"
+    },
+    "mono/email-address-primitive": {
+        "version": "1.0.x-dev"
+    },
+    "mono/page": {
         "version": "1.0.x-dev"
     },
     "brick/math": {

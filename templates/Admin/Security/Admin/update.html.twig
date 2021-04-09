@@ -1,0 +1,74 @@
+{% extends 'Admin/base.html.twig' %}
+{% form_theme updateAdminForm 'Admin/Layout/Form/tailwind_layout.html.twig' %}
+{% form_theme updatePasswordForm 'Admin/Layout/Form/tailwind_layout.html.twig' %}
+
+{% block sidebar %}
+    {% include "Admin/Security/Layout/_sidebar.html.twig" %}
+{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col w-0 flex-1 overflow-hidden">
+
+        <div class="py-6">
+            <div class="max-w-12xl mx-auto px-4 sm:px-6 lg:px-8">
+                {% include "Admin/Layout/_flashes.html.twig" %}
+
+                <div class="sm:rounded-md">
+                    <div class="px-4 py-5 border-b border-gray-200 sm:px-6 bg-gray-50">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            {{ 'admin.security.ui.admin.update.title'|trans }}
+                        </h3>
+                    </div>
+                </div>
+
+                {{ form_start(updateAdminForm) }}
+                <div class="flex p-3">
+                    <div class="flex-grow">
+                        {{ form_row(updateAdminForm.username) }}
+                        {{ form_row(updateAdminForm.email) }}
+                    </div>
+
+                    <div class="flex-none w-1/6 px-6">
+                        <div class="pt-6">
+                            <button
+                                type="submit"
+                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                {{ 'admin.security.ui.admin.update.actions.save'|trans }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(updateAdminForm) }}
+            </div>
+
+            <div class="max-w-12xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="sm:rounded-md">
+                    <div class="px-4 py-5 border-b border-gray-200 sm:px-6 bg-gray-50">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            {{ 'admin.security.ui.admin.update.password.title'|trans }}
+                        </h3>
+                    </div>
+                </div>
+
+                {{ form_start(updatePasswordForm) }}
+                <div class="flex p-3">
+                    <div class="flex-grow">
+                        {{ form_row(updatePasswordForm.oldPassword) }}
+                        {{ form_row(updatePasswordForm.newPassword) }}
+                    </div>
+
+                    <div class="flex-none w-1/6 px-6">
+                        <div class="pt-6">
+                            <button
+                                type="submit"
+                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                {{ 'admin.security.ui.admin.update.actions.save'|trans }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(updatePasswordForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

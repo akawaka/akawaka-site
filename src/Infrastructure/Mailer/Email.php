@@ -8,28 +8,13 @@ use Symfony\Component\Mime\Address;
 
 final class Email
 {
-    private Address $receiverEmail;
-
-    private string $subject;
-
-    private string $textTemplate;
-
-    private string $htmlTemplate;
-
-    private array $parameters;
-
     public function __construct(
-        Address $receiverEmail,
-        string $subject,
-        string $textTemplate,
-        string $htmlTemplate,
-        array $parameters
+        private Address $receiverEmail,
+        private string $subject,
+        private string $textTemplate,
+        private string $htmlTemplate,
+        private array $parameters
     ) {
-        $this->receiverEmail = $receiverEmail;
-        $this->subject = $subject;
-        $this->textTemplate = $textTemplate;
-        $this->htmlTemplate = $htmlTemplate;
-        $this->parameters = $parameters;
     }
 
     public function getReceiverEmail(): Address

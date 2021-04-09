@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Black\Bundle\CoreBundle\UI\Responder;
+namespace Mono\Bundle\CoreBundle\UI\Responder;
 
-use Black\Component\Core\Infrastructure\Templating\TemplatingInterface;
+use Mono\Component\Core\Infrastructure\Templating\TemplatingInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 final class HtmlResponder
 {
-    private TemplatingInterface $templating;
-
-    public function __construct(TemplatingInterface $templating)
-    {
-        $this->templating = $templating;
+    public function __construct(
+        private TemplatingInterface $templating
+    ) {
     }
 
     public function __invoke(
@@ -23,7 +21,7 @@ final class HtmlResponder
         array $headers = []
     ): Response {
         $template = $this->templating->render(
-            $template,
+            sprintf('%s.html.twig',$template),
             $parameters
         );
 

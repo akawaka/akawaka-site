@@ -11,10 +11,8 @@ return static function (ContainerConfigurator $configurator) {
             ->autoconfigure()
     ;
 
-    $services->load('Black\\Component\\Core\\', '../../../Component/Core/src/*');
-    $services->load('Black\\Bundle\\CoreBundle\\', '../src/*');
-
-    $services->load('Black\\Component\\Channel\\', '../../../Component/Channel/src/*');
+    $services->load('Mono\\Bundle\\CoreBundle\\', '../src/*');
+    $services->load('Mono\\Component\\Core\\', '../../../Component/Core/src/*');
 
     $configurator->import('services/*');
 };
