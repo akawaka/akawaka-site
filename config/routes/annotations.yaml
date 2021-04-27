@@ -1,11 +1,11 @@
 front:
-    resource: ../../src/UI/Front/Controller/**/Action
+    resource: ../../src/App/UI/Front/Controller/**/Action
     type: annotation
 
 admin:
-    resource: ../../src/UI/Admin/Controller/**/Action
+    resource: ../../src/App/UI/Admin/Controller/**/Action
     type: annotation
 
 kernel:
-    resource: ../../src/Kernel.php
+    resource: ../../src/App/Kernel.php
     type: annotation

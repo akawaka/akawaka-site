@@ -17,31 +17,31 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/'
+        resource: '../src/App/'
         exclude:
-            - '../src/CMS/Infrastructure/DependencyInjection/'
+            - '../src/App/CMS/Infrastructure/DependencyInjection/'
             - '../src/Kernel.php'
 
     Mono\Component\Channel\:
-        resource: '../packages/Component/Channel/src/'
+        resource: '../src/Mono/Component/Channel/src/'
 
     Mono\Component\Page\:
-        resource: '../packages/Component/Page/src/'
+        resource: '../src/Mono/Component/Page/src/'
 
     Mono\Component\Article\:
-        resource: '../packages/Component/Article/src/'
+        resource: '../src/Mono/Component/Article/src/'
 
     Mono\Component\AdminSecurity\:
-        resource: '../packages/Component/AdminSecurity/src/'
+        resource: '../src/Mono/Component/AdminSecurity/src/'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\UI\Admin\Controller\:
-        resource: '../src/UI/Admin/Controller/**/Action.php'
+        resource: '../src/App/UI/Admin/Controller/**/Action.php'
         tags: ['controller.service_arguments']
 
     App\UI\Front\Controller\:
-        resource: '../src/UI/Front/Controller/**/Action.php'
+        resource: '../src/App/UI/Front/Controller/**/Action.php'
         tags: [ 'controller.service_arguments' ]
 
     # add more service definitions when explicit configuration is needed
