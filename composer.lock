@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fca0939416555898fec764f2b29ec03",
+    "content-hash": "d2cc15b43966c83355338ea552aba5a1",
     "packages": [
         {
             "name": "brick/math",
@@ -12053,6 +12053,70 @@
             "time": "2021-02-15T18:55:04+00:00"
         },
         {
+            "name": "symfony/expression-language",
+            "version": "v5.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/expression-language.git",
+                "reference": "3fc560e62bc5121751b792b11505db03a12cf83c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/3fc560e62bc5121751b792b11505db03a12cf83c",
+                "reference": "3fc560e62bc5121751b792b11505db03a12cf83c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/cache": "^4.4|^5.0",
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/service-contracts": "^1.1|^2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an engine that can compile and evaluate expressions",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/expression-language/tree/v5.2.4"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-02-12T10:38:38+00:00"
+        },
+        {
             "name": "symfony/phpunit-bridge",
             "version": "v5.2.6",
             "source": {
@@ -12663,6 +12727,57 @@
             "time": "2021-04-26T13:58:36+00:00"
         },
         {
+            "name": "symplify/config-transformer",
+            "version": "v9.2.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symplify/config-transformer.git",
+                "reference": "80a983491efde26a165ed23c2a5481b13493c6d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/80a983491efde26a165ed23c2a5481b13493c6d4",
+                "reference": "80a983491efde26a165ed23c2a5481b13493c6d4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "nette/neon": "^3.2",
+                "nette/utils": "^3.2",
+                "nikic/php-parser": "^4.10.4",
+                "php": ">=7.3",
+                "symfony/console": "^4.4|^5.2",
+                "symfony/dependency-injection": "^5.2",
+                "symfony/expression-language": "^4.4|^5.2",
+                "symfony/http-kernel": "^4.4|^5.2",
+                "symfony/yaml": "^4.4|^5.2",
+                "symplify/php-config-printer": "^9.2.24"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "symfony/framework-bundle": "^4.4|^5.2",
+                "symplify/easy-testing": "^9.2.24"
+            },
+            "bin": [
+                "bin/config-transformer"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symplify\\ConfigTransformer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Convert Symfony YAML/XML format to PHP/YAML",
+            "support": {
+                "source": "https://github.com/symplify/config-transformer/tree/v9.2.24"
+            },
+            "time": "2021-04-26T13:58:38+00:00"
+        },
+        {
             "name": "symplify/console-color-diff",
             "version": "v9.2.24",
             "source": {
@@ -12887,6 +13002,54 @@
                 }
             ],
             "time": "2021-04-26T13:58:56+00:00"
+        },
+        {
+            "name": "symplify/php-config-printer",
+            "version": "v9.2.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symplify/php-config-printer.git",
+                "reference": "de680c04c84a798a604b13b1d5140691f2909597"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symplify/php-config-printer/zipball/de680c04c84a798a604b13b1d5140691f2909597",
+                "reference": "de680c04c84a798a604b13b1d5140691f2909597",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^3.2",
+                "nikic/php-parser": "^4.10.4",
+                "php": ">=7.3",
+                "symfony/http-kernel": "^4.4|^5.2",
+                "symfony/yaml": "^4.4|^5.2",
+                "symplify/symplify-kernel": "^9.2.24"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "symplify/easy-testing": "^9.2.24"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "9.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symplify\\PhpConfigPrinter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Print Symfony services array with configuration to to plain PHP file format thanks to this simple php-parser wrapper",
+            "support": {
+                "issues": "https://github.com/symplify/php-config-printer/issues",
+                "source": "https://github.com/symplify/php-config-printer/tree/v9.2.24"
+            },
+            "time": "2021-04-26T13:59:23+00:00"
         },
         {
             "name": "symplify/rule-doc-generator-contracts",

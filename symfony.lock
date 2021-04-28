@@ -397,6 +397,9 @@
     "symfony/event-dispatcher-contracts": {
         "version": "v2.2.0"
     },
+    "symfony/expression-language": {
+        "version": "v5.2.4"
+    },
     "symfony/filesystem": {
         "version": "v5.2.4"
     },
@@ -741,6 +744,9 @@
     "symplify/composer-json-manipulator": {
         "version": "v9.2.14"
     },
+    "symplify/config-transformer": {
+        "version": "v9.2.24"
+    },
     "symplify/console-color-diff": {
         "version": "v9.2.14"
     },
@@ -752,6 +758,9 @@
     },
     "symplify/package-builder": {
         "version": "v9.2.14"
+    },
+    "symplify/php-config-printer": {
+        "version": "v9.2.24"
     },
     "symplify/rule-doc-generator-contracts": {
         "version": "v9.2.14"

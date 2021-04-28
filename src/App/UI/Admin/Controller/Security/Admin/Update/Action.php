@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Admin\Update;
 
+use App\UI\Admin\Controller\RouteName;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdateAdminDTO;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdateAdminType;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordDTO;
@@ -11,8 +12,8 @@ use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordType;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\AdminSecurity\Application\Gateway\FindUserById;
-use Mono\Component\AdminSecurity\Application\Gateway\UpdateUser;
 use Mono\Component\AdminSecurity\Application\Gateway\UpdatePassword;
+use Mono\Component\AdminSecurity\Application\Gateway\UpdateUser;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -20,6 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class Action
@@ -35,12 +37,17 @@ final class Action
     ) {
     }
 
+    #[Route(
+        path: RouteName::ADMIN_SECURITY_ADMINS_UPDATE['path'],
+        name: RouteName::ADMIN_SECURITY_ADMINS_UPDATE['name'],
+        methods: ['GET', 'POST']
+    ) ]
     public function __invoke(string $identifier, Request $request): Response
     {
         try {
             $admin = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate('admins_index'));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_LIST['name']));
         }
 
         $updateAdminForm = $this->formFactory->create(UpdateAdminType::class);
@@ -56,7 +63,7 @@ final class Action
                     $this->processUpdate($updateAdminForm, $admin);
 
                     return ($this->redirectResponder)(
-                        $this->urlGenerator->generate('admins_update', [
+                        $this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_UPDATE['name'], [
                             'identifier' => $identifier,
                         ])
                     );
@@ -70,7 +77,7 @@ final class Action
                     $this->processPassword($updatePasswordForm, $admin);
 
                     return ($this->redirectResponder)(
-                        $this->urlGenerator->generate('admins_update', [
+                        $this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_UPDATE['name'], [
                             'identifier' => $identifier,
                         ])
                     );

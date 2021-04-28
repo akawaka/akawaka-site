@@ -1,6 +1,0 @@
-services:
-    admin.sidebar_builder:
-        class: App\UI\Admin\Common\Menu\SidebarBuilder
-        arguments: ["@knp_menu.factory"]
-        tags:
-            - { name: knp_menu.menu_builder, method: createMenu, alias: sidebar }

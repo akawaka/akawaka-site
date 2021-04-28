@@ -6,7 +6,6 @@ namespace App\UI\Admin\Controller\CMS\Page\Update\Form;
 
 use App\UI\Admin\Common\Form\Type\PellType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,7 +31,8 @@ final class UpdatePageType extends AbstractType
             ->add('content', PellType::class, [
                 'label' => $this->translate('content.label'),
                 'required' => false,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -40,7 +40,6 @@ final class UpdatePageType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

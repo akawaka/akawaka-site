@@ -7,6 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Create;
 use App\CMS\Application\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
+use App\UI\Admin\Controller\RouteName;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -15,6 +16,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class Action
@@ -28,6 +30,11 @@ final class Action
     ) {
     }
 
+    #[Route(
+        path: RouteName::ADMIN_CMS_ARTICLES_CREATE['path'],
+        name: RouteName::ADMIN_CMS_ARTICLES_CREATE['name'],
+        methods: ['GET', 'POST']
+    ) ]
     public function __invoke(Request $request): Response
     {
         $form = $this->formFactory->create(CreateArticleType::class);
@@ -37,7 +44,7 @@ final class Action
             $article = $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate('admin_articles_update', [
+                $this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_UPDATE['name'], [
                     'identifier' => $article->data()['identifier'],
                 ])
             );

@@ -33,7 +33,8 @@ final class UpdateChannelType extends AbstractType
             ->add('url', UrlType::class, [
                 'label' => $this->translate('url.label'),
                 'required' => false,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -41,7 +42,6 @@ final class UpdateChannelType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

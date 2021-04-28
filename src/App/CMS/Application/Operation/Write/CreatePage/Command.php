@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreatePage;
 
-use Mono\Component\Page\Domain\ValueObject\PageSlug;
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Component\Page\Domain\ValueObject\PageSlug;
 
 final class Command
 {

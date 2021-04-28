@@ -39,7 +39,8 @@ final class CreateArticleType extends AbstractType
                 'label' => $this->translate('channels.label'),
                 'multiple' => true,
                 'expanded' => true,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -47,7 +48,6 @@ final class CreateArticleType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

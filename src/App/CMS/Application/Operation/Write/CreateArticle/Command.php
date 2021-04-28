@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreateArticle;
 
-use Mono\Component\Article\Domain\ValueObject\Slug;
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Component\Article\Domain\ValueObject\Slug;
 
 final class Command
 {

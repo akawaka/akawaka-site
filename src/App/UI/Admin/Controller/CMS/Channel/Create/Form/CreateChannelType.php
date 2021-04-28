@@ -26,7 +26,8 @@ final class CreateChannelType extends AbstractType
             ])
             ->add('code', TextType::class, [
                 'label' => $this->translate('code.label'),
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -34,7 +35,6 @@ final class CreateChannelType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

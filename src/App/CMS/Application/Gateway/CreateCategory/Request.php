@@ -23,7 +23,7 @@ final class Request implements GatewayRequest
 
         $accessor = PropertyAccess::createPropertyAccessor();
         foreach ($fields as $field) {
-            $dto->{$field} = $accessor->getValue($data, "[$field]");
+            $dto->{$field} = $accessor->getValue($data, "[{$field}]");
         }
 
         return $dto;

@@ -35,7 +35,8 @@ final class RegisterType extends AbstractType
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'password.first.label'],
                 'second_options' => ['label' => 'password.second.label'],
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -43,7 +44,6 @@ final class RegisterType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

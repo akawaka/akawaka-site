@@ -96,9 +96,8 @@ final class FlashNotifier implements MessageSubscriberInterface
             'notification'
         );
 
-        $notification = (new Notification($message, ['browser']))
-            ->importance($context->getImportance());
-
-        return $notification;
+        return (new Notification($message, ['browser']))
+            ->importance($context->getImportance())
+        ;
     }
 }

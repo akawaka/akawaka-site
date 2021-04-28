@@ -7,6 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Channel\Create;
 use App\CMS\Application\Gateway\CreateChannel;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelDTO;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelType;
+use App\UI\Admin\Controller\RouteName;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -15,6 +16,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class Action
@@ -28,6 +30,11 @@ final class Action
     ) {
     }
 
+    #[Route(
+        path: RouteName::ADMIN_CMS_CHANNELS_CREATE['path'],
+        name: RouteName::ADMIN_CMS_CHANNELS_CREATE['name'],
+        methods: ['GET', 'POST']
+    ) ]
     public function __invoke(Request $request): Response
     {
         $form = $this->formFactory->create(CreateChannelType::class);
@@ -37,7 +44,7 @@ final class Action
             $channel = $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate('admin_channels_update', [
+                $this->urlGenerator->generate(RouteName::ADMIN_CMS_CHANNELS_UPDATE['name'], [
                     'identifier' => $channel->data()['identifier'],
                 ])
             );

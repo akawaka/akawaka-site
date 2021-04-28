@@ -27,7 +27,8 @@ final class UpdateAdminType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'label' => $this->translate('email.label'),
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -35,7 +36,6 @@ final class UpdateAdminType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

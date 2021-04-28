@@ -21,7 +21,7 @@
                             'title': "admin.cms.ui.category.list.title",
                             'action': {
                                 'name': "admin.cms.ui.category.list.actions.create",
-                                'link': url('admin_categories_create')
+                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_CREATE')['name'])
                             }
                         } %}
 
@@ -50,8 +50,8 @@
                                             {{ result.slug }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ url('admin_categories_update', {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            <a href="{{ url('admin_categories_delete', {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                         </td>
                                     </tr>
                                 {% else %}

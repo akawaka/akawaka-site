@@ -6,6 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Update;
 
 use App\UI\Admin\Controller\CMS\Article\Update\Form\UpdateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Update\Form\UpdateArticleType;
+use App\UI\Admin\Controller\RouteName;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Article\Application\Gateway\FindArticleById;
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class Action
@@ -31,12 +33,17 @@ final class Action
     ) {
     }
 
+    #[Route(
+        path: RouteName::ADMIN_CMS_ARTICLES_UPDATE['path'],
+        name: RouteName::ADMIN_CMS_ARTICLES_UPDATE['name'],
+        methods: ['GET', 'POST']
+    ) ]
     public function __invoke(string $identifier, Request $request): Response
     {
         try {
             $article = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate('admin_articles_index'));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_LIST['name']));
         }
 
         $form = $this->formFactory->create(UpdateArticleType::class);
@@ -47,7 +54,7 @@ final class Action
             $this->process($form, $article);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate('admin_articles_update', [
+                $this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_UPDATE['name'], [
                     'identifier' => $identifier,
                 ])
             );

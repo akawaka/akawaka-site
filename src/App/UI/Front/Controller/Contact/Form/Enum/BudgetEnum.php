@@ -6,13 +6,13 @@ namespace App\UI\Front\Controller\Contact\Form\Enum;
 
 final class BudgetEnum
 {
-    const LOW = '-25';
+    public const LOW = '-25';
 
-    const MIDDLE = '2550';
+    public const MIDDLE = '2550';
 
-    const HIGH = '50100';
+    public const HIGH = '50100';
 
-    const VERY_HIGH = '100+';
+    public const VERY_HIGH = '100+';
 
     private static array $sourceName = [
         self::LOW => 'contact.enum.budget.low',

@@ -49,7 +49,8 @@ final class ContactType extends AbstractType
             ])
             ->add('how', TextType::class, [
                 'label' => $this->translate('how.label'),
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

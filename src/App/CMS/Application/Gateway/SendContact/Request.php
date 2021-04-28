@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Gateway\SendContact;
 
-use Mono\Component\Core\Application\Gateway\GatewayRequest;
 use JetBrains\PhpStorm\ArrayShape;
+use Mono\Component\Core\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 final class Request implements GatewayRequest
@@ -42,12 +42,12 @@ final class Request implements GatewayRequest
 
         $accessor = PropertyAccess::createPropertyAccessor();
         foreach ($fields as $field) {
-            $dto->{$field} = $accessor->getValue($data, "[$field]");
+            $dto->{$field} = $accessor->getValue($data, "[{$field}]");
         }
 
         foreach ($optionalFields as $field) {
             if (true === isset($optionalFields[$field])) {
-                $dto->{$field} = $accessor->getValue($data, "[$field]");
+                $dto->{$field} = $accessor->getValue($data, "[{$field}]");
             }
         }
 

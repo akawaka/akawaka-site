@@ -14,9 +14,11 @@ final class ChannelsToArrayTransformer implements DataTransformerInterface
     /**
      * Transforms a collection into an array.
      *
-     * @return mixed An array of entities
+     * @param mixed $collection
      *
      * @throws TransformationFailedException
+     *
+     * @return mixed An array of entities
      */
     public function transform($collection)
     {

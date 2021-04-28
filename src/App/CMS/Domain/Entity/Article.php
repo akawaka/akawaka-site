@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\CMS\Domain\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Mono\Component\Article\Domain\Entity\Article as BaseArticle;
 use Mono\Component\Article\Domain\Entity\ArticleInterface;
 use Mono\Component\Article\Domain\Identifier\ArticleId;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 
 final class Article extends BaseArticle
 {

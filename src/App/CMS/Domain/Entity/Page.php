@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\CMS\Domain\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 use Mono\Component\Page\Domain\Entity\Page as BasePage;
 use Mono\Component\Page\Domain\Entity\PageInterface;
 use Mono\Component\Page\Domain\Identifier\PageId;
 use Mono\Component\Page\Domain\ValueObject\PageSlug;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 
 final class Page extends BasePage
 {

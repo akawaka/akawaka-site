@@ -33,7 +33,8 @@ final class CreatePageType extends AbstractType
                 'label' => $this->translate('channel.label'),
                 'multiple' => true,
                 'expanded' => true,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -42,7 +43,6 @@ final class CreatePageType extends AbstractType
             'factory' => $this->class,
             'immutable' => true,
             'label' => false,
-
         ]);
     }
 

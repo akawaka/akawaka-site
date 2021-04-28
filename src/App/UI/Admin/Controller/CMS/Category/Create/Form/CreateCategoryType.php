@@ -26,7 +26,8 @@ final class CreateCategoryType extends AbstractType
             ])
             ->add('slug', TextType::class, [
                 'label' => $this->translate('slug.label'),
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -34,7 +35,6 @@ final class CreateCategoryType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 

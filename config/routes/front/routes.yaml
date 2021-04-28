@@ -1,9 +1,0 @@
-index:
-    path: /
-    controller: App\UI\Front\Controller\Index\Action
-    methods: ['GET']
-
-contact:
-    path: /contact
-    controller: App\UI\Front\Controller\Contact\Action
-    methods: ['GET', 'POST']

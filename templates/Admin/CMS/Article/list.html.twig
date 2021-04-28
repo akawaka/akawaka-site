@@ -21,7 +21,7 @@
                             'title': "admin.cms.ui.article.list.title",
                             'action': {
                                 'name': "admin.cms.ui.article.list.actions.create",
-                                'link': url('admin_articles_create')
+                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_ARTICLES_CREATE')['name'])
                             }
                         } %}
 
@@ -57,12 +57,12 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a
-                                                href="{{ url('admin_articles_update', {'identifier': result.identifier }) }}"
+                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_ARTICLES_UPDATE')['name'], {'identifier': result.identifier }) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">
                                                 {{ 'admin.cms.ui.article.list.table.actions.edit'|trans }}
                                             </a>
                                             <a
-                                                href="{{ url('admin_articles_delete', {'identifier': result.identifier }) }}"
+                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_ARTICLES_DELETE')['name'], {'identifier': result.identifier }) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">
                                                 {{ 'admin.cms.ui.article.list.table.actions.delete'|trans }}
                                             </a>

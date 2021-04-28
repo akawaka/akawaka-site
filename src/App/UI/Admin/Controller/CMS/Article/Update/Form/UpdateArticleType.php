@@ -6,9 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Update\Form;
 
 use App\UI\Admin\Common\Form\Type\CategoryChoiceType;
 use App\UI\Admin\Common\Form\Type\FroalaType;
-use App\UI\Admin\Common\Form\Type\PellType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -39,7 +37,8 @@ final class UpdateArticleType extends AbstractType
                 'label' => $this->translate('categories.label'),
                 'multiple' => true,
                 'expanded' => true,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -47,7 +46,6 @@ final class UpdateArticleType extends AbstractType
         $resolver->setDefaults([
             'factory' => $this->class,
             'immutable' => true,
-
         ]);
     }
 
