@@ -34,7 +34,7 @@ final class Action
         path: RouteName::ADMIN_SECURITY_ADMINS_CREATE['path'],
         name: RouteName::ADMIN_SECURITY_ADMINS_CREATE['name'],
         methods: ['GET', 'POST']
-    ) ]
+    )]
     public function __invoke(Request $request): Response
     {
         $form = $this->formFactory->create(RegisterType::class);

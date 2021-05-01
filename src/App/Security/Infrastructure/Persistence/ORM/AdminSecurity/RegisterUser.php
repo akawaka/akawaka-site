@@ -6,20 +6,26 @@ namespace App\Security\Infrastructure\Persistence\ORM\AdminSecurity;
 
 use App\Security\Domain\Entity\AdminUser;
 use Doctrine\Persistence\ManagerRegistry;
+use Mono\Component\AdminSecurity\Domain\Identifier\UserId;
 use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class Remove extends DoctrineRepository implements Repository\Remove
+final class RegisterUser extends DoctrineRepository implements Repository\CreateUser
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {
         parent::__construct($managerRegistry, AdminUser::class);
     }
 
-    public function remove(UserInterface $user): void
+    public function insert(UserInterface $user): void
     {
-        $this->manager->remove($user);
+        $this->manager->persist($user);
         $this->manager->flush();
+    }
+
+    public function nextIdentity(): UserId
+    {
+        return new UserId();
     }
 }

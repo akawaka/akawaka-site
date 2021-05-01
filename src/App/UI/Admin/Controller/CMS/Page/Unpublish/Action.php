@@ -26,7 +26,7 @@ final class Action
         path: RouteName::ADMIN_CMS_PAGES_UNPUBLISH['path'],
         name: RouteName::ADMIN_CMS_PAGES_UNPUBLISH['name'],
         methods: ['GET']
-    ) ]
+    )]
     public function __invoke(string $identifier): Response
     {
         try {

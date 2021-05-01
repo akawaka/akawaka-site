@@ -34,7 +34,7 @@ final class Action
         path: RouteName::ADMIN_CMS_CATEGORIES_CREATE['path'],
         name: RouteName::ADMIN_CMS_CATEGORIES_CREATE['name'],
         methods: ['GET', 'POST']
-    ) ]
+    )]
     public function __invoke(Request $request): Response
     {
         $form = $this->formFactory->create(CreateCategoryType::class);

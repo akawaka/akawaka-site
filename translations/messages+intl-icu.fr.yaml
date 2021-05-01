@@ -27,7 +27,23 @@ admin:
                         label: Mot de passe
                     remember:
                         label: Se souvenir de moi
+                    lost_password: Mot de passe oublié ?
                     submit: Se connecter
+            reset_password:
+                confirmation: |
+                    Un email a été envoyé à votre adresse. <br>
+                    Cliquez sur le lien pour changer votre mot de passe.
+                form:
+                    email:
+                        label: Adresse email
+                    submit: Envoyer un lien de récupération du mot de passe
+            recover_password:
+                confirmation: |
+                    Le mot de passe temporaire de l'utilisateur {username} est :<br>
+                    <b>{password}</b>
+                    <br>
+                    Copiez le mot de passe et accédez à la page d'identification.
+                login: Identification
             dashboard:
                 title: Acceuil
             admin:

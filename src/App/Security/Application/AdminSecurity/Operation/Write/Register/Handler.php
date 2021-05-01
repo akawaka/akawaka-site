@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Security\Application\AdminSecurity\Operation\Write\Register;
 
 use App\Security\Domain\Entity\AdminUser;
-use Mono\Component\AdminSecurity\Domain\Repository\Create;
+use Mono\Component\AdminSecurity\Domain\Repository\CreateUser;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private Create $repository,
+        private CreateUser $repository,
         private UserPasswordEncoderInterface $passwordEncoder,
         private MessageBusInterface $eventBus,
     ) {

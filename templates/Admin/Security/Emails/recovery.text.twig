@@ -1,0 +1,8 @@
+Vous recevez cet email car vous (ou une autre personne) a demandé une réinitialisation
+du compte {{ username }}.
+
+Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien suivant :
+
+{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_PASSWORD_RECOVER')['name'], {'token': token}) }}
+
+Si vous n'avez pas effectué cette demande, vous pouvez tout simplement ignorer cet email.

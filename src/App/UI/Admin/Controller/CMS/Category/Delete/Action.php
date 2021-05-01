@@ -26,7 +26,7 @@ final class Action
         path: RouteName::ADMIN_CMS_CATEGORIES_DELETE['path'],
         name: RouteName::ADMIN_CMS_CATEGORIES_DELETE['name'],
         methods: ['GET']
-    ) ]
+    )]
     public function __invoke(string $identifier): Response
     {
         try {

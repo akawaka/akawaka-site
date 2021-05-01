@@ -43,6 +43,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ],
         'access_control' => [
             ['path' => '^/admin/login', 'roles' => 'PUBLIC_ACCESS'],
+            ['path' => '^/admin/reset-password', 'roles' => 'PUBLIC_ACCESS'],
+            ['path' => '^/admin/recover-password', 'roles' => 'PUBLIC_ACCESS'],
             ['path' => '^/admin', 'roles' => 'ROLE_ADMIN']
         ]
     ]);

@@ -20,7 +20,7 @@ final class Action
         path: RouteName::ADMIN_SECURITY_INDEX['path'],
         name: RouteName::ADMIN_SECURITY_INDEX['name'],
         methods: ['GET']
-    ) ]
+    )]
     public function __invoke(): Response
     {
         return ($this->htmlResponder)('Admin/Security/index');

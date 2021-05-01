@@ -37,7 +37,7 @@ final class Action
         path: RouteName::ADMIN_CMS_ARTICLES_UPDATE['path'],
         name: RouteName::ADMIN_CMS_ARTICLES_UPDATE['name'],
         methods: ['GET', 'POST']
-    ) ]
+    )]
     public function __invoke(string $identifier, Request $request): Response
     {
         try {

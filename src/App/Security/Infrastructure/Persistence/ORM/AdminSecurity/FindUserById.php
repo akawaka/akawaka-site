@@ -5,27 +5,33 @@ declare(strict_types=1);
 namespace App\Security\Infrastructure\Persistence\ORM\AdminSecurity;
 
 use App\Security\Domain\Entity\AdminUser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\AdminSecurity\Domain\Identifier\UserId;
 use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class Register extends DoctrineRepository implements Repository\Create
+final class FindUserById extends DoctrineRepository implements Repository\FindUserById
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {
         parent::__construct($managerRegistry, AdminUser::class);
     }
 
-    public function insert(UserInterface $user): void
+    public function find(UserId $id): UserInterface
     {
-        $this->manager->persist($user);
-        $this->manager->flush();
-    }
+        $query = $this->getQuery(<<<SQL
+                SELECT user
+                FROM {$this->getClassName()} user
+                WHERE user.id = :id
+            SQL);
 
-    public function nextIdentity(): UserId
-    {
-        return new UserId();
+        $query->setParameters(new ArrayCollection([
+            new Parameter('id', $id->getValue()),
+        ]));
+
+        return $query->getSingleResult();
     }
 }

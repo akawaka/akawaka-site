@@ -7,18 +7,18 @@ namespace App\UI\Admin\Controller;
 final class RouteName
 {
     /**
-     * Index
+     * Index.
      */
     public const ADMIN_LOGIN = ['path' => '/admin/login', 'name' => 'admin_login'];
 
-    public const ADMIN_INDEX = ['path' => '/admin/index', 'name' => 'admin_index'];
+    public const ADMIN_INDEX = ['path' => '/admin', 'name' => 'admin_index'];
 
     public const ADMIN_CMS_INDEX = ['path' => '/admin/cms/index', 'name' => 'admin_cms_index'];
 
     public const ADMIN_SECURITY_INDEX = ['path' => '/admin/security/index', 'name' => 'admin_security_index'];
 
     /**
-     * Pages
+     * Pages.
      */
     public const ADMIN_CMS_PAGES_CREATE = ['path' => '/admin/cms/pages/create', 'name' => 'admin_cms_pages_create'];
 
@@ -33,7 +33,7 @@ final class RouteName
     public const ADMIN_CMS_PAGES_UPDATE = ['path' => '/admin/cms/pages/{identifier}/update', 'name' => 'admin_cms_pages_update'];
 
     /**
-     * Articles
+     * Articles.
      */
     public const ADMIN_CMS_ARTICLES_CREATE = ['path' => '/admin/cms/articles/create', 'name' => 'admin_cms_articles_create'];
 
@@ -48,7 +48,7 @@ final class RouteName
     public const ADMIN_CMS_ARTICLES_UPDATE = ['path' => '/admin/cms/articles/{identifier}/update', 'name' => 'admin_cms_articles_update'];
 
     /**
-     * Categories
+     * Categories.
      */
     public const ADMIN_CMS_CATEGORIES_CREATE = ['path' => '/admin/cms/categories/create', 'name' => 'admin_cms_categories_create'];
 
@@ -59,7 +59,7 @@ final class RouteName
     public const ADMIN_CMS_CATEGORIES_UPDATE = ['path' => '/admin/cms/categories/{identifier}/update', 'name' => 'admin_cms_categories_update'];
 
     /**
-     * Channels
+     * Channels.
      */
     public const ADMIN_CMS_CHANNELS_CREATE = ['path' => '/admin/cms/channels/create', 'name' => 'admin_cms_channels_create'];
 
@@ -70,8 +70,14 @@ final class RouteName
     public const ADMIN_CMS_CHANNELS_UPDATE = ['path' => '/admin/cms/channels/{identifier}/update', 'name' => 'admin_cms_channels_update'];
 
     /**
-     * Admins
+     * Admins.
      */
+    public const ADMIN_SECURITY_PASSWORD_RESET = ['path' => '/admin/reset-password', 'name' => 'admin_password_reset'];
+
+    public const ADMIN_SECURITY_PASSWORD_RESET_SUCCESS = ['path' => '/admin/reset-password/success', 'name' => 'admin_password_reset_success'];
+
+    public const ADMIN_SECURITY_PASSWORD_RECOVER = ['path' => '/admin/recover-password/{token}', 'name' => 'admin_password_recover'];
+
     public const ADMIN_SECURITY_ADMINS_CREATE = ['path' => '/admin/security/admins/create', 'name' => 'admin_security_admins_create'];
 
     public const ADMIN_SECURITY_ADMINS_DELETE = ['path' => '/admin/security/admins/{identifier}/delete', 'name' => 'admin_security_admins_delete'];

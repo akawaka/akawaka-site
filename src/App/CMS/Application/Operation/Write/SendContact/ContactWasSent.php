@@ -6,7 +6,7 @@ namespace App\CMS\Application\Operation\Write\SendContact;
 
 use App\Infrastructure\Mailer\Email;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 
 final class ContactWasSent implements BrowserNotificationInterface
 {
@@ -20,8 +20,8 @@ final class ContactWasSent implements BrowserNotificationInterface
         return $this->email;
     }
 
-    public function asBrowserNotification(): NotificationContext
+    public function asBrowserNotification(): BrowserContext
     {
-        return new NotificationContext('success', 'contact.sent');
+        return new BrowserContext('success', 'contact.sent');
     }
 }

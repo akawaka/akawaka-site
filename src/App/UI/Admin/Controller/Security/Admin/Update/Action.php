@@ -41,7 +41,7 @@ final class Action
         path: RouteName::ADMIN_SECURITY_ADMINS_UPDATE['path'],
         name: RouteName::ADMIN_SECURITY_ADMINS_UPDATE['name'],
         methods: ['GET', 'POST']
-    ) ]
+    )]
     public function __invoke(string $identifier, Request $request): Response
     {
         try {

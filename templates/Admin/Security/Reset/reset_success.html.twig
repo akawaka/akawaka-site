@@ -1,0 +1,15 @@
+{% extends 'Admin/base_logout.html.twig' %}
+
+{% block body %}
+<div>
+    <h1 class="mt-6 text-3xl font-extrabold text-gray-900">
+        {{ 'admin.security.ui.login.title'|trans }}
+    </h1>
+</div>
+
+<div class="mt-8">
+    <div class="mt-6">
+        <p>{{ 'admin.security.ui.reset_password.confirmation'|trans|raw }}</p>
+    </div>
+</div>
+{% endblock %}

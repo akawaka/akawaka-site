@@ -6,7 +6,7 @@ namespace App\CMS\Application\Operation\Write\CreateChannel;
 
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 
 final class ChannelWasCreated implements BrowserNotificationInterface
 {
@@ -20,8 +20,8 @@ final class ChannelWasCreated implements BrowserNotificationInterface
         return $this->channel;
     }
 
-    public function asBrowserNotification(): NotificationContext
+    public function asBrowserNotification(): BrowserContext
     {
-        return new NotificationContext('channel.created', 'success');
+        return new BrowserContext('channel.created', 'success');
     }
 }

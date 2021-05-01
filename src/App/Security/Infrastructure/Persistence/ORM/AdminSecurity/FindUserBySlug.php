@@ -12,7 +12,7 @@ use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class FindBySlug extends DoctrineRepository implements Repository\FindByUsernameOrEmail
+final class FindUserBySlug extends DoctrineRepository implements Repository\FindUserByUsernameOrEmail
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {

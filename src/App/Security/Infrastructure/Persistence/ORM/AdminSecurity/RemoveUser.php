@@ -8,21 +8,18 @@ use App\Security\Domain\Entity\AdminUser;
 use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-final class FindAll extends DoctrineRepository implements Repository\FindAll
+final class RemoveUser extends DoctrineRepository implements Repository\RemoveUser
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {
         parent::__construct($managerRegistry, AdminUser::class);
     }
 
-    public function findAll(): array
+    public function remove(UserInterface $user): void
     {
-        $query = $this->getQuery(<<<SQL
-                SELECT user
-                FROM {$this->getClassName()} user
-            SQL);
-
-        return $query->execute();
+        $this->manager->remove($user);
+        $this->manager->flush();
     }
 }

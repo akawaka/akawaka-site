@@ -6,7 +6,7 @@ namespace App\UI\Front\EventHandler;
 
 use App\CMS\Application\Operation\Write\SendContact\ContactWasSent;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
 use Symfony\Component\Notifier\Notification\Notification;
 use Symfony\Component\Notifier\NotifierInterface;
@@ -35,16 +35,16 @@ final class FlashNotifier implements MessageSubscriberInterface
         yield ContactWasSent::class;
     }
 
-    private function buildNotification(NotificationContext $context): Notification
+    private function buildNotification(BrowserContext $context): Notification
     {
         $message = $this->translator->trans(
-            sprintf('flash.front.%s', $context->getMessage()),
+            sprintf('flash.front.%s', $context->getSubject()),
             $context->getParameters(),
             'notification'
         );
 
         return (new Notification($message, ['browser']))
-            ->importance($context->getImportance())
+            ->importance($context->getAlert())
         ;
     }
 }

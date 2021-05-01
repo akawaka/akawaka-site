@@ -10,7 +10,7 @@ use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class Update extends DoctrineRepository implements Repository\Update
+final class UpdateUser extends DoctrineRepository implements Repository\UpdateUser
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {

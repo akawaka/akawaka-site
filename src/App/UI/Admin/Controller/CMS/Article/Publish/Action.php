@@ -26,7 +26,7 @@ final class Action
         path: RouteName::ADMIN_CMS_ARTICLES_PUBLISH['path'],
         name: RouteName::ADMIN_CMS_ARTICLES_PUBLISH['name'],
         methods: ['GET', 'POST']
-    ) ]
+    )]
     public function __invoke(string $identifier): Response
     {
         try {

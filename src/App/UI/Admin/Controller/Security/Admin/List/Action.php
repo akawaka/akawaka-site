@@ -24,7 +24,7 @@ final class Action
         path: RouteName::ADMIN_SECURITY_ADMINS_LIST['path'],
         name: RouteName::ADMIN_SECURITY_ADMINS_LIST['name'],
         methods: ['GET']
-    ) ]
+    )]
     public function __invoke(): Response
     {
         return ($this->htmlResponder)('Admin/Security/Admin/list', [

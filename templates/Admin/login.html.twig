@@ -35,14 +35,11 @@
                         {{ 'admin.security.ui.login.form.remember.label'|trans }}
                     </label>
                 </div>
-                {#
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-                        Forgot your password?
+                    <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_PASSWORD_RESET')['name']) }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        {{ 'admin.security.ui.login.form.lost_password'|trans }}
                     </a>
                 </div>
-                #}
-
             </div>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

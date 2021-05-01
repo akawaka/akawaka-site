@@ -6,7 +6,7 @@ namespace App\CMS\Application\Operation\Write\CreateCategory;
 
 use Mono\Component\Article\Domain\Entity\CategoryInterface;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 
 final class CategoryWasCreated implements BrowserNotificationInterface
 {
@@ -20,8 +20,8 @@ final class CategoryWasCreated implements BrowserNotificationInterface
         return $this->category;
     }
 
-    public function asBrowserNotification(): NotificationContext
+    public function asBrowserNotification(): BrowserContext
     {
-        return new NotificationContext('category.created', 'success');
+        return new BrowserContext('category.created', 'success');
     }
 }

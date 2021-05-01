@@ -35,7 +35,6 @@ final class Version20210416210149 extends AbstractMigration
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('CREATE TABLE page_channels (page_id UUID NOT NULL, channel_id UUID NOT NULL, PRIMARY KEY(page_id, channel_id))');
         $this->addSql('CREATE UNIQUE INDEX uniq_738be59672f5a1aa ON page_channels (channel_id)');
         $this->addSql('CREATE INDEX idx_738be596c4663e4 ON page_channels (page_id)');

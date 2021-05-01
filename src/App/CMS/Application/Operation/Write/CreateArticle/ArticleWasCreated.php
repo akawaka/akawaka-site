@@ -6,7 +6,7 @@ namespace App\CMS\Application\Operation\Write\CreateArticle;
 
 use Mono\Component\Article\Domain\Entity\ArticleInterface;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 
 final class ArticleWasCreated implements BrowserNotificationInterface
 {
@@ -20,8 +20,8 @@ final class ArticleWasCreated implements BrowserNotificationInterface
         return $this->article;
     }
 
-    public function asBrowserNotification(): NotificationContext
+    public function asBrowserNotification(): BrowserContext
     {
-        return new NotificationContext('article.created', 'success');
+        return new BrowserContext('article.created', 'success');
     }
 }

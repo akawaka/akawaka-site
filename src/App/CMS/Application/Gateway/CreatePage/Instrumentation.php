@@ -4,33 +4,9 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Gateway\CreatePage;
 
-use Mono\Component\Core\Infrastructure\Instrumentation\LoggerInstrumentation;
-use Psr\Log\LoggerInterface;
+use Mono\Component\Core\Application\Instrumentation\AbstractInstrumentation;
 
-final class Instrumentation
+final class Instrumentation extends AbstractInstrumentation
 {
-    private LoggerInterface $logger;
-
-    public function __construct(LoggerInstrumentation $instrumentation)
-    {
-        $this->logger = $instrumentation->getLogger();
-    }
-
-    public function start(Request $request): void
-    {
-        $this->logger->info('page.create', $request->data());
-    }
-
-    public function success(Response $response): void
-    {
-        $this->logger->info('page.create.success', $response->data());
-    }
-
-    public function error(Request $request, string $reason): void
-    {
-        $this->logger->error('page.create.error', array_merge(
-            $request->data(),
-            [' reason' => $reason]
-        ));
-    }
+    public const NAME = 'page.create';
 }

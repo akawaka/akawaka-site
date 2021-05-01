@@ -19,7 +19,8 @@ final class Action
     #[Route(
         path: RouteName::ADMIN_INDEX['path'],
         name: RouteName::ADMIN_INDEX['name'],
-        methods: ['GET'])
+        methods: ['GET']
+    )
     ]
     public function __invoke(): Response
     {

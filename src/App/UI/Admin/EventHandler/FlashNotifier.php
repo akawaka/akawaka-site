@@ -8,10 +8,9 @@ use App\CMS\Application\Operation\Write\CreateArticle\ArticleWasCreated;
 use App\CMS\Application\Operation\Write\CreateCategory\CategoryWasCreated;
 use App\CMS\Application\Operation\Write\CreateChannel\ChannelWasCreated;
 use App\CMS\Application\Operation\Write\CreatePage\PageWasCreated;
-use Mono\Component\AdminSecurity\Application\Operation\Write\Authenticate\AdminWasAuthenticated;
-use Mono\Component\AdminSecurity\Application\Operation\Write\Remove\AdminWasRemoved;
-use Mono\Component\AdminSecurity\Application\Operation\Write\Update\AdminWasUpdated;
-use Mono\Component\AdminSecurity\Application\Operation\Write\UpdatePassword\AdminPasswordWasUpdated;
+use Mono\Component\AdminSecurity\Application\Operation\Write\AuthenticateUser\AdminWasAuthenticated;
+use Mono\Component\AdminSecurity\Application\Operation\Write\UpdateUser\AdminWasUpdated;
+use Mono\Component\AdminSecurity\Application\Operation\Write\UpdateUserPassword\AdminPasswordWasUpdated;
 use Mono\Component\Article\Application\Operation\Write\PublishArticle\ArticleWasPublished;
 use Mono\Component\Article\Application\Operation\Write\RemoveArticle\ArticleWasRemoved;
 use Mono\Component\Article\Application\Operation\Write\RemoveCategory\CategoryWasRemoved;
@@ -23,7 +22,7 @@ use Mono\Component\Channel\Application\Operation\Write\Publish\ChannelWasPublish
 use Mono\Component\Channel\Application\Operation\Write\Remove\ChannelWasRemoved;
 use Mono\Component\Channel\Application\Operation\Write\Update\ChannelWasUpdated;
 use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\NotificationContext;
+use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
 use Mono\Component\Page\Application\Operation\Write\Publish\PageWasPublished;
 use Mono\Component\Page\Application\Operation\Write\Remove\PageWasRemoved;
 use Mono\Component\Page\Application\Operation\Write\Unpublish\PageWasUnpublished;
@@ -36,16 +35,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class FlashNotifier implements MessageSubscriberInterface
 {
-    private NotifierInterface $notifier;
-
-    private TranslatorInterface $translator;
-
     public function __construct(
-        NotifierInterface $notifier,
-        TranslatorInterface $translator
+        private NotifierInterface $notifier,
+        private TranslatorInterface $translator
     ) {
-        $this->notifier = $notifier;
-        $this->translator = $translator;
     }
 
     public function __invoke(BrowserNotificationInterface $event): void
@@ -60,7 +53,6 @@ final class FlashNotifier implements MessageSubscriberInterface
     public static function getHandledMessages(): iterable
     {
         yield AdminWasAuthenticated::class;
-        yield AdminWasRemoved::class;
         yield AdminWasUpdated::class;
         yield AdminPasswordWasUpdated::class;
 
@@ -88,16 +80,16 @@ final class FlashNotifier implements MessageSubscriberInterface
         yield PageWasUnpublished::class;
     }
 
-    private function buildNotification(NotificationContext $context): Notification
+    private function buildNotification(BrowserContext $context): Notification
     {
         $message = $this->translator->trans(
-            sprintf('flash.admin.%s', $context->getMessage()),
+            sprintf('flash.admin.%s', $context->getSubject()),
             $context->getParameters(),
             'notification'
         );
 
         return (new Notification($message, ['browser']))
-            ->importance($context->getImportance())
+            ->importance($context->getAlert())
         ;
     }
 }

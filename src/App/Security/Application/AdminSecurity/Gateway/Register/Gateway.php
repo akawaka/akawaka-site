@@ -7,13 +7,11 @@ namespace App\Security\Application\AdminSecurity\Gateway\Register;
 use App\Security\Application\AdminSecurity\Operation\Write\Register;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Gateway
 {
     public function __construct(
         private Instrumentation $instrumentation,
-        private QueryBusInterface $queryBus,
         private CommandBusInterface $commandBus,
     ) {
     }

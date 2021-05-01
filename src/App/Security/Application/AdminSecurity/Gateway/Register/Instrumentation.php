@@ -4,37 +4,22 @@ declare(strict_types=1);
 
 namespace App\Security\Application\AdminSecurity\Gateway\Register;
 
-use Mono\Component\Core\Infrastructure\Instrumentation\LoggerInstrumentation;
-use Psr\Log\LoggerInterface;
+use Mono\Component\Core\Application\Gateway\GatewayRequest;
+use Mono\Component\Core\Application\Instrumentation\AbstractInstrumentation;
 
-final class Instrumentation
+final class Instrumentation extends AbstractInstrumentation
 {
-    private LoggerInterface $logger;
+    public const NAME = 'admin_security.register';
 
-    public function __construct(LoggerInstrumentation $instrumentation)
-    {
-        $this->logger = $instrumentation->getLogger();
-    }
-
-    public function start(Request $request): void
+    public function start(GatewayRequest $request): void
     {
         unset($request->data()['password']);
-
-        $this->logger->info('admin_security.register', $request->data());
+        parent::start($request);
     }
 
-    public function success(Response $response): void
-    {
-        $this->logger->info('admin_security.register.success', $response->data());
-    }
-
-    public function error(Request $request, string $reason): void
+    public function error(GatewayRequest $request, string $reason): void
     {
         unset($request->data()['password']);
-
-        $this->logger->error('admin_security.register.error', array_merge(
-            $request->data(),
-            [' reason' => $reason]
-        ));
+        parent::error($request, $reason);
     }
 }

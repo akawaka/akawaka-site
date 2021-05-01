@@ -26,7 +26,7 @@ final class Action
         path: RouteName::ADMIN_SECURITY_ADMINS_DELETE['path'],
         name: RouteName::ADMIN_SECURITY_ADMINS_DELETE['name'],
         methods: ['GET']
-    ) ]
+    )]
     public function __invoke(string $identifier): Response
     {
         try {
