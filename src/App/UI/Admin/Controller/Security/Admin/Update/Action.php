@@ -47,7 +47,7 @@ final class Action
         try {
             $admin = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_LIST['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_INDEX['name']));
         }
 
         $updateAdminForm = $this->formFactory->create(UpdateAdminType::class);

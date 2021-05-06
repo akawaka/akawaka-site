@@ -37,6 +37,6 @@ final class Action
             throw new HttpException(500, $exception->getMessage());
         }
 
-        return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_PAGES_LIST['name']));
+        return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_PAGES_INDEX['name']));
     }
 }

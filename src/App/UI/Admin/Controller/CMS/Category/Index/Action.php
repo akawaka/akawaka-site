@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Admin\Controller\Security\Admin\List;
+namespace App\UI\Admin\Controller\CMS\Category\Index;
 
 use App\UI\Admin\Controller\RouteName;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\AdminSecurity\Application\Gateway\FindUsers;
+use Mono\Component\Article\Application\Gateway\FindCategories;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -15,27 +15,27 @@ use Symfony\Component\Routing\Annotation\Route;
 final class Action
 {
     public function __construct(
-        private FindUsers\Gateway $findUsersGateway,
+        private FindCategories\Gateway $findcategoriesGateway,
         private HtmlResponder $htmlResponder
     ) {
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_ADMINS_LIST['path'],
-        name: RouteName::ADMIN_SECURITY_ADMINS_LIST['name'],
+        path: RouteName::ADMIN_CMS_CATEGORIES_INDEX['path'],
+        name: RouteName::ADMIN_CMS_CATEGORIES_INDEX['name'],
         methods: ['GET']
     )]
     public function __invoke(): Response
     {
-        return ($this->htmlResponder)('Admin/Security/Admin/list', [
+        return ($this->htmlResponder)('Admin/CMS/Category/index', [
             'results' => $this->find()->data(),
         ]);
     }
 
-    private function find(): FindUsers\Response
+    private function find(): FindCategories\Response
     {
         try {
-            $results = ($this->findUsersGateway)(FindUsers\Request::fromData());
+            $results = ($this->findcategoriesGateway)(FindCategories\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

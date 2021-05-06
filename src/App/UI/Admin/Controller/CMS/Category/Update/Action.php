@@ -43,7 +43,7 @@ final class Action
         try {
             $category = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CATEGORIES_LIST['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CATEGORIES_INDEX['name']));
         }
 
         $form = $this->formFactory->create(UpdateCategoryType::class);

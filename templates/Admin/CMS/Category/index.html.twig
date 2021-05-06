@@ -1,9 +1,5 @@
 {% extends 'Admin/base.html.twig' %}
 
-{% block sidebar %}
-    {% include "Admin/Security/Layout/_sidebar.html.twig" %}
-{% endblock %}
-
 {% block body %}
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
         <div class="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
@@ -22,10 +18,10 @@
 
                     <div class="flex flex-col mt-2">
                         {% include 'Admin/Layout/View/List/_header.html.twig' with {
-                            'title': "admin.security.ui.admin.list.title",
+                            'title': "admin.cms.ui.category.index.title",
                             'action': {
-                                'name': "admin.security.ui.admin.list.actions.create",
-                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_CREATE')['name'])
+                                'name': "admin.cms.ui.category.index.actions.create",
+                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_CREATE')['name'])
                             }
                         } %}
 
@@ -34,13 +30,13 @@
                                 <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ 'admin.security.ui.admin.list.table.head.username'|trans }}
+                                        Name
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ 'admin.security.ui.admin.list.table.head.email'|trans }}
+                                        Slug
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
-                                        <span class="sr-only">{{ 'admin.security.ui.admin.list.table.head.actions'|trans }}</span>
+                                        <span class="sr-only">Edit</span>
                                     </th>
                                 </tr>
                                 </thead>
@@ -48,22 +44,14 @@
                                 {% for result in results %}
                                     <tr class="{{ loop.index is odd ? 'bg-white' : 'bg-gray-50' }}">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            {{ result.username }}
+                                            {{ result.name }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{ result.email }}
+                                            {{ result.slug }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a
-                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_UPDATE')['name'], {'identifier': result.identifier }) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">
-                                                {{ 'admin.security.ui.admin.list.table.actions.edit'|trans }}
-                                            </a>
-                                            <a
-                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_DELETE')['name'], {'identifier': result.identifier }) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">
-                                                {{ 'admin.security.ui.admin.list.table.actions.delete'|trans }}
-                                            </a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CATEGORIES_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                         </td>
                                     </tr>
                                 {% else %}

@@ -47,7 +47,7 @@ admin:
             dashboard:
                 title: Acceuil
             admin:
-                list:
+                index:
                     title: Gestion des administrateurs
                     actions:
                         create: Créer un administrateur
@@ -83,7 +83,7 @@ admin:
                     categories: Catégories
                     channels: Canaux
             article:
-                list:
+                index:
                     title: Gestion des articles
                     actions:
                         create: Créer un nouvel article
@@ -125,7 +125,7 @@ admin:
                         content:
                             label: Contenu
             page:
-                list:
+                index:
                     title: Gestion des pages
                     actions:
                         create: Créer une nouvelle page
@@ -163,7 +163,7 @@ admin:
                         content:
                             label: Contenu
             category:
-                list:
+                index:
                     title: Gestion des catégories
                     actions:
                         create: Créer une nouvelle catégorie
@@ -194,7 +194,7 @@ admin:
                         slug:
                             label: Titre (SEO)
             channel:
-                list:
+                index:
                     title: Gestion des canaux
                     actions:
                         create: Créer un nouveau canal

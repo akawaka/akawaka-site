@@ -24,7 +24,7 @@ final class RouteName
 
     public const ADMIN_CMS_PAGES_DELETE = ['path' => '/admin/cms/pages/{identifier}/delete', 'name' => 'admin_cms_pages_delete'];
 
-    public const ADMIN_CMS_PAGES_LIST = ['path' => '/admin/cms/pages', 'name' => 'admin_cms_pages_index'];
+    public const ADMIN_CMS_PAGES_INDEX = ['path' => '/admin/cms/pages', 'name' => 'admin_cms_pages_index'];
 
     public const ADMIN_CMS_PAGES_PUBLISH = ['path' => '/admin/cms/pages/{identifier}/publish', 'name' => 'admin_cms_pages_publish'];
 
@@ -39,7 +39,7 @@ final class RouteName
 
     public const ADMIN_CMS_ARTICLES_DELETE = ['path' => '/admin/cms/articles/{identifier}/delete', 'name' => 'admin_cms_articles_delete'];
 
-    public const ADMIN_CMS_ARTICLES_LIST = ['path' => '/admin/cms/articles', 'name' => 'admin_cms_articles_index'];
+    public const ADMIN_CMS_ARTICLES_INDEX = ['path' => '/admin/cms/articles', 'name' => 'admin_cms_articles_index'];
 
     public const ADMIN_CMS_ARTICLES_PUBLISH = ['path' => '/admin/cms/articles/{identifier}/publish', 'name' => 'admin_cms_articles_publish'];
 
@@ -54,7 +54,7 @@ final class RouteName
 
     public const ADMIN_CMS_CATEGORIES_DELETE = ['path' => '/admin/cms/categories/{identifier}/delete', 'name' => 'admin_cms_categories_delete'];
 
-    public const ADMIN_CMS_CATEGORIES_LIST = ['path' => '/admin/cms/categories', 'name' => 'admin_cms_categories_index'];
+    public const ADMIN_CMS_CATEGORIES_INDEX = ['path' => '/admin/cms/categories', 'name' => 'admin_cms_categories_index'];
 
     public const ADMIN_CMS_CATEGORIES_UPDATE = ['path' => '/admin/cms/categories/{identifier}/update', 'name' => 'admin_cms_categories_update'];
 
@@ -65,7 +65,7 @@ final class RouteName
 
     public const ADMIN_CMS_CHANNELS_DELETE = ['path' => '/admin/cms/channels/{identifier}/delete', 'name' => 'admin_cms_channels_delete'];
 
-    public const ADMIN_CMS_CHANNELS_LIST = ['path' => '/admin/cms/channels', 'name' => 'admin_cms_channels_index'];
+    public const ADMIN_CMS_CHANNELS_INDEX = ['path' => '/admin/cms/channels', 'name' => 'admin_cms_channels_index'];
 
     public const ADMIN_CMS_CHANNELS_UPDATE = ['path' => '/admin/cms/channels/{identifier}/update', 'name' => 'admin_cms_channels_update'];
 
@@ -82,7 +82,7 @@ final class RouteName
 
     public const ADMIN_SECURITY_ADMINS_DELETE = ['path' => '/admin/security/admins/{identifier}/delete', 'name' => 'admin_security_admins_delete'];
 
-    public const ADMIN_SECURITY_ADMINS_LIST = ['path' => '/admin/security/admins', 'name' => 'admin_security_admins_index'];
+    public const ADMIN_SECURITY_ADMINS_INDEX = ['path' => '/admin/security/admins', 'name' => 'admin_security_admins_index'];
 
     public const ADMIN_SECURITY_ADMINS_UPDATE = ['path' => '/admin/security/admins/{identifier}/update', 'name' => 'admin_security_admins_update'];
 }

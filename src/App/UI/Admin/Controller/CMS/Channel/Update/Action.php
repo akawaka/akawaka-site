@@ -43,7 +43,7 @@ final class Action
         try {
             $channel = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CHANNELS_LIST['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CHANNELS_INDEX['name']));
         }
 
         $form = $this->formFactory->create(UpdateChannelType::class);

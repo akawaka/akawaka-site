@@ -43,7 +43,7 @@ final class Action
         try {
             $page = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_PAGES_LIST['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_PAGES_INDEX['name']));
         }
 
         $form = $this->formFactory->create(UpdatePageType::class);

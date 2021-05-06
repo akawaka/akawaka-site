@@ -43,7 +43,7 @@ final class Action
         try {
             $article = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_LIST['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_INDEX['name']));
         }
 
         $form = $this->formFactory->create(UpdateArticleType::class);
