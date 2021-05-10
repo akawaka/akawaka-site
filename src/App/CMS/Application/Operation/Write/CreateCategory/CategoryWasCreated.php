@@ -4,24 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreateCategory;
 
-use Mono\Component\Article\Domain\Entity\CategoryInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
+use Mono\Component\Core\Application\Operation\AbstractEvent;
 
-final class CategoryWasCreated implements BrowserNotificationInterface
+final class CategoryWasCreated extends AbstractEvent
 {
-    public function __construct(
-        private CategoryInterface $category
-    ) {
-    }
-
-    public function getCategory(): CategoryInterface
-    {
-        return $this->category;
-    }
-
-    public function asBrowserNotification(): BrowserContext
-    {
-        return new BrowserContext('category.created', 'success');
-    }
 }

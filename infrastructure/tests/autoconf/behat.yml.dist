@@ -1,12 +1,11 @@
 default:
     suites:
         cms:
-            paths:
-                - 'packages/Bundle/CmsBundle/features'
             contexts:
-                - App\Tests\Behat\Application\PageContext
-                - App\Tests\Behat\Application\ChannelContext
+                - App\Tests\Behat\CMS\Application\PageContext
+                - App\Tests\Behat\CMS\Application\ChannelContext
+                - App\Tests\Behat\CMS\Application\CategoryContext
+                - App\Tests\Behat\CMS\Application\ArticleContext
 
     extensions:
-        FriendsOfBehat\SymfonyExtension:
-            bootstrap: "tests/bootstrap.php"
+        FriendsOfBehat\SymfonyExtension: null

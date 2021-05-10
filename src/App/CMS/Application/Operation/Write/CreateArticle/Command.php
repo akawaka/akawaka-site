@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreateArticle;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 
 final class Command
@@ -33,13 +32,13 @@ final class Command
         return new Slug($slug);
     }
 
-    public function getChannels(): ArrayCollection
+    public function getChannels(): array
     {
-        return new ArrayCollection($this->channels);
+        return $this->channels;
     }
 
-    public function getCategories(): ArrayCollection
+    public function getCategories(): array
     {
-        return new ArrayCollection($this->categories);
+        return $this->categories;
     }
 }

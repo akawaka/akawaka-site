@@ -9,15 +9,15 @@ use Behat\Gherkin\Node\TableNode;
 use App\CMS\Application\Gateway\CreateArticle;
 use App\CMS\Application\Gateway\CreateChannel;
 use App\CMS\Application\Gateway\CreateCategory;
-use Black\Component\Article\Application\Gateway\FindArticleById;
-use Black\Component\Article\Application\Gateway\FindCategoryBySlug;
-use Black\Component\Article\Application\Gateway\FindArticleBySlug;
-use Black\Component\Article\Application\Gateway\FindArticles;
-use Black\Component\Article\Application\Gateway\RemoveArticle;
-use Black\Component\Article\Application\Gateway\UpdateArticle;
-use Black\Component\Channel\Application\Gateway\FindChannelByCode;
+use Mono\Component\Article\Application\Gateway\FindArticleById;
+use Mono\Component\Article\Application\Gateway\FindCategoryBySlug;
+use Mono\Component\Article\Application\Gateway\FindArticleBySlug;
+use Mono\Component\Article\Application\Gateway\FindArticles;
+use Mono\Component\Article\Application\Gateway\RemoveArticle;
+use Mono\Component\Article\Application\Gateway\UpdateArticle;
+use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
 use Behat\Behat\Context\Context;
-use Black\Component\Core\Application\Gateway\GatewayException;
+use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class ArticleContext implements Context
@@ -81,7 +81,7 @@ final class ArticleContext implements Context
             $data = array_merge(
                 $row,
                 [
-                    'channel' => $this->channel['identifier'],
+                    'channels' => [$this->channel['identifier']],
                     'categories' => [$this->category['identifier']],
                 ]
             );

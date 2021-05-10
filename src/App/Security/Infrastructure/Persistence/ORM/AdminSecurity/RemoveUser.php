@@ -6,11 +6,11 @@ namespace App\Security\Infrastructure\Persistence\ORM\AdminSecurity;
 
 use App\Security\Domain\Entity\AdminUser;
 use Doctrine\Persistence\ManagerRegistry;
+use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
 use Mono\Component\AdminSecurity\Domain\Repository;
-use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
 
-final class RemoveUser extends DoctrineRepository implements Repository\RemoveUser
+final class RemoveUser extends ORMRepository implements Repository\RemoveUser
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {

@@ -1,0 +1,37 @@
+{
+    "name": "mono/email-address-primitive",
+    "description": "Email Address primitive",
+    "type": "mono-primitive",
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "primitive@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mono\\Primitive\\EmailAddress\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mono\\Primitive\\EmailAddress\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.8",
+        "phpspec/phpspec": "^7.0",
+        "phpstan/phpstan": "^0.12",
+        "vimeo/psalm": "^3.11",
+        "roave/security-advisories": "dev-master"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

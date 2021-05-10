@@ -9,7 +9,7 @@ use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 use Mono\Component\Channel\Domain\Identifier\ChannelId;
 use Mono\Component\Channel\Domain\ValueObject\ChannelCode;
 
-final class Channel extends BaseChannel
+class Channel extends BaseChannel
 {
     public static function create(
         ChannelId $id,

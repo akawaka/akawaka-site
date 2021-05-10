@@ -1,0 +1,41 @@
+{
+    "name": "mono/core",
+    "description": "Core component for mono projects",
+    "type": "mono-library",
+    "license": "EUPLv1-2",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "oss@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mono\\Component\\Core\\": "src/"
+        }
+    },
+	"require": {
+		"php": "^8.0",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "cocur/slugify": "^4.0",
+        "league/flysystem": "^2.0",
+        "psr/log": "^1.1",
+        "symfony/notifier": "^5.2",
+        "doctrine/orm": "^2.8",
+        "twig/twig": "^3.3",
+        "symfony/workflow": "^5.2"
+    },
+	"require-dev": {
+		"phpspec/phpspec": "^7.0",
+		"phpstan/phpstan": "^0.12",
+		"vimeo/psalm": "^3.11",
+		"roave/security-advisories": "dev-master"
+	},
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

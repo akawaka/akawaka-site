@@ -8,8 +8,8 @@
             <generator strategy="NONE"/>
         </id>
 
-        <field name="name" unique="true" />
-        <field name="slug" />
+        <field name="name" />
+        <field name="slug" unique="true" />
         <field name="status" />
 
         <field name="content" type="text" nullable="true" />
@@ -17,7 +17,7 @@
         <field name="creationDate" type="date_immutable" />
         <field name="lastUpdate" type="date_immutable" nullable="true" />
 
-        <many-to-many field="channels" target-entity="App\CMS\Domain\Entity\Channel">
+        <many-to-many field="channels" target-entity="Mono\Component\Channel\Domain\Entity\ChannelInterface">
             <join-table name="cms_page_channels">
                 <join-columns>
                     <join-column name="page_id" on-delete="CASCADE" />

@@ -6,14 +6,16 @@ namespace App\CMS\Application\Operation\Write\CreateChannel;
 
 use App\CMS\Domain\Entity\Channel;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
-use Mono\Component\Channel\Domain\Repository\Create;
+use Mono\Component\Channel\Domain\Repository\CreateChannel;
+use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private Create $repository,
+        private CreateChannel $repository,
         private MessageBusInterface $eventBus
     ) {
     }
@@ -27,7 +29,10 @@ final class Handler implements MessageHandlerInterface
         );
 
         $this->repository->insert($channel);
-        $this->eventBus->dispatch(new ChannelWasCreated($channel));
+        $this->eventBus->dispatch(
+            (new Envelope(new ChannelWasCreated($channel->getId()->getValue())))
+                ->with(new DispatchAfterCurrentBusStamp())
+        );
 
         return $channel;
     }

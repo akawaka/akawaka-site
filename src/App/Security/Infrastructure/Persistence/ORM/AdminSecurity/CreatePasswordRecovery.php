@@ -9,9 +9,9 @@ use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
 use Mono\Component\AdminSecurity\Domain\Identifier\PasswordRecoveryId;
 use Mono\Component\AdminSecurity\Domain\Repository;
-use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
+use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
 
-final class CreatePasswordRecovery extends DoctrineRepository implements Repository\CreatePasswordRecovery
+final class CreatePasswordRecovery extends ORMRepository implements Repository\CreatePasswordRecovery
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {

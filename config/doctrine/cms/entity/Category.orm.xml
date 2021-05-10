@@ -13,7 +13,7 @@
 
         <many-to-many
             field="articles"
-            mapped-by="categories" target-entity="App\CMS\Domain\Entity\Article"/>
+            mapped-by="categories" target-entity="Mono\Component\Article\Domain\Entity\ArticleInterface"/>
 
     </entity>
 

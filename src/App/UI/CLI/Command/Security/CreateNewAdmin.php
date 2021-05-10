@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\CLI\Command\Security;
 
 use App\Security\Application\AdminSecurity\Gateway\Register;
-use Mono\Bundle\CoreBundle\Infrastructure\Command\CommandNaming;
+use App\Infrastructure\Command\CommandNaming;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

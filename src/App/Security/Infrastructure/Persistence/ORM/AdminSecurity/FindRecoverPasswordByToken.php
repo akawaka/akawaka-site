@@ -10,9 +10,9 @@ use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
 use Mono\Component\AdminSecurity\Domain\Repository;
-use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DoctrineRepository;
+use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
 
-final class FindRecoverPasswordByToken extends DoctrineRepository implements Repository\FindRecoverPasswordByToken
+final class FindRecoverPasswordByToken extends ORMRepository implements Repository\FindRecoverPasswordByToken
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {

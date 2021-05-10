@@ -12,7 +12,7 @@ use Mono\Component\Page\Domain\Entity\PageInterface;
 use Mono\Component\Page\Domain\Identifier\PageId;
 use Mono\Component\Page\Domain\ValueObject\PageSlug;
 
-final class Page extends BasePage
+class Page extends BasePage
 {
     public Collection $channels;
 

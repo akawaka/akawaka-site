@@ -12,7 +12,7 @@ use Mono\Component\Article\Domain\Identifier\ArticleId;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 
-final class Article extends BaseArticle
+class Article extends BaseArticle
 {
     public Collection $channels;
 

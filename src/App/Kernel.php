@@ -20,7 +20,8 @@ class Kernel extends BaseKernel
             $container->import('../../config/services.yaml');
             $container->import('../../config/{services}_'.$this->environment.'.yaml');
         } elseif (is_file($path = \dirname(__DIR__).'/../config/services.php')) {
-            (require $path)($container->withPath($path), $this);
+            $container->import('../../config/services.php');
+            $container->import('../../config/{services}_'.$this->environment.'.php');
         }
     }
 

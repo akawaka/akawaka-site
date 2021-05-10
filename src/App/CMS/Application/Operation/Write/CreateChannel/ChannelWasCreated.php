@@ -4,24 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreateChannel;
 
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
+use Mono\Component\Core\Application\Operation\AbstractEvent;
 
-final class ChannelWasCreated implements BrowserNotificationInterface
+final class ChannelWasCreated extends AbstractEvent
 {
-    public function __construct(
-        private ChannelInterface $channel
-    ) {
-    }
-
-    public function getChannel(): ChannelInterface
-    {
-        return $this->channel;
-    }
-
-    public function asBrowserNotification(): BrowserContext
-    {
-        return new BrowserContext('channel.created', 'success');
-    }
 }

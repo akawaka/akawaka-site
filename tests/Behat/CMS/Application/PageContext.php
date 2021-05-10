@@ -6,20 +6,20 @@ namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
-use Black\Component\Channel\Application\Gateway\FindChannelByCode;
+use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
 use App\CMS\Application\Gateway\CreateChannel;
-use Black\Component\Channel\Domain\Entity\ChannelInterface;
-use Black\Component\Core\Application\Gateway\GatewayException;
-use Black\Component\Page\Application\Gateway\UnpublishPage;
-use Black\Component\Page\Application\Gateway\FindPageById;
-use Black\Component\Page\Application\Gateway\FindPageBySlug;
-use Black\Component\Page\Application\Gateway\FindPages;
-use Black\Component\Page\Application\Gateway\PublishPage;
-use Black\Component\Page\Application\Gateway\RemovePage;
-use Black\Component\Page\Application\Gateway\UpdatePage;
+use Mono\Component\Channel\Domain\Entity\ChannelInterface;
+use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Component\Page\Application\Gateway\UnpublishPage;
+use Mono\Component\Page\Application\Gateway\FindPageById;
+use Mono\Component\Page\Application\Gateway\FindPageBySlug;
+use Mono\Component\Page\Application\Gateway\FindPages;
+use Mono\Component\Page\Application\Gateway\PublishPage;
+use Mono\Component\Page\Application\Gateway\RemovePage;
+use Mono\Component\Page\Application\Gateway\UpdatePage;
 use App\CMS\Application\Gateway\CreatePage;
 use Behat\Behat\Context\Context;
-use Black\Component\Page\Domain\Enum\StatusEnum;
+use Mono\Component\Page\Domain\Enum\StatusEnum;
 use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
@@ -49,7 +49,6 @@ final class PageContext implements Context
     private RemovePage\Gateway $removePageGateway;
 
     private UpdatePage\Gateway $updatePageGateway;
-
 
     public function __construct(
         UnpublishPage\Gateway $unpublishPageGateway,
@@ -104,7 +103,7 @@ final class PageContext implements Context
         /** @var array $row */
         foreach ($table as $row) {
             $this->requests[] = CreatePage\Request::fromData(array_merge([
-                'channel' => $this->channel->getId()->getValue(),
+                'channels' => [$this->channel->getId()->getValue()],
             ], $row));
         }
     }

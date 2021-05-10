@@ -34,7 +34,7 @@ final class AdminPasswordWasReset implements BrowserNotificationInterface, Maile
             'admin_security.password_recovered',
             [
                 'username' => $this->passwordRecovery->getUser()->getUsername(),
-                'token' => $this->passwordRecovery->getToken()
+                'token' => $this->passwordRecovery->getToken(),
             ],
             new Address($this->passwordRecovery->getUser()->getEmail()->getValue()),
         );

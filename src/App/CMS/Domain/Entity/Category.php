@@ -9,7 +9,7 @@ use Mono\Component\Article\Domain\Entity\CategoryInterface;
 use Mono\Component\Article\Domain\Identifier\CategoryId;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 
-final class Category extends BaseCategory
+class Category extends BaseCategory
 {
     public static function create(
         CategoryId $id,

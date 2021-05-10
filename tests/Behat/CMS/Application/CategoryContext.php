@@ -7,13 +7,13 @@ namespace App\Tests\Behat\CMS\Application;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use App\CMS\Application\Gateway\CreateCategory;
-use Black\Component\Article\Application\Gateway\FindCategoryById;
-use Black\Component\Article\Application\Gateway\FindCategoryBySlug;
-use Black\Component\Article\Application\Gateway\FindCategories;
-use Black\Component\Article\Application\Gateway\RemoveCategory;
-use Black\Component\Article\Application\Gateway\UpdateCategory;
+use Mono\Component\Article\Application\Gateway\FindCategoryById;
+use Mono\Component\Article\Application\Gateway\FindCategoryBySlug;
+use Mono\Component\Article\Application\Gateway\FindCategories;
+use Mono\Component\Article\Application\Gateway\RemoveCategory;
+use Mono\Component\Article\Application\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
-use Black\Component\Core\Application\Gateway\GatewayException;
+use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class CategoryContext implements Context

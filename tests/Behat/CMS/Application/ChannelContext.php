@@ -6,17 +6,17 @@ namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
-use Black\Component\Channel\Application\Gateway\CloseChannel;
+use Mono\Component\Channel\Application\Gateway\CloseChannel;
 use App\CMS\Application\Gateway\CreateChannel;
-use Black\Component\Channel\Application\Gateway\FindChannelById;
-use Black\Component\Channel\Application\Gateway\FindChannelByCode;
-use Black\Component\Channel\Application\Gateway\FindChannels;
-use Black\Component\Channel\Application\Gateway\PublishChannel;
-use Black\Component\Channel\Application\Gateway\RemoveChannel;
-use Black\Component\Channel\Application\Gateway\UpdateChannel;
+use Mono\Component\Channel\Application\Gateway\FindChannelById;
+use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
+use Mono\Component\Channel\Application\Gateway\FindChannels;
+use Mono\Component\Channel\Application\Gateway\PublishChannel;
+use Mono\Component\Channel\Application\Gateway\RemoveChannel;
+use Mono\Component\Channel\Application\Gateway\UpdateChannel;
 use Behat\Behat\Context\Context;
-use Black\Component\Channel\Domain\Enum\StatusEnum;
-use Black\Component\Core\Application\Gateway\GatewayException;
+use Mono\Component\Channel\Domain\Enum\StatusEnum;
+use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class ChannelContext implements Context

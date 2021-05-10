@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Operation\Write\CreatePage;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Page\Domain\ValueObject\PageSlug;
 
 final class Command
@@ -32,8 +31,8 @@ final class Command
         return new PageSlug($slug);
     }
 
-    public function getChannels(): ArrayCollection
+    public function getChannels(): array
     {
-        return new ArrayCollection($this->channels);
+        return $this->channels;
     }
 }
