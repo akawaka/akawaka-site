@@ -10,6 +10,8 @@ use Mono\Component\Article\Domain\Identifier\CategoryId;
 use Mono\Component\Article\Domain\Repository\FindArticleById;
 use Mono\Component\Article\Domain\Repository\FindCategoryById;
 use Mono\Component\Article\Domain\Repository\UpdateArticle;
+use Mono\Component\Channel\Domain\Identifier\ChannelId;
+use Mono\Component\Channel\Domain\Repository\FindChannelById;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -20,6 +22,7 @@ final class Handler implements MessageHandlerInterface
     public function __construct(
         private FindArticleById $reader,
         private FindCategoryById $categoryReader,
+        private FindChannelById $channelReader,
         private UpdateArticle $writer,
         private MessageBusInterface $eventBus
     ) {
@@ -28,8 +31,13 @@ final class Handler implements MessageHandlerInterface
     public function __invoke(Command $command): ArticleInterface
     {
         $article = $this->reader->find($command->getArticleId());
-        $categories = new ArrayCollection();
 
+        $channels = new ArrayCollection();
+        foreach ($command->getChannels() as $channel) {
+            $channels->add($this->channelReader->find(new ChannelId($channel)));
+        }
+
+        $categories = new ArrayCollection();
         foreach ($command->getCategories() as $category) {
             $categories->add($this->categoryReader->find(new CategoryId($category)));
         }
@@ -39,6 +47,7 @@ final class Handler implements MessageHandlerInterface
             $command->getSlug(),
             $command->getContent(),
             $categories,
+            $channels,
         );
 
         $this->writer->update($article);

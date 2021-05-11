@@ -6,8 +6,6 @@ namespace Mono\Component\Page\Application\Gateway\PublishPage;
 
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use Mono\Component\Page\Application\Operation\Read\FindById\Query;
 use Mono\Component\Page\Application\Operation\Write\Publish\Command;
 
 final class Gateway

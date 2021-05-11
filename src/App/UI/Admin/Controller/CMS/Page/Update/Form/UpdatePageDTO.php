@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Page\Update\Form;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 final class UpdatePageDTO
 {
     public function __construct(
         private string $name,
         private string $slug,
-        private ?string $content
+        private ?string $content,
+        private ArrayCollection $channels,
     ) {
     }
 
@@ -28,12 +31,18 @@ final class UpdatePageDTO
         return $this->content;
     }
 
+    public function getChannels(): array
+    {
+        return $this->channels->toArray();
+    }
+
     public function data(): array
     {
         return [
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
             'content' => $this->getContent(),
+            'channels' => $this->getChannels(),
         ];
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use App\CMS\Application\Gateway\CreateCategory;
 use Mono\Component\Article\Application\Gateway\FindCategoryById;
@@ -29,7 +28,8 @@ final class CategoryContext implements Context
         private FindCategories\Gateway $findCategoriesGateway,
         private RemoveCategory\Gateway $removeCategoryGateway,
         private UpdateCategory\Gateway $updateCategoryGateway,
-    ) { }
+    ) {
+    }
 
     /**
      * @Given I want to create a category:
@@ -38,7 +38,7 @@ final class CategoryContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-           $this->requests[] = CreateCategory\Request::fromData($row);
+            $this->requests[] = CreateCategory\Request::fromData($row);
         }
     }
 
@@ -166,7 +166,7 @@ final class CategoryContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(get_class($exception) === GatewayException::class);
+            Assert::true(GatewayException::class === get_class($exception));
         }
     }
 }

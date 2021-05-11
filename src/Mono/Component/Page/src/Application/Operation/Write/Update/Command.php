@@ -13,7 +13,8 @@ final class Command
         private string $identifier,
         private string $name,
         private string $slug,
-        private ?string $content
+        private ?string $content,
+        private array $channels,
     ) {
     }
 
@@ -35,5 +36,10 @@ final class Command
     public function getContent(): ?string
     {
         return $this->content;
+    }
+
+    public function getChannels(): array
+    {
+        return $this->channels;
     }
 }

@@ -6,8 +6,6 @@ namespace Mono\Component\Page\Application\Gateway\UpdatePage;
 
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use Mono\Component\Page\Application\Operation\Read\FindById\Query;
 use Mono\Component\Page\Application\Operation\Write\Update\Command;
 
 final class Gateway
@@ -28,6 +26,7 @@ final class Gateway
                 $request->getName(),
                 $request->getSlug(),
                 $request->getContent(),
+                $request->getChannels(),
             )));
 
             $this->instrumentation->success($response);

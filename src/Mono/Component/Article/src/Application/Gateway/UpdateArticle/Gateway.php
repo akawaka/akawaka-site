@@ -27,6 +27,7 @@ final class Gateway
                 $request->getSlug(),
                 $request->getContent(),
                 $request->getCategories(),
+                $request->getChannels(),
             )));
 
             $this->instrumentation->success($response);

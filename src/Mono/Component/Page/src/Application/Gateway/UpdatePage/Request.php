@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Application\Gateway\UpdatePage;
 
-use JetBrains\PhpStorm\ArrayShape;
 use Mono\Component\Core\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
@@ -16,7 +15,9 @@ final class Request implements GatewayRequest
 
     private string $slug;
 
-    private ?string $content;
+    private array $channels;
+
+    private ?string $content = null;
 
     public static function fromData(array $data = []): self
     {
@@ -25,6 +26,7 @@ final class Request implements GatewayRequest
             'identifier',
             'name',
             'slug',
+            'channels',
         ];
 
         $optionalFields = [
@@ -65,7 +67,11 @@ final class Request implements GatewayRequest
         return $this->content;
     }
 
-    #[ArrayShape(['identifier' => 'string', 'name' => 'string', 'slug' => 'string', 'content' => 'null|string'])]
+    public function getChannels(): array
+    {
+        return $this->channels;
+    }
+
     public function data(): array
     {
         return [
@@ -73,6 +79,7 @@ final class Request implements GatewayRequest
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
             'content' => $this->getContent(),
+            'channels' => $this->getChannels(),
         ];
     }
 }

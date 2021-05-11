@@ -13,6 +13,7 @@ final class UpdateArticleDTO
         private string $slug,
         private ?string $content,
         private ArrayCollection $categories,
+        private ArrayCollection $channels,
     ) {
     }
 
@@ -31,6 +32,11 @@ final class UpdateArticleDTO
         return $this->content;
     }
 
+    public function getChannels(): array
+    {
+        return $this->channels->toArray();
+    }
+
     public function getCategories(): array
     {
         return $this->categories->toArray();
@@ -42,6 +48,7 @@ final class UpdateArticleDTO
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
             'content' => $this->getContent(),
+            'channels' => $this->getChannels(),
             'categories' => $this->getCategories(),
         ];
     }

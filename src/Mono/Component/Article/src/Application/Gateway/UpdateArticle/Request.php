@@ -19,6 +19,8 @@ final class Request implements GatewayRequest
 
     private array $categories;
 
+    private array $channels = [];
+
     public static function fromData(array $data = []): self
     {
         $dto = new self();
@@ -27,6 +29,7 @@ final class Request implements GatewayRequest
             'name',
             'slug',
             'categories',
+            'channels',
         ];
 
         $optionalFields = [
@@ -72,6 +75,11 @@ final class Request implements GatewayRequest
         return $this->categories;
     }
 
+    public function getChannels(): array
+    {
+        return $this->channels;
+    }
+
     public function data(): array
     {
         return [
@@ -80,6 +88,7 @@ final class Request implements GatewayRequest
             'slug' => $this->getSlug(),
             'content' => $this->getContent(),
             'categories' => $this->getCategories(),
+            'channels' => $this->getChannels(),
         ];
     }
 }

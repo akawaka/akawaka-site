@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Domain\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Page\Domain\Enum\StatusEnum;
 use Mono\Component\Page\Domain\Identifier\PageId;
 use Mono\Component\Page\Domain\ValueObject\PageSlug;
@@ -51,11 +52,13 @@ abstract class Page implements PageInterface
     public function update(
         string $name,
         PageSlug $slug,
+        ArrayCollection $channels,
         ?string $content,
     ) {
         $this->name = $name;
         $this->slug = $slug->getValue();
         $this->content = $content;
+        $this->channels = $channels;
         $this->lastUpdate = new \Safe\DateTimeImmutable();
     }
 

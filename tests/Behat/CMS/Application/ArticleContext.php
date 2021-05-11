@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use App\CMS\Application\Gateway\CreateArticle;
 use App\CMS\Application\Gateway\CreateChannel;
@@ -17,6 +16,7 @@ use Mono\Component\Article\Application\Gateway\RemoveArticle;
 use Mono\Component\Article\Application\Gateway\UpdateArticle;
 use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
 use Behat\Behat\Context\Context;
+use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -41,10 +41,14 @@ final class ArticleContext implements Context
         private FindArticles\Gateway $findArticlesGateway,
         private RemoveArticle\Gateway $removeArticleGateway,
         private UpdateArticle\Gateway $updateArticleGateway,
-    ) { }
+    ) {
+    }
 
     /**
      * @Given I have a channel named :channel with a category named :category
+     *
+     * @param mixed $channel
+     * @param mixed $category
      */
     public function iHaveAChannelNamedWithCategoryNamed($channel, $category)
     {
@@ -86,7 +90,7 @@ final class ArticleContext implements Context
                 ]
             );
 
-           $this->requests[] = CreateArticle\Request::fromData($data);
+            $this->requests[] = CreateArticle\Request::fromData($data);
         }
     }
 
@@ -176,6 +180,9 @@ final class ArticleContext implements Context
             $data = array_merge([
                 'identifier' => $this->responses[0]->getArticle()->getId()->getValue(),
                 'categories' => [$this->category['identifier']],
+                'channels' => $this->responses[0]->getArticle()->getChannels()->map(function (ChannelInterface $channel) {
+                    return $channel->getId()->getValue();
+                })->toArray(),
             ], $row);
 
             $this->responses[] = ($this->updateArticleGateway)(UpdateArticle\Request::fromData($data));
@@ -218,7 +225,7 @@ final class ArticleContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(get_class($exception) === GatewayException::class);
+            Assert::true(GatewayException::class === get_class($exception));
         }
     }
 }

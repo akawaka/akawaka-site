@@ -2,47 +2,46 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Admin\Common\Form\Type;
+namespace App\UI\Admin\Form\Type;
 
-use App\UI\Admin\Common\Form\Transformer\ChannelsToArrayTransformer;
-use Mono\Component\Channel\Application\Gateway\FindChannels;
+use App\UI\Admin\Form\Transformer\CategoriesToArrayTransformer;
+use Mono\Component\Article\Application\Gateway\FindCategories;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class ChannelChoiceType extends AbstractType
+final class CategoryChoiceType extends AbstractType
 {
     public function __construct(
-        private FindChannels\Gateway $findChannelsGateway,
+        private FindCategories\Gateway $findCategoriesGateway,
     ) {
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['multiple']) {
-            $builder->addModelTransformer(new ChannelsToArrayTransformer());
+            $builder->addModelTransformer(new CategoriesToArrayTransformer());
         }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => function (Options $options) {
+            'choice_loader' => ChoiceList::lazy($this, function () {
                 return $this->getChoices();
-            },
-
+            }),
             'choice_translation_domain' => false,
         ]);
     }
 
-    public function getChoices(): array
+    public function getChoices()
     {
         $choices = [];
 
-        foreach (($this->findChannelsGateway)(FindChannels\Request::fromData([]))->data() as $channel) {
-            $choices[$channel['name']] = $channel['identifier'];
+        foreach (($this->findCategoriesGateway)(FindCategories\Request::fromData([]))->data() as $category) {
+            $choices[$category['name']] = $category['identifier'];
         }
 
         return $choices;

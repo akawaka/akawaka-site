@@ -26,7 +26,8 @@ final class FlashNotifier
         );
 
         $notification = (new Notification($message, ['browser']))
-            ->importance($level);
+            ->importance($level)
+        ;
 
         $this->notifier->send($notification, new NoRecipient());
     }

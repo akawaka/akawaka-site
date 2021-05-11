@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
 use App\CMS\Application\Gateway\CreateChannel;
@@ -83,12 +82,12 @@ final class PageContext implements Context
     {
         try {
             $channel = ($this->findChannelByCodeGateway)(FindChannelByCode\Request::fromData([
-                'code' => $channel
+                'code' => $channel,
             ]));
         } catch (GatewayException $exception) {
             $channel = ($this->createChannelGateway)(CreateChannel\Request::fromData([
-                'code' => "default",
-                'name' => "default"
+                'code' => 'default',
+                'name' => 'default',
             ]));
         }
 
@@ -214,7 +213,12 @@ final class PageContext implements Context
     public function iUpdateMyPageWith(TableNode $table)
     {
         foreach ($table as $row) {
-            $data = array_merge(['identifier' => $this->responses[0]->getPage()->getId()->getValue()], $row);
+            $data = array_merge([
+                'identifier' => $this->responses[0]->getPage()->getId()->getValue(),
+                'channels' => $this->responses[0]->getPage()->getChannels()->map(function (ChannelInterface $channel) {
+                    return $channel->getId()->getValue();
+                })->toArray(),
+            ], $row);
             $this->responses[] = ($this->updatePageGateway)(UpdatePage\Request::fromData($data));
         }
 
@@ -256,7 +260,7 @@ final class PageContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true($Page->data()['status'] === StatusEnum::PUBLISHED);
+        Assert::true(StatusEnum::PUBLISHED === $Page->data()['status']);
     }
 
     /**
@@ -278,7 +282,7 @@ final class PageContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true($Page->data()['status'] === StatusEnum::DRAFT);
+        Assert::true(StatusEnum::DRAFT === $Page->data()['status']);
     }
 
     /**
@@ -301,7 +305,7 @@ final class PageContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(get_class($exception) === GatewayException::class);
+            Assert::true(GatewayException::class === get_class($exception));
         }
     }
 }

@@ -63,11 +63,13 @@ abstract class Article implements ArticleInterface
         Slug $slug,
         ?string $content,
         Collection $categories,
+        Collection $channels,
     ) {
         $this->name = $name;
         $this->slug = $slug->getValue();
         $this->content = $content;
         $this->categories = $categories;
+        $this->channels = $channels;
         $this->lastUpdate = new \Safe\DateTimeImmutable();
     }
 

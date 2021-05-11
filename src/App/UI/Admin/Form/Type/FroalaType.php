@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Admin\Common\Form\Type;
+namespace App\UI\Admin\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;

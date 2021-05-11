@@ -124,6 +124,8 @@ admin:
                             label: Catégories
                         content:
                             label: Contenu
+                        channels:
+                            label: Canaux
             page:
                 index:
                     title: Gestion des pages
@@ -162,6 +164,8 @@ admin:
                             label: Titre (SEO)
                         content:
                             label: Contenu
+                        channel:
+                            label: Canaux
             category:
                 index:
                     title: Gestion des catégories

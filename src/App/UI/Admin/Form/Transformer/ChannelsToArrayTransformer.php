@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Admin\Common\Form\Transformer;
+namespace App\UI\Admin\Form\Transformer;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

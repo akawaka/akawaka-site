@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use Mono\Component\Channel\Application\Gateway\CloseChannel;
 use App\CMS\Application\Gateway\CreateChannel;
@@ -68,7 +67,7 @@ final class ChannelContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-           $this->requests[] = CreateChannel\Request::fromData($row);
+            $this->requests[] = CreateChannel\Request::fromData($row);
         }
     }
 
@@ -198,7 +197,7 @@ final class ChannelContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true($channel->data()['status'] === StatusEnum::PUBLISHED);
+        Assert::true(StatusEnum::PUBLISHED === $channel->data()['status']);
     }
 
     /**
@@ -220,7 +219,7 @@ final class ChannelContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true($channel->data()['status'] === StatusEnum::CLOSED);
+        Assert::true(StatusEnum::CLOSED === $channel->data()['status']);
     }
 
     /**
@@ -243,7 +242,7 @@ final class ChannelContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(get_class($exception) === GatewayException::class);
+            Assert::true(GatewayException::class === get_class($exception));
         }
     }
 }

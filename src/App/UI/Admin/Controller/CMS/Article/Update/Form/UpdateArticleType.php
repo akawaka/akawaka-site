@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Article\Update\Form;
 
-use App\UI\Admin\Common\Form\Type\CategoryChoiceType;
-use App\UI\Admin\Common\Form\Type\FroalaType;
+use App\UI\Admin\Form\Type\CategoryChoiceType;
+use App\UI\Admin\Form\Type\ChannelChoiceType;
+use App\UI\Admin\Form\Type\FroalaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,6 +36,11 @@ final class UpdateArticleType extends AbstractType
             ])
             ->add('categories', CategoryChoiceType::class, [
                 'label' => $this->translate('categories.label'),
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('channels', ChannelChoiceType::class, [
+                'label' => $this->translate('channels.label'),
                 'multiple' => true,
                 'expanded' => true,
             ])
