@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Category\Delete;
 
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Article\Application\Gateway\RemoveCategory;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -18,7 +19,8 @@ final class Action
     public function __construct(
         private RemoveCategory\Gateway $removeCategoryGateway,
         private UrlGeneratorInterface $urlGenerator,
-        private RedirectResponder $redirectResponder
+        private RedirectResponder $redirectResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -36,6 +38,8 @@ final class Action
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('category.removed.success', 'success');
 
         return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CATEGORIES_INDEX['name']));
     }

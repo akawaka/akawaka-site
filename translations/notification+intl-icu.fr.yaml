@@ -3,34 +3,57 @@ flash:
         success: Succès
 
         admin_user:
-            registered: L'administrateur a été créé
-            authenticated: Bienvenue !
-            removed: Cet administrateur a bien été supprimé
-            updated: L'administrateur a été mis à jour
-            updated_password: Le mot de passe a bien été changé
+            registered:
+                success: L'administrateur a été créé
+            authenticated:
+                success: Bienvenue !
+            removed:
+                success: Cet administrateur a bien été supprimé
+            updated:
+                success: L'administrateur a été mis à jour
+            password_updated:
+                success: Le mot de passe a bien été changé
 
         article:
-            created: L'article a été créé
-            published: L'article a été publié
-            removed: L'article a été supprimé
-            unpublished: L'article a été dépublié
-            updated: L'article a été mis à jour
+            created:
+                success: L'article a été créé
+            published:
+                success: L'article a été publié
+            removed:
+                success: L'article a été supprimé
+            unpublished:
+                success: L'article a été dépublié
+            updated:
+                success: L'article a été mis à jour
 
         category:
-            created: La catégorie a été créée
-            removed: La catégorie a été suprimée
-            updated: La catégorie a été mise à jour
+            created:
+                success: La catégorie a été créée
+            removed:
+                success: La catégorie a été suprimée
+            updated:
+                success: La catégorie a été mise à jour
 
         channel:
-            created: Le canal a été créé
-            closed: La canal a été fermé
-            published: Le canal a été publié
-            removed: Le canal a été supprimé
-            updated: Le canal a été mis à jour
+            created:
+                success: Le canal a été créé
+            closed:
+                success: La canal a été fermé
+            published:
+                success: Le canal a été publié
+            removed:
+                success: Le canal a été supprimé
+            updated:
+                success: Le canal a été mis à jour
 
         page:
-            created: La page a été créée
-            unpublished: La page a été dépubliée
-            published: La page a été publiée
-            removed: La page a été supprimée
-            updated: La page a été mise à jour
+            created:
+                success: La page a été créée
+            unpublished:
+                success: La page a été dépubliée
+            published:
+                success: La page a été publiée
+            removed:
+                success: La page a été supprimée
+            updated:
+                success: La page a été mise à jour

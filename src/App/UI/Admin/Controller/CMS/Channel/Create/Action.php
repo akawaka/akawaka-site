@@ -8,6 +8,7 @@ use App\CMS\Application\Gateway\CreateChannel;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelDTO;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelType;
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -27,6 +28,7 @@ final class Action
         private FormFactoryInterface $formFactory,
         private RedirectResponder $redirectResponder,
         private HtmlResponder $htmlResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -61,11 +63,15 @@ final class Action
         $data = $form->getData();
 
         try {
-            return ($this->createChannelGateway)(CreateChannel\Request::fromData(
+            $response = ($this->createChannelGateway)(CreateChannel\Request::fromData(
                 $data->data()
             ));
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('channel.created.success', 'success');
+
+        return $response;
     }
 }

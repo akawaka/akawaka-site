@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Page\Publish;
 
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Page\Application\Gateway\PublishPage;
@@ -19,6 +20,7 @@ final class Action
         private PublishPage\Gateway $publishPageGateway,
         private UrlGeneratorInterface $urlGenerator,
         private RedirectResponder $redirectResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -36,6 +38,8 @@ final class Action
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('page.published.success', 'success');
 
         return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_PAGES_INDEX['name']));
     }

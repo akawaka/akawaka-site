@@ -8,6 +8,7 @@ use App\CMS\Application\Gateway\CreatePage;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageType;
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -27,6 +28,7 @@ final class Action
         private FormFactoryInterface $formFactory,
         private RedirectResponder $redirectResponder,
         private HtmlResponder $htmlResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -61,11 +63,15 @@ final class Action
         $data = $form->getData();
 
         try {
-            return ($this->createPageGateway)(CreatePage\Request::fromData(
+            $response = ($this->createPageGateway)(CreatePage\Request::fromData(
                 $data->toArray()
             ));
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('page.created.success', 'success');
+
+        return $response;
     }
 }

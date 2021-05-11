@@ -7,6 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Channel\Update;
 use App\UI\Admin\Controller\CMS\Channel\Update\Form\UpdateChannelDTO;
 use App\UI\Admin\Controller\CMS\Channel\Update\Form\UpdateChannelType;
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Channel\Application\Gateway\FindChannelById;
@@ -30,6 +31,7 @@ final class Action
         private FormFactoryInterface $formFactory,
         private RedirectResponder $redirectResponder,
         private HtmlResponder $htmlResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -83,12 +85,16 @@ final class Action
         $data = $form->getData();
 
         try {
-            return ($this->updateChannelGateway)(UpdateChannel\Request::fromData(array_merge(
+            $response = ($this->updateChannelGateway)(UpdateChannel\Request::fromData(array_merge(
                 $channel->data(),
                 $data->data()
             )));
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('channel.updated.success', 'success');
+
+        return $response;
     }
 }

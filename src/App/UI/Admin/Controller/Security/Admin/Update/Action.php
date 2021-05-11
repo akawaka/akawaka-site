@@ -9,6 +9,7 @@ use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdateAdminDTO;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdateAdminType;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordDTO;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordType;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\AdminSecurity\Application\Gateway\FindUserById;
@@ -34,6 +35,7 @@ final class Action
         private FormFactoryInterface $formFactory,
         private RedirectResponder $redirectResponder,
         private HtmlResponder $htmlResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -109,13 +111,17 @@ final class Action
         $data = $form->getData();
 
         try {
-            return ($this->updateUserGateway)(UpdateUser\Request::fromData(array_merge(
+            $response = ($this->updateUserGateway)(UpdateUser\Request::fromData(array_merge(
                 $admin->data(),
                 $data->data()
             )));
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('admin_user.updated.success', 'success');
+
+        return $response;
     }
 
     private function processPassword(FormInterface $form, FindUserById\Response $admin): UpdatePassword\Response
@@ -124,12 +130,16 @@ final class Action
         $data = $form->getData();
 
         try {
-            return ($this->updatePasswordGateway)(UpdatePassword\Request::fromData(array_merge(
+            $response = ($this->updatePasswordGateway)(UpdatePassword\Request::fromData(array_merge(
                 $admin->data(),
                 ['password' => $data->getNewPassword()],
             )));
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('admin_user.password_updated.success', 'success');
+
+        return $response;
     }
 }

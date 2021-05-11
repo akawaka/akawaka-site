@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Delete;
 
 use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Article\Application\Gateway\RemoveArticle;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -19,6 +20,7 @@ final class Action
         private RemoveArticle\Gateway $removeArticleGateway,
         private UrlGeneratorInterface $urlGenerator,
         private RedirectResponder $redirectResponder,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -36,6 +38,8 @@ final class Action
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }
+
+        ($this->flashNotifier)('article.removed.success', 'success');
 
         return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_INDEX['name']));
     }
