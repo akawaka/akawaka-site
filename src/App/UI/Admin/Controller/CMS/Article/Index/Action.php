@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Article\Index;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Component\Article\Application\Gateway\FindArticles;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -21,8 +21,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_CMS_ARTICLES_INDEX['path'],
-        name: RouteName::ADMIN_CMS_ARTICLES_INDEX['name'],
+        path: Routes::ADMIN_CMS_ARTICLES_INDEX['path'],
+        name: Routes::ADMIN_CMS_ARTICLES_INDEX['name'],
         methods: ['GET']
     )]
     public function __invoke(): Response

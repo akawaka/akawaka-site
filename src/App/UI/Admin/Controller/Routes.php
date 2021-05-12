@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller;
 
-final class RouteName
+final class Routes
 {
     /**
      * Index.

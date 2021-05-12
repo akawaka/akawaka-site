@@ -8,7 +8,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('twig', [
         'default_path' => '%kernel.project_dir%/templates',
         'form_themes' => [
-            'front/utilities/form/tailwind_layout.html.twig'
+            'Front/Layout/Form/tailwind_layout.html.twig'
         ]
     ]);
 };

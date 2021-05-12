@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\Security\Admin\Create;
 
 use App\Security\Application\AdminSecurity\Gateway\Register;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterDTO;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterType;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
@@ -33,8 +33,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_ADMINS_CREATE['path'],
-        name: RouteName::ADMIN_SECURITY_ADMINS_CREATE['name'],
+        path: Routes::ADMIN_SECURITY_ADMINS_CREATE['path'],
+        name: Routes::ADMIN_SECURITY_ADMINS_CREATE['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(Request $request): Response
@@ -46,7 +46,7 @@ final class Action
             $admin = $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_UPDATE['name'], [
+                $this->urlGenerator->generate(Routes::ADMIN_SECURITY_ADMINS_UPDATE['name'], [
                     'identifier' => $admin->data()['identifier'],
                 ])
             );

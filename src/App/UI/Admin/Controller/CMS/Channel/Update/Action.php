@@ -6,7 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Channel\Update;
 
 use App\UI\Admin\Controller\CMS\Channel\Update\Form\UpdateChannelDTO;
 use App\UI\Admin\Controller\CMS\Channel\Update\Form\UpdateChannelType;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
@@ -36,8 +36,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_CMS_CHANNELS_UPDATE['path'],
-        name: RouteName::ADMIN_CMS_CHANNELS_UPDATE['name'],
+        path: Routes::ADMIN_CMS_CHANNELS_UPDATE['path'],
+        name: Routes::ADMIN_CMS_CHANNELS_UPDATE['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(string $identifier, Request $request): Response
@@ -45,7 +45,7 @@ final class Action
         try {
             $channel = $this->find($identifier);
         } catch (HttpExceptionInterface $exception) {
-            return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CHANNELS_INDEX['name']));
+            return ($this->redirectResponder)($this->urlGenerator->generate(Routes::ADMIN_CMS_CHANNELS_INDEX['name']));
         }
 
         $form = $this->formFactory->create(UpdateChannelType::class);
@@ -56,7 +56,7 @@ final class Action
             $this->process($form, $channel);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_CMS_CHANNELS_UPDATE['name'], [
+                $this->urlGenerator->generate(Routes::ADMIN_CMS_CHANNELS_UPDATE['name'], [
                     'identifier' => $identifier,
                 ])
             );

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Login;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +25,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_LOGIN['path'],
-        name: RouteName::ADMIN_LOGIN['name'],
+        path: Routes::ADMIN_LOGIN['path'],
+        name: Routes::ADMIN_LOGIN['name'],
         methods: ['GET', 'POST']
     )
     ]
@@ -34,7 +34,7 @@ final class Action
     {
         if (true === $this->isAuthenticated()) {
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_INDEX['name'])
+                $this->urlGenerator->generate(Routes::ADMIN_INDEX['name'])
             );
         }
 

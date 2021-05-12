@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Create;
 use App\CMS\Application\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
@@ -33,8 +33,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_CMS_ARTICLES_CREATE['path'],
-        name: RouteName::ADMIN_CMS_ARTICLES_CREATE['name'],
+        path: Routes::ADMIN_CMS_ARTICLES_CREATE['path'],
+        name: Routes::ADMIN_CMS_ARTICLES_CREATE['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(Request $request): Response
@@ -46,7 +46,7 @@ final class Action
             $article = $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_CMS_ARTICLES_UPDATE['name'], [
+                $this->urlGenerator->generate(Routes::ADMIN_CMS_ARTICLES_UPDATE['name'], [
                     'identifier' => $article->data()['identifier'],
                 ])
             );

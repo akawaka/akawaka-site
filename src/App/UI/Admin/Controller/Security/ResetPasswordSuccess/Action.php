@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\ResetPasswordSuccess;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +18,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['path'],
-        name: RouteName::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['name'],
+        path: Routes::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['path'],
+        name: Routes::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(Request $request): Response

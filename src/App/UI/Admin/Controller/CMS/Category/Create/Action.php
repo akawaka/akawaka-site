@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Category\Create;
 use App\CMS\Application\Gateway\CreateCategory;
 use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryDTO;
 use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryType;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
@@ -33,8 +33,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_CMS_CATEGORIES_CREATE['path'],
-        name: RouteName::ADMIN_CMS_CATEGORIES_CREATE['name'],
+        path: Routes::ADMIN_CMS_CATEGORIES_CREATE['path'],
+        name: Routes::ADMIN_CMS_CATEGORIES_CREATE['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(Request $request): Response
@@ -46,7 +46,7 @@ final class Action
             $category = $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_CMS_CATEGORIES_UPDATE['name'], [
+                $this->urlGenerator->generate(Routes::ADMIN_CMS_CATEGORIES_UPDATE['name'], [
                     'identifier' => $category->data()['identifier'],
                 ])
             );

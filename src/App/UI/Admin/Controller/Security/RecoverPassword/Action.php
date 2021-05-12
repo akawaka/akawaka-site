@@ -6,7 +6,7 @@ namespace App\UI\Admin\Controller\Security\RecoverPassword;
 
 use Mono\Component\AdminSecurity\Application\Gateway\FindPasswordRecoveryByToken;
 use Mono\Component\AdminSecurity\Application\Gateway\UpdatePassword;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Component\AdminSecurity\Domain\PasswordGenerator;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -26,8 +26,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_PASSWORD_RECOVER['path'],
-        name: RouteName::ADMIN_SECURITY_PASSWORD_RECOVER['name'],
+        path: Routes::ADMIN_SECURITY_PASSWORD_RECOVER['path'],
+        name: Routes::ADMIN_SECURITY_PASSWORD_RECOVER['name'],
         methods: ['GET']
     )]
     public function __invoke(string $token, Request $request): Response

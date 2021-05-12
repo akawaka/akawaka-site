@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Admin\Index;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Component\AdminSecurity\Application\Gateway\FindUsers;
 use Mono\Component\Core\Application\Gateway\GatewayException;
@@ -21,8 +21,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_ADMINS_INDEX['path'],
-        name: RouteName::ADMIN_SECURITY_ADMINS_INDEX['name'],
+        path: Routes::ADMIN_SECURITY_ADMINS_INDEX['path'],
+        name: Routes::ADMIN_SECURITY_ADMINS_INDEX['name'],
         methods: ['GET']
     )]
     public function __invoke(): Response

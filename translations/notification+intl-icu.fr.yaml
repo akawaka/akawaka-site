@@ -57,3 +57,7 @@ flash:
                 success: La page a été supprimée
             updated:
                 success: La page a été mise à jour
+
+    front:
+        contact:
+            success: Votre message nous a bien été envoyé

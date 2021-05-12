@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Index;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,11 +17,10 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_INDEX['path'],
-        name: RouteName::ADMIN_INDEX['name'],
+        path: Routes::ADMIN_INDEX['path'],
+        name: Routes::ADMIN_INDEX['name'],
         methods: ['GET']
-    )
-    ]
+    )]
     public function __invoke(): Response
     {
         return ($this->htmlResponder)('Admin/index');

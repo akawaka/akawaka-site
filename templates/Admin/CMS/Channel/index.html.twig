@@ -21,7 +21,7 @@
                             'title': "admin.cms.ui.channel.index.title",
                             'action': {
                                 'name': "admin.cms.ui.channel.index.actions.create",
-                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CHANNELS_CREATE')['name'])
+                                'link': url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_CREATE')['name'])
                             }
                         } %}
 
@@ -56,8 +56,8 @@
                                             {{ result.status }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CHANNELS_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_CMS_CHANNELS_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                         </td>
                                     </tr>
                                 {% else %}

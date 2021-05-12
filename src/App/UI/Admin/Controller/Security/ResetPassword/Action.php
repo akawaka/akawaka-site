@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\Security\ResetPassword;
 
 use App\Security\Application\AdminSecurity\Gateway\ResetPassword;
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordDTO;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordType;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
@@ -31,8 +31,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_PASSWORD_RESET['path'],
-        name: RouteName::ADMIN_SECURITY_PASSWORD_RESET['name'],
+        path: Routes::ADMIN_SECURITY_PASSWORD_RESET['path'],
+        name: Routes::ADMIN_SECURITY_PASSWORD_RESET['name'],
         methods: ['GET', 'POST']
     )]
     public function __invoke(Request $request): Response
@@ -44,7 +44,7 @@ final class Action
             $this->process($form);
 
             return ($this->redirectResponder)(
-                $this->urlGenerator->generate(RouteName::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['name'])
+                $this->urlGenerator->generate(Routes::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['name'])
             );
         }
 

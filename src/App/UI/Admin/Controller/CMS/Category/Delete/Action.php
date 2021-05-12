@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Category\Delete;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Article\Application\Gateway\RemoveCategory;
@@ -25,8 +25,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_CMS_CATEGORIES_DELETE['path'],
-        name: RouteName::ADMIN_CMS_CATEGORIES_DELETE['name'],
+        path: Routes::ADMIN_CMS_CATEGORIES_DELETE['path'],
+        name: Routes::ADMIN_CMS_CATEGORIES_DELETE['name'],
         methods: ['GET']
     )]
     public function __invoke(string $identifier): Response
@@ -41,6 +41,6 @@ final class Action
 
         ($this->flashNotifier)('category.removed.success', 'success');
 
-        return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_CMS_CATEGORIES_INDEX['name']));
+        return ($this->redirectResponder)($this->urlGenerator->generate(Routes::ADMIN_CMS_CATEGORIES_INDEX['name']));
     }
 }

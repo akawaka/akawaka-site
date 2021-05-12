@@ -25,7 +25,7 @@
                             'title': "admin.security.ui.admin.index.title",
                             'action': {
                                 'name': "admin.security.ui.admin.index.actions.create",
-                                'link': url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_CREATE')['name'])
+                                'link': url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_SECURITY_ADMINS_CREATE')['name'])
                             }
                         } %}
 
@@ -55,12 +55,12 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a
-                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_UPDATE')['name'], {'identifier': result.identifier }) }}"
+                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_SECURITY_ADMINS_UPDATE')['name'], {'identifier': result.identifier }) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">
                                                 {{ 'admin.security.ui.admin.index.table.actions.edit'|trans }}
                                             </a>
                                             <a
-                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\RouteName::ADMIN_SECURITY_ADMINS_DELETE')['name'], {'identifier': result.identifier }) }}"
+                                                href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_SECURITY_ADMINS_DELETE')['name'], {'identifier': result.identifier }) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">
                                                 {{ 'admin.security.ui.admin.index.table.actions.delete'|trans }}
                                             </a>

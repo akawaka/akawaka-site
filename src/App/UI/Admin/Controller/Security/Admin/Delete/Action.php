@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Admin\Delete;
 
-use App\UI\Admin\Controller\RouteName;
+use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\AdminSecurity\Application\Gateway\RemoveUser;
@@ -25,8 +25,8 @@ final class Action
     }
 
     #[Route(
-        path: RouteName::ADMIN_SECURITY_ADMINS_DELETE['path'],
-        name: RouteName::ADMIN_SECURITY_ADMINS_DELETE['name'],
+        path: Routes::ADMIN_SECURITY_ADMINS_DELETE['path'],
+        name: Routes::ADMIN_SECURITY_ADMINS_DELETE['name'],
         methods: ['GET']
     )]
     public function __invoke(string $identifier): Response
@@ -41,6 +41,6 @@ final class Action
 
         ($this->flashNotifier)('admin_user.removed.success', 'success');
 
-        return ($this->redirectResponder)($this->urlGenerator->generate(RouteName::ADMIN_SECURITY_ADMINS_INDEX['name']));
+        return ($this->redirectResponder)($this->urlGenerator->generate(Routes::ADMIN_SECURITY_ADMINS_INDEX['name']));
     }
 }
