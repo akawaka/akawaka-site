@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Category\Create;
 
-use App\CMS\Application\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\CMS\Application\Gateway\CreateCategory;
 use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryDTO;
 use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryType;
 use App\UI\Admin\Controller\Routes;

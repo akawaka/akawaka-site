@@ -10,18 +10,4 @@ return static function (ContainerConfigurator $configurator) {
         ->autowire()
         ->autoconfigure()
     ;
-
-    $services->load('Mono\\Component\\AdminSecurity\\', '../../../Component/AdminSecurity/src/*');
-    $services->load('Mono\\Component\\AdminSecurity\\Tests\\Behat\\', '../../../Component/AdminSecurity/tests/Behat/*');
-
-    $services->load('Mono\\Component\\Article\\', '../../../Component/Article/src/*');
-    $services->load('Mono\\Component\\Article\\Tests\\Behat\\', '../../../Component/Article/tests/Behat/*');
-
-    $services->load('Mono\\Component\\Channel\\', '../../../Component/Channel/src/*');
-    $services->load('Mono\\Component\\Channel\\Tests\\Behat\\', '../../../Component/Channel/tests/Behat/*');
-
-    $services->load('Mono\\Component\\Core\\', '../../../Component/Core/src/*');
-
-    $services->load('Mono\\Component\\Page\\', '../../../Component/Page/src/*');
-    $services->load('Mono\\Component\\Page\\Tests\\Behat\\', '../../../Component/Page/tests/Behat/*');
 };

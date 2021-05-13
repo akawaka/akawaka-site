@@ -14,5 +14,6 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Mono\Bundle\CoreBundle\MonoCoreBundle::class => ['all' => true],
+    Mono\Bundle\AoBundle\MonoAoBundle::class => ['all' => true],
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
 ];

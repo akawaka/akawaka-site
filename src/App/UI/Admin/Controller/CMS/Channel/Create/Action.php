@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Channel\Create;
 
-use App\CMS\Application\Gateway\CreateChannel;
+use Mono\Bundle\AoBundle\CMS\Application\Gateway\CreateChannel;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelDTO;
 use App\UI\Admin\Controller\CMS\Channel\Create\Form\CreateChannelType;
 use App\UI\Admin\Controller\Routes;

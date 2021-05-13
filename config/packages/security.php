@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Security\Domain\Entity\AdminUser;
-use App\Security\Infrastructure\Authenticator\Admin\LoginFormAuthenticator;
+use Mono\Bundle\AoBundle\Security\Domain\Entity\AdminUser;
+use Mono\Bundle\AoBundle\Security\Infrastructure\Authenticator\Admin\LoginFormAuthenticator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {

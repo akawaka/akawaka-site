@@ -4,19 +4,7 @@
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
     <entity name="App\CMS\Domain\Entity\Channel" table="cms_channel">
-        <id name="id" type="guid" column="id">
-            <generator strategy="NONE"/>
-        </id>
 
-        <field name="code" unique="true" />
-        <field name="name" />
-        <field name="status" />
-
-        <field name="url" nullable="true" />
-        <field name="description" type="text" nullable="true" />
-
-        <field name="creationDate" type="date_immutable" />
-        <field name="lastUpdate" type="date_immutable" nullable="true" />
     </entity>
 
 </doctrine-mapping>

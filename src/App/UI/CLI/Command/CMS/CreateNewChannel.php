@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command\CMS;
 
-use App\CMS\Application\Gateway\CreateChannel;
-use App\UI\CLI\CommandNaming;
+use Mono\Bundle\AoBundle\CMS\Application\Gateway\CreateChannel;
+use App\UI\CLI\Command\CommandNaming;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\CLI;
+namespace App\UI\CLI\Command;
 
 use Nette\Utils\Strings;
 use Symfony\Component\Console\Command\Command;

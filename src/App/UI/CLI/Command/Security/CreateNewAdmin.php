@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command\Security;
 
-use App\Security\Application\AdminSecurity\Gateway\Register;
-use App\UI\CLI\CommandNaming;
+use Mono\Bundle\AoBundle\Security\Application\AdminSecurity\Gateway\Register;
+use App\UI\CLI\Command\CommandNaming;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

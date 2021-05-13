@@ -4,16 +4,6 @@
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
     <entity name="App\CMS\Domain\Entity\Category" table="cms_category">
-        <id name="id" type="guid" column="id">
-            <generator strategy="NONE"/>
-        </id>
-
-        <field name="slug" unique="true" />
-        <field name="name" />
-
-        <many-to-many
-            field="articles"
-            mapped-by="categories" target-entity="Mono\Component\Article\Domain\Entity\ArticleInterface"/>
 
     </entity>
 
