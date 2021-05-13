@@ -6,6 +6,7 @@ namespace App\UI\Front\Controller\Index;
 
 use App\UI\Front\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,7 @@ final class Action
         name: Routes::FRONT_INDEX['name'],
         methods: ['GET']
     )]
-    public function __invoke(): Response
+    public function __invoke(Request $request): Response
     {
         return ($this->htmlResponder)('Front/index');
     }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Mono\Bundle\AoBundle\CMS\Infrastructure\Mailer\SymfonyMailer;
+use Mono\Bundle\AoBundle\Infrastructure\Listener\RequestListener;
+use Twig\Environment;
 
 return function (ContainerConfigurator $configurator) {
     $services = $configurator->services()
@@ -14,10 +16,6 @@ return function (ContainerConfigurator $configurator) {
     ;
 
     $services
-        ->set(SymfonyMailer::class)
-        ->args([
-            '$senderEmail' => '%env(resolve:SENDER_EMAIL)%',
-            '$senderName' => '%env(resolve:SENDER_NAME)%',
-        ])
-    ;
+        ->set(RequestListener::class)
+        ->tag('kernel.event_listener');
 };
