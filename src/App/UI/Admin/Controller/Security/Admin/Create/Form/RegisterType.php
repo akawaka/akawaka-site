@@ -33,8 +33,8 @@ final class RegisterType extends AbstractType
             ->add('password', RepeatedType::class, [
                 'label' => $this->translate('password.label'),
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'password.first.label'],
-                'second_options' => ['label' => 'password.second.label'],
+                'first_options' => ['label' => $this->translate('password.first.label')],
+                'second_options' => ['label' => $this->translate('password.second.label')],
             ])
         ;
     }
@@ -49,6 +49,6 @@ final class RegisterType extends AbstractType
 
     private function translate(string $key): string
     {
-        return \Safe\sprintf('admin.security.ui.admin.create.%s', $key);
+        return \Safe\sprintf('admin.security.ui.admin.create.form.%s', $key);
     }
 }

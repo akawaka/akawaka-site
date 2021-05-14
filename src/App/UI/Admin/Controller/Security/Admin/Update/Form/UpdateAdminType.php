@@ -41,6 +41,6 @@ final class UpdateAdminType extends AbstractType
 
     private function translate(string $key): string
     {
-        return \Safe\sprintf('admin.security.ui.admin.update.%s', $key);
+        return \Safe\sprintf('admin.security.ui.admin.update.form.%s', $key);
     }
 }

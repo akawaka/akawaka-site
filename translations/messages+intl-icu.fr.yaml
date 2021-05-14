@@ -63,12 +63,36 @@ admin:
                     title: Informations
                     actions:
                         save: Créer
+                    form:
+                        username:
+                            label: Nom d'utilisateur
+                        email:
+                            label: Adresse email
+                        password:
+                            first:
+                                label: Mot de passe
+                            second:
+                                label: Confirmation du mot de passe
                 update:
                     title: Informations
                     actions:
                         save: Mettre à jour
                     password:
                         title: Modification du mot de passe
+                    form:
+                        username:
+                            label: Nom d'utilisateur
+                        email:
+                            label: Adresse email
+                update_password:
+                    form:
+                        oldPassword:
+                            label: Mot de passe
+                        password:
+                            first:
+                                label: Nouveau mot de passe
+                            second:
+                                label: Répéter le mot de passe
     cms:
         ui:
             layout:
