@@ -322,6 +322,9 @@
     "sebastian/recursion-context": {
         "version": "4.0.4"
     },
+    "sylius/theme-bundle": {
+        "version": "v2.2.0"
+    },
     "symfony/amqp-messenger": {
         "version": "v5.2.4"
     },

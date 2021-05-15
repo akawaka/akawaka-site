@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\Security\Domain\Entity\AdminPasswordRecovery as BaseAdm
 
 class AdminPasswordRecovery extends BaseAdminPasswordRecovery
 {
-
 }

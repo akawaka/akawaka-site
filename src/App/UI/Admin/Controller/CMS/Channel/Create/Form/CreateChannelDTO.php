@@ -9,6 +9,7 @@ final class CreateChannelDTO
     public function __construct(
         private string $name,
         private string $code,
+        private ?string $theme,
     ) {
     }
 
@@ -22,11 +23,17 @@ final class CreateChannelDTO
         return $this->code;
     }
 
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
     public function data(): array
     {
         return [
             'name' => $this->getName(),
             'code' => $this->getCode(),
+            'theme' => $this->getTheme(),
         ];
     }
 }

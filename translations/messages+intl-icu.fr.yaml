@@ -244,6 +244,8 @@ admin:
                             label: Nom de la page
                         code:
                             label: Code
+                        theme:
+                            label: Choix du theme
                 update:
                     title: Modifier le canal
                     actions:
@@ -255,3 +257,5 @@ admin:
                             label: Adresse du canal
                         description:
                             label: Description
+                        theme:
+                            label: Choix du theme

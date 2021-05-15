@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Channel\Create\Form;
 
+use Sylius\Bundle\ThemeBundle\Form\Type\ThemeChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,6 +27,10 @@ final class CreateChannelType extends AbstractType
             ])
             ->add('code', TextType::class, [
                 'label' => $this->translate('code.label'),
+            ])
+            ->add('theme', ThemeChoiceType::class, [
+                'label' => $this->translate('theme.label'),
+                'required' => false,
             ])
         ;
     }

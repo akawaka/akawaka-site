@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\CMS\Domain\Entity\Article as BaseArticle;
 
 class Article extends BaseArticle
 {
-
 }

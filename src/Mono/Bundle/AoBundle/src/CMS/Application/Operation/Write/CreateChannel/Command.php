@@ -11,6 +11,7 @@ final class Command
     public function __construct(
         private string $code,
         private string $name,
+        private ?string $theme,
     ) {
     }
 
@@ -22,5 +23,10 @@ final class Command
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
     }
 }

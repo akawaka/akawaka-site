@@ -9,7 +9,6 @@ use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
 use Mono\Component\Channel\Domain\Repository;
-use Mono\Component\Channel\Domain\ValueObject\ChannelHostname;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
 
 final class FindChannelByHostname extends ORMRepository implements Repository\FindChannelByHostname

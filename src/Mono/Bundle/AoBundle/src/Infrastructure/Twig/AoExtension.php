@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Infrastructure\Twig;
 
-use Symfony\Component\HttpFoundation\RequestStack;
+use Mono\Bundle\AoBundle\Infrastructure\Channel\Context\ChannelContextInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 final class AoExtension extends AbstractExtension implements GlobalsInterface
 {
     public function __construct(
-        private RequestStack $stack,
+        private ChannelContextInterface $channelContext,
     ) {
-
     }
 
     public function getGlobals(): array
@@ -25,6 +24,6 @@ final class AoExtension extends AbstractExtension implements GlobalsInterface
 
     public function getChannel()
     {
-        return $this->stack->getMasterRequest()->request->get('ao');
+        return $this->channelContext->getChannel();
     }
 }

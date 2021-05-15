@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\CMS\Domain\Entity\Channel as BaseChannel;
 
 class Channel extends BaseChannel
 {
-
 }

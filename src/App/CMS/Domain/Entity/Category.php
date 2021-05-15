@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\CMS\Domain\Entity\Category as BaseCategory;
 
 class Category extends BaseCategory
 {
-
 }

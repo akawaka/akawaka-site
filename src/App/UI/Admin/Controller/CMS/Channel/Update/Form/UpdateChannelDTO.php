@@ -9,7 +9,8 @@ final class UpdateChannelDTO
     public function __construct(
         private string $name,
         private ?string $description,
-        private ?string $url
+        private ?string $url,
+        private ?string $theme,
     ) {
     }
 
@@ -28,12 +29,18 @@ final class UpdateChannelDTO
         return $this->url;
     }
 
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
     public function data(): array
     {
         return [
             'name' => $this->getName(),
             'description' => $this->getDescription(),
             'url' => $this->getUrl(),
+            'theme' => $this->getTheme(),
         ];
     }
 }

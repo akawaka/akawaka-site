@@ -3,7 +3,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <entity name="Mono\Bundle\AoBundle\CMS\Domain\Entity\Article" table="cms_article">
+    <mapped-superclass name="Mono\Bundle\AoBundle\CMS\Domain\Entity\Article" table="cms_article">
         <id name="id" type="guid" column="id">
             <generator strategy="NONE"/>
         </id>
@@ -38,6 +38,6 @@
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
-    </entity>
+    </mapped-superclass>
 
 </doctrine-mapping>
