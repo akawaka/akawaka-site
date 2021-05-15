@@ -26,6 +26,7 @@ final class Handler implements MessageHandlerInterface
             $this->repository->nextIdentity(),
             $command->getCode(),
             $command->getName(),
+            $command->getTheme(),
         );
 
         $this->repository->insert($channel);

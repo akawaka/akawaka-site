@@ -24,6 +24,7 @@ final class Gateway
             $response = new Response(($this->commandBus)(new Command(
                 $request->getCode(),
                 $request->getName(),
+                $request->getTheme(),
             )));
 
             $this->instrumentation->success($response);

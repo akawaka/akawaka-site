@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Channel\Update\Form;
 
+use Sylius\Bundle\ThemeBundle\Form\Type\ThemeNameChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,6 +33,10 @@ final class UpdateChannelType extends AbstractType
             ])
             ->add('url', UrlType::class, [
                 'label' => $this->translate('url.label'),
+                'required' => false,
+            ])
+            ->add('theme', ThemeNameChoiceType::class, [
+                'label' => $this->translate('theme.label'),
                 'required' => false,
             ])
         ;

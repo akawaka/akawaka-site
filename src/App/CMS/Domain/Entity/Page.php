@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\CMS\Domain\Entity\Page as BasePage;
 
 class Page extends BasePage
 {
-
 }

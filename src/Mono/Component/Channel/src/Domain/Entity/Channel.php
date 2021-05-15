@@ -8,7 +8,7 @@ use Mono\Component\Channel\Domain\Enum\StatusEnum;
 use Mono\Component\Channel\Domain\Identifier\ChannelId;
 use Mono\Component\Channel\Domain\ValueObject\ChannelCode;
 
-abstract class Channel implements ChannelInterface
+class Channel implements ChannelInterface
 {
     protected string $id;
 
@@ -55,7 +55,7 @@ abstract class Channel implements ChannelInterface
         string $name,
         ?string $url,
         ?string $description,
-    ) {
+    ): void {
         $this->name = $name;
         $this->url = $url;
         $this->description = $description;

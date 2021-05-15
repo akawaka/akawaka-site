@@ -27,6 +27,7 @@ final class Response implements GatewayResponse
             'identifier' => $channel->getId()->getValue(),
             'code' => $channel->getCode()->getValue(),
             'name' => $channel->getName(),
+            'theme' => $channel->getTheme(),
             'url' => $channel->getUrl(),
             'description' => $channel->getDescription(),
             'status' => $channel->getStatus(),

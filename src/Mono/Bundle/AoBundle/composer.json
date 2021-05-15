@@ -21,7 +21,8 @@
     },
     "require": {
         "php": "^8.0",
-        "mono/core-bundle": "^1.0"
+        "mono/core-bundle": "^1.0",
+        "sylius/theme-bundle": "^2.2"
     },
     "extra": {
         "branch-alias": {

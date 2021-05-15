@@ -33,7 +33,7 @@ final class MonoAoBundle extends Bundle
         $mappings = [
             realpath($this->getPath().'/config/doctrine/cms/entity') => 'Mono\Bundle\AoBundle\CMS\Domain\Entity',
             realpath($this->getPath().'/config/doctrine/security/entity') => 'Mono\Bundle\AoBundle\Security\Domain\Entity',
-         ];
+        ];
 
         if (class_exists(DoctrineOrmMappingsPass::class)) {
             $container->addCompilerPass(

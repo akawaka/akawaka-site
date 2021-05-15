@@ -8,5 +8,4 @@ use Mono\Bundle\AoBundle\Security\Domain\Entity\AdminUser as BaseAdminUser;
 
 class AdminUser extends BaseAdminUser
 {
-
 }

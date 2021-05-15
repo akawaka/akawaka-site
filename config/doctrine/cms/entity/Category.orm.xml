@@ -4,7 +4,9 @@
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
     <entity name="App\CMS\Domain\Entity\Category" table="cms_category">
-
+        <many-to-many
+            field="articles"
+            mapped-by="categories" target-entity="Mono\Component\Article\Domain\Entity\ArticleInterface"/>
     </entity>
 
 </doctrine-mapping>

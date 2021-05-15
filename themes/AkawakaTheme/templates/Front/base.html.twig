@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}🍍{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('front', null, 'front') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('front', null, 'front') }}
+        {% endblock %}
+    </head>
+    <body class="antialiased font-sans bg-gray-200">
+        <div class="relative bg-gray-50">
+            salut
+            {% block header %}
+                {% include "Front/Layout/_header.html.twig" %}
+            {% endblock %}
+
+            <main class="relative">
+                {% block body %}{% endblock %}
+            </main>
+
+            {% block footer %}
+                {% include "Front/Layout/_footer.html.twig" %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
