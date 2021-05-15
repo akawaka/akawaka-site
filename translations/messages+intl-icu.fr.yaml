@@ -2,7 +2,7 @@ admin:
     layout:
         ui:
             site:
-                title: akawaka
+                title: Ao
             header:
                 logout: Se déconnecter
                 user_menu:
