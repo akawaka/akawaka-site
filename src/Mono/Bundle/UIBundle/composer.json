@@ -1,0 +1,30 @@
+{
+    "name": "mono/ui-bundle",
+    "description": "UI bundle for Symfony",
+    "type": "mono-symfony-bundle",
+    "license": "EUPLv1-2",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "oss@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mono\\Bundle\\UIBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mono\\Bundle\\UIBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

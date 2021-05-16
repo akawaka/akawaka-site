@@ -1,0 +1,5 @@
+default:
+    suites: ~
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension: null

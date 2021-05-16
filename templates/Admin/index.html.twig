@@ -12,11 +12,12 @@
         </button>
     </div>
 
-    <div class="py-6">
+    <div class="py-6" {{ mono_test_html_attribute('test') }}>
         <div class="max-w-10xl mx-auto px-4 sm:px-6 md:px-8">
             <h1 class="text-2xl font-semibold text-gray-900">{{ 'admin.security.ui.dashboard.title'|trans }}</h1>
         </div>
         <div class="max-w-10xl mx-auto px-4 sm:px-6 md:px-8">
+            {{ mono_template_event('mono.admin') }}
             <!-- Replace with your content -->
             <div class="py-4">
                 <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
