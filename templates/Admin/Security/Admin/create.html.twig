@@ -1,9 +1,7 @@
-{% extends 'Admin/base.html.twig' %}
+{% extends 'Admin/Security/base.html.twig' %}
 {% form_theme form 'Admin/Layout/Form/tailwind_layout.html.twig' %}
 
-{% block sidebar %}
-    {% include "Admin/Security/Layout/_sidebar.html.twig" %}
-{% endblock %}
+
 
 {% block body %}
     <div class="flex flex-col w-0 flex-1 overflow-hidden">

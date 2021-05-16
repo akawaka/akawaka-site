@@ -23,6 +23,6 @@ final class Action
     )]
     public function __invoke(): Response
     {
-        return ($this->htmlResponder)('Admin/index');
+        return ($this->htmlResponder)('Admin/Index/index');
     }
 }

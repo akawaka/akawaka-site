@@ -37,7 +37,7 @@ final class Action
         $password = PasswordGenerator::generate();
         $this->updatePassword($recovery, $password);
 
-        return ($this->htmlResponder)('Admin/recovery', [
+        return ($this->htmlResponder)('Admin/Security/recover', [
             'password' => $password,
             'username' => $recovery->data()['user']['username'],
         ]);

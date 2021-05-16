@@ -4,7 +4,9 @@
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
                     <h1 class="inline-block text-3xl font-extrabold text-gray-900 tracking-tight">
-                        {{ 'admin.layout.ui.site.title'|trans }}
+                        <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_INDEX')['name']) }}">
+                            {{ 'admin.layout.ui.site.title'|trans }}
+                        </a>
                     </h1>
                </div>
 

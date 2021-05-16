@@ -38,7 +38,7 @@ final class Action
             );
         }
 
-        return ($this->htmlResponder)('Admin/login', [
+        return ($this->htmlResponder)('Admin/Security/login', [
             'last_username' => $this->authenticationUtils->getLastUsername(),
             'error' => $this->authenticationUtils->getLastAuthenticationError(),
         ]);

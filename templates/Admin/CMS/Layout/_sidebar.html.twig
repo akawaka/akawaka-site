@@ -48,6 +48,10 @@
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow">
             </div>
             <nav class="mt-5 px-2 space-y-1">
+                <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_INDEX')['name']) }}">
+                    {{ 'admin.cms.ui.layout.sidebar.dashboard'|trans }}
+                </a>
+
                 {{ knp_menu_render('mono.admin.cms.sidebar', {'template': 'Admin/Layout/Menu/sidebar.html.twig'}) }}
             </nav>
         </div>
