@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mono\Bundle\AoBundle\Infrastructure\Menu\Event;
+namespace Mono\Bundle\UIBundle\Infrastructure\Menu\Event;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;

@@ -21,9 +21,11 @@
     },
     "require": {
         "php": "^8.0",
-        "knplabs/knp-menu-bundle": "^3.1",
         "mono/core-bundle": "^1.0",
         "sylius/theme-bundle": "^2.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
     },
     "extra": {
         "branch-alias": {

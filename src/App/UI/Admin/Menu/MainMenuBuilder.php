@@ -7,7 +7,7 @@ namespace App\UI\Admin\Menu;
 use App\UI\Admin\Controller\Routes;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Mono\Bundle\AoBundle\Infrastructure\Menu\Event\MenuBuilderEvent;
+use Mono\Bundle\UIBundle\Infrastructure\Menu\Event\MenuBuilderEvent;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class MainMenuBuilder
