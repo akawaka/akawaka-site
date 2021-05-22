@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Twig;
 
-use App\Infrastructure\Channel\Context\ChannelContextInterface;
+use App\Infrastructure\Space\Context\SpaceContextInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 final class AoExtension extends AbstractExtension implements GlobalsInterface
 {
     public function __construct(
-        private ChannelContextInterface $channelContext,
+        private SpaceContextInterface $spaceContext,
     ) {
     }
 
     public function getGlobals(): array
     {
         return [
-            'ao' => $this->getChannel(),
+            'ao' => $this->getSpace(),
         ];
     }
 
-    public function getChannel()
+    public function getSpace()
     {
-        return $this->channelContext->getChannel();
+        return $this->spaceContext->getSpace();
     }
 }

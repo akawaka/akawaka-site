@@ -54,6 +54,6 @@ final class CategoryChoiceType extends AbstractType
 
     private function translate(string $key): string
     {
-        return \Safe\sprintf('common.form.type.channel_choice.%s', $key);
+        return \Safe\sprintf('common.form.type.space_choice.%s', $key);
     }
 }

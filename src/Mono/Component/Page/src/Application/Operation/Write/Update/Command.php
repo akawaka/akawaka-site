@@ -14,7 +14,7 @@ final class Command
         private string $name,
         private string $slug,
         private ?string $content,
-        private array $channels,
+        private array $spaces,
     ) {
     }
 
@@ -38,8 +38,8 @@ final class Command
         return $this->content;
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 }

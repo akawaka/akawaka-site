@@ -6,7 +6,7 @@ namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
 use App\CMS\Application\Gateway\CreateArticle;
-use App\CMS\Application\Gateway\CreateChannel;
+use App\CMS\Application\Gateway\CreateSpace;
 use App\CMS\Application\Gateway\CreateCategory;
 use Mono\Component\Article\Application\Gateway\FindArticleById;
 use Mono\Component\Article\Application\Gateway\FindCategoryBySlug;
@@ -14,15 +14,15 @@ use Mono\Component\Article\Application\Gateway\FindArticleBySlug;
 use Mono\Component\Article\Application\Gateway\FindArticles;
 use Mono\Component\Article\Application\Gateway\RemoveArticle;
 use Mono\Component\Article\Application\Gateway\UpdateArticle;
-use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
+use Mono\Component\Space\Application\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
+use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class ArticleContext implements Context
 {
-    private array $channel = [];
+    private array $space = [];
 
     private array $category = [];
 
@@ -31,9 +31,9 @@ final class ArticleContext implements Context
     private array $responses = [];
 
     public function __construct(
-        private CreateChannel\Gateway $createChannelGateway,
+        private CreateSpace\Gateway $createSpaceGateway,
         private CreateCategory\Gateway $createCategoryGateway,
-        private FindChannelByCOde\Gateway $findChannelByCode,
+        private FindSpaceByCOde\Gateway $findSpaceByCode,
         private CreateArticle\Gateway $createArticleGateway,
         private FindArticleById\Gateway $findArticleByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
@@ -45,21 +45,21 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Given I have a channel named :channel with a category named :category
+     * @Given I have a space named :space with a category named :category
      *
-     * @param mixed $channel
+     * @param mixed $space
      * @param mixed $category
      */
-    public function iHaveAChannelNamedWithCategoryNamed($channel, $category)
+    public function iHaveASpaceNamedWithCategoryNamed($space, $category)
     {
         try {
-            $this->channel = ($this->findChannelByCode)(FindChannelByCode\Request::fromData([
-                'code' => $channel,
+            $this->space = ($this->findSpaceByCode)(FindSpaceByCode\Request::fromData([
+                'code' => $space,
             ]))->data();
         } catch (GatewayException $exception) {
-            $this->channel = ($this->createChannelGateway)(CreateChannel\Request::fromData([
-                'name' => $channel,
-                'code' => $channel,
+            $this->space = ($this->createSpaceGateway)(CreateSpace\Request::fromData([
+                'name' => $space,
+                'code' => $space,
             ]))->data();
         }
 
@@ -85,7 +85,7 @@ final class ArticleContext implements Context
             $data = array_merge(
                 $row,
                 [
-                    'channels' => [$this->channel['identifier']],
+                    'spaces' => [$this->space['identifier']],
                     'categories' => [$this->category['identifier']],
                 ]
             );
@@ -180,8 +180,8 @@ final class ArticleContext implements Context
             $data = array_merge([
                 'identifier' => $this->responses[0]->getArticle()->getId()->getValue(),
                 'categories' => [$this->category['identifier']],
-                'channels' => $this->responses[0]->getArticle()->getChannels()->map(function (ChannelInterface $channel) {
-                    return $channel->getId()->getValue();
+                'spaces' => $this->responses[0]->getArticle()->getSpaces()->map(function (SpaceInterface $space) {
+                    return $space->getId()->getValue();
                 })->toArray(),
             ], $row);
 

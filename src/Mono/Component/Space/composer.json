@@ -1,0 +1,39 @@
+{
+    "name": "mono/space",
+    "description": "Space component for mono projects",
+    "type": "mono-component",
+    "license": "EUPL-1.2",
+    "authors": [
+        {
+            "name": "Alexandre Balmes",
+            "email": "component@alexandre.balmes.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mono\\Component\\Space\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mono\\Component\\Space\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "mono/core": "^1.0",
+        "symfony/property-access": "^5.2"
+    },
+    "require-dev": {
+        "behat/behat": "^3.8",
+        "phpspec/phpspec": "^7.0",
+        "phpstan/phpstan": "^0.12",
+        "vimeo/psalm": "^3.11",
+        "roave/security-advisories": "dev-master"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

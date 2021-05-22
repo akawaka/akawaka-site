@@ -59,15 +59,15 @@ final class Routes
     public const ADMIN_CMS_CATEGORIES_UPDATE = ['path' => '/admin/cms/categories/{identifier}/update', 'name' => 'admin_cms_categories_update'];
 
     /**
-     * Channels.
+     * Spaces.
      */
-    public const ADMIN_CMS_CHANNELS_CREATE = ['path' => '/admin/cms/channels/create', 'name' => 'admin_cms_channels_create'];
+    public const ADMIN_CMS_SPACES_CREATE = ['path' => '/admin/cms/spaces/create', 'name' => 'admin_cms_spaces_create'];
 
-    public const ADMIN_CMS_CHANNELS_DELETE = ['path' => '/admin/cms/channels/{identifier}/delete', 'name' => 'admin_cms_channels_delete'];
+    public const ADMIN_CMS_SPACES_DELETE = ['path' => '/admin/cms/spaces/{identifier}/delete', 'name' => 'admin_cms_spaces_delete'];
 
-    public const ADMIN_CMS_CHANNELS_INDEX = ['path' => '/admin/cms/channels', 'name' => 'admin_cms_channels_index'];
+    public const ADMIN_CMS_SPACES_INDEX = ['path' => '/admin/cms/spaces', 'name' => 'admin_cms_spaces_index'];
 
-    public const ADMIN_CMS_CHANNELS_UPDATE = ['path' => '/admin/cms/channels/{identifier}/update', 'name' => 'admin_cms_channels_update'];
+    public const ADMIN_CMS_SPACES_UPDATE = ['path' => '/admin/cms/spaces/{identifier}/update', 'name' => 'admin_cms_spaces_update'];
 
     /**
      * Admins.

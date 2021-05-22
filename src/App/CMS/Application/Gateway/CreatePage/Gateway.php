@@ -24,7 +24,7 @@ final class Gateway
             $response = new Response(($this->commandBus)(new Command(
                 $request->getName(),
                 $request->getSlug(),
-                $request->getChannels(),
+                $request->getSpaces(),
             )));
 
             $this->instrumentation->success($response);

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Component\Channel\Application\Gateway\FindChannelByCode;
-use App\CMS\Application\Gateway\CreateChannel;
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
+use Mono\Component\Space\Application\Gateway\FindSpaceByCode;
+use App\CMS\Application\Gateway\CreateSpace;
+use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Page\Application\Gateway\UnpublishPage;
 use Mono\Component\Page\Application\Gateway\FindPageById;
@@ -23,15 +23,15 @@ use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
 {
-    private ?ChannelInterface $channel;
+    private ?SpaceInterface $space;
 
     private array $requests = [];
 
     private array $responses = [];
 
-    private FindChannelByCode\Gateway $findChannelByCodeGateway;
+    private FindSpaceByCode\Gateway $findSpaceByCodeGateway;
 
-    private CreateChannel\Gateway $createChannelGateway;
+    private CreateSpace\Gateway $createSpaceGateway;
 
     private UnpublishPage\Gateway $unpublishPageGateway;
 
@@ -51,8 +51,8 @@ final class PageContext implements Context
 
     public function __construct(
         UnpublishPage\Gateway $unpublishPageGateway,
-        FindChannelByCode\Gateway $findChannelByCodeGateway,
-        CreateChannel\Gateway $createChannelGateway,
+        FindSpaceByCode\Gateway $findSpaceByCodeGateway,
+        CreateSpace\Gateway $createSpaceGateway,
         CreatePage\Gateway $createPageGateway,
         FindPageById\Gateway $findPageByIdGateway,
         FindPageBySlug\Gateway $findPageBySlugGateway,
@@ -61,8 +61,8 @@ final class PageContext implements Context
         RemovePage\Gateway $removePageGateway,
         UpdatePage\Gateway $updatePageGateway,
     ) {
-        $this->createChannelGateway = $createChannelGateway;
-        $this->findChannelByCodeGateway = $findChannelByCodeGateway;
+        $this->createSpaceGateway = $createSpaceGateway;
+        $this->findSpaceByCodeGateway = $findSpaceByCodeGateway;
         $this->createPageGateway = $createPageGateway;
         $this->unpublishPageGateway = $unpublishPageGateway;
         $this->findPageByIdGateway = $findPageByIdGateway;
@@ -72,45 +72,45 @@ final class PageContext implements Context
         $this->removePageGateway = $removePageGateway;
         $this->updatePageGateway = $updatePageGateway;
 
-        $this->channel = null;
+        $this->space = null;
     }
 
     /**
-     * @Given I have a channel named :channel
+     * @Given I have a space named :space
      */
-    public function iHaveAChannelNamed(string $channel)
+    public function iHaveASpaceNamed(string $space)
     {
         try {
-            $channel = ($this->findChannelByCodeGateway)(FindChannelByCode\Request::fromData([
-                'code' => $channel,
+            $space = ($this->findSpaceByCodeGateway)(FindSpaceByCode\Request::fromData([
+                'code' => $space,
             ]));
         } catch (GatewayException $exception) {
-            $channel = ($this->createChannelGateway)(CreateChannel\Request::fromData([
+            $space = ($this->createSpaceGateway)(CreateSpace\Request::fromData([
                 'code' => 'default',
                 'name' => 'default',
             ]));
         }
 
-        $this->channel = $channel->getChannel();
+        $this->space = $space->getSpace();
     }
 
     /**
-     * @Given I want to create a page for this channel:
+     * @Given I want to create a page for this space:
      */
-    public function iWantToCreateAPageForMyChannel(TableNode $table)
+    public function iWantToCreateAPageForMySpace(TableNode $table)
     {
         /** @var array $row */
         foreach ($table as $row) {
             $this->requests[] = CreatePage\Request::fromData(array_merge([
-                'channels' => [$this->channel->getId()->getValue()],
+                'spaces' => [$this->space->getId()->getValue()],
             ], $row));
         }
     }
 
     /**
-     * @When I create this page for my channel
+     * @When I create this page for my space
      */
-    public function iCreateThisPageForMyChannel()
+    public function iCreateThisPageForMySpace()
     {
         foreach ($this->requests as $request) {
             $this->responses[] = ($this->createPageGateway)($request);
@@ -215,8 +215,8 @@ final class PageContext implements Context
         foreach ($table as $row) {
             $data = array_merge([
                 'identifier' => $this->responses[0]->getPage()->getId()->getValue(),
-                'channels' => $this->responses[0]->getPage()->getChannels()->map(function (ChannelInterface $channel) {
-                    return $channel->getId()->getValue();
+                'spaces' => $this->responses[0]->getPage()->getSpaces()->map(function (SpaceInterface $space) {
+                    return $space->getId()->getValue();
                 })->toArray(),
             ], $row);
             $this->responses[] = ($this->updatePageGateway)(UpdatePage\Request::fromData($data));

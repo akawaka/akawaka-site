@@ -52,13 +52,13 @@ abstract class Page implements PageInterface
     public function update(
         string $name,
         PageSlug $slug,
-        ArrayCollection $channels,
+        ArrayCollection $spaces,
         ?string $content,
     ) {
         $this->name = $name;
         $this->slug = $slug->getValue();
         $this->content = $content;
-        $this->channels = $channels;
+        $this->spaces = $spaces;
         $this->lastUpdate = new \Safe\DateTimeImmutable();
     }
 

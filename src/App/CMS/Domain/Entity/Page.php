@@ -7,18 +7,18 @@ namespace App\CMS\Domain\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Mono\Component\Page\Domain\Entity\Page as BasePage;
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
+use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Page\Domain\Entity\PageInterface;
 use Mono\Component\Page\Domain\Identifier\PageId;
 use Mono\Component\Page\Domain\ValueObject\PageSlug;
 
 class Page extends BasePage
 {
-    public Collection $channels;
+    public Collection $spaces;
 
     public function __construct()
     {
-        $this->channels = new ArrayCollection();
+        $this->spaces = new ArrayCollection();
 
         parent::__construct();
     }
@@ -27,38 +27,38 @@ class Page extends BasePage
         PageId $id,
         PageSlug $slug,
         string $name,
-        ArrayCollection $channels,
+        ArrayCollection $spaces,
     ): PageInterface {
         $page = new self();
         $page->id = $id->getValue();
         $page->slug = $slug->getValue();
         $page->name = $name;
-        $page->channels = $channels;
+        $page->spaces = $spaces;
 
         return $page;
     }
 
-    public function addChannel(ChannelInterface $channel): void
+    public function addSpace(SpaceInterface $space): void
     {
-        if (false === $this->containsChannel($channel)) {
-            $this->channels->add($channel);
+        if (false === $this->containsSpace($space)) {
+            $this->spaces->add($space);
         }
     }
 
-    public function removeChannel(ChannelInterface $channel): void
+    public function removeSpace(SpaceInterface $space): void
     {
-        if (true === $this->containsChannel($channel)) {
-            $this->channels->removeElement($channel);
+        if (true === $this->containsSpace($space)) {
+            $this->spaces->removeElement($space);
         }
     }
 
-    public function containsChannel(ChannelInterface $channel): bool
+    public function containsSpace(SpaceInterface $space): bool
     {
-        return $this->channels->contains($channel);
+        return $this->spaces->contains($space);
     }
 
-    public function getChannels(): Collection
+    public function getSpaces(): Collection
     {
-        return $this->channels;
+        return $this->spaces;
     }
 }

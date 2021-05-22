@@ -17,13 +17,13 @@
         <field name="creationDate" type="date_immutable" />
         <field name="lastUpdate" type="date_immutable" nullable="true" />
 
-        <many-to-many field="channels" target-entity="Mono\Component\Channel\Domain\Entity\ChannelInterface">
-            <join-table name="cms_page_channels">
+        <many-to-many field="spaces" target-entity="Mono\Component\Space\Domain\Entity\SpaceInterface">
+            <join-table name="cms_page_spaces">
                 <join-columns>
                     <join-column name="page_id" on-delete="CASCADE" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="channel_id" on-delete="CASCADE" />
+                    <join-column name="space_id" on-delete="CASCADE" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>

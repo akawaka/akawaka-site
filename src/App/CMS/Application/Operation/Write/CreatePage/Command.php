@@ -11,7 +11,7 @@ final class Command
     public function __construct(
         private string $name,
         private ?string $slug,
-        private array $channels,
+        private array $spaces,
     ) {
     }
 
@@ -31,8 +31,8 @@ final class Command
         return new PageSlug($slug);
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 }

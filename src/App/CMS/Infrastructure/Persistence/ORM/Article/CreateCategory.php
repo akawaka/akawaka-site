@@ -17,9 +17,9 @@ final class CreateCategory extends ORMRepository implements Repository\CreateCat
         parent::__construct($managerRegistry, CategoryInterface::class);
     }
 
-    public function insert(CategoryInterface $article): void
+    public function insert(CategoryInterface $category): void
     {
-        $this->manager->persist($article);
+        $this->manager->persist($category);
         $this->manager->flush();
     }
 

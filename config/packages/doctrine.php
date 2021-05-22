@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\CMS\Domain\Entity\Article;
 use App\CMS\Domain\Entity\Category;
-use App\CMS\Domain\Entity\Channel;
+use App\CMS\Domain\Entity\Space;
 use App\CMS\Domain\Entity\Page;
 use App\Security\Domain\Entity\AdminPasswordRecovery;
 use App\Security\Domain\Entity\AdminUser;
@@ -13,7 +13,7 @@ use Mono\Component\AdminSecurity\Domain\Entity\User;
 use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
 use Mono\Component\Article\Domain\Entity\ArticleInterface;
 use Mono\Component\Article\Domain\Entity\CategoryInterface;
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
+use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Page\Domain\Entity\PageInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -29,7 +29,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'resolve_target_entities' => [
                 ArticleInterface::class => Article::class,
                 CategoryInterface::class => Category::class,
-                ChannelInterface::class => Channel::class,
+                SpaceInterface::class => Space::class,
                 PageInterface::class => Page::class,
                 PasswordRecoveryInterface::class => AdminPasswordRecovery::class,
                 UserInterface::class => AdminUser::class,

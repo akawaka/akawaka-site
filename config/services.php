@@ -22,7 +22,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ])
     ;
 
-    $services->load('Mono\\Component\\Channel\\', __DIR__.'/../src/Mono/Component/Channel/src/');
+    $services->load('Mono\\Component\\Space\\', __DIR__.'/../src/Mono/Component/Space/src/');
     $services->load('Mono\\Component\\Page\\', __DIR__.'/../src/Mono/Component/Page/src/');
     $services->load('Mono\\Component\\Article\\', __DIR__.'/../src/Mono/Component/Article/src/');
     $services->load('Mono\\Component\\AdminSecurity\\', __DIR__.'/../src/Mono/Component/AdminSecurity/src/');

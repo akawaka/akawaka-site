@@ -4,7 +4,7 @@ Feature:
     I want to manage my articles and tests my gateways
 
     Background: Prepare
-        Given I have a channel named "test" with a category named "test"
+        Given I have a space named "test" with a category named "test"
 
     Scenario: Create a article
         Given I want to create a article:
@@ -42,11 +42,11 @@ Feature:
         Then the article should not be found
 
     Scenario: Clean
-        Given I already have a channel with code:
+        Given I already have a space with code:
             | code |
             | TEST |
-        When I remove this channel
-        Then the channel should not be found
+        When I remove this space
+        Then the space should not be found
         And I already have a category with slug:
             | slug |
             | test |

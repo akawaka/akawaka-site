@@ -6,8 +6,8 @@ namespace App\CMS\Application\Operation\Write\CreatePage;
 
 use App\CMS\Domain\Entity\Page;
 use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Component\Channel\Domain\Identifier\ChannelId;
-use Mono\Component\Channel\Domain\Repository\FindChannelById;
+use Mono\Component\Space\Domain\Identifier\SpaceId;
+use Mono\Component\Space\Domain\Repository\FindSpaceById;
 use Mono\Component\Page\Domain\Entity\PageInterface;
 use Mono\Component\Page\Domain\Repository\CreatePage;
 use Symfony\Component\Messenger\Envelope;
@@ -18,7 +18,7 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindChannelById $channelReader,
+        private FindSpaceById $spaceReader,
         private CreatePage $repository,
         private MessageBusInterface $eventBus
     ) {
@@ -26,16 +26,16 @@ final class Handler implements MessageHandlerInterface
 
     public function __invoke(Command $command): PageInterface
     {
-        $channels = new ArrayCollection();
-        foreach ($command->getChannels() as $channel) {
-            $channels->add($this->channelReader->find(new ChannelId($channel)));
+        $spaces = new ArrayCollection();
+        foreach ($command->getSpaces() as $space) {
+            $spaces->add($this->spaceReader->find(new SpaceId($space)));
         }
 
         $page = Page::create(
             $this->repository->nextIdentity(),
             $command->getSlug(),
             $command->getName(),
-            $channels,
+            $spaces,
         );
 
         $this->repository->insert($page);

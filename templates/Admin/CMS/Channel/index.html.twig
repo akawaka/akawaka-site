@@ -18,10 +18,10 @@
 
                     <div class="flex flex-col mt-2">
                         {% include 'Admin/Layout/View/List/_header.html.twig' with {
-                            'title': "admin.cms.ui.channel.index.title",
+                            'title': "admin.cms.ui.space.index.title",
                             'action': {
-                                'name': "admin.cms.ui.channel.index.actions.create",
-                                'link': url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_CREATE')['name'])
+                                'name': "admin.cms.ui.space.index.actions.create",
+                                'link': url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_SPACES_CREATE')['name'])
                             }
                         } %}
 
@@ -56,8 +56,8 @@
                                             {{ result.status }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_CHANNELS_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_SPACES_UPDATE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                            <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_SPACES_DELETE')['name'], {'identifier': result.identifier }) }}" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                         </td>
                                     </tr>
                                 {% else %}

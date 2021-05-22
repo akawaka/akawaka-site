@@ -11,7 +11,7 @@ final class CreateArticleDTO
     public function __construct(
         private string $name,
         private ?string $slug,
-        private ArrayCollection $channels,
+        private ArrayCollection $spaces,
         private ArrayCollection $categories,
     ) {
     }
@@ -26,9 +26,9 @@ final class CreateArticleDTO
         return $this->slug;
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels->toArray();
+        return $this->spaces->toArray();
     }
 
     public function getCategories(): array
@@ -41,7 +41,7 @@ final class CreateArticleDTO
         return [
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
-            'channels' => $this->getChannels(),
+            'spaces' => $this->getSpaces(),
             'categories' => $this->getCategories(),
         ];
     }

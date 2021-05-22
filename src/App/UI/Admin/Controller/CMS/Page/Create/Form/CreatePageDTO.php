@@ -11,7 +11,7 @@ final class CreatePageDTO
     public function __construct(
         private string $name,
         private ?string $slug,
-        private ArrayCollection $channels,
+        private ArrayCollection $spaces,
     ) {
     }
 
@@ -25,9 +25,9 @@ final class CreatePageDTO
         return $this->slug;
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels->toArray();
+        return $this->spaces->toArray();
     }
 
     public function toArray(): array
@@ -35,7 +35,7 @@ final class CreatePageDTO
         return [
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
-            'channels' => $this->getChannels(),
+            'spaces' => $this->getSpaces(),
         ];
     }
 }

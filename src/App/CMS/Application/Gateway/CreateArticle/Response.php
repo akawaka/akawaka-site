@@ -26,7 +26,7 @@ final class Response implements GatewayResponse
 
         return [
             'identifier' => $article->getId()->getValue(),
-            'channel' => $article->getChannels(),
+            'space' => $article->getSpaces(),
             'name' => $article->getName(),
             'slug' => $article->getSlug()->getValue(),
             'content' => $article->getContent(),

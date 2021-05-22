@@ -4,13 +4,13 @@ Feature:
     I want to manage my pages and tests my gateways
 
     Background:
-        Given I have a channel named "default"
+        Given I have a space named "default"
 
     Scenario: Create a page
-        Given I want to create a page for this channel:
+        Given I want to create a page for this space:
             | name      |
             | test page |
-        When I create this page for my channel
+        When I create this page for my space
         Then I should be able to find my page with his identifier
         And I should be able to find my page with his slug
 

@@ -34,17 +34,17 @@ flash:
             updated:
                 success: La catégorie a été mise à jour
 
-        channel:
+        space:
             created:
-                success: Le canal a été créé
+                success: L'espace a été créé
             closed:
-                success: La canal a été fermé
+                success: L'espace a été fermé
             published:
-                success: Le canal a été publié
+                success: L'espace a été publié
             removed:
-                success: Le canal a été supprimé
+                success: L'espace a été supprimé
             updated:
-                success: Le canal a été mis à jour
+                success: L'espace a été mis à jour
 
         page:
             created:

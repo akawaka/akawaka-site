@@ -10,7 +10,7 @@ use Mono\Component\Article\Domain\Enum\StatusEnum;
 use Mono\Component\Article\Domain\Identifier\ArticleId;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 
-abstract class Article implements ArticleInterface
+class Article implements ArticleInterface
 {
     protected string $id;
 
@@ -56,21 +56,6 @@ abstract class Article implements ArticleInterface
     public function getCategories(): Collection
     {
         return $this->categories;
-    }
-
-    public function update(
-        string $name,
-        Slug $slug,
-        ?string $content,
-        Collection $categories,
-        Collection $channels,
-    ) {
-        $this->name = $name;
-        $this->slug = $slug->getValue();
-        $this->content = $content;
-        $this->categories = $categories;
-        $this->channels = $channels;
-        $this->lastUpdate = new \Safe\DateTimeImmutable();
     }
 
     public function getContent(): ?string

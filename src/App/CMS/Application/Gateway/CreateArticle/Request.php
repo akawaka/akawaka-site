@@ -11,7 +11,7 @@ final class Request implements GatewayRequest
 {
     private string $name;
 
-    private array $channels = [];
+    private array $spaces = [];
 
     private ?string $slug = null;
 
@@ -22,7 +22,7 @@ final class Request implements GatewayRequest
         $dto = new self();
         $fields = [
             'name',
-            'channels',
+            'spaces',
         ];
 
         $optionalFields = [
@@ -54,9 +54,9 @@ final class Request implements GatewayRequest
         return $this->slug;
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 
     public function getCategories(): array
@@ -70,7 +70,7 @@ final class Request implements GatewayRequest
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
             'categories' => $this->getCategories(),
-            'channels' => $this->getChannels(),
+            'spaces' => $this->getSpaces(),
         ];
     }
 }

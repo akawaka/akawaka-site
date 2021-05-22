@@ -16,7 +16,7 @@ final class Command
         private string $slug,
         private ?string $content,
         private array $categories,
-        private array $channels,
+        private array $spaces,
     ) {
     }
 
@@ -45,8 +45,8 @@ final class Command
         return new ArrayCollection($this->categories);
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 }

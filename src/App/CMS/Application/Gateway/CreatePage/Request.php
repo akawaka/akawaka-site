@@ -13,12 +13,12 @@ final class Request implements GatewayRequest
 
     private ?string $slug;
 
-    private array $channels;
+    private array $spaces;
 
     private function __construct()
     {
         $this->slug = null;
-        $this->channels = [];
+        $this->spaces = [];
     }
 
     public static function fromData(array $data = []): self
@@ -26,7 +26,7 @@ final class Request implements GatewayRequest
         $dto = new self();
         $fields = [
             'name',
-            'channels',
+            'spaces',
         ];
 
         $optionalFields = [
@@ -57,9 +57,9 @@ final class Request implements GatewayRequest
         return $this->slug;
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 
     public function data(): array
@@ -67,7 +67,7 @@ final class Request implements GatewayRequest
         return [
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
-            'channels' => $this->getChannels(),
+            'spaces' => $this->getSpaces(),
         ];
     }
 }

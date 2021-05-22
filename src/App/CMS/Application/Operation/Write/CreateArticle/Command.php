@@ -12,7 +12,7 @@ final class Command
         private string $name,
         private ?string $slug,
         private array $categories,
-        private array $channels,
+        private array $spaces,
     ) {
     }
 
@@ -32,9 +32,9 @@ final class Command
         return new Slug($slug);
     }
 
-    public function getChannels(): array
+    public function getSpaces(): array
     {
-        return $this->channels;
+        return $this->spaces;
     }
 
     public function getCategories(): array
