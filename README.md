@@ -1,4 +1,4 @@
-# Akawaka.fr
+# Ao
 
 ## Installation
 
@@ -16,6 +16,15 @@ And extra flag for cleaning files is also available: `--clean-before-tasks`.
 
 Then, run `make install` and profit.
 
+## First run
+
+```bash
+bin/console doctrine:database:create --if-not-exists
+bin/console doctrine:migrations:migrate -n
+bin/console ao:cms:create-new-channel <name> <code>
+bin/console ao:security:create-new-admin <username> <email> <password>
+```
+
 ## Tasks
 
 ```bash
@@ -31,7 +40,7 @@ make assets # Build assets
 
 ### URLs (dev/proxy)
 
-Application: <http://www.akawaka.localhost>
+Application: <http://www.ao.localhost>
 
 ## Update infrastructure code
 
@@ -46,8 +55,8 @@ need to:
 
 This is a monorepository WIP symfony project. Our code is dispatched between two directories:
 
-- packages: Supporting and generic domains (aka something useful in many projects)
-- src: Core and User Interface
+- src/Mono: Supporting and generic domains (aka something useful in many projects)
+- src/App: Core and User Interface
 
 There are three types of packages :
 
@@ -86,7 +95,7 @@ For example, a new administrator is not an author, but an event "AdministratorWa
 "CreateAuthor" process.
 
 A bounded context in `src` directory will maybe become a Symfony Bundle over time. For example, our current CMS is the
-core domain in our current project (a dedicated website for akawaka) but a supporting/generic domain in another project.
+core domain in our current project (a dedicated content website) but a supporting/generic domain in another project.
 
 ### Gateway
 
@@ -108,7 +117,7 @@ By default, we are using Symfony Messenger with sync buses.
 
 #### About "Create" operations
 
-For the moment, Create operations are always in `src` directory. This is due to Doctrine and we must work on it.
+For the moment, Create operations are always in `src/App` directory. This is due to Doctrine and we must work on it.
 
 ### About Symfony
 

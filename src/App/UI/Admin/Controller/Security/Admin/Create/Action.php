@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Admin\Create;
 
-use Mono\Bundle\AoBundle\Security\Application\AdminSecurity\Gateway\Register;
+use App\Security\Application\AdminSecurity\Gateway\Register;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterDTO;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterType;

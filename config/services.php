@@ -3,12 +3,11 @@
 declare(strict_types=1);
 
 use Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver;
-use Mono\Bundle\AoBundle\CMS\Infrastructure\Mailer\SymfonyMailer;
+use App\CMS\Infrastructure\Mailer\SymfonyMailer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
-
     $containerConfigurator->import('services/');
 
     $services->defaults()
@@ -22,6 +21,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             __DIR__.'/../src/Kernel.php'
         ])
     ;
+
+    $services->load('Mono\\Component\\Channel\\', __DIR__.'/../src/Mono/Component/Channel/src/');
+    $services->load('Mono\\Component\\Page\\', __DIR__.'/../src/Mono/Component/Page/src/');
+    $services->load('Mono\\Component\\Article\\', __DIR__.'/../src/Mono/Component/Article/src/');
+    $services->load('Mono\\Component\\AdminSecurity\\', __DIR__.'/../src/Mono/Component/AdminSecurity/src/');
 
     $services->load('App\\UI\\Admin\\Controller\\', __DIR__.'/../src/App/UI/Admin/Controller/**/Action.php')
         ->tag('controller.service_arguments')

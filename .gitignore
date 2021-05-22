@@ -7,10 +7,10 @@
 /infrastructure/dev/docker
 
 ###> dev environment ##
-.editorconfig
-.php_cs.dist
-phpstan.neon
-rector.php
+/.editorconfig
+/.php_cs.dist
+/phpstan.neon
+/rector.php
 ###< dev environment ###
 
 ###> docker environment ##

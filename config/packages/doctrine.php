@@ -10,6 +10,7 @@ use App\Security\Domain\Entity\AdminPasswordRecovery;
 use App\Security\Domain\Entity\AdminUser;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
 use Mono\Component\AdminSecurity\Domain\Entity\User;
+use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
 use Mono\Component\Article\Domain\Entity\ArticleInterface;
 use Mono\Component\Article\Domain\Entity\CategoryInterface;
 use Mono\Component\Channel\Domain\Entity\ChannelInterface;
@@ -31,7 +32,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 ChannelInterface::class => Channel::class,
                 PageInterface::class => Page::class,
                 PasswordRecoveryInterface::class => AdminPasswordRecovery::class,
-                User::class => AdminUser::class,
+                UserInterface::class => AdminUser::class,
             ],
             'mappings' => [
                 'CMS' => [

@@ -1,5 +1,5 @@
 {
-    "name": "akawaka/website",
+    "name": "mono/ao",
     "description": "ao",
     "type": "project",
     "license": "proprietary",
@@ -55,7 +55,6 @@
             "App\\": "src/App/",
             "Mono\\Bundle\\UIBundle\\": "src/Mono/Bundle/UIBundle/src/",
             "Mono\\Bundle\\CoreBundle\\": "src/Mono/Bundle/CoreBundle/src/",
-            "Mono\\Bundle\\AoBundle\\": "src/Mono/Bundle/AoBundle/src/",
             "Mono\\Component\\AdminSecurity\\": "src/Mono/Component/AdminSecurity/src/",
             "Mono\\Component\\Article\\": "src/Mono/Component/Article/src/",
             "Mono\\Component\\Channel\\": "src/Mono/Component/Channel/src/",

@@ -19,7 +19,7 @@ admin:
                     content: Accès
                     admins: Administrateurs
             login:
-                title: akawaka
+                title: ao
                 form:
                     email:
                         label: Adresse email ou nom d'utilisateur

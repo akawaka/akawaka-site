@@ -1,91 +1,3 @@
-{% extends '@KnpMenu/menu.html.twig' %}
-
-{% block list %}
-    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
-        {% import _self as knp_menu %}
-        {{ block('children') }}
-    {% endif %}
-{% endblock %}
-
-{% block item %}
-    {% if item.displayed %}
-        {# building the class of the item #}
-        {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
-        {%- if matcher.isCurrent(item) %}
-            {%- set classes = classes|merge([options.currentClass, '']) %}
-        {%- elseif matcher.isAncestor(item, options.matchingDepth) %}
-            {%- set classes = classes|merge([options.ancestorClass]) %}
-        {%- endif %}
-        {%- if item.actsLikeFirst %}
-            {%- set classes = classes|merge([options.firstClass, '']) %}
-        {%- endif %}
-        {%- if item.actsLikeLast %}
-            {%- set classes = classes|merge([options.lastClass]) %}
-        {%- endif %}
-
-        {# Mark item as "leaf" (no children) or as "branch" (has children that are displayed) #}
-        {% if item.hasChildren and options.depth is not same as(0) %}
-            {% if options.branch_class is not empty and item.displayChildren %}
-                {%- set classes = classes|merge([options.branch_class]) %}
-            {% endif %}
-        {% elseif options.leaf_class is not empty %}
-            {%- set classes = classes|merge([options.leaf_class]) %}
-        {%- endif %}
-
-        {%- set attributes = item.attributes %}
-        {%- if classes is not empty %}
-            {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
-        {%- endif %}
-        {# displaying the item #}
-        {% import _self as knp_menu %}
-        <div{{ knp_menu.attributes(attributes) }}>
-            {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
-                {{ block('linkElement') }}
-            {%- else %}
-                {{ block('spanElement') }}
-            {%- endif %}
-            {# render the list of children#}
-            {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
-            {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
-            {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
-            {{ block('list') }}
-        </div>
-    {% endif %}
-{% endblock %}
-
-{% block spanElement %}
-    {% import _self as knp_menu %}
-
-    {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : ['px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'] %}
-    {%- set attributes = item.labelAttributes %}
-
-    {%- if classes is not empty %}
-        {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
-    {%- endif %}
-
-    <h3{{ knp_menu.attributes(attributes) }}>{{ block('label') }}</h3>
-{% endblock %}
-
-{% block linkElement %}
-    {% import _self as knp_menu %}
-
-    {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : ['text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md'] %}
-    {%- set attributes = item.linkAttributes %}
-
-    {%- if classes is not empty %}
-        {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
-    {%- endif %}
-
-    <a href="{{ item.uri }}"{{ knp_menu.attributes(attributes) }}>
-        <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-        </svg>
-
-        {{ block('label') }}
-    </a>
-{% endblock %}
-
-{#
 <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
 <div class="space-y-1">
     <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_INDEX')['name']) }}" class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
@@ -117,6 +29,7 @@
         </svg>
         {{ 'admin.cms.ui.layout.sidebar.articles'|trans }}
     </a>
+
 </div>
 
 <div class="mt-8">
@@ -139,4 +52,3 @@
     </a>
 </div>
 
-#}

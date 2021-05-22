@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Front\Controller\Contact;
 
-use Mono\Bundle\AoBundle\CMS\Application\Gateway\SendContact;
+use App\CMS\Application\Gateway\SendContact;
 use App\UI\Front\Controller\Contact\Form\ContactType;
 use App\UI\Front\Controller\Routes;
 use App\UI\Front\Notifier\Flash\FlashNotifier;

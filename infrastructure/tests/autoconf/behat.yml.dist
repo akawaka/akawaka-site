@@ -1,11 +1,14 @@
 default:
     suites:
-        cms:
+        ao:
+            paths:
+                - 'features'
             contexts:
-                - App\Tests\Behat\CMS\Application\PageContext
-                - App\Tests\Behat\CMS\Application\ChannelContext
-                - App\Tests\Behat\CMS\Application\CategoryContext
                 - App\Tests\Behat\CMS\Application\ArticleContext
+                - App\Tests\Behat\CMS\Application\CategoryContext
+                - App\Tests\Behat\CMS\Application\ChannelContext
+                - App\Tests\Behat\CMS\Application\PageContext
 
     extensions:
-        FriendsOfBehat\SymfonyExtension: null
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: "tests/bootstrap.php"

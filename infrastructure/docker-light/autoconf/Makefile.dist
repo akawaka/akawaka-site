@@ -1,7 +1,16 @@
 .DEFAULT_GOAL := help
 DOCKER?=docker
 DOCKER_COMPOSE?=docker-compose
-EXECJS?=$(DOCKER) run -it --rm --name akawaka_node -v "$(shell pwd)/":/home/node/app -w /home/node/app node:buster-slim
+EXECJS?=$(DOCKER) run -it --rm --name ao_node \
+	-v "$(shell pwd)/assets":/home/node/app/assets \
+	-v "$(shell pwd)/npm-cache":/home/node/app/npm-cache \
+	-v "$(shell pwd)/node_modules":/home/node/app/node_modules \
+	-v "$(shell pwd)/public":/home/node/app/public \
+	-v "$(shell pwd)/package.json":/home/node/app/package.json \
+	-v "$(shell pwd)/package-lock.json":/home/node/app/package-lock.json \
+	-v "$(shell pwd)/postcss.config.js":/home/node/app/postcss.config.js \
+	-v "$(shell pwd)/webpack.config.js":/home/node/app/webpack.config.js \
+	-w /home/node/app node:buster-slim
 
 ##
 ## Project setup

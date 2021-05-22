@@ -11,7 +11,7 @@ use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Channel\Application\Gateway\FindChannelById;
-use Mono\Bundle\AoBundle\CMS\Application\Gateway\UpdateChannel;
+use App\CMS\Application\Gateway\UpdateChannel;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
