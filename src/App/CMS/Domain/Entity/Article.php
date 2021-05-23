@@ -6,21 +6,41 @@ namespace App\CMS\Domain\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Mono\Component\Article\Domain\Entity\Article as BaseArticle;
 use Mono\Component\Article\Domain\Entity\ArticleInterface;
+use Mono\Component\Article\Domain\Enum\StatusEnum;
 use Mono\Component\Article\Domain\Identifier\ArticleId;
 use Mono\Component\Article\Domain\ValueObject\Slug;
 use Mono\Component\Space\Domain\Entity\SpaceInterface;
 
-class Article extends BaseArticle
+class Article implements ArticleInterface
 {
+    protected string $id;
+
+    protected string $name;
+
+    protected string $slug;
+
+    protected string $status;
+
+    protected ?string $content;
+
+    protected Collection $categories;
+
+    protected \DateTimeImmutable $creationDate;
+
+    protected ?\DateTimeImmutable $lastUpdate;
+
     protected Collection $spaces;
 
     public function __construct()
     {
+        $this->status = StatusEnum::DRAFT;
+        $this->creationDate = new \Safe\DateTimeImmutable();
+        $this->categories = new ArrayCollection();
         $this->spaces = new ArrayCollection();
 
-        parent::__construct();
+        $this->content = null;
+        $this->lastUpdate = null;
     }
 
     public static function create(
@@ -55,6 +75,18 @@ class Article extends BaseArticle
         $this->spaces = $spaces;
     }
 
+    public function publish(): void
+    {
+        $this->status = StatusEnum::PUBLISHED;
+        $this->lastUpdate = new \Safe\DateTimeImmutable();
+    }
+
+    public function unpublish(): void
+    {
+        $this->status = StatusEnum::DRAFT;
+        $this->lastUpdate = new \Safe\DateTimeImmutable();
+    }
+
     public function addSpace(SpaceInterface $space): void
     {
         if (false === $this->containsSpace($space)) {
@@ -72,6 +104,50 @@ class Article extends BaseArticle
     public function containsSpace(SpaceInterface $space): bool
     {
         return $this->spaces->contains($space);
+    }
+
+    public function getId(): ArticleId
+    {
+        return new ArticleId($this->id);
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getSlug(): Slug
+    {
+        return new Slug($this->slug);
+    }
+
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function getCreationDate(): \Safe\DateTimeImmutable
+    {
+        return \Safe\DateTimeImmutable::createFromRegular($this->creationDate);
+    }
+
+    public function getLastUpdate(): ?\Safe\DateTimeImmutable
+    {
+        if (null !== $this->lastUpdate) {
+            return \Safe\DateTimeImmutable::createFromRegular($this->lastUpdate);
+        }
+
+        return null;
     }
 
     public function getSpaces(): Collection

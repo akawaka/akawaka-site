@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Article\Create;
 
-use App\CMS\Application\Gateway\CreateArticle;
+use App\CMS\Application\Article\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
 use App\UI\Admin\Controller\Routes;

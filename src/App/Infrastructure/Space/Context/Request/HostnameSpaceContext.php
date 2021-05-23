@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Space\Context\Request;
 
-use Mono\Component\Space\Application\Gateway\FindSpaceByHostname;
+use App\CMS\Application\Space\Gateway\FindSpaceByHostname;
 use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Request;

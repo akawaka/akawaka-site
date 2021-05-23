@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command\CMS;
 
-use App\CMS\Application\Gateway\CreateSpace;
+use App\CMS\Application\Space\Gateway\CreateSpace;
 use App\UI\CLI\Command\CommandNaming;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;

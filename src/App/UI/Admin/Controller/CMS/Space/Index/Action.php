@@ -6,7 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Space\Index;
 
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\Space\Application\Gateway\FindSpaces;
+use App\CMS\Application\Space\Gateway\FindSpaces;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

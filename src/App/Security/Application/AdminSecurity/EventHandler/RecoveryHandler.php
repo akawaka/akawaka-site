@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Application\AdminSecurity\EventHandler;
 
-use App\CMS\Infrastructure\Mailer\Email;
+use App\Infrastructure\Mailer\Email;
 use App\Infrastructure\Mailer\MailerInterface;
 use App\Security\Application\AdminSecurity\Operation\Write\ResetPassword\AdminPasswordWasReset;
 use Mono\Component\Core\Infrastructure\Notifier\MailerContext;

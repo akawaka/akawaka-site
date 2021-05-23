@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Infrastructure\Authenticator\Admin;
 
-use Mono\Component\AdminSecurity\Application\Gateway\FindUserByUsernameOrEmail;
+use App\Security\Application\AdminSecurity\Gateway\FindUserByUsernameOrEmail;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

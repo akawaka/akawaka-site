@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use App\CMS\Application\Gateway\CreateCategory;
-use Mono\Component\Article\Application\Gateway\FindCategoryById;
-use Mono\Component\Article\Application\Gateway\FindCategoryBySlug;
-use Mono\Component\Article\Application\Gateway\FindCategories;
-use Mono\Component\Article\Application\Gateway\RemoveCategory;
-use Mono\Component\Article\Application\Gateway\UpdateCategory;
+use App\CMS\Application\Article\Gateway\CreateCategory;
+use App\CMS\Application\Article\Gateway\FindCategoryById;
+use App\CMS\Application\Article\Gateway\FindCategoryBySlug;
+use App\CMS\Application\Article\Gateway\FindCategories;
+use App\CMS\Application\Article\Gateway\RemoveCategory;
+use App\CMS\Application\Article\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;

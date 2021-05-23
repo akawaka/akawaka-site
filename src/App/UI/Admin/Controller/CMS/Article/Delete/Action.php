@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Delete;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Article\Application\Gateway\RemoveArticle;
+use App\CMS\Application\Article\Gateway\RemoveArticle;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

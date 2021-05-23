@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Application\AdminSecurity\Gateway\ResetPassword;
 
-use Mono\Component\AdminSecurity\Application\Operation\Read\FindUserByUsernameOrEmail;
+use App\Security\Application\AdminSecurity\Operation\Read\FindUserByUsernameOrEmail;
 use App\Security\Application\AdminSecurity\Operation\Write\ResetPassword;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
