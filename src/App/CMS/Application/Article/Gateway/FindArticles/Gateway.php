@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Gateway\FindArticles;
 
-use App\CMS\Application\Article\Operation\Read\FindAllArticles;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use Mono\Component\Article\Application\Operation\Article\Read\FindAll\Query;
+use Mono\Component\Article\Application\Gateway\Article\FindArticles\Instrumentation;
+use Mono\Component\Article\Application\Gateway\Article\FindArticles\Request;
 
 final class Gateway
 {
@@ -21,9 +23,9 @@ final class Gateway
         $this->instrumentation->start($request);
 
         try {
-            $articles = ($this->queryBus)(new FindAllArticles\Query());
-            $response = new Response();
+            $articles = ($this->queryBus)(new Query());
 
+            $response = new Response();
             foreach ($articles as $article) {
                 $response->add($article);
             }

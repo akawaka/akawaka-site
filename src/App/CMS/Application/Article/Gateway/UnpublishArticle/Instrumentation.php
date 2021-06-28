@@ -8,5 +8,5 @@ use Mono\Component\Core\Application\Instrumentation\AbstractInstrumentation;
 
 final class Instrumentation extends AbstractInstrumentation
 {
-    public const NAME = 'article.close';
+    public const NAME = 'article.unpublish';
 }

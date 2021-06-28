@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Gateway\PublishArticle;
 
-use App\CMS\Application\Article\Operation\Write\PublishArticle;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
+use App\CMS\Application\Article\Operation\Write\Publish\Command;
 
 final class Gateway
 {
@@ -21,9 +21,7 @@ final class Gateway
         $this->instrumentation->start($request);
 
         try {
-            $response = new Response(($this->commandBus)(new PublishArticle\Command(
-                $request->getIdentifier()
-            )));
+            $response = new Response(($this->commandBus)(new Command($request->getIdentifier())));
 
             $this->instrumentation->success($response);
 

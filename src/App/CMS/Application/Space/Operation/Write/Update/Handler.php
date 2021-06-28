@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Update;
 
-use Mono\Component\Space\Domain\Operation\Update\Exception\UnableToUpdateException;
-use Mono\Component\Space\Domain\Operation\Update\UpdaterInterface;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Operation\Update\Exception\SpaceWasNotUpdated;
+use App\CMS\Domain\Space\Operation\Update\UpdaterInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -29,7 +28,7 @@ final class Handler implements MessageHandlerInterface
                 $command->getUrl(),
                 $command->getDescription(),
             );
-        } catch (UnableToUpdateException $exception) {
+        } catch (SpaceWasNotUpdated $exception) {
             return false;
         }
 

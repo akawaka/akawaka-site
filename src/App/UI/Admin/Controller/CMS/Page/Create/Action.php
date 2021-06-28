@@ -57,7 +57,7 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): CreatePage\Response
+    private function process(FormInterface $form): \Mono\Component\Page\Application\Gateway\CreatePage\Response
     {
         /** @var CreatePageDTO $data */
         $data = $form->getData();

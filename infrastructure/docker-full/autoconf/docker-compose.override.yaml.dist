@@ -19,7 +19,7 @@ services:
     networks:
       - traefik
 
-  nginx:
+  http:
     networks:
       backend: ~
       traefik: ~
@@ -29,7 +29,7 @@ services:
       - "traefik.frontend.rule=Host:www.ao.localhost"
       - "traefik.port=80"
 
-  mailhog:
+  mail:
     networks:
       backend: ~
       traefik: ~

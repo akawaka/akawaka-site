@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Space\Context\Request;
 
-use Mono\Component\Space\Domain\Operation\View\Exception\UnknownSpaceException;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Operation\View\Exception\SpaceWasNotFound;
+use App\CMS\Domain\Space\Operation\View\Model\SpaceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class RequestBasedSpaceContext
@@ -28,6 +28,6 @@ final class RequestBasedSpaceContext
             }
         }
 
-        throw new UnknownSpaceException('unknown');
+        throw new SpaceWasNotFound('unknown');
     }
 }

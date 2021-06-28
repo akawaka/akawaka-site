@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Gateway\FindArticleById;
 
-use App\CMS\Application\Article\Operation\Read\FindArticleById;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use Mono\Component\Article\Application\Operation\Article\Read\FindById\Query;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleById\Instrumentation;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request;
 
 final class Gateway
 {
@@ -21,9 +23,9 @@ final class Gateway
         $this->instrumentation->start($request);
 
         try {
-            $article = ($this->queryBus)(new FindArticleById\Query($request->getIdentifier()));
-            $response = new Response($article);
-
+            $response = new Response(($this->queryBus)(
+                new Query($request->getIdentifier())
+            ));
             $this->instrumentation->success($response);
 
             return $response;

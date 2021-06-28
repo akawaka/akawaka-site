@@ -1,4 +1,0 @@
-suites:
-    default:
-        namespace: Mono\Component\Space
-        psr4_prefix: Mono\Component\Space

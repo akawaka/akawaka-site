@@ -6,7 +6,9 @@ namespace App\CMS\Application\Page\Gateway\FindPageBySlug;
 
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use App\CMS\Application\Page\Operation\Read\FindBySlug;
+use Mono\Component\Page\Application\Operation\Read\FindBySlug\Query;
+use Mono\Component\Page\Application\Gateway\FindPageBySlug\Instrumentation;
+use Mono\Component\Page\Application\Gateway\FindPageBySlug\Request;
 
 final class Gateway
 {
@@ -22,7 +24,7 @@ final class Gateway
 
         try {
             $response = new Response(
-                ($this->queryBus)(new FindBySlug\Query($request->getSlug()))
+                ($this->queryBus)(new Query($request->getSlug()))
             );
 
             $this->instrumentation->success($response);

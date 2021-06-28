@@ -7,7 +7,7 @@ namespace App\Infrastructure\Space\Context\Request;
 use App\CMS\Application\Space\Gateway\FindSpaceByHostname;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Request;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Operation\View\Model\SpaceInterface;
 
 final class HostnameSpaceContext implements RequestSpaceContextInterface
 {
@@ -20,7 +20,7 @@ final class HostnameSpaceContext implements RequestSpaceContextInterface
     {
         try {
             $response = ($this->hostnameGateway)(FindSpaceByHostname\Request::fromData([
-                'hostname' => $request->getHost(),
+                'hostname' => $request->getSchemeAndHttpHost(),
             ]));
 
             return $response->getSpace();

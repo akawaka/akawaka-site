@@ -11,23 +11,30 @@ final class Request implements GatewayRequest
 {
     private string $name;
 
-    private array $spaces = [];
+    private ?string $slug;
 
-    private ?string $slug = null;
+    private array $categories;
 
-    private array $categories = [];
+    private array $spaces;
+
+    private function __construct()
+    {
+        $this->slug = null;
+        $this->categories = [];
+        $this->spaces = [];
+    }
 
     public static function fromData(array $data = []): self
     {
         $dto = new self();
         $fields = [
             'name',
+            'categories',
             'spaces',
         ];
 
         $optionalFields = [
             'slug',
-            'categories',
         ];
 
         $accessor = PropertyAccess::createPropertyAccessor();
@@ -54,14 +61,14 @@ final class Request implements GatewayRequest
         return $this->slug;
     }
 
-    public function getSpaces(): array
-    {
-        return $this->spaces;
-    }
-
     public function getCategories(): array
     {
         return $this->categories;
+    }
+
+    public function getSpaces(): array
+    {
+        return $this->spaces;
     }
 
     public function data(): array

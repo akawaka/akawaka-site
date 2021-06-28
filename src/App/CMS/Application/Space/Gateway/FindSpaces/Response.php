@@ -6,7 +6,7 @@ namespace App\CMS\Application\Space\Gateway\FindSpaces;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Operation\View\Model\SpaceInterface;
 
 final class Response implements GatewayResponse
 {

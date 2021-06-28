@@ -61,10 +61,10 @@ This is a monorepository WIP symfony project. Our code is dispatched between two
 There are three types of packages :
 
 - Primitive: A primitive functionality - probably just a Value Object
-- Component: A PHP package, framework agnostic - probably a bounded context
+- Component: A PHP package, framework agnostic - probably a bounded context related to supporting/generic domain
 - Bundle: Symfony package, dedicated to Symfony
 
-Code is split between 4 layers:
+Our code exist through 4 layers:
 
 - Domain: Entity, Enum, Exception, Identifier, Repository (interface), ValueObject and stuff related to domain
 - Application: Layer between User Interface and Domain. Works with Infrastructure

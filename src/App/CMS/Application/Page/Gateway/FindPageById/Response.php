@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\CMS\Application\Page\Gateway\FindPageById;
 
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Page\Domain\Entity\PageInterface;
+use Mono\Component\Page\Domain\Operation\View\Model\PageInterface;
 
 final class Response implements GatewayResponse
 {

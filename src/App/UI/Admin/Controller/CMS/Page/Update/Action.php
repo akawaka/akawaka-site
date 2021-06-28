@@ -71,7 +71,7 @@ final class Action
     private function find(string $identifier): FindPageById\Response
     {
         try {
-            return ($this->findPageGateway)(FindPageById\Request::fromData([
+            return ($this->findPageGateway)(\Mono\Component\Page\Application\Gateway\FindPageById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

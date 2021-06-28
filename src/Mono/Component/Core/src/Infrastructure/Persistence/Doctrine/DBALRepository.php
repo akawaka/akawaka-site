@@ -11,7 +11,8 @@ abstract class DBALRepository
 {
     public function __construct(
         private Connection $connection,
-    ) {}
+    ) {
+    }
 
     public function getConnection(): Connection
     {

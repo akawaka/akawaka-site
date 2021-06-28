@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Component\AdminSecurity\Domain\Identifier;
 
-use Mono\Component\Core\Domain\Identifier;
 use Ramsey\Uuid\Uuid;
 
-final class UserId implements Identifier
+final class UserId
 {
     private string $value;
 

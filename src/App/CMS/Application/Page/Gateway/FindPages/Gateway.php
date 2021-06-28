@@ -6,7 +6,9 @@ namespace App\CMS\Application\Page\Gateway\FindPages;
 
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use App\CMS\Application\Page\Operation\Read\FindAll\Query;
+use Mono\Component\Page\Application\Operation\Read\FindAll\Query;
+use Mono\Component\Page\Application\Gateway\FindPages\Instrumentation;
+use Mono\Component\Page\Application\Gateway\FindPages\Request;
 
 final class Gateway
 {

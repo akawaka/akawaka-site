@@ -6,8 +6,8 @@ namespace App\CMS\Infrastructure\Persistence\DBAL\Space\Create;
 
 use Doctrine\DBAL\Exception;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DBALRepository;
-use Mono\Component\Space\Domain\Operation\Create\Model\SpaceInterface;
-use Mono\Component\Space\Domain\Operation\Create\WriterInterface;
+use App\CMS\Domain\Space\Operation\Create\Model\SpaceInterface;
+use App\CMS\Domain\Space\Operation\Create\Repository\WriterInterface;
 
 final class WriterRepository extends DBALRepository implements WriterInterface
 {
@@ -33,13 +33,14 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                     'status' => $space->getStatus(),
                     'creation_date' => $space->getCreationDate()->format('Y-m-d H:i:s'),
                 ])
-                ->execute();
+                ->execute()
+            ;
 
             $this->getConnection()->commit();
         } catch (Exception $exception) {
             $this->getConnection()->rollback();
 
-            return false;
+            throw $exception;
         }
 
         return true;

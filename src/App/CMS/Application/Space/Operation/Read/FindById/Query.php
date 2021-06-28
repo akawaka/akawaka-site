@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Read\FindById;
 
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
 
 final class Query
 {

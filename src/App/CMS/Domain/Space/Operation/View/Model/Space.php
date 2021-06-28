@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Domain\Space\Operation\View\Model;
 
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Common\ValueObject\SpaceCode;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Common\ValueObject\SpaceCode;
 
 final class Space implements SpaceInterface
 {

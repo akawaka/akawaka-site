@@ -6,8 +6,8 @@ namespace App\CMS\Infrastructure\Persistence\DBAL\Space\Update;
 
 use Doctrine\DBAL\Exception;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DBALRepository;
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Operation\Update\WriterInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Operation\Update\Repository\WriterInterface;
 
 final class WriterRepository extends DBALRepository implements WriterInterface
 {
@@ -35,13 +35,14 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $id->getValue(),
                 ])
-                ->execute();
+                ->execute()
+            ;
 
             $this->getConnection()->commit();
         } catch (Exception $exception) {
             $this->getConnection()->rollback();
 
-            return false;
+            throw $exception;
         }
 
         return true;

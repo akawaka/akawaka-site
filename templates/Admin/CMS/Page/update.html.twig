@@ -42,7 +42,7 @@
                                 {{ 'admin.cms.ui.page.update.actions.save'|trans }}
                             </button>
 
-                            {% if page.status is constant('Mono\\Component\\Page\\Domain\\Enum\\StatusEnum::DRAFT') %}
+                            {% if page.status is constant('App\\CMS\\Domain\\Page\\Common\\Enum\\StatusEnum::DRAFT') %}
                                 <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_PAGES_PUBLISH')['name'], {'identifier': page.identifier }) }}"
                                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     {{ 'admin.cms.ui.page.update.actions.publish'|trans }}

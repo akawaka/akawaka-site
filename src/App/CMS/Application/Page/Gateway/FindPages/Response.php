@@ -6,7 +6,7 @@ namespace App\CMS\Application\Page\Gateway\FindPages;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Page\Domain\Entity\PageInterface;
+use Mono\Component\Page\Domain\Operation\View\Model\PageInterface;
 
 final class Response implements GatewayResponse
 {

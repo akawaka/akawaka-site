@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace App\CMS\Application\Page\Gateway\UnpublishPage;
 
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Page\Domain\Entity\PageInterface;
 
 final class Response implements GatewayResponse
 {
     public function __construct(
-        private PageInterface $page
+        private bool $success
     ) {
     }
 
-    public function getPage(): PageInterface
+    public function getSuccess(): bool
     {
-        return $this->page;
+        return $this->success;
     }
 
     public function data(): array

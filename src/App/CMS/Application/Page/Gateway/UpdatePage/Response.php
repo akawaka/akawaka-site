@@ -5,32 +5,21 @@ declare(strict_types=1);
 namespace App\CMS\Application\Page\Gateway\UpdatePage;
 
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Page\Domain\Entity\PageInterface;
 
 final class Response implements GatewayResponse
 {
     public function __construct(
-        private PageInterface $page
+        private bool $success
     ) {
     }
 
-    public function getPage(): PageInterface
+    public function getSuccess(): bool
     {
-        return $this->page;
+        return $this->success;
     }
 
     public function data(): array
     {
-        $page = $this->getPage();
-
-        return [
-            'identifier' => $page->getId()->getValue(),
-            'name' => $page->getName(),
-            'slug' => $page->getSlug()->getValue(),
-            'content' => $page->getContent(),
-            'status' => $page->getStatus(),
-            'creationDate' => $page->getCreationDate()->format('Y-m-d H:i:s'),
-            'lastUpdate' => null !== $page->getLastUpdate() ? $page->getLastUpdate()->format('Y-m-d H:i:s') : null,
-        ];
+        return [];
     }
 }

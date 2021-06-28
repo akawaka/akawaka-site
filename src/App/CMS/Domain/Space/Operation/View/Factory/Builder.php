@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\CMS\Domain\Space\Operation\View\Factory;
 
 use App\CMS\Domain\Space\Operation\View\Model\Space;
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Common\ValueObject\SpaceCode;
-use Mono\Component\Space\Domain\Operation\View\Factory\BuilderInterface;
-use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Common\ValueObject\SpaceCode;
+use App\CMS\Domain\Space\Operation\View\Model\SpaceInterface;
 
 final class Builder implements BuilderInterface
 {

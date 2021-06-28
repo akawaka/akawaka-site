@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Close;
 
-use Mono\Component\Space\Domain\Operation\Close\CloserInterface;
-use Mono\Component\Space\Domain\Operation\Close\Exception\CloseFailedException;
+use App\CMS\Domain\Space\Operation\Close\CloserInterface;
+use App\CMS\Domain\Space\Operation\Close\Exception\SpaceWasNotClosed;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -23,7 +23,7 @@ final class Handler implements MessageHandlerInterface
     {
         try {
             $this->closer->close($command->getId());
-        } catch (CloseFailedException $exception) {
+        } catch (SpaceWasNotClosed $exception) {
             return false;
         }
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Remove;
 
-use Mono\Component\Space\Domain\Operation\Delete\DeleterInterface;
-use Mono\Component\Space\Domain\Operation\Delete\Exception\UnableToDeleteException;
+use App\CMS\Domain\Space\Operation\Delete\DeleterInterface;
+use App\CMS\Domain\Space\Operation\Delete\Exception\SpaceWasNotDeleted;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -23,7 +23,7 @@ final class Handler implements MessageHandlerInterface
     {
         try {
             $this->deleter->delete($command->getId());
-        } catch (UnableToDeleteException $exception) {
+        } catch (SpaceWasNotDeleted $exception) {
             return false;
         }
 

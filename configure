@@ -99,8 +99,8 @@ if [ $docker != false ] && [ $env = "dev" ]; then
     sed -i -e 's/${APP_NGINX_PORT:-80}:80/80/g' ./docker-compose.yaml
     sed -i -e 's/${APP_MAILHOG_PORT:-8025}:8025/8025/g' ./docker-compose.yaml
 
-    sed -i "$(awk '/^DATABASE_URL/{ print NR; exit }' ./.env.$env)s/localhost/db/" ./.env.$env
-    sed -i "$(awk '/^MAILER_DSN/{ print NR; exit }' ./.env.$env)s/localhost/mailhog/" ./.env.$env
+    sed -i "$(awk '/^DATABASE_URL/{ print NR; exit }' ./.env.$env)s/localhost/database/" ./.env.$env
+    sed -i "$(awk '/^MAILER_DSN/{ print NR; exit }' ./.env.$env)s/localhost/mail/" ./.env.$env
   fi
 else
   echo "Docker is only compatible with dev environment..."

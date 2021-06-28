@@ -7,6 +7,7 @@ namespace App\CMS\Application\Page\Gateway\UpdatePage;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
 use App\CMS\Application\Page\Operation\Write\Update\Command;
+use Mono\Component\Page\Application\Gateway\UpdatePage\Instrumentation;
 
 final class Gateway
 {

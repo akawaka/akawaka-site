@@ -6,7 +6,9 @@ namespace App\CMS\Application\Page\Gateway\FindPageById;
 
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use App\CMS\Application\Page\Operation\Read\FindById;
+use Mono\Component\Page\Application\Operation\Read\FindById\Query;
+use Mono\Component\Page\Application\Gateway\FindPageById\Instrumentation;
+use Mono\Component\Page\Application\Gateway\FindPageById\Request;
 
 final class Gateway
 {
@@ -22,9 +24,8 @@ final class Gateway
 
         try {
             $response = new Response(($this->queryBus)(
-                new FindById\Query($request->getIdentifier())
+                new Query($request->getIdentifier())
             ));
-
             $this->instrumentation->success($response);
 
             return $response;

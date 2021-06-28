@@ -4,15 +4,23 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Page\Operation\Write\Create;
 
-use Mono\Component\Page\Domain\ValueObject\PageSlug;
+use Mono\Component\Core\Infrastructure\Slugger\Slugger;
+use Mono\Component\Page\Domain\Common\Identifier\PageId;
+use Mono\Component\Page\Domain\Common\ValueObject\PageSlug;
 
 final class Command
 {
     public function __construct(
+        private PageId $id,
         private string $name,
         private ?string $slug,
         private array $spaces,
     ) {
+    }
+
+    public function getId(): PageId
+    {
+        return $this->id;
     }
 
     public function getName(): string
@@ -28,7 +36,7 @@ final class Command
             $slug = $this->getName();
         }
 
-        return new PageSlug($slug);
+        return new PageSlug(Slugger::slugify($slug));
     }
 
     public function getSpaces(): array

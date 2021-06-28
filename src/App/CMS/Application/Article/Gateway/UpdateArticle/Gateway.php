@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Gateway\UpdateArticle;
 
-use App\CMS\Application\Article\Operation\Write\UpdateArticle\Command;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
+use App\CMS\Application\Article\Operation\Write\Update\Command;
+use Mono\Component\Article\Application\Gateway\Article\UpdateArticle\Instrumentation;
 
 final class Gateway
 {

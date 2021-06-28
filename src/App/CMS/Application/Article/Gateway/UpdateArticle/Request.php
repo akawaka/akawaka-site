@@ -15,11 +15,11 @@ final class Request implements GatewayRequest
 
     private string $slug;
 
-    private ?string $content = null;
-
     private array $categories;
 
-    private array $spaces = [];
+    private array $spaces;
+
+    private ?string $content = null;
 
     public static function fromData(array $data = []): self
     {

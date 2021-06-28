@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Component\AdminSecurity\Domain\Identifier;
 
-use Mono\Component\Core\Domain\Identifier;
 use Ramsey\Uuid\Uuid;
 
-final class PasswordRecoveryId implements Identifier
+final class PasswordRecoveryId
 {
     private string $value;
 

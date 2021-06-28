@@ -6,13 +6,15 @@ namespace App\CMS\Infrastructure\Persistence\DBAL\Space\Delete;
 
 use Doctrine\DBAL\Exception;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DBALRepository;
-use Mono\Component\Space\Domain\Operation\Delete\WriterInterface;
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Operation\Delete\Repository\WriterInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
 
 final class WriterRepository extends DBALRepository implements WriterInterface
 {
     public function delete(SpaceId $id): bool
     {
+        $this->beginTransaction();
+
         try {
             $builder = $this->getQueryBuilder();
             $builder
@@ -21,9 +23,14 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                 ->setParameters([
                     'id' => $id->getValue(),
                 ])
-                ->execute();
+                ->execute()
+            ;
+
+            $this->getConnection()->commit();
         } catch (Exception $exception) {
-            return false;
+            $this->getConnection()->rollback();
+
+            throw $exception;
         }
 
         return true;

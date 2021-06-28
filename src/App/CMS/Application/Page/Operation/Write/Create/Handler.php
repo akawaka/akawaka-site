@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Page\Operation\Write\Create;
 
-use App\CMS\Domain\Entity\Page;
 use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Operation\View\ViewerInterface as SpaceViewer;
-use Mono\Component\Page\Domain\Entity\PageInterface;
-use Mono\Component\Page\Domain\Repository\CreatePage;
+use Mono\Component\Page\Application\Operation\Write\Create\PageWasCreated;
+use Mono\Component\Page\Domain\Operation\Create\CreatorInterface;
+use Mono\Component\Page\Domain\Operation\Create\Exception\UnableToCreateException;
+use Mono\Component\Page\Domain\Operation\Create\Factory\BuilderInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Operation\View\ViewerInterface as SpaceViewer;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -19,31 +20,37 @@ final class Handler implements MessageHandlerInterface
 {
     public function __construct(
         private SpaceViewer $spaceReader,
-        private CreatePage $repository,
+        private BuilderInterface $builder,
+        private CreatorInterface $creator,
         private MessageBusInterface $eventBus
     ) {
     }
 
-    public function __invoke(Command $command): PageInterface
+    public function __invoke(Command $command): bool
     {
         $spaces = new ArrayCollection();
         foreach ($command->getSpaces() as $space) {
             $spaces->add($this->spaceReader->read(new SpaceId($space)));
         }
 
-        $page = Page::create(
-            $this->repository->nextIdentity(),
-            $command->getSlug(),
-            $command->getName(),
-            $spaces,
-        );
+        $page = $this->builder::build([
+            'id' => $command->getId(),
+            'slug' => $command->getSlug(),
+            'name' => $command->getName(),
+            'spaces' => $spaces,
+        ]);
 
-        $this->repository->insert($page);
+        try {
+            $this->creator->create($page);
+        } catch (UnableToCreateException $exception) {
+            return false;
+        }
+
         $this->eventBus->dispatch(
             (new Envelope(new PageWasCreated($page->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
 
-        return $page;
+        return true;
     }
 }

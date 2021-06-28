@@ -6,9 +6,9 @@ namespace App\CMS\Infrastructure\Persistence\DBAL\Space\View;
 
 use Doctrine\DBAL\Exception;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\DBALRepository;
-use Mono\Component\Space\Domain\Common\ValueObject\SpaceCode;
-use Mono\Component\Space\Domain\Operation\View\ReaderInterface;
-use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
+use App\CMS\Domain\Space\Common\ValueObject\SpaceCode;
+use App\CMS\Domain\Space\Operation\View\ReaderInterface;
+use App\CMS\Domain\Space\Common\Identifier\SpaceId;
 
 final class ReaderRepository extends DBALRepository implements ReaderInterface
 {
@@ -21,7 +21,8 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             ->where('space.id = :id')
             ->setParameters([
                 'id' => $id->getValue(),
-            ]);
+            ])
+        ;
 
         try {
             $statement = $builder->execute();
@@ -41,7 +42,8 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             ->where('space.code = :code')
             ->setParameters([
                 'code' => $code->getValue(),
-            ]);
+            ])
+        ;
 
         try {
             $statement = $builder->execute();
@@ -61,7 +63,8 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             ->where('space.url = :hostname')
             ->setParameters([
                 'hostname' => $hostname,
-            ]);
+            ])
+        ;
 
         try {
             $statement = $builder->execute();
@@ -77,7 +80,8 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
         $builder = $this->getQueryBuilder();
         $builder
             ->from('cms_space', 'space')
-            ->select('space.*');
+            ->select('space.*')
+        ;
 
         try {
             $statement = $builder->execute();

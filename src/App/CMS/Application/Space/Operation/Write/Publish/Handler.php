@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Publish;
 
-use Mono\Component\Space\Domain\Operation\Publish\Exception\PublishFailedException;
-use Mono\Component\Space\Domain\Operation\Publish\PublisherInterface;
+use App\CMS\Domain\Space\Operation\Publish\Exception\SpaceWasNotPublished;
+use App\CMS\Domain\Space\Operation\Publish\PublisherInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -23,7 +23,7 @@ final class Handler implements MessageHandlerInterface
     {
         try {
             $this->publisher->publish($command->getId());
-        } catch (PublishFailedException $exception) {
+        } catch (SpaceWasNotPublished $exception) {
             return false;
         }
 

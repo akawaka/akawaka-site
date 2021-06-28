@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Page\Operation\Write\Update;
 
-use Mono\Component\Page\Domain\Identifier\PageId;
-use Mono\Component\Page\Domain\ValueObject\PageSlug;
+use Mono\Component\Core\Infrastructure\Slugger\Slugger;
+use Mono\Component\Page\Domain\Common\Identifier\PageId;
+use Mono\Component\Page\Domain\Common\ValueObject\PageSlug;
 
 final class Command
 {
@@ -30,7 +31,7 @@ final class Command
 
     public function getSlug(): PageSlug
     {
-        return new PageSlug($this->slug);
+        return new PageSlug(Slugger::slugify($this->slug));
     }
 
     public function getContent(): ?string

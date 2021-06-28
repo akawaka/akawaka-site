@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Gateway\PublishArticle;
 
-use Mono\Component\Article\Domain\Entity\ArticleInterface;
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
 
 final class Response implements GatewayResponse
 {
     public function __construct(
-        private ArticleInterface $article
+        private bool $success
     ) {
     }
 
-    public function getArticle(): ArticleInterface
+    public function getSuccess(): bool
     {
-        return $this->article;
+        return $this->success;
     }
 
     public function data(): array
