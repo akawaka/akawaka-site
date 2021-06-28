@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Infrastructure\Space\Context;
 
 use App\Infrastructure\Space\Context\Request\RequestBasedSpaceContext;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Space\Domain\Exception\SpaceNotFoundException;
+use Mono\Component\Space\Domain\Operation\View\Exception\UnknownSpaceException;
+use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
 
 final class SpaceContext implements SpaceContextInterface
 {
@@ -20,7 +20,7 @@ final class SpaceContext implements SpaceContextInterface
     {
         try {
             $space = $this->singleSpaceContext->getSpace();
-        } catch (SpaceNotFoundException $exception) {
+        } catch (UnknownSpaceException $exception) {
             $space = $this->requestContext->getSpace();
         }
 

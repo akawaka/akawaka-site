@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver;
-use App\CMS\Infrastructure\Mailer\SymfonyMailer;
+use App\CMS\Domain\Space\Operation\View\Factory\Builder as SpaceBuilder;
+use Mono\Component\Space\Domain\Operation\View\Factory\BuilderInterface as SpaceBuilderInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -34,4 +34,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->load('App\\UI\\Front\\Controller\\', __DIR__.'/../src/App/UI/Front/Controller/**/Action.php')
         ->tag('controller.service_arguments')
     ;
+
+    $services->alias(SpaceBuilderInterface::class, SpaceBuilder::class);
 };

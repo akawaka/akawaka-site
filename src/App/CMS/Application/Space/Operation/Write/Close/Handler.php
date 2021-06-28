@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Close;
 
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Space\Domain\Repository\FindSpaceById;
-use Mono\Component\Space\Domain\Repository\UpdateSpace;
+use Mono\Component\Space\Domain\Operation\Close\CloserInterface;
+use Mono\Component\Space\Domain\Operation\Close\Exception\CloseFailedException;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -15,23 +14,24 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindSpaceById $reader,
-        private UpdateSpace $writer,
+        private CloserInterface $closer,
         private MessageBusInterface $eventBus
     ) {
     }
 
-    public function __invoke(Command $command): SpaceInterface
+    public function __invoke(Command $command): bool
     {
-        $space = $this->reader->find($command->getId());
-        $space->close();
+        try {
+            $this->closer->close($command->getId());
+        } catch (CloseFailedException $exception) {
+            return false;
+        }
 
-        $this->writer->update($space);
         $this->eventBus->dispatch(
-            (new Envelope(new SpaceWasClosed($space->getId()->getValue())))
+            (new Envelope(new SpaceWasClosed($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
 
-        return $space;
+        return true;
     }
 }

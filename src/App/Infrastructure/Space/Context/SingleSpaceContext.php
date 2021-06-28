@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Infrastructure\Space\Context;
 
 use App\CMS\Application\Space\Gateway\FindSpaces;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Space\Domain\Exception\SpaceNotFoundException;
+use Mono\Component\Space\Domain\Operation\View\Exception\UnknownSpaceException;
+use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
 
 final class SingleSpaceContext
 {
@@ -20,7 +20,7 @@ final class SingleSpaceContext
         $response = ($this->spacesGateway)(FindSpaces\Request::fromData());
 
         if (1 !== $response->getSpaces()->count()) {
-            throw new SpaceNotFoundException('unknown');
+            throw new UnknownSpaceException('unknown');
         }
 
         return $response->getSpaces()->first();

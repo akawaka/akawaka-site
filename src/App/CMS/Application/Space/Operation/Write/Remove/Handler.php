@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Remove;
 
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Space\Domain\Repository\FindSpaceById;
-use Mono\Component\Space\Domain\Repository\RemoveSpace;
+use Mono\Component\Space\Domain\Operation\Delete\DeleterInterface;
+use Mono\Component\Space\Domain\Operation\Delete\Exception\UnableToDeleteException;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -15,22 +14,24 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindSpaceById $reader,
-        private RemoveSpace $writer,
+        private DeleterInterface $deleter,
         private MessageBusInterface $eventBus
     ) {
     }
 
-    public function __invoke(Command $command): SpaceInterface
+    public function __invoke(Command $command): bool
     {
-        $space = $this->reader->find($command->getId());
+        try {
+            $this->deleter->delete($command->getId());
+        } catch (UnableToDeleteException $exception) {
+            return false;
+        }
 
-        $this->writer->remove($space);
         $this->eventBus->dispatch(
-            (new Envelope(new SpaceWasRemoved($space->getId()->getValue())))
+            (new Envelope(new SpaceWasRemoved($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
 
-        return $space;
+        return true;
     }
 }

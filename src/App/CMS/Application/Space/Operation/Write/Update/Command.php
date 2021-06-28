@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Update;
 
-use Mono\Component\Space\Domain\Identifier\SpaceId;
+use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
 
 final class Command
 {

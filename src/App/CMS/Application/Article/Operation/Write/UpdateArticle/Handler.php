@@ -10,8 +10,8 @@ use Mono\Component\Article\Domain\Identifier\CategoryId;
 use Mono\Component\Article\Domain\Repository\FindArticleById;
 use Mono\Component\Article\Domain\Repository\FindCategoryById;
 use Mono\Component\Article\Domain\Repository\UpdateArticle;
-use Mono\Component\Space\Domain\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Repository\FindSpaceById;
+use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
+use Mono\Component\Space\Domain\Operation\View\ViewerInterface as SpaceViewer;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -22,7 +22,7 @@ final class Handler implements MessageHandlerInterface
     public function __construct(
         private FindArticleById $reader,
         private FindCategoryById $categoryReader,
-        private FindSpaceById $spaceReader,
+        private SpaceViewer $spaceReader,
         private UpdateArticle $writer,
         private MessageBusInterface $eventBus
     ) {
@@ -34,7 +34,7 @@ final class Handler implements MessageHandlerInterface
 
         $spaces = new ArrayCollection();
         foreach ($command->getSpaces() as $space) {
-            $spaces->add($this->spaceReader->find(new SpaceId($space)));
+            $spaces->add($this->spaceReader->read(new SpaceId($space)));
         }
 
         $categories = new ArrayCollection();

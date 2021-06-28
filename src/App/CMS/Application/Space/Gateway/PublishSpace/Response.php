@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Gateway\PublishSpace;
 
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
 
 final class Response implements GatewayResponse
 {
     public function __construct(
-        private SpaceInterface $space
+        private bool $success
     ) {
     }
 
-    public function getSpace(): SpaceInterface
+    public function getSuccess(): bool
     {
-        return $this->space;
+        return $this->success;
     }
 
     public function data(): array

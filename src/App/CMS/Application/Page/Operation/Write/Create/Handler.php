@@ -6,8 +6,8 @@ namespace App\CMS\Application\Page\Operation\Write\Create;
 
 use App\CMS\Domain\Entity\Page;
 use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Component\Space\Domain\Identifier\SpaceId;
-use Mono\Component\Space\Domain\Repository\FindSpaceById;
+use Mono\Component\Space\Domain\Common\Identifier\SpaceId;
+use Mono\Component\Space\Domain\Operation\View\ViewerInterface as SpaceViewer;
 use Mono\Component\Page\Domain\Entity\PageInterface;
 use Mono\Component\Page\Domain\Repository\CreatePage;
 use Symfony\Component\Messenger\Envelope;
@@ -18,7 +18,7 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindSpaceById $spaceReader,
+        private SpaceViewer $spaceReader,
         private CreatePage $repository,
         private MessageBusInterface $eventBus
     ) {
@@ -28,7 +28,7 @@ final class Handler implements MessageHandlerInterface
     {
         $spaces = new ArrayCollection();
         foreach ($command->getSpaces() as $space) {
-            $spaces->add($this->spaceReader->find(new SpaceId($space)));
+            $spaces->add($this->spaceReader->read(new SpaceId($space)));
         }
 
         $page = Page::create(

@@ -4,30 +4,19 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Read\FindByHostname;
 
-use Doctrine\ORM\NoResultException;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Space\Domain\Exception\SpaceNotFoundException;
-use Mono\Component\Space\Domain\Repository\FindSpaceByHostname;
+use Mono\Component\Space\Domain\Operation\View\Model\SpaceInterface;
+use Mono\Component\Space\Domain\Operation\View\ViewerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class Handler implements MessageHandlerInterface
 {
-    private FindSpaceByHostname $reader;
-
     public function __construct(
-        FindSpaceByHostname $reader
+        private ViewerInterface $viewer
     ) {
-        $this->reader = $reader;
     }
 
     public function __invoke(Query $query): SpaceInterface
     {
-        try {
-            $space = $this->reader->find($query->getHostname());
-        } catch (NoResultException $exception) {
-            throw new SpaceNotFoundException($query->getHostname());
-        }
-
-        return $space;
+        return $this->viewer->readByHostname($query->getHostname());
     }
 }

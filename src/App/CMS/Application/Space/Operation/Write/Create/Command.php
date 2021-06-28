@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Operation\Write\Create;
 
-use Mono\Component\Space\Domain\ValueObject\SpaceCode;
+use Mono\Component\Space\Domain\Common\ValueObject\SpaceCode;
 
 final class Command
 {
