@@ -4,37 +4,26 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Gateway\FindSpaces;
 
-use App\CMS\Application\Space\Operation\Read\FindAll\Query;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use App\CMS\Application\Space\Gateway\FindSpaces\Middleware\ErrorHandlerMiddleware;
+use App\CMS\Application\Space\Gateway\FindSpaces\Middleware\InstrumentationMiddleware;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
+use App\CMS\Application\Space\Gateway\FindSpaces\Middleware\ProcessorMiddleware;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private QueryBusInterface $queryBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $spaces = ($this->queryBus)(new Query());
-
-            $response = new Response();
-            foreach ($spaces as $space) {
-                $response->addSpace($space);
-            }
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during find spaces process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }

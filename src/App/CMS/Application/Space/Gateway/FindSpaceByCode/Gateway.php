@@ -4,33 +4,26 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Gateway\FindSpaceByCode;
 
-use App\CMS\Application\Space\Operation\Read\FindByCode;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use App\CMS\Application\Space\Gateway\FindSpaceByCode\Middleware\ErrorHandlerMiddleware;
+use App\CMS\Application\Space\Gateway\FindSpaceByCode\Middleware\InstrumentationMiddleware;
+use App\CMS\Application\Space\Gateway\FindSpaceByCode\Middleware\ProcessorMiddleware;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private QueryBusInterface $queryBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $space = ($this->queryBus)(new FindByCode\Query($request->getCode()));
-            $response = new Response($space);
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during find space by code process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }

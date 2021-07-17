@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Page\Gateway\UnpublishPage;
 
-use JetBrains\PhpStorm\ArrayShape;
 use Mono\Component\Core\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
@@ -32,7 +31,6 @@ final class Request implements GatewayRequest
         return $this->identifier;
     }
 
-    #[ArrayShape(['identifier' => 'string'])]
     public function data(): array
     {
         return [

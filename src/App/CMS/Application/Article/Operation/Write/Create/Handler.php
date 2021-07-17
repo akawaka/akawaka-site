@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Article\Operation\Write\Create;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Article\Application\Operation\Article\Write\Create\ArticleWasCreated;
 use Mono\Component\Article\Domain\Operation\Article\Create\CreatorInterface;
 use Mono\Component\Article\Domain\Operation\Article\Create\Exception\UnableToCreateException;
 use Mono\Component\Article\Domain\Operation\Article\Create\Factory\BuilderInterface;
-use App\CMS\Domain\Space\Common\Identifier\SpaceId;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;

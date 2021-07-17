@@ -4,34 +4,26 @@ declare(strict_types=1);
 
 namespace Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug;
 
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use Mono\Component\Article\Application\Operation\Article\Read\FindBySlug;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Middleware\ErrorHandlerMiddleware;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Middleware\InstrumentationMiddleware;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Middleware\ProcessorMiddleware;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private QueryBusInterface $queryBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $response = new Response(
-                ($this->queryBus)(new FindBySlug\Query($request->getSlug()))
-            );
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during find article by slug process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }

@@ -14,7 +14,6 @@ final class Command
         private string $identifier,
         private string $name,
         private string $slug,
-        private ?string $content,
     ) {
     }
 
@@ -31,10 +30,5 @@ final class Command
     public function getSlug(): Slug
     {
         return new Slug(Slugger::slugify($this->slug));
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
     }
 }

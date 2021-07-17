@@ -15,7 +15,6 @@ final class Builder implements BuilderInterface
             $category['id'],
             $category['slug'],
             $category['name'],
-            $category['content'],
         );
     }
 }

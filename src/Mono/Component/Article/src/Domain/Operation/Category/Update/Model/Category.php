@@ -13,7 +13,6 @@ final class Category implements CategoryInterface
         private CategoryId $id,
         private Slug $slug,
         private string $name,
-        private ?string $content
     ) {
     }
 
@@ -30,10 +29,5 @@ final class Category implements CategoryInterface
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
     }
 }

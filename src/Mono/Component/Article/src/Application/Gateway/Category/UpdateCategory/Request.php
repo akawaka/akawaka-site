@@ -15,8 +15,6 @@ final class Request implements GatewayRequest
 
     private string $slug;
 
-    private ?string $content = null;
-
     public static function fromData(array $data = []): self
     {
         $dto = new self();
@@ -26,19 +24,9 @@ final class Request implements GatewayRequest
             'slug',
         ];
 
-        $optionalFields = [
-            'content',
-        ];
-
         $accessor = PropertyAccess::createPropertyAccessor();
         foreach ($requiredFields as $field) {
             $dto->{$field} = $accessor->getValue($data, "[{$field}]");
-        }
-
-        foreach ($optionalFields as $field) {
-            if (true === isset($data[$field])) {
-                $dto->{$field} = $accessor->getValue($data, "[{$field}]");
-            }
         }
 
         return $dto;

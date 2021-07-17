@@ -4,38 +4,26 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Space\Gateway\UpdateSpace;
 
-use App\CMS\Application\Space\Operation\Write\Update;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
+use App\CMS\Application\Space\Gateway\UpdateSpace\Middleware\ErrorHandlerMiddleware;
+use App\CMS\Application\Space\Gateway\UpdateSpace\Middleware\InstrumentationMiddleware;
+use App\CMS\Application\Space\Gateway\UpdateSpace\Middleware\ProcessorMiddleware;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private CommandBusInterface $commandBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $response = new Response(($this->commandBus)(new Update\Command(
-                $request->getIdentifier(),
-                $request->getName(),
-                $request->getUrl(),
-                $request->getDescription(),
-                $request->getTheme(),
-            )));
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during update space process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }

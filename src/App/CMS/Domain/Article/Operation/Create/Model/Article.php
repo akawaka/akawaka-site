@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\CMS\Domain\Article\Operation\Create\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use App\CMS\Domain\Article\Common\Enum\StatusEnum;
 use Mono\Component\Article\Domain\Common\Identifier\ArticleId;
 use Mono\Component\Article\Domain\Common\ValueObject\Slug;

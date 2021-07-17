@@ -4,39 +4,27 @@ declare(strict_types=1);
 
 namespace App\CMS\Application\Page\Gateway\FindPages;
 
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
-use Mono\Component\Page\Application\Operation\Read\FindAll\Query;
-use Mono\Component\Page\Application\Gateway\FindPages\Instrumentation;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
+use Mono\Component\Page\Application\Gateway\FindPages\Middleware\ErrorHandlerMiddleware;
+use Mono\Component\Page\Application\Gateway\FindPages\Middleware\InstrumentationMiddleware;
+use App\CMS\Application\Page\Gateway\FindPages\Middleware\ProcessorMiddleware;
 use Mono\Component\Page\Application\Gateway\FindPages\Request;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private QueryBusInterface $queryBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $pages = ($this->queryBus)(new Query());
-
-            $response = new Response();
-            foreach ($pages as $page) {
-                $response->add($page);
-            }
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during find pages process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }

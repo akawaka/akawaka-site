@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Component\Article\Domain\Operation\Article\Create\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Article\Domain\Common\Identifier\ArticleId;
 use Mono\Component\Article\Domain\Common\ValueObject\Slug;
 
@@ -16,7 +15,7 @@ final class Article implements ArticleInterface
         private ArticleId $id,
         private Slug $slug,
         private string $name,
-        private array $categories,
+        private array $categories = [],
     ) {
         $this->creationDate = new \Safe\DateTimeImmutable();
     }

@@ -4,37 +4,26 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Application\Gateway\UpdatePage;
 
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
-use Mono\Component\Page\Application\Operation\Write\Update\Command;
+use Mono\Component\Core\Application\Gateway\Middleware\Pipe;
+use Mono\Component\Page\Application\Gateway\UpdatePage\Middleware\ErrorHandlerMiddleware;
+use Mono\Component\Page\Application\Gateway\UpdatePage\Middleware\InstrumentationMiddleware;
+use Mono\Component\Page\Application\Gateway\UpdatePage\Middleware\ProcessorMiddleware;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private CommandBusInterface $commandBus,
+        private ErrorHandlerMiddleware $errorHandlerMiddleware,
+        private InstrumentationMiddleware $instrumentationMiddleware,
+        private ProcessorMiddleware $processorMiddleware
     ) {
     }
 
     public function __invoke(Request $request): Response
     {
-        $this->instrumentation->start($request);
-
-        try {
-            $response = new Response(($this->commandBus)(new Command(
-                $request->getIdentifier(),
-                $request->getName(),
-                $request->getSlug(),
-                $request->getContent(),
-            )));
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during update page process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->instrumentationMiddleware,
+            $this->errorHandlerMiddleware,
+            $this->processorMiddleware,
+        ]))($request);
     }
 }
