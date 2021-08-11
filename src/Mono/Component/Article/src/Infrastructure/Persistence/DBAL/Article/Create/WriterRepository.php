@@ -36,7 +36,7 @@ class WriterRepository extends DBALRepository implements WriterInterface
 
             foreach ($article->getCategories() as $category) {
                 $builder
-                    ->insert('article_categories')
+                    ->insert('cms_article_categories')
                     ->values([
                         'article_id' => ':id',
                         'category_id' => ':category',

@@ -14,7 +14,7 @@ final class Gateway
     public function __construct(
         private ErrorHandlerMiddleware $errorHandlerMiddleware,
         private InstrumentationMiddleware $instrumentationMiddleware,
-        private ProcessorMiddleware $processorMiddleware
+        private ProcessorMiddleware $processorMiddleware,
     ) {
     }
 

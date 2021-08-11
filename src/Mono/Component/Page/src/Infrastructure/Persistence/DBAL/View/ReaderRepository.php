@@ -30,21 +30,11 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             return [];
         }
 
-        $results = $statement->fetchAllAssociative();
-        $collection = [];
-        foreach ($results as $result) {
-            $collection[$result['id']] ??= [
-                'id' => $result['id'],
-                'name' => $result['name'],
-                'slug' => $result['slug'],
-                'status' => $result['status'],
-                'content' => $result['content'],
-                'creation_date' => $result['creation_date'],
-                'last_update' => $result['last_update'],
-            ];
+        if (false === $result = $statement->fetchAssociative()) {
+            return [];
         }
 
-        return reset($collection);
+        return $result;
     }
 
     public function getBySlug(PageSlug $slug): array
@@ -65,7 +55,11 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             return [];
         }
 
-        return $statement->fetchAssociative();
+        if (false === $result = $statement->fetchAssociative()) {
+            return [];
+        }
+
+        return $result;
     }
 
     public function getAll(): array

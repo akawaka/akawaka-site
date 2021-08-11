@@ -47,18 +47,12 @@ final class Request implements GatewayRequest
         return $this->slug;
     }
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
     public function data(): array
     {
         return [
             'identifier' => $this->getIdentifier(),
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
-            'content' => $this->getContent(),
         ];
     }
 }

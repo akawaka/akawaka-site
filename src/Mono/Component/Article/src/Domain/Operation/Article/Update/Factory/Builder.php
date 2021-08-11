@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Component\Article\Domain\Operation\Article\Update\Factory;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Article\Domain\Operation\Article\Update\Model\Article;
 use Mono\Component\Article\Domain\Operation\Article\Update\Model\ArticleInterface;
 
@@ -16,7 +17,7 @@ final class Builder implements BuilderInterface
             $article['slug'],
             $article['name'],
             $article['content'],
-            $article['categories'],
+            new ArrayCollection($article['categories']),
         );
     }
 }

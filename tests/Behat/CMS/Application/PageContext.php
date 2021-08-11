@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
+use Mono\Bundle\AoBundle\Domain\Page\Common\Enum\StatusEnum;
+use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Model\SpaceInterface;
 use Behat\Gherkin\Node\TableNode;
-use App\CMS\Application\Space\Gateway\FindSpaceByCode;
-use App\CMS\Application\Space\Gateway\CreateSpace;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
 use Mono\Component\Core\Application\Gateway\GatewayException;
-use App\CMS\Application\Page\Gateway\UnpublishPage;
-use App\CMS\Application\Page\Gateway\FindPageById;
-use App\CMS\Application\Page\Gateway\FindPageBySlug;
-use App\CMS\Application\Page\Gateway\FindPages;
-use App\CMS\Application\Page\Gateway\PublishPage;
-use App\CMS\Application\Page\Gateway\RemovePage;
-use App\CMS\Application\Page\Gateway\UpdatePage;
-use App\CMS\Application\Page\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\UnpublishPage;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageBySlug;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\PublishPage;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\UpdatePage;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\CreatePage;
 use Behat\Behat\Context\Context;
-use Mono\Component\Page\Domain\Enum\StatusEnum;
+use Mono\Component\Page\Application\Gateway\CreatePage\Response;
+use Mono\Component\Page\Application\Gateway\DeletePage;
+use Mono\Component\Page\Application\Gateway\FindPageById\Request;
 use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
@@ -45,7 +47,7 @@ final class PageContext implements Context
 
     private PublishPage\Gateway $publishPageGateway;
 
-    private RemovePage\Gateway $removePageGateway;
+    private DeletePage\Gateway $deletePageGateway;
 
     private UpdatePage\Gateway $updatePageGateway;
 
@@ -58,7 +60,7 @@ final class PageContext implements Context
         FindPageBySlug\Gateway $findPageBySlugGateway,
         FindPages\Gateway $findPagesGateway,
         PublishPage\Gateway $publishPageGateway,
-        RemovePage\Gateway $removePageGateway,
+        DeletePage\Gateway $deletePageGateway,
         UpdatePage\Gateway $updatePageGateway,
     ) {
         $this->createSpaceGateway = $createSpaceGateway;
@@ -69,7 +71,7 @@ final class PageContext implements Context
         $this->findPageBySlugGateway = $findPageBySlugGateway;
         $this->findPagesGateway = $findPagesGateway;
         $this->publishPageGateway = $publishPageGateway;
-        $this->removePageGateway = $removePageGateway;
+        $this->deletePageGateway = $deletePageGateway;
         $this->updatePageGateway = $updatePageGateway;
 
         $this->space = null;
@@ -95,7 +97,7 @@ final class PageContext implements Context
     }
 
     /**
-     * @Given I want to create a page for this space:
+     * @Given I want to create a page for this space
      */
     public function iWantToCreateAPageForMySpace(TableNode $table)
     {
@@ -116,11 +118,11 @@ final class PageContext implements Context
             $this->responses[] = ($this->createPageGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreatePage\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**
-     * @Given I want to create a page:
+     * @Given I want to create a page
      */
     public function iWantToCreateAPage(TableNode $table)
     {
@@ -139,7 +141,7 @@ final class PageContext implements Context
             $this->responses[] = ($this->createPageGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreatePage\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**
@@ -148,7 +150,7 @@ final class PageContext implements Context
     public function iShouldBeAbleToFindMyPageWithHisIdentifier()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findPageByIdGateway)(FindPageById\Request::fromData($response->data()));
+            $result = ($this->findPageByIdGateway)(Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindPageById\Response::class);
         }
     }
@@ -159,13 +161,13 @@ final class PageContext implements Context
     public function iShouldBeAbleToFindMyPageWithHisSlug()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData($response->data()));
+            $result = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindPageBySlug\Response::class);
         }
     }
 
     /**
-     * @Given I already have a page with slug:
+     * @Given I already have a page with slug
      */
     public function iAlreadyHaveAPageWithSlug(TableNode $table)
     {
@@ -174,7 +176,7 @@ final class PageContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData($row));
+            $this->responses[] = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, FindPageBySlug\Response::class);
@@ -185,19 +187,19 @@ final class PageContext implements Context
      */
     public function iListAllPages()
     {
-        $this->responses = ($this->findPagesGateway)(FindPages\Request::fromData())->data();
+        $this->responses = ($this->findPagesGateway)(\Mono\Component\Page\Application\Gateway\FindPages\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
     /**
-     * @Then I should have at least one page with slug:
+     * @Then I should have at least one page with slug
      */
     public function iShouldHaveAtLeastOnePageWithSlug(TableNode $table)
     {
         $result = [];
 
         foreach ($this->responses as $response) {
-            $response = ($this->findPageByIdGateway)(FindPageById\Request::fromData($response));
+            $response = ($this->findPageByIdGateway)(Request::fromData($response));
 
             if ($response->getPage()->getSlug()->getValue() === $table->getColumn(0)[1]) {
                 $result[] = $response->getPage()->getSlug();
@@ -208,7 +210,7 @@ final class PageContext implements Context
     }
 
     /**
-     * @When I update my page with:
+     * @When I update my page with
      */
     public function iUpdateMyPageWith(TableNode $table)
     {
@@ -226,7 +228,7 @@ final class PageContext implements Context
     }
 
     /**
-     * @Then the page should be updated with:
+     * @Then the page should be updated with
      */
     public function thePageShouldBeUpdatedWith(TableNode $table)
     {
@@ -256,7 +258,7 @@ final class PageContext implements Context
      */
     public function thePageShouldBePublished()
     {
-        $Page = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
+        $Page = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
             $this->responses[0]->data()
         ));
 
@@ -278,7 +280,7 @@ final class PageContext implements Context
      */
     public function thePageShouldBeUnpublished()
     {
-        $Page = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
+        $Page = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
             $this->responses[0]->data()
         ));
 
@@ -286,11 +288,11 @@ final class PageContext implements Context
     }
 
     /**
-     * @When I remove this page
+     * @When I delete this page
      */
-    public function iRemoveThisPage()
+    public function iDeleteThisPage()
     {
-        $this->responses[] = ($this->removePageGateway)(RemovePage\Request::fromData($this->responses[0]->data()));
+        $this->responses[] = ($this->deletePageGateway)(DeletePage\Request::fromData($this->responses[0]->data()));
 
         Assert::minCount($this->responses, 1);
     }
@@ -301,7 +303,7 @@ final class PageContext implements Context
     public function thePageShouldNotBeFound()
     {
         try {
-            ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
+            ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {

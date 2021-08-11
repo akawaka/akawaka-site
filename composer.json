@@ -11,7 +11,7 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "composer/package-versions-deprecated": "1.11.99.1",
-        "doctrine/doctrine-bundle": "^2.3",
+        "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.9",
         "league/flysystem-bundle": "^2.0",
@@ -54,6 +54,7 @@
         "psr-4": {
             "App\\": "src/App/",
             "Mono\\Bundle\\UIBundle\\": "src/Mono/Bundle/UIBundle/src/",
+            "Mono\\Bundle\\AoBundle\\": "src/Mono/Bundle/AoBundle/src/",
             "Mono\\Bundle\\CoreBundle\\": "src/Mono/Bundle/CoreBundle/src/",
             "Mono\\Component\\AdminSecurity\\": "src/Mono/Component/AdminSecurity/src/",
             "Mono\\Component\\Article\\": "src/Mono/Component/Article/src/",
@@ -69,7 +70,8 @@
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/",
-            "Mono\\Bundle\\AoBundle\\Tests\\": "src/Mono/Bundle/AoBundle/tests/"
+            "Mono\\Tests\\Component\\Page\\": "src/Mono/Component/Page/tests/",
+            "Mono\\Tests\\Component\\Article\\": "src/Mono/Component/Article/tests/"
         }
     },
     "replace": {

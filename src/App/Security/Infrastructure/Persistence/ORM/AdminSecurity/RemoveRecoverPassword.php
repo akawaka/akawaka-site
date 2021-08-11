@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Security\Infrastructure\Persistence\ORM\AdminSecurity;
 
 use Doctrine\Persistence\ManagerRegistry;
-use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecovery;
+use App\Security\Domain\Entity\AdminPasswordRecovery;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
 use Mono\Component\AdminSecurity\Domain\Repository;
 use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
@@ -14,7 +14,7 @@ final class RemoveRecoverPassword extends ORMRepository implements Repository\Re
 {
     public function __construct(ManagerRegistry $managerRegistry)
     {
-        parent::__construct($managerRegistry, PasswordRecovery::class);
+        parent::__construct($managerRegistry, AdminPasswordRecovery::class);
     }
 
     public function remove(PasswordRecoveryInterface $recovery): void

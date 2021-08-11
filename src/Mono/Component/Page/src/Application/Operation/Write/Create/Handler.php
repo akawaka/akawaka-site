@@ -21,7 +21,7 @@ final class Handler implements MessageHandlerInterface
     ) {
     }
 
-    public function __invoke(Command $command): bool
+    public function __invoke(Command $command): void
     {
         $page = $this->builder::build([
             'id' => $command->getId(),
@@ -32,14 +32,12 @@ final class Handler implements MessageHandlerInterface
         try {
             $this->creator->create($page);
         } catch (UnableToCreateException $exception) {
-            return false;
+            throw $exception;
         }
 
         $this->eventBus->dispatch(
             (new Envelope(new PageWasCreated($page->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
-
-        return true;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Security\Infrastructure\Authenticator\Admin;
 
 use App\Security\Application\AdminSecurity\Gateway\FindUserByUsernameOrEmail;
+use App\UI\Admin\Controller\Routes;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,12 +48,12 @@ final class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        return new RedirectResponse($this->router->generate('admin_index'));
+        return new RedirectResponse($this->router->generate(Routes::ADMIN_LOGIN['name']));
     }
 
     protected function getLoginUrl(Request $request): string
     {
-        return $this->router->generate('admin_login');
+        return $this->router->generate(Routes::ADMIN_LOGIN['name']);
     }
 
     private function process(string $username): FindUserByUsernameOrEmail\Response

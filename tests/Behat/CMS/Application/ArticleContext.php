@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use App\CMS\Application\Article\Gateway\CreateArticle;
-use App\CMS\Application\Space\Gateway\CreateSpace;
-use App\CMS\Application\Article\Gateway\CreateCategory;
-use App\CMS\Application\Article\Gateway\FindArticleById;
-use App\CMS\Application\Article\Gateway\FindCategoryBySlug;
-use App\CMS\Application\Article\Gateway\FindArticleBySlug;
-use App\CMS\Application\Article\Gateway\FindArticles;
-use App\CMS\Application\Article\Gateway\RemoveArticle;
-use App\CMS\Application\Article\Gateway\UpdateArticle;
-use App\CMS\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
+use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleById;
+use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleBySlug;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticles;
+use Mono\Component\Article\Application\Gateway\Article\DeleteArticle;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -39,7 +38,7 @@ final class ArticleContext implements Context
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
         private FindArticleBySlug\Gateway $findArticleBySlugGateway,
         private FindArticles\Gateway $findArticlesGateway,
-        private RemoveArticle\Gateway $removeArticleGateway,
+        private DeleteArticle\Gateway $deleteArticleGateway,
         private UpdateArticle\Gateway $updateArticleGateway,
     ) {
     }
@@ -103,7 +102,7 @@ final class ArticleContext implements Context
             $this->responses[] = ($this->createArticleGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreateArticle\Response::class);
+        Assert::allIsInstanceOf($this->responses, \Mono\Component\Article\Application\Gateway\Article\CreateArticle\Response::class);
     }
 
     /**
@@ -112,7 +111,7 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisIdentifier()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleByIdGateway)(FindArticleById\Request::fromData($response->data()));
+            $result = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindArticleById\Response::class);
         }
     }
@@ -123,7 +122,7 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisSlug()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData($response->data()));
+            $result = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindArticleBySlug\Response::class);
         }
     }
@@ -138,7 +137,7 @@ final class ArticleContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData($row));
+            $this->responses[] = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, FindArticleBySlug\Response::class);
@@ -149,7 +148,7 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
@@ -161,7 +160,7 @@ final class ArticleContext implements Context
         $result = [];
 
         foreach ($this->responses as $response) {
-            $response = ($this->findArticleByIdGateway)(FindArticleById\Request::fromData($response));
+            $response = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response));
 
             if ($response->getArticle()->getSlug()->getValue() === $table->getColumn(0)[1]) {
                 $result[] = $response->getArticle()->getSlug();
@@ -206,11 +205,11 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @When I remove this article
+     * @When I delete this article
      */
-    public function iRemoveThisArticle()
+    public function iDeleteThisArticle()
     {
-        $this->responses[] = ($this->removeArticleGateway)(RemoveArticle\Request::fromData($this->responses[0]->data()));
+        $this->responses[] = ($this->deleteArticleGateway)(DeleteArticle\Request::fromData($this->responses[0]->data()));
 
         Assert::minCount($this->responses, 1);
     }
@@ -221,7 +220,7 @@ final class ArticleContext implements Context
     public function theArticleshouldNotBeFound()
     {
         try {
-            ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData(
+            ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData(
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {

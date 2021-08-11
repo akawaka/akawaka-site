@@ -1,0 +1,13 @@
+default:
+    suites:
+        ao:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ChannelContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\PageContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension: null

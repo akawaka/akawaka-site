@@ -17,9 +17,8 @@ final class Builder implements BuilderInterface
             new PageId($page['id']),
             new PageSlug($page['slug']),
             $page['name'],
-            $page['status'],
-            \DateTimeImmutable::createFromFormat('Y-m-d', $page['creation_date']),
-            null !== $page['last_update'] ? \DateTimeImmutable::createFromFormat('Y-m-d', $page['last_update']) : null,
+            \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $page['creation_date']),
+            null !== $page['last_update'] ? \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $page['last_update']) : null,
             $page['content'],
         );
     }

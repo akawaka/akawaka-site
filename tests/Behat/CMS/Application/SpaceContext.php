@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
+use Mono\Bundle\AoBundle\Domain\Page\Common\Enum\StatusEnum;
 use Behat\Gherkin\Node\TableNode;
-use App\CMS\Application\Space\Gateway\CloseSpace;
-use App\CMS\Application\Space\Gateway\CreateSpace;
-use App\CMS\Application\Space\Gateway\FindSpaceById;
-use App\CMS\Application\Space\Gateway\FindSpaceByCode;
-use App\CMS\Application\Space\Gateway\FindSpaces;
-use App\CMS\Application\Space\Gateway\PublishSpace;
-use App\CMS\Application\Space\Gateway\RemoveSpace;
-use App\CMS\Application\Space\Gateway\UpdateSpace;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\CloseSpace;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceById;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\PublishSpace;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Application\Space\Gateway\UpdateSpace;
 use Behat\Behat\Context\Context;
-use Mono\Component\Space\Domain\Enum\StatusEnum;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -61,7 +61,7 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @Given I want to create a space:
+     * @Given I want to create a space
      */
     public function iWantToCreateASpace(TableNode $table)
     {
@@ -106,7 +106,7 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @Given I already have a space with code:
+     * @Given I already have a space with code
      */
     public function iAlreadyHaveASpaceWithCode(TableNode $table)
     {
@@ -131,7 +131,7 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @Then I should have at least one space with code:
+     * @Then I should have at least one space with code
      */
     public function iShouldHaveAtLeastOneSpaceWithCode(TableNode $table)
     {
@@ -149,7 +149,7 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @When I update my space with:
+     * @When I update my space with
      */
     public function iUpdateMySpaceWith(TableNode $table)
     {
@@ -162,7 +162,7 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @Then the space should be updated with:
+     * @Then the space should be updated with
      */
     public function theSpaceShouldBeUpdatedWith(TableNode $table)
     {
@@ -219,7 +219,7 @@ final class SpaceContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::CLOSED === $space->data()['status']);
+        Assert::true(StatusEnum::DRAFT === $space->data()['status']);
     }
 
     /**

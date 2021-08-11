@@ -14,7 +14,6 @@ class WriterRepository extends DBALRepository implements WriterInterface
     public function create(PageInterface $page): bool
     {
         $this->beginTransaction();
-
         try {
             $builder = $this->getQueryBuilder();
             $builder

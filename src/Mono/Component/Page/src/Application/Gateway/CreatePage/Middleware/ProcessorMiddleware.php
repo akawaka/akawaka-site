@@ -21,12 +21,12 @@ final class ProcessorMiddleware
     public function __invoke(Request $request): Response
     {
         $identity = $this->identityGenerator->nextIdentity();
-        $command = ($this->commandBus)(new Command(
+        ($this->commandBus)(new Command(
             $identity,
             $request->getName(),
             $request->getSlug(),
         ));
 
-        return new Response($identity, $command);
+        return new Response($identity);
     }
 }

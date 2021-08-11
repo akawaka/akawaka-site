@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-use App\CMS\Domain\Entity\Article;
-use App\CMS\Domain\Entity\Category;
-use App\CMS\Domain\Entity\Space;
-use App\CMS\Domain\Entity\Page;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Article;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\ArticleInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Category;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\CategoryInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Page;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\PageInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Space;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\SpaceInterface;
 use App\Security\Domain\Entity\AdminPasswordRecovery;
 use App\Security\Domain\Entity\AdminUser;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
-use Mono\Component\AdminSecurity\Domain\Entity\User;
 use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
-use Mono\Component\Article\Domain\Entity\ArticleInterface;
-use Mono\Component\Article\Domain\Entity\CategoryInterface;
-use Mono\Component\Space\Domain\Entity\SpaceInterface;
-use Mono\Component\Page\Domain\Entity\PageInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -37,9 +36,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'mappings' => [
                 'CMS' => [
                     'is_bundle' => false,
-                    'type' => 'xml',
-                    'dir' => '%kernel.project_dir%/config/doctrine/cms/entity',
-                    'prefix' => 'App\CMS\Domain\Entity',
+                    'type' => 'attribute',
+                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Infrastructure/Persistence/ORM/Mapping',
+                    'prefix' => 'Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping',
                     'alias' => 'CMS'
                 ],
                 'Security' => [

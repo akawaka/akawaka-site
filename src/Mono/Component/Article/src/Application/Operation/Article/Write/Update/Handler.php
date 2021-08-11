@@ -21,7 +21,7 @@ final class Handler implements MessageHandlerInterface
     ) {
     }
 
-    public function __invoke(Command $command): bool
+    public function __invoke(Command $command): void
     {
         $article = $this->builder::build([
             'id' => $command->getId(),
@@ -34,14 +34,12 @@ final class Handler implements MessageHandlerInterface
         try {
             $this->updater->update($article);
         } catch (UnableToUpdateException $exception) {
-            return false;
+            throw $exception;
         }
 
         $this->eventBus->dispatch(
             (new Envelope(new ArticleWasUpdated($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
-
-        return true;
     }
 }

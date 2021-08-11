@@ -19,19 +19,17 @@ final class Handler implements MessageHandlerInterface
     ) {
     }
 
-    public function __invoke(Command $command): bool
+    public function __invoke(Command $command): void
     {
         try {
             $this->deleter->delete($command->getId());
         } catch (UnableToDeleteException $exception) {
-            return false;
+            throw $exception;
         }
 
         $this->eventBus->dispatch(
             (new Envelope(new PageWasDeleted($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
-
-        return true;
     }
 }

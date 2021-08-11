@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Create;
 
 use Mono\Component\Article\Application\Gateway\Article\CreateArticle as BaseArticle;
-use App\CMS\Application\Article\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
 use App\UI\Admin\Controller\Routes;

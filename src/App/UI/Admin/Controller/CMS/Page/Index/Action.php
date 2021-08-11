@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Page\Index;
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
-use App\CMS\Application\Page\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPages;
 use Mono\Component\Page\Application\Gateway\FindPages\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

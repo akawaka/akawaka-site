@@ -34,7 +34,7 @@ final class Viewer implements ViewerInterface
     {
         $result = $this->reader->getBySlug($slug);
 
-        if (null === $result) {
+        if ([] === $result) {
             throw new UnknownArticleException($slug->getValue());
         }
 

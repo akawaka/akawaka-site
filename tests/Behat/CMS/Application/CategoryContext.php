@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use App\CMS\Application\Article\Gateway\CreateCategory;
-use App\CMS\Application\Article\Gateway\FindCategoryById;
-use App\CMS\Application\Article\Gateway\FindCategoryBySlug;
-use App\CMS\Application\Article\Gateway\FindCategories;
-use App\CMS\Application\Article\Gateway\RemoveCategory;
-use App\CMS\Application\Article\Gateway\UpdateCategory;
+use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
+use Mono\Component\Article\Application\Gateway\Category\FindCategoryById;
+use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
+use Mono\Component\Article\Application\Gateway\Category\FindCategories;
+use Mono\Component\Article\Application\Gateway\Category\DeleteCategory;
+use Mono\Component\Article\Application\Gateway\Category\UpdateCategory;
 use Behat\Behat\Context\Context;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
@@ -26,13 +26,13 @@ final class CategoryContext implements Context
         private FindCategoryById\Gateway $findCategoryByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
         private FindCategories\Gateway $findCategoriesGateway,
-        private RemoveCategory\Gateway $removeCategoryGateway,
+        private DeleteCategory\Gateway $deleteCategoryGateway,
         private UpdateCategory\Gateway $updateCategoryGateway,
     ) {
     }
 
     /**
-     * @Given I want to create a category:
+     * @Given I want to create a category
      */
     public function iWantToCreateACategory(TableNode $table)
     {
@@ -77,7 +77,7 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @Given I already have a category with slug:
+     * @Given I already have a category with slug
      */
     public function iAlreadyHaveACategoryWithSlug(TableNode $table)
     {
@@ -102,7 +102,7 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @Then I should have at least one category with slug:
+     * @Then I should have at least one category with slug
      */
     public function iShouldHaveAtLeastOneCategoryWithSlug(TableNode $table)
     {
@@ -120,7 +120,7 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @When I update my category with:
+     * @When I update my category with
      */
     public function iUpdateMyCategoryWith(TableNode $table)
     {
@@ -133,7 +133,7 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @Then the category should be updated with:
+     * @Then the category should be updated with
      */
     public function theCategorieshouldBeUpdatedWith(TableNode $table)
     {
@@ -147,11 +147,11 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @When I remove this category
+     * @When I delete this category
      */
-    public function iRemoveThisCategory()
+    public function iDeleteThisCategory()
     {
-        $this->responses[] = ($this->removeCategoryGateway)(RemoveCategory\Request::fromData($this->responses[0]->data()));
+        $this->responses[] = ($this->deleteCategoryGateway)(DeleteCategory\Request::fromData($this->responses[0]->data()));
 
         Assert::minCount($this->responses, 1);
     }

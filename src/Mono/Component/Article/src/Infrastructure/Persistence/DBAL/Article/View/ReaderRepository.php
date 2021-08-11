@@ -23,7 +23,7 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
                 category.slug as category_slug
             ')
             ->from('cms_article', 'article')
-            ->leftJoin('article', 'article_categories', 'article_category', 'article.id = article_category.article_id')
+            ->leftJoin('article', 'cms_article_categories', 'article_category', 'article.id = article_category.article_id')
             ->leftJoin('article_category', 'cms_category', 'category', 'category.id = article_category.category_id')
             ->where('article.id = :id')
             ->setParameters([
@@ -37,30 +37,29 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             return [];
         }
 
-        $results = $statement->fetchAllAssociative();
-        $collection = [];
-        foreach ($results as $result) {
-            $collection[$result['id']] ??= [
-                'id' => $result['id'],
-                'name' => $result['name'],
-                'slug' => $result['slug'],
-                'status' => $result['status'],
-                'content' => $result['content'],
-                'creation_date' => $result['creation_date'],
-                'last_update' => $result['last_update'],
-                'categories' => [],
-            ];
-
-            if (null !== $result['category_id']) {
-                $collection[$result['id']]['categories'][] = [
-                    'id' => $result['category_id'],
-                    'name' => $result['category_name'],
-                    'slug' => $result['category_slug'],
-                ];
-            }
+        if (false === $result = $statement->fetchAssociative()) {
+            return [];
         }
 
-        return reset($collection);
+        $article = [
+            'id' => $result['id'],
+            'name' => $result['name'],
+            'slug' => $result['slug'],
+            'content' => $result['content'],
+            'creation_date' => $result['creation_date'],
+            'last_update' => $result['last_update'],
+            'categories' => [],
+        ];
+
+        if (null !== $result['category_id']) {
+            $article['categories'][$result['category_id']] = [
+                'id' => $result['category_id'],
+                'name' => $result['category_name'],
+                'slug' => $result['category_slug'],
+            ];
+        }
+
+        return $article;
     }
 
     public function getBySlug(Slug $slug): array
@@ -74,7 +73,7 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
                 category.slug as category_slug
             ')
             ->from('cms_article', 'article')
-            ->leftJoin('article', 'article_categories', 'article_category', 'article.id = article_category.article_id')
+            ->leftJoin('article', 'cms_article_categories', 'article_category', 'article.id = article_category.article_id')
             ->leftJoin('article_category', 'cms_category', 'category', 'category.id = article_category.category_id')
             ->where('article.slug = :slug')
             ->setParameters([
@@ -88,30 +87,29 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             return [];
         }
 
-        $results = $statement->fetchAssociative();
-        $collection = [];
-        foreach ($results as $result) {
-            $collection[$result['id']] ??= [
-                'id' => $result['id'],
-                'name' => $result['name'],
-                'slug' => $result['slug'],
-                'status' => $result['status'],
-                'content' => $result['content'],
-                'creation_date' => $result['creation_date'],
-                'last_update' => $result['last_update'],
-                'categories' => [],
-            ];
-
-            if (null !== $result['category_id']) {
-                $collection[$result['id']]['categories'][] = [
-                    'id' => $result['category_id'],
-                    'name' => $result['category_name'],
-                    'slug' => $result['category_slug'],
-                ];
-            }
+        if (false === $result = $statement->fetchAssociative()) {
+            return [];
         }
 
-        return reset($collection);
+        $article = [
+            'id' => $result['id'],
+            'name' => $result['name'],
+            'slug' => $result['slug'],
+            'content' => $result['content'],
+            'creation_date' => $result['creation_date'],
+            'last_update' => $result['last_update'],
+            'categories' => [],
+        ];
+
+        if (null !== $result['category_id']) {
+            $article['categories'][$result['category_id']] = [
+                'id' => $result['category_id'],
+                'name' => $result['category_name'],
+                'slug' => $result['category_slug'],
+            ];
+        }
+
+        return $article;
     }
 
     public function getAll(): array
@@ -125,7 +123,7 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
                 category.slug as category_slug
             ')
             ->from('cms_article', 'article')
-            ->leftJoin('article', 'article_categories', 'article_category', 'article.id = article_category.article_id')
+            ->leftJoin('article', 'cms_article_categories', 'article_category', 'article.id = article_category.article_id')
             ->leftJoin('article_category', 'cms_category', 'category', 'category.id = article_category.category_id')
         ;
 
@@ -135,14 +133,14 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             return [];
         }
 
-        $results = $statement->fetchAssociative();
+        $results = $statement->fetchAllAssociative();
         $collection = [];
+
         foreach ($results as $result) {
             $collection[$result['id']] ??= [
                 'id' => $result['id'],
                 'name' => $result['name'],
                 'slug' => $result['slug'],
-                'status' => $result['status'],
                 'content' => $result['content'],
                 'creation_date' => $result['creation_date'],
                 'last_update' => $result['last_update'],
@@ -158,6 +156,6 @@ final class ReaderRepository extends DBALRepository implements ReaderInterface
             }
         }
 
-        return reset($collection);
+        return $collection;
     }
 }
