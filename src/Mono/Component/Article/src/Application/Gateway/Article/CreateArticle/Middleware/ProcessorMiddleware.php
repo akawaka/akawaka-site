@@ -26,6 +26,7 @@ final class ProcessorMiddleware
             $request->getName(),
             $request->getSlug(),
             $request->getCategories(),
+            $request->getAuthors(),
         ));
 
         return new Response($identity);

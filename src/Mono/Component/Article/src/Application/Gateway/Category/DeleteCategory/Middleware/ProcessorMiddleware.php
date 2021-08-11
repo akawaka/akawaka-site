@@ -18,8 +18,10 @@ final class ProcessorMiddleware
 
     public function __invoke(Request $request): Response
     {
-        return new Response(($this->commandBus)(new Command(
+        ($this->commandBus)(new Command(
             $request->getIdentifier()
-        )));
+        ));
+
+        return new Response();
     }
 }

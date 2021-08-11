@@ -4,10 +4,10 @@ Feature:
     I want to manage my articles and tests my gateways
 
     Background: Prepare
-        Given I have a category named "test"
+        Given I have a category named "test" and an author named "test"
 
     Scenario: Create a article
-        Given I want to create a article
+        Given I want to create an article
             | name         | slug |
             | test article | test |
         When I create this article
@@ -15,7 +15,7 @@ Feature:
         And I should be able to find my article with his slug "test"
 
     Scenario: List articles
-        Given I already have a article with slug
+        Given I already have an article with slug
             | slug |
             | test |
         When I list all articles
@@ -24,7 +24,7 @@ Feature:
             | test |
 
     Scenario: Update an existing article
-        Given I already have a article with slug
+        Given I already have an article with slug
             | slug |
             | test |
         When I update my article with:
@@ -35,15 +35,20 @@ Feature:
             | test | test2 |
 
     Scenario: Remove an existing article
-        Given I already have a article with slug
+        Given I already have an article with slug
             | slug |
             | test |
         When I delete this article
         Then the article should not be found
 
     Scenario: Clean
-        And I already have a category with slug
+        Given I already have a category with slug
             | slug |
             | test |
         When I delete this category
         Then the category should not be found
+        And I already have an author with slug
+            | slug |
+            | test |
+        When I delete this author
+        Then the author should not be found

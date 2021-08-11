@@ -49,6 +49,21 @@ class WriterRepository extends DBALRepository implements WriterInterface
                 ;
             }
 
+            foreach ($article->getAuthors() as $author) {
+                $builder
+                    ->insert('cms_article_authors')
+                    ->values([
+                        'article_id' => ':id',
+                        'author_id' => ':author',
+                    ])
+                    ->setParameters([
+                        'id' => $article->getId()->getValue(),
+                        'author' => $author,
+                    ])
+                    ->execute()
+                ;
+            }
+
             $this->getConnection()->commit();
         } catch (Exception $exception) {
             $this->getConnection()->rollback();

@@ -30,7 +30,7 @@ final class AuthorContext implements Context
     }
 
     /**
-     * @Given I want to create a author:
+     * @Given I want to create an author
      */
     public function iWantToCreateAAuthor(TableNode $table)
     {
@@ -77,7 +77,7 @@ final class AuthorContext implements Context
     }
 
     /**
-     * @Given I already have a author with slug
+     * @Given I already have an author with slug
      */
     public function iAlreadyHaveAAuthorWithSlug(TableNode $table)
     {

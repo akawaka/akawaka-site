@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210807231325 extends AbstractMigration
+final class Version20210811215759 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,6 +27,11 @@ final class Version20210807231325 extends AbstractMigration
         $this->addSql('CREATE TABLE cms_article_categories (article_id UUID NOT NULL, category_id UUID NOT NULL, PRIMARY KEY(article_id, category_id))');
         $this->addSql('CREATE INDEX IDX_4F744647294869C ON cms_article_categories (article_id)');
         $this->addSql('CREATE INDEX IDX_4F7446412469DE2 ON cms_article_categories (category_id)');
+        $this->addSql('CREATE TABLE cms_article_authors (article_id UUID NOT NULL, author_id UUID NOT NULL, PRIMARY KEY(article_id, author_id))');
+        $this->addSql('CREATE INDEX IDX_C32285E97294869C ON cms_article_authors (article_id)');
+        $this->addSql('CREATE INDEX IDX_C32285E9F675F31B ON cms_article_authors (author_id)');
+        $this->addSql('CREATE TABLE cms_author (id UUID NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_8F59C7B05E237E06 ON cms_author (name)');
         $this->addSql('CREATE TABLE cms_category (id UUID NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_6CA2D53C5E237E06 ON cms_category (name)');
         $this->addSql('CREATE TABLE cms_page (id UUID NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, content TEXT DEFAULT NULL, creation_date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, last_update TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
@@ -49,18 +54,23 @@ final class Version20210807231325 extends AbstractMigration
         $this->addSql('COMMENT ON COLUMN user_admin.last_connection IS \'(DC2Type:date_immutable)\'');
         $this->addSql('ALTER TABLE cms_article_categories ADD CONSTRAINT FK_4F744647294869C FOREIGN KEY (article_id) REFERENCES cms_article (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE cms_article_categories ADD CONSTRAINT FK_4F7446412469DE2 FOREIGN KEY (category_id) REFERENCES cms_category (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE cms_article_authors ADD CONSTRAINT FK_C32285E97294869C FOREIGN KEY (article_id) REFERENCES cms_article (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE cms_article_authors ADD CONSTRAINT FK_C32285E9F675F31B FOREIGN KEY (author_id) REFERENCES cms_author (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('ALTER TABLE security_admin_recovery ADD CONSTRAINT FK_9D654012A76ED395 FOREIGN KEY (user_id) REFERENCES user_admin (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('ALTER TABLE cms_article_categories DROP CONSTRAINT FK_4F744647294869C');
+        $this->addSql('ALTER TABLE cms_article_authors DROP CONSTRAINT FK_C32285E97294869C');
         $this->addSql('ALTER TABLE cms_article_categories DROP CONSTRAINT FK_4F7446412469DE2');
+        $this->addSql('ALTER TABLE cms_article_authors DROP CONSTRAINT FK_C32285E9F675F31B');
         $this->addSql('ALTER TABLE security_admin_recovery DROP CONSTRAINT FK_9D654012A76ED395');
         $this->addSql('DROP TABLE cms_article');
         $this->addSql('DROP TABLE cms_article_categories');
+        $this->addSql('DROP TABLE cms_article_authors');
+        $this->addSql('DROP TABLE cms_author');
         $this->addSql('DROP TABLE cms_category');
         $this->addSql('DROP TABLE cms_page');
         $this->addSql('DROP TABLE cms_space');

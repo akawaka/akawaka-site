@@ -15,6 +15,8 @@ interface ArticleInterface
 
     public function getName(): string;
 
+    public function getAuthors(): array;
+
     public function getCategories(): array;
 
     public function getCreationDate(): \Safe\DateTimeImmutable;

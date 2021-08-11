@@ -23,4 +23,6 @@ interface ArticleInterface
     public function getLastUpdate(): ?\Safe\DateTimeImmutable;
 
     public function getCategories(): ArrayCollection;
+
+    public function getAuthors(): ArrayCollection;
 }

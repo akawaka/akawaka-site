@@ -52,6 +52,15 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                 ->execute()
             ;
 
+            $builder
+                ->delete('article_authors')
+                ->where('article_id = :id')
+                ->setParameters([
+                    'id' => $article->getId()->getValue(),
+                ])
+                ->execute()
+            ;
+
             foreach ($article->getCategories() as $category) {
                 $builder
                     ->insert('article_categories')
@@ -62,6 +71,21 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                     ->setParameters([
                         'id' => $article->getId()->getValue(),
                         'category' => $category,
+                    ])
+                    ->execute()
+                ;
+            }
+
+            foreach ($article->getAuthors() as $author) {
+                $builder
+                    ->insert('article_authors')
+                    ->values([
+                        'article_id' => ':id',
+                        'author_id' => ':author',
+                    ])
+                    ->setParameters([
+                        'id' => $article->getId()->getValue(),
+                        'author' => $author,
                     ])
                     ->execute()
                 ;

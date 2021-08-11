@@ -15,12 +15,15 @@ final class Request implements GatewayRequest
 
     private array $categories;
 
+    private array $authors;
+
     private array $spaces;
 
     private function __construct()
     {
         $this->slug = null;
         $this->categories = [];
+        $this->authors = [];
         $this->spaces = [];
     }
 
@@ -30,6 +33,7 @@ final class Request implements GatewayRequest
         $fields = [
             'name',
             'categories',
+            'authors',
             'spaces',
         ];
 
@@ -66,6 +70,11 @@ final class Request implements GatewayRequest
         return $this->categories;
     }
 
+    public function getAuthors(): array
+    {
+        return $this->authors;
+    }
+
     public function getSpaces(): array
     {
         return $this->spaces;
@@ -77,6 +86,7 @@ final class Request implements GatewayRequest
             'name' => $this->getName(),
             'slug' => $this->getSlug(),
             'categories' => $this->getCategories(),
+            'authors' => $this->getAuthors(),
             'spaces' => $this->getSpaces(),
         ];
     }

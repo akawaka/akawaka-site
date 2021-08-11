@@ -7,8 +7,10 @@ namespace Mono\Tests\Component\Article\Behat\Application;
 use Behat\Gherkin\Node\TableNode;
 use Mono\Component\Article\Application\Gateway\Article\CreateArticle;
 use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
+use Mono\Component\Article\Application\Gateway\Author\CreateAuthor;
 use Mono\Component\Article\Application\Gateway\Article\FindArticleById;
 use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
+use Mono\Component\Article\Application\Gateway\Author\FindAuthorBySlug;
 use Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug;
 use Mono\Component\Article\Application\Gateway\Article\FindArticles;
 use Mono\Component\Article\Application\Gateway\Article\DeleteArticle;
@@ -22,24 +24,27 @@ final class ArticleContext implements Context
     public function __construct(
         private CreateCategory\Gateway $createCategoryGateway,
         private CreateArticle\Gateway $createArticleGateway,
+        private CreateAuthor\Gateway $createAuthorGateway,
         private FindArticleById\Gateway $findArticleByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
+        private FindAuthorBySlug\Gateway $findAuthorBySlugGateway,
         private FindArticleBySlug\Gateway $findArticleBySlugGateway,
         private FindArticles\Gateway $findArticlesGateway,
         private DeleteArticle\Gateway $deleteArticleGateway,
         private UpdateArticle\Gateway $updateArticleGateway,
         private array $category = [],
+        private array $author = [],
         private array $requests = [],
         private array $responses = [],
     ) {
     }
 
     /**
-     * @Given I have a category named :category
+     * @Given I have a category named :category and an author named :author
      *
      * @param mixed $category
      */
-    public function iHaveACategoryNamed($category)
+    public function iHaveACategoryNamed(string $category, string $author): void
     {
         try {
             $this->category = ($this->findCategoryBySlugGateway)(FindCategoryBySlug\Request::fromData([
@@ -51,10 +56,21 @@ final class ArticleContext implements Context
                 'slug' => $category,
             ]))->data();
         }
+
+        try {
+            $this->author = ($this->findAuthorBySlugGateway)(FindAuthorBySlug\Request::fromData([
+                'slug' => $author,
+            ]))->data();
+        } catch (GatewayException $exception) {
+            $this->author = ($this->createAuthorGateway)(CreateAuthor\Request::fromData([
+                'name' => $author,
+                'slug' => $author,
+            ]))->data();
+        }
     }
 
     /**
-     * @Given I want to create a article
+     * @Given I want to create an article
      */
     public function iWantToCreateAArticle(TableNode $table)
     {
@@ -64,6 +80,7 @@ final class ArticleContext implements Context
                 $row,
                 [
                     'categories' => [$this->category['identifier']],
+                    'authors' => [$this->author['identifier']],
                 ]
             );
 
@@ -108,7 +125,7 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Given I already have a article with slug
+     * @Given I already have an article with slug
      */
     public function iAlreadyHaveAArticleWithSlug(TableNode $table)
     {
@@ -159,6 +176,7 @@ final class ArticleContext implements Context
             $data = array_merge([
                 'identifier' => $this->responses[0]->getArticle()->getId()->getValue(),
                 'categories' => [$this->category['identifier']],
+                'authors' => [$this->author['identifier']],
             ], $row);
 
             $this->responses[] = ($this->updateArticleGateway)(UpdateArticle\Request::fromData($data));

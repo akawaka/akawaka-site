@@ -18,6 +18,7 @@ final class Builder implements BuilderInterface
             $article['name'],
             $article['content'],
             $article['categories'],
+            $article['authors'],
             $article['spaces'],
         );
     }

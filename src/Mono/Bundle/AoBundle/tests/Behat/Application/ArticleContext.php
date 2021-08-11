@@ -8,8 +8,10 @@ use Behat\Gherkin\Node\TableNode;
 use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
 use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
 use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
+use Mono\Component\Article\Application\Gateway\Author\CreateAuthor;
 use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleById;
 use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
+use Mono\Component\Article\Application\Gateway\Author\FindAuthorBySlug;
 use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleBySlug;
 use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticles;
 use Mono\Component\Article\Application\Gateway\Article\DeleteArticle;
@@ -25,6 +27,8 @@ final class ArticleContext implements Context
 
     private array $category = [];
 
+    private array $author = [];
+
     private array $requests = [];
 
     private array $responses = [];
@@ -32,10 +36,12 @@ final class ArticleContext implements Context
     public function __construct(
         private CreateSpace\Gateway $createSpaceGateway,
         private CreateCategory\Gateway $createCategoryGateway,
+        private CreateAuthor\Gateway $createAuthorGateway,
         private FindSpaceByCOde\Gateway $findSpaceByCode,
         private CreateArticle\Gateway $createArticleGateway,
         private FindArticleById\Gateway $findArticleByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
+        private FindAuthorBySlug\Gateway $findAuthorBySlugGateway,
         private FindArticleBySlug\Gateway $findArticleBySlugGateway,
         private FindArticles\Gateway $findArticlesGateway,
         private DeleteArticle\Gateway $deleteArticleGateway,
@@ -44,12 +50,13 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Given I have a space named :space with a category named :category
+     * @Given I have a space named :space with a category named :category and an author named :author
      *
      * @param mixed $space
      * @param mixed $category
+     * @param mixed $author
      */
-    public function iHaveASpaceNamedWithCategoryNamed($space, $category)
+    public function iHaveASpaceNamedWithCategoryNamed($space, $category, $author)
     {
         try {
             $this->space = ($this->findSpaceByCode)(FindSpaceByCode\Request::fromData([
@@ -72,6 +79,17 @@ final class ArticleContext implements Context
                 'slug' => $category,
             ]))->data();
         }
+
+        try {
+            $this->author = ($this->findAuthorBySlugGateway)(FindAuthorBySlug\Request::fromData([
+                'slug' => $author,
+            ]))->data();
+        } catch (GatewayException $exception) {
+            $this->author = ($this->createAuthorGateway)(CreateAuthor\Request::fromData([
+                'name' => $author,
+                'slug' => $author,
+            ]))->data();
+        }
     }
 
     /**
@@ -86,6 +104,7 @@ final class ArticleContext implements Context
                 [
                     'spaces' => [$this->space['identifier']],
                     'categories' => [$this->category['identifier']],
+                    'authors' => [$this->author['identifier']],
                 ]
             );
 

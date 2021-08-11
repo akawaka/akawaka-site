@@ -8,7 +8,6 @@ use Mono\Component\Article\Application\Operation\Article\Write\Update\ArticleWas
 use Mono\Component\Article\Domain\Operation\Article\Update\Factory\BuilderInterface;
 use Mono\Component\Article\Domain\Operation\Article\Update\UpdaterInterface;
 use Mono\Component\Article\Domain\Operation\Article\Update\Exception\UnableToUpdateException;
-use Mono\Bundle\AoBundle\Domain\Space\Operation\View\ViewerInterface as SpaceViewer;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -17,7 +16,6 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private SpaceViewer $spaceReader,
         private BuilderInterface $builder,
         private UpdaterInterface $updater,
         private MessageBusInterface $eventBus,
@@ -32,6 +30,7 @@ final class Handler implements MessageHandlerInterface
             'name' => $command->getName(),
             'content' => $command->getContent(),
             'categories' => $command->getCategories(),
+            'authors' => $command->getAuthors(),
             'spaces' => $command->getSpaces(),
         ]);
 

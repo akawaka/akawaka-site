@@ -29,6 +29,7 @@ final class Handler implements MessageHandlerInterface
             'name' => $command->getName(),
             'content' => $command->getContent(),
             'categories' => $command->getCategories(),
+            'authors' => $command->getAuthors(),
         ]);
 
         try {

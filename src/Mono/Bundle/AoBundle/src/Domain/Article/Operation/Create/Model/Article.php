@@ -11,8 +11,6 @@ use Mono\Component\Article\Domain\Operation\Article\Create\Model\ArticleInterfac
 
 final class Article implements ArticleInterface
 {
-    private string $status;
-
     private \Safe\DateTimeImmutable $creationDate;
 
     public function __construct(
@@ -20,9 +18,10 @@ final class Article implements ArticleInterface
         private Slug $slug,
         private string $name,
         private array $categories,
+        private array $authors,
         private array $spaces,
+        private string $status = StatusEnum::DRAFT,
     ) {
-        $this->status = StatusEnum::DRAFT;
         $this->creationDate = new \Safe\DateTimeImmutable();
     }
 
@@ -44,6 +43,11 @@ final class Article implements ArticleInterface
     public function getCategories(): array
     {
         return $this->categories;
+    }
+
+    public function getAuthors(): array
+    {
+        return $this->authors;
     }
 
     public function getStatus(): string

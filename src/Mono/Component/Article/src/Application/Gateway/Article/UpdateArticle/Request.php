@@ -17,6 +17,8 @@ final class Request implements GatewayRequest
 
     private array $categories;
 
+    private array $authors;
+
     private ?string $content = null;
 
     public static function fromData(array $data = []): self
@@ -27,6 +29,7 @@ final class Request implements GatewayRequest
             'name',
             'slug',
             'categories',
+            'authors',
         ];
 
         $optionalFields = [
@@ -72,6 +75,11 @@ final class Request implements GatewayRequest
         return $this->categories;
     }
 
+    public function getAuthors(): array
+    {
+        return $this->authors;
+    }
+
     public function data(): array
     {
         return [
@@ -80,6 +88,7 @@ final class Request implements GatewayRequest
             'slug' => $this->getSlug(),
             'content' => $this->getContent(),
             'categories' => $this->getCategories(),
+            'authors' => $this->getAuthors(),
         ];
     }
 }

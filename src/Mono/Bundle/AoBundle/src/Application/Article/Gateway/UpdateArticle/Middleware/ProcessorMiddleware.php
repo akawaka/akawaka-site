@@ -24,6 +24,7 @@ final class ProcessorMiddleware
             $request->getSlug(),
             $request->getContent(),
             $request->getCategories(),
+            $request->getAuthors(),
             $request->getSpaces(),
         )));
     }

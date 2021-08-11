@@ -51,6 +51,21 @@ final class WriterRepository extends DBALRepository implements WriterInterface
                 ;
             }
 
+            foreach ($article->getAuthors() as $author) {
+                $builder
+                    ->insert('article_authors')
+                    ->values([
+                        'article_id' => ':id',
+                        'author_id' => ':author',
+                    ])
+                    ->setParameters([
+                        'id' => $article->getId()->getValue(),
+                        'author' => $author,
+                    ])
+                    ->execute()
+                ;
+            }
+
             foreach ($article->getSpaces() as $space) {
                 $builder
                     ->insert('cms_article_spaces')

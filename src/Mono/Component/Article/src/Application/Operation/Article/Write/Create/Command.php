@@ -15,6 +15,7 @@ final class Command
         private string $name,
         private ?string $slug,
         private array $categories,
+        private array $authors,
     ) {
     }
 
@@ -42,5 +43,10 @@ final class Command
     public function getCategories(): array
     {
         return $this->categories;
+    }
+
+    public function getAuthors(): array
+    {
+        return $this->authors;
     }
 }

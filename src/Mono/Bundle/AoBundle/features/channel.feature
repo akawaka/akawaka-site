@@ -5,7 +5,7 @@ Feature:
 
     Scenario: Create a space
         Given I want to create a space
-            | name         | code |
+            | name       | code |
             | test space | test |
         When I create this space
         Then I should be able to find my space with his identifier

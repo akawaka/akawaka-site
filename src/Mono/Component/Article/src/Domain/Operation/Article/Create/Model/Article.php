@@ -16,6 +16,7 @@ final class Article implements ArticleInterface
         private Slug $slug,
         private string $name,
         private array $categories = [],
+        private array $authors = [],
     ) {
         $this->creationDate = new \Safe\DateTimeImmutable();
     }
@@ -38,6 +39,11 @@ final class Article implements ArticleInterface
     public function getCategories(): array
     {
         return $this->categories;
+    }
+
+    public function getAuthors(): array
+    {
+        return $this->authors;
     }
 
     public function getCreationDate(): \Safe\DateTimeImmutable

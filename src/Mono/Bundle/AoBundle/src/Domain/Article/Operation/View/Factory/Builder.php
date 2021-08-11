@@ -21,6 +21,7 @@ final class Builder implements BuilderInterface
             $article['name'],
             $article['status'],
             new ArrayCollection($article['categories']),
+            new ArrayCollection($article['authors']),
             new ArrayCollection($article['spaces']),
             \DateTimeImmutable::createFromFormat('Y-m-d', $article['creation_date']),
             null !== $article['last_update'] ? \DateTimeImmutable::createFromFormat('Y-m-d', $article['last_update']) : null,

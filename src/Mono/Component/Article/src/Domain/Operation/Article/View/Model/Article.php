@@ -18,6 +18,7 @@ final class Article implements ArticleInterface
         private ?\DateTimeImmutable $lastUpdate,
         private ?string $content = null,
         private ArrayCollection $categories,
+        private ArrayCollection $authors,
     ) {
     }
 
@@ -58,5 +59,10 @@ final class Article implements ArticleInterface
     public function getCategories(): ArrayCollection
     {
         return $this->categories;
+    }
+
+    public function getAuthors(): ArrayCollection
+    {
+        return $this->authors;
     }
 }

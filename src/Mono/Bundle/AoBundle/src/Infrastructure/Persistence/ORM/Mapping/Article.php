@@ -34,4 +34,10 @@ class Article implements ArticleInterface
     #[ORM\JoinColumn(name: 'article_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
     #[ORM\InverseJoinColumn(name: 'category_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
     protected Collection $categories;
+
+    #[ORM\ManyToMany(targetEntity: AuthorInterface::class, inversedBy: 'articles')]
+    #[ORM\JoinTable(name: 'cms_article_authors')]
+    #[ORM\JoinColumn(name: 'article_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    #[ORM\InverseJoinColumn(name: 'author_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    protected Collection $authors;
 }

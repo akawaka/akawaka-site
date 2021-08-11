@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Article;
 use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\ArticleInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Author;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\AuthorInterface;
 use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Category;
 use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\CategoryInterface;
 use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Page;
@@ -27,6 +29,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'auto_mapping' => true,
             'resolve_target_entities' => [
                 ArticleInterface::class => Article::class,
+                AuthorInterface::class => Author::class,
                 CategoryInterface::class => Category::class,
                 SpaceInterface::class => Space::class,
                 PageInterface::class => Page::class,
@@ -34,7 +37,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 UserInterface::class => AdminUser::class,
             ],
             'mappings' => [
-                'CMS' => [
+                'Ao' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
                     'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Infrastructure/Persistence/ORM/Mapping',

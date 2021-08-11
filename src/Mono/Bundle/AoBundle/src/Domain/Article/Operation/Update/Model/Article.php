@@ -16,6 +16,7 @@ final class Article implements ArticleInterface
         private string $name,
         private ?string $content,
         private array $categories = [],
+        private array $authors = [],
         private array $spaces = [],
     ) {
     }
@@ -43,6 +44,11 @@ final class Article implements ArticleInterface
     public function getCategories(): array
     {
         return $this->categories;
+    }
+
+    public function getAuthors(): array
+    {
+        return $this->authors;
     }
 
     public function getSpaces(): array
