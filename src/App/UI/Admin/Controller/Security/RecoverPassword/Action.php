@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\RecoverPassword;
 
-use Mono\Component\AdminSecurity\Application\Gateway\FindPasswordRecoveryByToken;
-use Mono\Component\AdminSecurity\Application\Gateway\UpdatePassword;
+use App\Security\Application\AdminSecurity\Gateway\FindPasswordRecoveryByToken;
+use App\Security\Application\AdminSecurity\Gateway\UpdatePassword;
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Component\AdminSecurity\Domain\PasswordGenerator;

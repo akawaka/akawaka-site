@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Form\Type;
 
 use App\UI\Admin\Form\Transformer\CategoriesToArrayTransformer;
-use Mono\Component\Article\Application\Gateway\FindCategories;
+use Mono\Component\Article\Application\Gateway\Category\FindCategories;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -54,6 +54,6 @@ final class CategoryChoiceType extends AbstractType
 
     private function translate(string $key): string
     {
-        return \Safe\sprintf('common.form.type.channel_choice.%s', $key);
+        return \Safe\sprintf('common.form.type.space_choice.%s', $key);
     }
 }

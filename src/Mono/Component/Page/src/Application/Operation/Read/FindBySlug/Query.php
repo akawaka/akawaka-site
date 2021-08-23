@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Application\Operation\Read\FindBySlug;
 
-use Mono\Component\Page\Domain\ValueObject\PageSlug;
+use Mono\Component\Page\Domain\Common\ValueObject\PageSlug;
 
 final class Query
 {

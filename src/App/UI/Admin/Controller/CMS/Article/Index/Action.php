@@ -6,7 +6,8 @@ namespace App\UI\Admin\Controller\CMS\Article\Index;
 
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticles;
+use Mono\Component\Article\Application\Gateway\Article\FindArticles as BaseArticles;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -35,7 +36,7 @@ final class Action
     private function find(): FindArticles\Response
     {
         try {
-            $results = ($this->findArticlesGateway)(FindArticles\Request::fromData());
+            $results = ($this->findArticlesGateway)(BaseArticles\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

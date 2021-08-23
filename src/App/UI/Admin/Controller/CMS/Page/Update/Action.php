@@ -11,8 +11,8 @@ use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Page\Application\Gateway\FindPageById;
-use Mono\Component\Page\Application\Gateway\UpdatePage;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Application\Page\Gateway\UpdatePage;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,7 +71,7 @@ final class Action
     private function find(string $identifier): FindPageById\Response
     {
         try {
-            return ($this->findPageGateway)(FindPageById\Request::fromData([
+            return ($this->findPageGateway)(\Mono\Component\Page\Application\Gateway\FindPageById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Application\Operation\Write\Update;
 
-use Mono\Component\Page\Domain\Identifier\PageId;
-use Mono\Component\Page\Domain\ValueObject\PageSlug;
+use Mono\Component\Core\Infrastructure\Slugger\Slugger;
+use Mono\Component\Page\Domain\Common\Identifier\PageId;
+use Mono\Component\Page\Domain\Common\ValueObject\PageSlug;
 
 final class Command
 {
@@ -14,7 +15,6 @@ final class Command
         private string $name,
         private string $slug,
         private ?string $content,
-        private array $channels,
     ) {
     }
 
@@ -30,16 +30,11 @@ final class Command
 
     public function getSlug(): PageSlug
     {
-        return new PageSlug($this->slug);
+        return new PageSlug(Slugger::slugify($this->slug));
     }
 
     public function getContent(): ?string
     {
         return $this->content;
-    }
-
-    public function getChannels(): array
-    {
-        return $this->channels;
     }
 }

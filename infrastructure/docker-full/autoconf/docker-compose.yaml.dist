@@ -14,7 +14,7 @@ services:
     networks:
       backend: ~
 
-  nginx:
+  http:
     image: nginx:1.19
     depends_on:
       - php
@@ -22,14 +22,14 @@ services:
       - "./infrastructure/docker-full/nginx/conf.d:/etc/nginx/conf.d:ro"
       - "./public:/var/www/html/public:ro"
     ports:
-      - "${APP_NGINX_PORT:-80}:80"
+      - "${APP_HTTP_PORT:-80}:80"
     networks:
       backend: ~
 
-  db:
+  database:
     image: postgres:13
     environment:
-      - POSTGRES_DB=akawaka
+      - POSTGRES_DB=ao
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
     volumes:
@@ -39,10 +39,10 @@ services:
     networks:
       backend: ~
 
-  mailhog:
+  mail:
     image: mailhog/mailhog:latest
     ports:
-      - "${APP_MAILHOG_PORT:-8025}:8025"
+      - "${APP_MAIL_PORT:-8025}:8025"
     networks:
       backend: ~
 

@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 DOCKER?=docker
 DOCKER_COMPOSE?=docker-compose
-EXECJS?=$(DOCKER) run -it --rm --name akawaka_node \
+EXECJS?=$(DOCKER) run -it --rm --name ao_node \
 	-v "$(shell pwd)/assets":/home/node/app/assets \
 	-v "$(shell pwd)/npm-cache":/home/node/app/npm-cache \
 	-v "$(shell pwd)/node_modules":/home/node/app/node_modules \

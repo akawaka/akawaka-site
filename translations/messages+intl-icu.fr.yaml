@@ -19,7 +19,7 @@ admin:
                     content: Accès
                     admins: Administrateurs
             login:
-                title: akawaka
+                title: ao
                 form:
                     email:
                         label: Adresse email ou nom d'utilisateur
@@ -105,7 +105,7 @@ admin:
                     articles: Articles
                     configuration: Configuration
                     categories: Catégories
-                    channels: Canaux
+                    spaces: Espaces
             article:
                 index:
                     title: Gestion des articles
@@ -131,8 +131,8 @@ admin:
                             label: Titre (SEO)
                         categories:
                             label: Catégories
-                        channels:
-                            label: Canaux
+                        spaces:
+                            label: Espaces
                 update:
                     title: Modifier l'article
                     actions:
@@ -148,8 +148,8 @@ admin:
                             label: Catégories
                         content:
                             label: Contenu
-                        channels:
-                            label: Canaux
+                        spaces:
+                            label: Espaces
             page:
                 index:
                     title: Gestion des pages
@@ -173,8 +173,8 @@ admin:
                             label: Nom de la page
                         slug:
                             label: Titre (SEO)
-                        channel:
-                            label: Canaux
+                        space:
+                            label: Espaces
                 update:
                     title: Modifier la page
                     actions:
@@ -188,8 +188,8 @@ admin:
                             label: Titre (SEO)
                         content:
                             label: Contenu
-                        channel:
-                            label: Canaux
+                        space:
+                            label: Espaces
             category:
                 index:
                     title: Gestion des catégories
@@ -221,14 +221,14 @@ admin:
                             label: Nom de la page
                         slug:
                             label: Titre (SEO)
-            channel:
+            space:
                 index:
-                    title: Gestion des canaux
+                    title: Gestion des espaces
                     actions:
-                        create: Créer un nouveau canal
+                        create: Créer un nouvel espace
                     table:
                         head:
-                            name: Nom du canal
+                            name: Nom de l'espace
                             code: Code
                             status: Statut de publication
                             actions: Actions
@@ -236,7 +236,7 @@ admin:
                             edit: Modifier
                             delete: Supprimer
                 create:
-                    title: Nouveau canal
+                    title: Nouvel espace
                     actions:
                         save: Enregistrer
                     form:
@@ -247,14 +247,14 @@ admin:
                         theme:
                             label: Choix du theme
                 update:
-                    title: Modifier le canal
+                    title: Modifier l'espace
                     actions:
                         save: Enregistrer
                     form:
                         name:
                             label: Nom de la page
                         url:
-                            label: Adresse du canal
+                            label: Adresse de l'espace
                         description:
                             label: Description
                         theme:

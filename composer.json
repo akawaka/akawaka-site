@@ -1,5 +1,5 @@
 {
-    "name": "akawaka/website",
+    "name": "mono/ao",
     "description": "ao",
     "type": "project",
     "license": "proprietary",
@@ -11,9 +11,9 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "composer/package-versions-deprecated": "1.11.99.1",
-        "doctrine/doctrine-bundle": "^2.3",
+        "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.0",
-        "doctrine/orm": "^2.8",
+        "doctrine/orm": "^2.9",
         "league/flysystem-bundle": "^2.0",
         "psr/log": "^1.1",
         "qossmic/rich-model-forms-bundle": "^0.1.0",
@@ -54,11 +54,11 @@
         "psr-4": {
             "App\\": "src/App/",
             "Mono\\Bundle\\UIBundle\\": "src/Mono/Bundle/UIBundle/src/",
-            "Mono\\Bundle\\CoreBundle\\": "src/Mono/Bundle/CoreBundle/src/",
             "Mono\\Bundle\\AoBundle\\": "src/Mono/Bundle/AoBundle/src/",
+            "Mono\\Bundle\\CoreBundle\\": "src/Mono/Bundle/CoreBundle/src/",
             "Mono\\Component\\AdminSecurity\\": "src/Mono/Component/AdminSecurity/src/",
             "Mono\\Component\\Article\\": "src/Mono/Component/Article/src/",
-            "Mono\\Component\\Channel\\": "src/Mono/Component/Channel/src/",
+            "Mono\\Component\\Space\\": "src/Mono/Component/Space/src/",
             "Mono\\Component\\Core\\": "src/Mono/Component/Core/src/",
             "Mono\\Component\\Page\\": "src/Mono/Component/Page/src/",
             "Mono\\Primitive\\EmailAddress\\": "src/Mono/Primitive/EmailAddress/src/"
@@ -70,7 +70,8 @@
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/",
-            "Mono\\Bundle\\AoBundle\\Tests\\": "src/Mono/Bundle/AoBundle/tests/"
+            "Mono\\Tests\\Component\\Page\\": "src/Mono/Component/Page/tests/",
+            "Mono\\Tests\\Component\\Article\\": "src/Mono/Component/Article/tests/"
         }
     },
     "replace": {

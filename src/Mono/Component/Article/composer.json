@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Mono\\Component\\Article\\Tests\\": "tests/"
+            "Mono\\Tests\\Component\\Article\\": "tests/"
         }
     },
     "require": {

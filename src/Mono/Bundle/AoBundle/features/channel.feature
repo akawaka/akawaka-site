@@ -1,53 +1,53 @@
-@cms @channel
+@cms
 Feature:
     As a developer
-    I want to manage my channels and tests my gateways
+    I want to manage my spaces and tests my gateways
 
-    Scenario: Create a channel
-        Given I want to create a channel:
-            | name         | code |
-            | test channel | test |
-        When I create this channel
-        Then I should be able to find my channel with his identifier
-        And I should be able to find my channel with his code
+    Scenario: Create a space
+        Given I want to create a space
+            | name       | code |
+            | test space | test |
+        When I create this space
+        Then I should be able to find my space with his identifier
+        And I should be able to find my space with his code
 
-    Scenario: List channels
-        Given I already have a channel with code:
+    Scenario: List spaces
+        Given I already have a space with code
             | code |
             | TEST |
-        When I list all channels
-        Then I should have at least one channel with code:
+        When I list all spaces
+        Then I should have at least one space with code
             | code |
             | TEST |
 
-    Scenario: Update an existing channel
-        Given I already have a channel with code:
+    Scenario: Update an existing space
+        Given I already have a space with code
             | code |
             | TEST |
-        When I update my channel with:
+        When I update my space with
             | name  | url                         | description               |
             | test2 | https://alexandre.balmes.co | Le super site d'alexandre |
-        Then the channel should be updated with:
+        Then the space should be updated with
             | code | name  | url                         | description               |
             | TEST | test2 | https://alexandre.balmes.co | Le super site d'alexandre |
 
-    Scenario: Publish an existing channel
-        Given I already have a channel with code:
+    Scenario: Publish an existing space
+        Given I already have a space with code
             | code |
             | TEST |
-        When I publish this channel
-        Then the channel should be published
+        When I publish this space
+        Then the space should be published
 
-    Scenario: Close an existing channel
-        Given I already have a channel with code:
+    Scenario: Close an existing space
+        Given I already have a space with code
             | code |
             | TEST |
-        When I close this channel
-        Then the channel should be unpublished
+        When I close this space
+        Then the space should be unpublished
 
-    Scenario: Remove an existing channel
-        Given I already have a channel with code:
+    Scenario: Remove an existing space
+        Given I already have a space with code
             | code |
             | TEST |
-        When I remove this channel
-        Then the channel should not be found
+        When I remove this space
+        Then the space should not be found

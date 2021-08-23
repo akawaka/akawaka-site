@@ -2,18 +2,20 @@
 
 declare(strict_types=1);
 
-use App\CMS\Domain\Entity\Article;
-use App\CMS\Domain\Entity\Category;
-use App\CMS\Domain\Entity\Channel;
-use App\CMS\Domain\Entity\Page;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Article;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\ArticleInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Author;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\AuthorInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Category;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\CategoryInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Page;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\PageInterface;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Space;
+use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\SpaceInterface;
 use App\Security\Domain\Entity\AdminPasswordRecovery;
 use App\Security\Domain\Entity\AdminUser;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
-use Mono\Component\AdminSecurity\Domain\Entity\User;
-use Mono\Component\Article\Domain\Entity\ArticleInterface;
-use Mono\Component\Article\Domain\Entity\CategoryInterface;
-use Mono\Component\Channel\Domain\Entity\ChannelInterface;
-use Mono\Component\Page\Domain\Entity\PageInterface;
+use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -27,18 +29,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'auto_mapping' => true,
             'resolve_target_entities' => [
                 ArticleInterface::class => Article::class,
+                AuthorInterface::class => Author::class,
                 CategoryInterface::class => Category::class,
-                ChannelInterface::class => Channel::class,
+                SpaceInterface::class => Space::class,
                 PageInterface::class => Page::class,
                 PasswordRecoveryInterface::class => AdminPasswordRecovery::class,
-                User::class => AdminUser::class,
+                UserInterface::class => AdminUser::class,
             ],
             'mappings' => [
-                'CMS' => [
+                'Ao' => [
                     'is_bundle' => false,
-                    'type' => 'xml',
-                    'dir' => '%kernel.project_dir%/config/doctrine/cms/entity',
-                    'prefix' => 'App\CMS\Domain\Entity',
+                    'type' => 'attribute',
+                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Infrastructure/Persistence/ORM/Mapping',
+                    'prefix' => 'Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping',
                     'alias' => 'CMS'
                 ],
                 'Security' => [

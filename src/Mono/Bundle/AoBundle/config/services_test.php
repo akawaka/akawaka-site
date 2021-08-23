@@ -11,5 +11,7 @@ return static function (ContainerConfigurator $configurator) {
         ->autoconfigure()
     ;
 
-    $services->load('Mono\\Bundle\\AoBundle\\Tests\\', __DIR__.'/../tests/*');
+    $services->load('Mono\\Tests\\Bundle\\AoBundle\\', __DIR__.'/../tests/');
+    $services->load('Mono\\Tests\\Component\\Page\\', __DIR__.'/../../../Component/Page/tests/');
+    $services->load('Mono\\Tests\\Component\\Article\\', __DIR__.'/../../../Component/Article/tests/');
 };

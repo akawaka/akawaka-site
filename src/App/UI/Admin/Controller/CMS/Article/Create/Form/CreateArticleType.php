@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Create\Form;
 
 use App\UI\Admin\Form\Type\CategoryChoiceType;
-use App\UI\Admin\Form\Type\ChannelChoiceType;
+use App\UI\Admin\Form\Type\SpaceChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,8 +35,8 @@ final class CreateArticleType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('channels', ChannelChoiceType::class, [
-                'label' => $this->translate('channels.label'),
+            ->add('spaces', SpaceChoiceType::class, [
+                'label' => $this->translate('spaces.label'),
                 'multiple' => true,
                 'expanded' => true,
             ])

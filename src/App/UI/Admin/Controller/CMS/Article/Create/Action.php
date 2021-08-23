@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Article\Create;
 
-use Mono\Bundle\AoBundle\CMS\Application\Gateway\CreateArticle;
+use Mono\Component\Article\Application\Gateway\Article\CreateArticle as BaseArticle;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
 use App\UI\Admin\Controller\Routes;
@@ -57,7 +58,7 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): CreateArticle\Response
+    private function process(FormInterface $form): BaseArticle\Response
     {
         /** @var CreateArticleDTO $data */
         $data = $form->getData();

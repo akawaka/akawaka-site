@@ -38,7 +38,7 @@ final class CategoriesToArrayTransformer implements DataTransformerInterface
 
         $results = [];
         foreach ($collection->toArray() as $choices) {
-            $results[$choices->getName()] = $choices->getId()->getValue();
+            $results[$choices['name']] = $choices['id'];
         }
 
         return $results;

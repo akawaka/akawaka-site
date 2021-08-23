@@ -6,7 +6,7 @@ namespace Mono\Component\Page\Application\Gateway\FindPages;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Mono\Component\Core\Application\Gateway\GatewayResponse;
-use Mono\Component\Page\Domain\Entity\PageInterface;
+use Mono\Component\Page\Domain\Operation\View\Model\PageInterface;
 
 final class Response implements GatewayResponse
 {
@@ -35,7 +35,6 @@ final class Response implements GatewayResponse
                 'name' => $page->getName(),
                 'slug' => $page->getSlug()->getValue(),
                 'content' => $page->getContent(),
-                'status' => $page->getStatus(),
                 'creationDate' => $page->getCreationDate()->format('Y-m-d H:i:s'),
                 'lastUpdate' => null !== $page->getLastUpdate() ? $page->getLastUpdate()->format('Y-m-d H:i:s') : null,
             ];

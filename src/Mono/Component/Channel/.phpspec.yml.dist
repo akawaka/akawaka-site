@@ -1,4 +1,0 @@
-suites:
-    default:
-        namespace: Mono\Component\Channel
-        psr4_prefix: Mono\Component\Channel

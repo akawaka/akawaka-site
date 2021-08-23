@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\Security\Admin\Delete;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\AdminSecurity\Application\Gateway\RemoveUser;
+use App\Security\Application\AdminSecurity\Gateway\RemoveUser;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

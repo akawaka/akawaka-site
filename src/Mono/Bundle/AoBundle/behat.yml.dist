@@ -4,10 +4,10 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
-                - Mono\Bundle\AoBundle\Tests\Behat\CMS\Application\ArticleContext
-                - Mono\Bundle\AoBundle\Tests\Behat\CMS\Application\CategoryContext
-                - Mono\Bundle\AoBundle\Tests\Behat\CMS\Application\ChannelContext
-                - Mono\Bundle\AoBundle\Tests\Behat\CMS\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ChannelContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\PageContext
 
     extensions:
         FriendsOfBehat\SymfonyExtension: null

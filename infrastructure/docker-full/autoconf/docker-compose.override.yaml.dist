@@ -19,22 +19,22 @@ services:
     networks:
       - traefik
 
-  nginx:
+  http:
     networks:
       backend: ~
       traefik: ~
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.frontend.rule=Host:www.akawaka.localhost"
+      - "traefik.frontend.rule=Host:www.ao.localhost"
       - "traefik.port=80"
 
-  mailhog:
+  mail:
     networks:
       backend: ~
       traefik: ~
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.frontend.rule=Host:mail.akawaka.localhost"
+      - "traefik.frontend.rule=Host:mail.ao.localhost"
       - "traefik.port=8025"

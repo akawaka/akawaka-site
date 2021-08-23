@@ -4,7 +4,17 @@
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
     <entity name="App\Security\Domain\Entity\AdminUser" table="user_admin">
+        <id name="id" type="guid" column="id">
+            <generator strategy="NONE"/>
+        </id>
 
+        <field name="username" unique="true" />
+        <field name="email" unique="true" />
+        <field name="password" />
+
+        <field name="registrationDate" type="date_immutable" />
+        <field name="lastUpdate" type="date_immutable" nullable="true" />
+        <field name="lastConnection" type="date_immutable" nullable="true" />
     </entity>
 
 </doctrine-mapping>

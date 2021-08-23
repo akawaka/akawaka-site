@@ -34,7 +34,7 @@
 
                     <div class="flex-none w-1/6 px-6">
                         {{ form_row(form.categories) }}
-                        {{ form_row(form.channels) }}
+                        {{ form_row(form.spaces) }}
 
                         <div class="pt-6">
                             <button
@@ -43,7 +43,7 @@
                                 {{ 'admin.cms.ui.article.update.actions.save'|trans }}
                             </button>
 
-                            {% if article.status is constant('Mono\\Component\\Article\\Domain\\Enum\\StatusEnum::DRAFT') %}
+                            {% if article.status is constant('App\\CMS\\Domain\\Article\\Common\\Enum\\StatusEnum::DRAFT') %}
                                 <a href="{{ url(constant('App\\UI\\Admin\\Controller\\Routes::ADMIN_CMS_ARTICLES_PUBLISH')['name'], {'identifier': article.identifier }) }}"
                                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     {{ 'admin.cms.ui.article.update.actions.publish'|trans }}

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Page\Create\Form;
 
-use App\UI\Admin\Form\Type\ChannelChoiceType;
+use App\UI\Admin\Form\Type\SpaceChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,8 +29,8 @@ final class CreatePageType extends AbstractType
                 'label' => $this->translate('slug.label'),
                 'required' => false,
             ])
-            ->add('channels', ChannelChoiceType::class, [
-                'label' => $this->translate('channel.label'),
+            ->add('spaces', SpaceChoiceType::class, [
+                'label' => $this->translate('space.label'),
                 'multiple' => true,
                 'expanded' => true,
             ])

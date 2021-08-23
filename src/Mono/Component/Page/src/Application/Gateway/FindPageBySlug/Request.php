@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Component\Page\Application\Gateway\FindPageBySlug;
 
-use JetBrains\PhpStorm\ArrayShape;
 use Mono\Component\Core\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
@@ -32,7 +31,6 @@ final class Request implements GatewayRequest
         return $this->slug;
     }
 
-    #[ArrayShape(['slug' => 'string'])]
     public function data(): array
     {
         return [

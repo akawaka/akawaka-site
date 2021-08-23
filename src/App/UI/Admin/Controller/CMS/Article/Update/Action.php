@@ -10,8 +10,9 @@ use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Article\Application\Gateway\FindArticleById;
-use Mono\Component\Article\Application\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleById;
+use Mono\Component\Article\Application\Gateway\Article\FindArticleById as BaseArticleById;
+use Mono\Bundle\AoBundle\Application\Article\Gateway\UpdateArticle;
 use Mono\Component\Core\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -71,7 +72,7 @@ final class Action
     private function find(string $identifier): FindArticleById\Response
     {
         try {
-            return ($this->findArticleGateway)(FindArticleById\Request::fromData([
+            return ($this->findArticleGateway)(BaseArticleById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {
