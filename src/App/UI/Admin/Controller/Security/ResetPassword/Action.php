@@ -10,7 +10,7 @@ use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordDTO;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordType;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

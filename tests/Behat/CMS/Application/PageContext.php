@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Mono\Bundle\AoBundle\Domain\Page\Common\Enum\StatusEnum;
+use Mono\Bundle\AoBundle\Domain\Common\Enum\PageStatus;
 use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Model\SpaceInterface;
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\UnpublishPage;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageBySlug;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPages;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\PublishPage;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\UpdatePage;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\UnpublishPage;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\PublishPage;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\UpdatePage;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage;
 use Behat\Behat\Context\Context;
-use Mono\Component\Page\Application\Gateway\CreatePage\Response;
-use Mono\Component\Page\Application\Gateway\DeletePage;
-use Mono\Component\Page\Application\Gateway\FindPageById\Request;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage\Response;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\DeletePage;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById\Request;
 use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
@@ -161,7 +161,7 @@ final class PageContext implements Context
     public function iShouldBeAbleToFindMyPageWithHisSlug()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData($response->data()));
+            $result = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindPageBySlug\Response::class);
         }
     }
@@ -176,7 +176,7 @@ final class PageContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData($row));
+            $this->responses[] = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, FindPageBySlug\Response::class);
@@ -187,7 +187,7 @@ final class PageContext implements Context
      */
     public function iListAllPages()
     {
-        $this->responses = ($this->findPagesGateway)(\Mono\Component\Page\Application\Gateway\FindPages\Request::fromData())->data();
+        $this->responses = ($this->findPagesGateway)(\Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPages\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
@@ -258,11 +258,11 @@ final class PageContext implements Context
      */
     public function thePageShouldBePublished()
     {
-        $Page = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
+        $Page = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::PUBLISHED === $Page->data()['status']);
+        Assert::true(PageStatus::PUBLISHED === $Page->data()['status']);
     }
 
     /**
@@ -280,11 +280,11 @@ final class PageContext implements Context
      */
     public function thePageShouldBeUnpublished()
     {
-        $Page = ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
+        $Page = ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::DRAFT === $Page->data()['status']);
+        Assert::true(PageStatus::DRAFT === $Page->data()['status']);
     }
 
     /**
@@ -303,7 +303,7 @@ final class PageContext implements Context
     public function thePageShouldNotBeFound()
     {
         try {
-            ($this->findPageBySlugGateway)(\Mono\Component\Page\Application\Gateway\FindPageBySlug\Request::fromData(
+            ($this->findPageBySlugGateway)(FindPageBySlug\Request::fromData(
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {

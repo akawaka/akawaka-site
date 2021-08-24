@@ -6,9 +6,9 @@ namespace App\Security\Application\AdminSecurity\Gateway\ResetPassword;
 
 use App\Security\Application\AdminSecurity\Operation\Read\FindUserByUsernameOrEmail;
 use App\Security\Application\AdminSecurity\Operation\Write\ResetPassword;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Gateway
 {

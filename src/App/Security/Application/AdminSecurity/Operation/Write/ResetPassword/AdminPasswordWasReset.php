@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Security\Application\AdminSecurity\Operation\Write\ResetPassword;
 
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
-use Mono\Component\Core\Infrastructure\Notifier\MailerContext;
-use Mono\Component\Core\Infrastructure\Notifier\MailerNotificationInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\BrowserNotificationInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\BrowserContext;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\MailerContext;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\MailerNotificationInterface;
 use Symfony\Component\Mime\Address;
 
 final class AdminPasswordWasReset implements BrowserNotificationInterface, MailerNotificationInterface

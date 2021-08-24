@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Space\Context;
 
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaces;
-use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Exception\SpaceWasNotFound;
-use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Exception\SpaceWasNotFound;
+use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Model\SpaceInterface;
 
 final class SingleSpaceContext
 {

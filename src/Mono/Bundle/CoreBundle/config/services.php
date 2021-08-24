@@ -12,7 +12,6 @@ return static function (ContainerConfigurator $configurator) {
     ;
 
     $services->load('Mono\\Bundle\\CoreBundle\\', '../src/*');
-    $services->load('Mono\\Component\\Core\\', '../../../Component/Core/src/*');
 
     $configurator->import('services/*');
 };

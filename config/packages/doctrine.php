@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Article;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\ArticleInterface;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Author;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\AuthorInterface;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Category;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\CategoryInterface;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Page;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\PageInterface;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\Space;
-use Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping\SpaceInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Article;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\ArticleInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Author;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\AuthorInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Category;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\CategoryInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Page;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\PageInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Space;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\SpaceInterface;
 use App\Security\Domain\Entity\AdminPasswordRecovery;
 use App\Security\Domain\Entity\AdminUser;
 use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
@@ -40,9 +40,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'Ao' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Infrastructure/Persistence/ORM/Mapping',
-                    'prefix' => 'Mono\Bundle\AoBundle\Infrastructure\Persistence\ORM\Mapping',
-                    'alias' => 'CMS'
+                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Shared/Infrastructure/Doctrine/Mapping',
+                    'prefix' => 'Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping',
+                    'alias' => 'Ao'
                 ],
                 'Security' => [
                     'is_bundle' => false,

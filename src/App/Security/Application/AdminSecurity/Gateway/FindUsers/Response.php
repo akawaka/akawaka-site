@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Security\Application\AdminSecurity\Gateway\FindUsers;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Component\Core\Application\Gateway\GatewayResponse;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 final class Response implements GatewayResponse

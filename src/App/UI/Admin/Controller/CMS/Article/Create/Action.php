@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Article\Create;
 
-use Mono\Component\Article\Application\Gateway\Article\CreateArticle as BaseArticle;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle as BaseArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

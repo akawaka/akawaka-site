@@ -1,4 +1,4 @@
-@cms
+@article
 Feature:
     As a developer
     I want to manage my articles and tests my gateways
@@ -12,14 +12,14 @@ Feature:
             | test article | test |
         When I create this article
         Then I should be able to find my article with his identifier
-        And I should be able to find my article with his slug
+        And I should be able to find my article with his slug "test"
 
     Scenario: List articles
         Given I already have an article with slug
             | slug |
             | test |
         When I list all articles
-        Then I should have at least one article with slug:
+        Then I should have at least one article with slug
             | slug |
             | test |
 
@@ -27,7 +27,7 @@ Feature:
         Given I already have an article with slug
             | slug |
             | test |
-        When I update my article with:
+        When I update my article with
             | name  | slug | content      |
             | test2 | test | test content |
         Then the article should be updated with
@@ -38,21 +38,21 @@ Feature:
         Given I already have an article with slug
             | slug |
             | test |
-        When I remove this article
+        When I delete this article
         Then the article should not be found
 
     Scenario: Clean
         Given I already have a space with code
             | code |
             | TEST |
-        When I remove this space
+        When I delete this space
         Then the space should not be found
         And I already have a category with slug
             | slug |
             | test |
-        When I remove this category
+        When I delete this category
         And I already have an author with slug
             | slug |
             | test |
-        When I remove this author
+        When I delete this author
         Then the author should not be found

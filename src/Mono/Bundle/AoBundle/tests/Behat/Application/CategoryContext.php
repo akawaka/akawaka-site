@@ -5,22 +5,18 @@ declare(strict_types=1);
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryById;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
-use Mono\Component\Article\Application\Gateway\Category\FindCategories;
-use Mono\Component\Article\Application\Gateway\Category\DeleteCategory;
-use Mono\Component\Article\Application\Gateway\Category\UpdateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryById;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\DeleteCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class CategoryContext implements Context
 {
-    private array $requests = [];
-
-    private array $responses = [];
-
     public function __construct(
         private CreateCategory\Gateway $createCategoryGateway,
         private FindCategoryById\Gateway $findCategoryByIdGateway,
@@ -28,6 +24,8 @@ final class CategoryContext implements Context
         private FindCategories\Gateway $findCategoriesGateway,
         private DeleteCategory\Gateway $deleteCategoryGateway,
         private UpdateCategory\Gateway $updateCategoryGateway,
+        private array $requests = [],
+        private array $responses = []
     ) {
     }
 
@@ -66,12 +64,14 @@ final class CategoryContext implements Context
     }
 
     /**
-     * @Then I should be able to find my category with his slug
+     * @Then I should be able to find my category with his slug :slug
      */
-    public function iShouldBeAbleToFindMyCategoryWithHisSlug()
+    public function iShouldBeAbleToFindMyCategoryWithHisSlug(string $slug)
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findCategoryBySlugGateway)(FindCategoryBySlug\Request::fromData($response->data()));
+            $result = ($this->findCategoryBySlugGateway)(FindCategoryBySlug\Request::fromData([
+                'slug' => $slug,
+            ]));
             Assert::isInstanceOf($result, FindCategoryBySlug\Response::class);
         }
     }
@@ -137,10 +137,9 @@ final class CategoryContext implements Context
      */
     public function theCategorieshouldBeUpdatedWith(TableNode $table)
     {
-        /** @var UpdateCategory\Response $response */
-        $response = $this->responses[0];
-
         foreach ($table as $row) {
+            $response = ($this->findCategoryBySlugGateway)(FindCategoryBySlug\Request::fromData($row));
+
             Assert::true($response->data()['slug'] === $row['slug']);
             Assert::true($response->data()['name'] === $row['name']);
         }

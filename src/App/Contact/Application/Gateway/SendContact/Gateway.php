@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Contact\Application\Gateway\SendContact;
 
 use App\Contact\Application\Operation\Write\Send\Command;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\CommandBusInterface;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Gateway
 {

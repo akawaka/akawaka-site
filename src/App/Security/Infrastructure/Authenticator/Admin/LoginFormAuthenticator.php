@@ -6,7 +6,7 @@ namespace App\Security\Infrastructure\Authenticator\Admin;
 
 use App\Security\Application\AdminSecurity\Gateway\FindUserByUsernameOrEmail;
 use App\UI\Admin\Controller\Routes;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

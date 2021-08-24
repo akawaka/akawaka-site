@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Contact\Application\Gateway\SendContact;
 
-use Mono\Component\Core\Application\Gateway\GatewayRequest;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 final class Request implements GatewayRequest

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Application\AdminSecurity\Gateway\FindUserByUsernameOrEmail;
 
-use Mono\Component\Core\Application\Instrumentation\AbstractInstrumentation;
+use Mono\Bundle\CoreBundle\Application\Instrumentation\AbstractInstrumentation;
 
 final class Instrumentation extends AbstractInstrumentation
 {

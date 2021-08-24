@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\CoreBundle\UI\Responder;
 
-use Mono\Component\Core\Infrastructure\Templating\TemplatingInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\Templating\TemplatingInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 final class HtmlResponder

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Infrastructure\Space\Context;
 
 use App\Infrastructure\Space\Context\Request\RequestBasedSpaceContext;
-use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Exception\SpaceWasNotFound;
-use Mono\Bundle\AoBundle\Domain\Space\Operation\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Exception\SpaceWasNotFound;
+use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Model\SpaceInterface;
 
 final class SpaceContext implements SpaceContextInterface
 {

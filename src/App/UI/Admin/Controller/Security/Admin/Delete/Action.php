@@ -8,7 +8,7 @@ use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use App\Security\Application\AdminSecurity\Gateway\RemoveUser;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;

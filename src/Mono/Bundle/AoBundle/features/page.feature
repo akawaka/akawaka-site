@@ -1,9 +1,9 @@
-@cms
+@page
 Feature:
     As a developer
     I want to manage my pages and tests my gateways
 
-    Background:
+    Background: Prepare
         Given I have a space named "default"
 
     Scenario: Create a page
@@ -12,7 +12,7 @@ Feature:
             | test page |
         When I create this page for my space
         Then I should be able to find my page with his identifier
-        And I should be able to find my page with his slug
+        And I should be able to find my page with his slug "test-page"
 
     Scenario: List pages
         Given I already have a page with slug
@@ -52,5 +52,5 @@ Feature:
         Given I already have a page with slug
             | slug       |
             | test2-slug |
-        When I remove this page
+        When I delete this page
         Then the page should not be found

@@ -4,26 +4,22 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Mono\Bundle\AoBundle\Domain\Page\Common\Enum\StatusEnum;
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CloseSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceById;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaces;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\PublishSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\RemoveSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\UpdateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CloseSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceById;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\PublishSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\UpdateSpace;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\AoBundle\Admin\Domain\Shared\Enum\SpaceStatus;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class SpaceContext implements Context
 {
-    private array $requests = [];
-
-    private array $responses = [];
-
     private CloseSpace\Gateway $closeSpaceGateway;
 
     private CreateSpace\Gateway $createSpaceGateway;
@@ -49,6 +45,8 @@ final class SpaceContext implements Context
         PublishSpace\Gateway $publishSpaceGateway,
         RemoveSpace\Gateway $removeSpaceGateway,
         UpdateSpace\Gateway $updateSpaceGateway,
+        private array $requests = [],
+        private array $responses = [],
     ) {
         $this->closeSpaceGateway = $closeSpaceGateway;
         $this->createSpaceGateway = $createSpaceGateway;
@@ -95,12 +93,14 @@ final class SpaceContext implements Context
     }
 
     /**
-     * @Then I should be able to find my space with his code
+     * @Then I should be able to find my space with his code :code
      */
-    public function iShouldBeAbleToFindMySpaceWithHisCode()
+    public function iShouldBeAbleToFindMySpaceWithHisCode(string $code)
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findSpaceByCodeGateway)(FindSpaceByCode\Request::fromData($response->data()));
+            $result = ($this->findSpaceByCodeGateway)(FindSpaceByCode\Request::fromData([
+                'code' => $code,
+            ]));
             Assert::isInstanceOf($result, FindSpaceByCode\Response::class);
         }
     }
@@ -166,10 +166,9 @@ final class SpaceContext implements Context
      */
     public function theSpaceShouldBeUpdatedWith(TableNode $table)
     {
-        /** @var UpdateSpace\Response $response */
-        $response = $this->responses[0];
-
         foreach ($table as $row) {
+            $response = ($this->findSpaceByCodeGateway)(FindSpaceByCode\Request::fromData($row));
+
             Assert::true($response->data()['code'] === $row['code']);
             Assert::true($response->data()['name'] === $row['name']);
             Assert::true($response->data()['url'] === $row['url']);
@@ -197,7 +196,7 @@ final class SpaceContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::PUBLISHED === $space->data()['status']);
+        Assert::true(SpaceStatus::PUBLISHED === $space->data()['status']);
     }
 
     /**
@@ -219,13 +218,13 @@ final class SpaceContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::DRAFT === $space->data()['status']);
+        Assert::true(SpaceStatus::CLOSED === $space->data()['status']);
     }
 
     /**
-     * @When I remove this space
+     * @When I delete this space
      */
-    public function iRemoveThisSpace()
+    public function iDeleteThisSpace()
     {
         $this->responses[] = ($this->removeSpaceGateway)(RemoveSpace\Request::fromData($this->responses[0]->data()));
 

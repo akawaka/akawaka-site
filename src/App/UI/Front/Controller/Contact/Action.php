@@ -9,7 +9,7 @@ use App\UI\Front\Controller\Contact\Form\ContactType;
 use App\UI\Front\Controller\Routes;
 use App\UI\Front\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

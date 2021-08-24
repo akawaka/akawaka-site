@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Security\Application\AdminSecurity\Operation\Write\Register;
 
 use App\Security\Domain\Entity\AdminUser;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserNotificationInterface;
-use Mono\Component\Core\Infrastructure\Notifier\BrowserContext;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\BrowserNotificationInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\BrowserContext;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 final class AdminWasRegistered implements BrowserNotificationInterface

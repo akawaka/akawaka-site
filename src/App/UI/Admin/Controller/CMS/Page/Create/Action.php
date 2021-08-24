@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Page\Create;
 
-use Mono\Bundle\AoBundle\Application\Page\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,7 +57,7 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): \Mono\Component\Page\Application\Gateway\CreatePage\Response
+    private function process(FormInterface $form): \Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage\Response
     {
         /** @var CreatePageDTO $data */
         $data = $form->getData();

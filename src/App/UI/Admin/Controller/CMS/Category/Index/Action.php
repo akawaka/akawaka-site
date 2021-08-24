@@ -6,8 +6,8 @@ namespace App\UI\Admin\Controller\CMS\Category\Index;
 
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\Article\Application\Gateway\Category\FindCategories;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategories;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;

@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\CMS\Application;
 
-use Mono\Bundle\AoBundle\Domain\Page\Common\Enum\StatusEnum;
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CloseSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceById;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaces;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\PublishSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\RemoveSpace;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\UpdateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CloseSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceById;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\PublishSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\UpdateSpace;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\AoBundle\Domain\Common\Enum\SpaceStatus;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class SpaceContext implements Context
@@ -197,7 +197,7 @@ final class SpaceContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::PUBLISHED === $space->data()['status']);
+        Assert::true(SpaceStatus::PUBLISHED === $space->data()['status']);
     }
 
     /**
@@ -219,7 +219,7 @@ final class SpaceContext implements Context
             $this->responses[0]->data()
         ));
 
-        Assert::true(StatusEnum::DRAFT === $space->data()['status']);
+        Assert::true(SpaceStatus::DRAFT === $space->data()['status']);
     }
 
     /**

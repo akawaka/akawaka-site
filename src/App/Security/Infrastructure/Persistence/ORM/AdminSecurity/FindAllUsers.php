@@ -7,7 +7,7 @@ namespace App\Security\Infrastructure\Persistence\ORM\AdminSecurity;
 use App\Security\Domain\Entity\AdminUser;
 use Doctrine\Persistence\ManagerRegistry;
 use Mono\Component\AdminSecurity\Domain\Repository;
-use Mono\Component\Core\Infrastructure\Persistence\Doctrine\ORMRepository;
+use Mono\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\ORMRepository;
 
 final class FindAllUsers extends ORMRepository implements Repository\FindAllUsers
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Mono\Component\Core\Infrastructure\Notifier\Channel\BrowserChannel;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\Channel\BrowserChannel;
 
 return function (ContainerConfigurator $configurator) {
     $services = $configurator->services();

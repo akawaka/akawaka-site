@@ -6,7 +6,7 @@ namespace App\UI\CLI\Command\Security;
 
 use App\Security\Application\AdminSecurity\Gateway\Register;
 use App\UI\CLI\Command\CommandNaming;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -11,7 +11,7 @@ use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterType;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

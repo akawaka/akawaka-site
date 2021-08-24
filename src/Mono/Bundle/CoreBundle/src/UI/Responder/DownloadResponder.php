@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\CoreBundle\UI\Responder;
 
-use Mono\Component\Core\Infrastructure\FileManager\FileDownloader;
+use Mono\Bundle\CoreBundle\Infrastructure\FileManager\FileDownloader;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;

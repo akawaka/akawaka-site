@@ -10,9 +10,9 @@ use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Application\Page\Gateway\UpdatePage;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\UpdatePage;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,7 +71,7 @@ final class Action
     private function find(string $identifier): FindPageById\Response
     {
         try {
-            return ($this->findPageGateway)(\Mono\Component\Page\Application\Gateway\FindPageById\Request::fromData([
+            return ($this->findPageGateway)(\Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

@@ -5,20 +5,21 @@ declare(strict_types=1);
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
-use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
-use Mono\Component\Article\Application\Gateway\Author\CreateAuthor;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleById;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
-use Mono\Component\Article\Application\Gateway\Author\FindAuthorBySlug;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleBySlug;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticles;
-use Mono\Component\Article\Application\Gateway\Article\DeleteArticle;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\UpdateArticle;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug\Request;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\CreateAuthor;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleById;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\FindAuthorBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\DeleteArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class ArticleContext implements Context
@@ -93,7 +94,7 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Given I want to create a article:
+     * @Given I want to create an article
      */
     public function iWantToCreateAArticle(TableNode $table)
     {
@@ -121,7 +122,7 @@ final class ArticleContext implements Context
             $this->responses[] = ($this->createArticleGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, \Mono\Component\Article\Application\Gateway\Article\CreateArticle\Response::class);
+        Assert::allIsInstanceOf($this->responses, \Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle\Response::class);
     }
 
     /**
@@ -130,24 +131,26 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisIdentifier()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response->data()));
+            $result = ($this->findArticleByIdGateway)(FindArticleById\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindArticleById\Response::class);
         }
     }
 
     /**
-     * @Then I should be able to find my article with his slug
+     * @Then I should be able to find my article with his slug :slug
      */
-    public function iShouldBeAbleToFindMyArticleWithHisSlug()
+    public function iShouldBeAbleToFindMyArticleWithHisSlug(string $slug)
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($response->data()));
+            $result = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData([
+                'slug' => $slug,
+            ]));
             Assert::isInstanceOf($result, FindArticleBySlug\Response::class);
         }
     }
 
     /**
-     * @Given I already have a article with slug:
+     * @Given I already have an article with slug
      */
     public function iAlreadyHaveAArticleWithSlug(TableNode $table)
     {
@@ -156,7 +159,7 @@ final class ArticleContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($row));
+            $this->responses[] = ($this->findArticleBySlugGateway)(Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, FindArticleBySlug\Response::class);
@@ -167,19 +170,19 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
     /**
-     * @Then I should have at least one article with slug:
+     * @Then I should have at least one article with slug
      */
     public function iShouldHaveAtLeastOneArticleWithSlug(TableNode $table)
     {
         $result = [];
 
         foreach ($this->responses as $response) {
-            $response = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response));
+            $response = ($this->findArticleByIdGateway)(FindArticleById\Request::fromData($response));
 
             if ($response->getArticle()->getSlug()->getValue() === $table->getColumn(0)[1]) {
                 $result[] = $response->getArticle()->getSlug();
@@ -190,7 +193,7 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @When I update my article with:
+     * @When I update my article with
      */
     public function iUpdateMyArticleWith(TableNode $table)
     {
@@ -198,9 +201,10 @@ final class ArticleContext implements Context
             $data = array_merge([
                 'identifier' => $this->responses[0]->getArticle()->getId()->getValue(),
                 'categories' => [$this->category['identifier']],
-                'spaces' => $this->responses[0]->getArticle()->getSpaces()->map(function (SpaceInterface $space) {
-                    return $space->getId()->getValue();
+                'spaces' => $this->responses[0]->getArticle()->getSpaces()->map(function ($space) {
+                    return $space['id'];
                 })->toArray(),
+                'authors' => [$this->author['identifier']],
             ], $row);
 
             $this->responses[] = ($this->updateArticleGateway)(UpdateArticle\Request::fromData($data));
@@ -210,14 +214,13 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Then the article should be updated with:
+     * @Then the article should be updated with
      */
     public function theArticleshouldBeUpdatedWith(TableNode $table)
     {
-        /** @var UpdateArticle\Response $response */
-        $response = $this->responses[0];
-
         foreach ($table as $row) {
+            $response = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData($row));
+
             Assert::true($response->data()['slug'] === $row['slug']);
             Assert::true($response->data()['name'] === $row['name']);
         }
@@ -239,7 +242,7 @@ final class ArticleContext implements Context
     public function theArticleshouldNotBeFound()
     {
         try {
-            ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData(
+            ($this->findArticleBySlugGateway)(Request::fromData(
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {

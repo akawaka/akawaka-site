@@ -7,8 +7,8 @@ namespace App\Security\Application\AdminSecurity\EventHandler;
 use App\Contact\Infrastructure\Mailer\Email;
 use App\Contact\Infrastructure\Mailer\MailerInterface;
 use App\Security\Application\AdminSecurity\Operation\Write\ResetPassword\AdminPasswordWasReset;
-use Mono\Component\Core\Infrastructure\Notifier\MailerContext;
-use Mono\Component\Core\Infrastructure\Notifier\MailerNotificationInterface;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\MailerContext;
+use Mono\Bundle\CoreBundle\Infrastructure\Notifier\MailerNotificationInterface;
 use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 

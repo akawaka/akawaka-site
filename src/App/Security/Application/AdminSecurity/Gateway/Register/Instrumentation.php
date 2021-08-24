@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Security\Application\AdminSecurity\Gateway\Register;
 
-use Mono\Component\Core\Application\Gateway\GatewayRequest;
-use Mono\Component\Core\Application\Instrumentation\AbstractInstrumentation;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
+use Mono\Bundle\CoreBundle\Application\Instrumentation\AbstractInstrumentation;
 
 final class Instrumentation extends AbstractInstrumentation
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Component\AdminSecurity\Domain\ValueObject;
 
-use Mono\Component\Core\Infrastructure\Slugger\Slugger;
+use Mono\Bundle\CoreBundle\Infrastructure\Slugger\Slugger;
 
 final class Username
 {

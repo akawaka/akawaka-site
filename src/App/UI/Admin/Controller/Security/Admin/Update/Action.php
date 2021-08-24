@@ -15,7 +15,7 @@ use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use App\Security\Application\AdminSecurity\Gateway\FindUserById;
 use App\Security\Application\AdminSecurity\Gateway\UpdatePassword;
 use App\Security\Application\AdminSecurity\Gateway\UpdateUser;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Security\Application\AdminSecurity\Gateway\FindUsers;
 
 use App\Security\Application\AdminSecurity\Operation\Read\FindAllUsers;
-use Mono\Component\Core\Application\Gateway\GatewayException;
-use Mono\Component\Core\Infrastructure\MessageBus\QueryBusInterface;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Gateway
 {

@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryById;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
-use Mono\Component\Article\Application\Gateway\Category\FindCategories;
-use Mono\Component\Article\Application\Gateway\Category\DeleteCategory;
-use Mono\Component\Article\Application\Gateway\Category\UpdateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryById;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\DeleteCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class CategoryContext implements Context

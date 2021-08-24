@@ -18,8 +18,8 @@ final class CommandNaming
 
     /**
      * Converts:
-     * - "SomeClass\SomeSuperCommand" → "ao:some:super"
-     * - "SomeClass\SOMESuperCommand" → "ao:some:super".
+     * - "SomeClass\SomeSuperCommand" → "mono:some:super"
+     * - "SomeClass\SOMESuperCommand" → "mono:some:super".
      */
     public function resolveFromCommand(Command $command): string
     {
@@ -30,8 +30,8 @@ final class CommandNaming
 
     /**
      * Converts:
-     * - "SomeClass\SomeSuperCommand" → "ao:some:super"
-     * - "SomeClass\SOMESuperCommand" → "ao:some:super".
+     * - "SomeClass\SomeSuperCommand" → "mono:some:super"
+     * - "SomeClass\SOMESuperCommand" → "mono:some:super".
      */
     public static function classToName(string $class): string
     {
@@ -57,7 +57,7 @@ final class CommandNaming
             });
         }
 
-        return sprintf('ao:%s:%s', $name[0], $name[1]);
+        return sprintf('mono:%s:%s', $name[0], $name[1]);
     }
 
     private static function resolveShortName(string $class): array

@@ -5,18 +5,20 @@ declare(strict_types=1);
 namespace App\Tests\Behat\CMS\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\CreateArticle;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\CreateSpace;
-use Mono\Component\Article\Application\Gateway\Category\CreateCategory;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleById;
-use Mono\Component\Article\Application\Gateway\Category\FindCategoryBySlug;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticleBySlug;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\FindArticles;
-use Mono\Component\Article\Application\Gateway\Article\DeleteArticle;
-use Mono\Bundle\AoBundle\Application\Article\Gateway\UpdateArticle;
-use Mono\Bundle\AoBundle\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\CreateAuthor;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleById;
+use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\FindAuthorBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\DeleteArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
-use Mono\Component\Core\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class ArticleContext implements Context
@@ -25,6 +27,8 @@ final class ArticleContext implements Context
 
     private array $category = [];
 
+    private array $author = [];
+
     private array $requests = [];
 
     private array $responses = [];
@@ -32,10 +36,12 @@ final class ArticleContext implements Context
     public function __construct(
         private CreateSpace\Gateway $createSpaceGateway,
         private CreateCategory\Gateway $createCategoryGateway,
+        private CreateAuthor\Gateway $createAuthorGateway,
         private FindSpaceByCOde\Gateway $findSpaceByCode,
         private CreateArticle\Gateway $createArticleGateway,
         private FindArticleById\Gateway $findArticleByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
+        private FindAuthorBySlug\Gateway $findAuthorBySlugGateway,
         private FindArticleBySlug\Gateway $findArticleBySlugGateway,
         private FindArticles\Gateway $findArticlesGateway,
         private DeleteArticle\Gateway $deleteArticleGateway,
@@ -44,12 +50,13 @@ final class ArticleContext implements Context
     }
 
     /**
-     * @Given I have a space named :space with a category named :category
+     * @Given I have a space named :space with a category named :category and an author named :author
      *
      * @param mixed $space
      * @param mixed $category
+     * @param mixed $author
      */
-    public function iHaveASpaceNamedWithCategoryNamed($space, $category)
+    public function iHaveASpaceNamedWithCategoryNamed($space, $category, $author)
     {
         try {
             $this->space = ($this->findSpaceByCode)(FindSpaceByCode\Request::fromData([
@@ -72,6 +79,17 @@ final class ArticleContext implements Context
                 'slug' => $category,
             ]))->data();
         }
+
+        try {
+            $this->author = ($this->findAuthorBySlugGateway)(FindAuthorBySlug\Request::fromData([
+                'slug' => $author,
+            ]))->data();
+        } catch (GatewayException $exception) {
+            $this->author = ($this->createAuthorGateway)(CreateAuthor\Request::fromData([
+                'name' => $author,
+                'slug' => $author,
+            ]))->data();
+        }
     }
 
     /**
@@ -86,6 +104,7 @@ final class ArticleContext implements Context
                 [
                     'spaces' => [$this->space['identifier']],
                     'categories' => [$this->category['identifier']],
+                    'authors' => [$this->author['identifier']],
                 ]
             );
 
@@ -102,7 +121,7 @@ final class ArticleContext implements Context
             $this->responses[] = ($this->createArticleGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, \Mono\Component\Article\Application\Gateway\Article\CreateArticle\Response::class);
+        Assert::allIsInstanceOf($this->responses, \Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle\Response::class);
     }
 
     /**
@@ -111,7 +130,7 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisIdentifier()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response->data()));
+            $result = ($this->findArticleByIdGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleById\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindArticleById\Response::class);
         }
     }
@@ -122,7 +141,7 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisSlug()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($response->data()));
+            $result = ($this->findArticleBySlugGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug\Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindArticleBySlug\Response::class);
         }
     }
@@ -137,7 +156,7 @@ final class ArticleContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData($row));
+            $this->responses[] = ($this->findArticleBySlugGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug\Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, FindArticleBySlug\Response::class);
@@ -148,7 +167,7 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
@@ -160,7 +179,7 @@ final class ArticleContext implements Context
         $result = [];
 
         foreach ($this->responses as $response) {
-            $response = ($this->findArticleByIdGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleById\Request::fromData($response));
+            $response = ($this->findArticleByIdGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleById\Request::fromData($response));
 
             if ($response->getArticle()->getSlug()->getValue() === $table->getColumn(0)[1]) {
                 $result[] = $response->getArticle()->getSlug();
@@ -220,7 +239,7 @@ final class ArticleContext implements Context
     public function theArticleshouldNotBeFound()
     {
         try {
-            ($this->findArticleBySlugGateway)(\Mono\Component\Article\Application\Gateway\Article\FindArticleBySlug\Request::fromData(
+            ($this->findArticleBySlugGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug\Request::fromData(
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {

@@ -1,4 +1,4 @@
-@cms
+@category
 Feature:
     As a developer
     I want to manage my categories and tests my gateways
@@ -9,7 +9,7 @@ Feature:
             | test category | test |
         When I create this category
         Then I should be able to find my category with his identifier
-        And I should be able to find my category with his slug
+        And I should be able to find my category with his slug "test"
 
     Scenario: List categories
         Given I already have a category with slug
@@ -35,5 +35,5 @@ Feature:
         Given I already have a category with slug
             | slug |
             | test |
-        When I remove this category
+        When I delete this category
         Then the category should not be found

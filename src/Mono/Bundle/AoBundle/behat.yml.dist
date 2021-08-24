@@ -4,10 +4,40 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
-                - Mono\Tests\Bundle\AoBundle\Behat\Application\ArticleContext
-                - Mono\Tests\Bundle\AoBundle\Behat\Application\CategoryContext
-                - Mono\Tests\Bundle\AoBundle\Behat\Application\ChannelContext
-                - Mono\Tests\Bundle\AoBundle\Behat\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\AuthorContext
+
+        space:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
+            filters:
+                tags: "@space"
+
+        page:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
+            filters:
+                tags: "@page"
+
+        article:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\AuthorContext
+                - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
+            filters:
+                tags: "@article,@category,@author"
 
     extensions:
-        FriendsOfBehat\SymfonyExtension: null
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: "tests/bootstrap.php"

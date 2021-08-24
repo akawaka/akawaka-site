@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle;
 
-use Mono\Bundle\AoBundle\Infrastructure\DependencyInjection\MonoAoExtension;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\DependencyInjection\MonoAoExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class MonoAoBundle extends Bundle

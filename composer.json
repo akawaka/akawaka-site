@@ -59,7 +59,6 @@
             "Mono\\Component\\AdminSecurity\\": "src/Mono/Component/AdminSecurity/src/",
             "Mono\\Component\\Article\\": "src/Mono/Component/Article/src/",
             "Mono\\Component\\Space\\": "src/Mono/Component/Space/src/",
-            "Mono\\Component\\Core\\": "src/Mono/Component/Core/src/",
             "Mono\\Component\\Page\\": "src/Mono/Component/Page/src/",
             "Mono\\Primitive\\EmailAddress\\": "src/Mono/Primitive/EmailAddress/src/"
         },
