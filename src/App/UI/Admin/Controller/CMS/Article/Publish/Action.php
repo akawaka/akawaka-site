@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Article\Publish;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\PublishArticle;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\PublishArticle;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

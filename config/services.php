@@ -14,12 +14,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->load('App\\', __DIR__.'/../src/App/')
         ->exclude([
-            __DIR__ . '/../src/App/CMS/Infrastructure/DependencyInjection/',
             __DIR__.'/../src/Kernel.php'
         ]);
 
-    $services->load('Mono\\Component\\AdminSecurity\\',
-        __DIR__.'/../src/Mono/Component/AdminSecurity/src/');
+    $services->load('Mono\\Bundle\\AkaBundle\\', __DIR__.'/../src/Mono/Bundle/AkaBundle/src/');
 
     $services->load('App\\UI\\Admin\\Controller\\',
         __DIR__.'/../src/App/UI/Admin/Controller/**/Action.php')

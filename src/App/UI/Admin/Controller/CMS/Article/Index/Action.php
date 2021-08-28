@@ -6,8 +6,8 @@ namespace App\UI\Admin\Controller\CMS\Article\Index;
 
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles as BaseArticles;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles as BaseArticles;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

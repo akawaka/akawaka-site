@@ -24,7 +24,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "mono/core": "^1.0",
         "league/flysystem-bundle": "^2.0",
         "ramsey/uuid": "^4.1",
         "symfony/form": "^5.2",

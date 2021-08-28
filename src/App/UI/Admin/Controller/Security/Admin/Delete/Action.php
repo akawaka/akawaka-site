@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\Security\Admin\Delete;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use App\Security\Application\AdminSecurity\Gateway\RemoveUser;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\DeleteUser;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 final class Action
 {
     public function __construct(
-        private RemoveUser\Gateway $removeUserGateway,
+        private DeleteUser\Gateway $removeUserGateway,
         private UrlGeneratorInterface $urlGenerator,
         private RedirectResponder $redirectResponder,
         private FlashNotifier $flashNotifier,
@@ -32,7 +32,7 @@ final class Action
     public function __invoke(string $identifier): Response
     {
         try {
-            ($this->removeUserGateway)(RemoveUser\Request::fromData([
+            ($this->removeUserGateway)(DeleteUser\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

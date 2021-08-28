@@ -11,7 +11,7 @@ return static function (ContainerConfigurator $configurator) {
         ->autoconfigure()
     ;
 
-    $services->load('Mono\\Bundle\\CoreBundle\\', '../src/*');
+    $services->load('Mono\\Bundle\\CoreBundle\\', '../src/');
 
     $configurator->import('services/*');
 };

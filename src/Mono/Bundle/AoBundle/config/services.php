@@ -6,11 +6,12 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 return static function (ContainerConfigurator $configurator) {
     $configurator->import('services/*');
+
     $services = $configurator->services()
         ->defaults()
         ->autowire()
         ->autoconfigure()
     ;
 
-    $services->load('Mono\\Bundle\\AoBundle\\', '../src/*');
+    $services->load('Mono\\Bundle\\AoBundle\\', '../src/');
 };

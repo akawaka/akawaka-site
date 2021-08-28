@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\Admin\Create;
 
-use App\Security\Application\AdminSecurity\Gateway\Register;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterDTO;
 use App\UI\Admin\Controller\Security\Admin\Create\Form\RegisterType;
@@ -24,7 +24,7 @@ final class Action
 {
     public function __construct(
         private UrlGeneratorInterface $urlGenerator,
-        private Register\Gateway $registerGateway,
+        private CreateUser\Gateway $registerGateway,
         private FormFactoryInterface $formFactory,
         private RedirectResponder $redirectResponder,
         private HtmlResponder $htmlResponder,
@@ -57,13 +57,13 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): Register\Response
+    private function process(FormInterface $form): CreateUser\Response
     {
         /** @var RegisterDTO $data */
         $data = $form->getData();
 
         try {
-            $response = ($this->registerGateway)(Register\Request::fromData(
+            $response = ($this->registerGateway)(CreateUser\Request::fromData(
                 $data->toArray()
             ));
 

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryById;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategories;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\DeleteCategory;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\UpdateCategory;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryById;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\DeleteCategory;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;

@@ -7,7 +7,7 @@ namespace App\UI\Admin\Controller\CMS\Space\Delete;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\RemoveSpace;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

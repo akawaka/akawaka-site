@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\ResetPassword;
 
-use App\Security\Application\AdminSecurity\Gateway\ResetPassword;
+use Mono\Bundle\AkaBundle\Admin\Security\Application\Gateway\ResetPassword;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordDTO;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordType;

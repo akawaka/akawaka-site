@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Mono\Bundle\AoBundle\Admin\Domain\Shared\Enum\PageStatus;
-use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Enum\PageStatus;
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\UnpublishPage;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageBySlug;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPages;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\PublishPage;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\UpdatePage;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\UnpublishPage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageBySlug;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\PublishPage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\UpdatePage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\CreatePage;
 use Behat\Behat\Context\Context;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage\Response;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\DeletePage;
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPageById\Request;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\CreatePage\Response;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\DeletePage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById\Request;
 use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
@@ -181,7 +180,7 @@ final class PageContext implements Context
      */
     public function iListAllPages()
     {
-        $this->responses = ($this->findPagesGateway)(\Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\FindPages\Request::fromData())->data();
+        $this->responses = ($this->findPagesGateway)(\Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

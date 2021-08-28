@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 

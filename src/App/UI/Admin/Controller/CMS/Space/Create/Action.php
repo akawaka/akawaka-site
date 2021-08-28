@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Space\Create;
 
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
 use App\UI\Admin\Controller\CMS\Space\Create\Form\CreateSpaceDTO;
 use App\UI\Admin\Controller\CMS\Space\Create\Form\CreateSpaceType;
 use App\UI\Admin\Controller\Routes;

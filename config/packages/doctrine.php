@@ -12,10 +12,10 @@ use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Page;
 use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\PageInterface;
 use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Space;
 use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\SpaceInterface;
-use App\Security\Domain\Entity\AdminPasswordRecovery;
-use App\Security\Domain\Entity\AdminUser;
-use Mono\Component\AdminSecurity\Domain\Entity\PasswordRecoveryInterface;
-use Mono\Component\AdminSecurity\Domain\Entity\UserInterface;
+use Mono\Bundle\AkaBundle\Shared\Domain\Entity\AdminPasswordRecovery;
+use Mono\Bundle\AkaBundle\Shared\Domain\Entity\AdminUser;
+use Mono\Bundle\AkaBundle\Shared\Domain\Entity\PasswordRecoveryInterface;
+use Mono\Bundle\AkaBundle\Shared\Domain\Entity\UserInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -48,7 +48,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     'is_bundle' => false,
                     'type' => 'xml',
                     'dir' => '%kernel.project_dir%/config/doctrine/security/entity',
-                    'prefix' => 'App\Security\Domain\Entity',
+                    'prefix' => 'Mono\Bundle\AkaBundle\Shared\Domain\Entity',
                     'alias' => 'Security'
                 ]
             ]

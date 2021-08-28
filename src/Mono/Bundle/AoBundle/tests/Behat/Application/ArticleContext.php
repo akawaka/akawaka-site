@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
 use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug\Request;
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\CreateSpace;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\CreateCategory;
-use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\CreateAuthor;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleById;
-use Mono\Bundle\AoBundle\Admin\Application\Category\Gateway\FindCategoryBySlug;
-use Mono\Bundle\AoBundle\Admin\Application\Author\Gateway\FindAuthorBySlug;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticleBySlug;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\DeleteArticle;
-use Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\UpdateArticle;
-use Mono\Bundle\AoBundle\Admin\Application\Space\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleBySlug\Request;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleById;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorBySlug;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleBySlug;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\DeleteArticle;
+use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
@@ -122,7 +122,7 @@ final class ArticleContext implements Context
             $this->responses[] = ($this->createArticleGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, \Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\CreateArticle\Response::class);
+        Assert::allIsInstanceOf($this->responses, \Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\CreateArticle\Response::class);
     }
 
     /**
@@ -170,7 +170,7 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(\Mono\Bundle\AoBundle\Admin\Application\Article\Gateway\FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(\Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

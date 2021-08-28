@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Page\Create;
 
-use Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\CreatePage;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageType;
 use App\UI\Admin\Controller\Routes;
@@ -57,7 +57,7 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): \Mono\Bundle\AoBundle\Admin\Application\Page\Gateway\CreatePage\Response
+    private function process(FormInterface $form): CreatePage\Response
     {
         /** @var CreatePageDTO $data */
         $data = $form->getData();

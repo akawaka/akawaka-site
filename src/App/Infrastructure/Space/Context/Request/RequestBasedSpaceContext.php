@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Space\Context\Request;
 
-use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Exception\SpaceWasNotFound;
-use Mono\Bundle\AoBundle\Admin\Domain\Operation\Space\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Exception\SpaceWasNotFound;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class RequestBasedSpaceContext

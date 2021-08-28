@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\RecoverPassword;
 
-use App\Security\Application\AdminSecurity\Gateway\FindPasswordRecoveryByToken;
-use App\Security\Application\AdminSecurity\Gateway\UpdatePassword;
+use Mono\Bundle\AkaBundle\Admin\Security\Application\Gateway\FindPasswordRecoveryByToken;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword;
 use App\UI\Admin\Controller\Routes;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Component\AdminSecurity\Domain\PasswordGenerator;
+use Mono\Bundle\AkaBundle\Shared\Domain\PasswordGenerator;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
