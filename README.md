@@ -24,6 +24,7 @@ make clear # Stop and clear the project
 make reset # Clear and start the project
 
 make assets # Build assets
+make watch # Watch assets
 
 # And moar!
 ```
