@@ -1,0 +1,6 @@
+{
+  "tailwindConfig": './assets/front/tailwind.config.js',
+  "printWidth": 500,
+  "tabWidth": 4,
+  "bracketSameLine": true,
+}
