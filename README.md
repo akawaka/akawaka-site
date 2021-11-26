@@ -7,8 +7,8 @@ This project handle multiple environments with target through
 
 ```bash
 ./configure --env=dev # If you have npm on your computer
-./configure --env=docker # If you want docker with http://localhost
-./configure --env=docker --with-proxy # Docker with traefik
+./configure --with-docker # If you want docker with http://localhost
+./configure --with-docker --with-proxy # Docker with traefik
 ```
 
 And extra flag for cleaning files is also available: `--clean-before-tasks`.
