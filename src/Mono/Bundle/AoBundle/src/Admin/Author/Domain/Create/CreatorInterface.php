@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Domain\Create;
 
-use Mono\Bundle\AoBundle\Admin\Author\Domain\Create\Model\AuthorInterface;
+use Mono\Bundle\AoBundle\Admin\Author\Domain\Create\DataPersister\Model\AuthorInterface;
 
 interface CreatorInterface
 {

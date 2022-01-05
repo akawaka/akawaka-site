@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Mono\\Bundle\\AkaBundle\\Tests\\": "tests/"
+            "Mono\\Tests\\Bundle\\AkaBundle\\": "tests/"
         }
     },
     "require": {

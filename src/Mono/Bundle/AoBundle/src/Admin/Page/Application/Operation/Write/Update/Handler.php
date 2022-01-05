@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Page\Application\Operation\Write\Update;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\Update\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\Update\UpdaterInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\Update\DataPersister\Factory\BuilderInterface;
 use Mono\Bundle\AoBundle\Admin\Page\Domain\Update\Exception\UnableToUpdateException;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\Update\UpdaterInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\ViewerInterface as SpaceViewer;
+use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;

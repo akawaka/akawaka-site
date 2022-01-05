@@ -7,19 +7,19 @@ namespace App\UI\Admin\Controller\Security\ResetPassword\Form;
 final class ResetPasswordDTO
 {
     public function __construct(
-        private string $email,
+        private string $usernameOrEmail,
     ) {
     }
 
-    public function getEmail(): string
+    public function getUsernameOrEmail(): string
     {
-        return $this->email;
+        return $this->usernameOrEmail;
     }
 
     public function toArray(): array
     {
         return [
-            'email' => $this->getEmail(),
+            'usernameOrEmail' => $this->getUsernameOrEmail(),
         ];
     }
 }

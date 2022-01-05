@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Article;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\ArticleInterface;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Author;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\AuthorInterface;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Category;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\CategoryInterface;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Page;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\PageInterface;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\Space;
-use Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping\SpaceInterface;
-use Mono\Bundle\AkaBundle\Shared\Domain\Entity\AdminPasswordRecovery;
-use Mono\Bundle\AkaBundle\Shared\Domain\Entity\AdminUser;
-use Mono\Bundle\AkaBundle\Shared\Domain\Entity\PasswordRecoveryInterface;
-use Mono\Bundle\AkaBundle\Shared\Domain\Entity\UserInterface;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\PasswordRecoveryInterface;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
+use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminPasswordRecovery;
+use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminUser;
+use Mono\Bundle\AoBundle\Shared\Domain\Model\ArticleInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Model\AuthorInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Model\CategoryInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Model\PageInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Article;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Author;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Category;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Page;
+use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Space;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -40,16 +40,16 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'Ao' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Shared/Infrastructure/Doctrine/Mapping',
-                    'prefix' => 'Mono\Bundle\AoBundle\Shared\Infrastructure\Doctrine\Mapping',
+                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
+                    'prefix' => 'Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
                     'alias' => 'Ao'
                 ],
-                'Security' => [
+                'Aka' => [
                     'is_bundle' => false,
-                    'type' => 'xml',
-                    'dir' => '%kernel.project_dir%/config/doctrine/security/entity',
-                    'prefix' => 'Mono\Bundle\AkaBundle\Shared\Domain\Entity',
-                    'alias' => 'Security'
+                    'type' => 'attribute',
+                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AkaBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
+                    'prefix' => 'Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
+                    'alias' => 'Aka'
                 ]
             ]
         ]

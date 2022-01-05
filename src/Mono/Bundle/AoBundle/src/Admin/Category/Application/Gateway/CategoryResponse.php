@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Category\Application\Gateway;
 
-use Mono\Bundle\AoBundle\Admin\Category\Domain\View\Model\CategoryInterface;
+use Mono\Bundle\AoBundle\Admin\Category\Domain\View\DataProvider\Model\CategoryInterface;
 
 trait CategoryResponse
 {

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Contact\Infrastructure\Mailer\SymfonyMailer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -26,4 +27,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->load('App\\UI\\Front\\Controller\\',
         __DIR__.'/../src/App/UI/Front/Controller/**/Action.php')
         ->tag('controller.service_arguments');
+
+    $services->set(SymfonyMailer::class)
+        ->bind('$senderEmail', '%env(resolve:SENDER_EMAIL)%')
+        ->bind('$senderName','%env(resolve:SENDER_NAME)%');
 };

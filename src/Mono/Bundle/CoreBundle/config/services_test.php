@@ -10,4 +10,8 @@ return static function (ContainerConfigurator $configurator) {
         ->autowire()
         ->autoconfigure()
     ;
+
+    $services->load('Mono\\Tests\\Bundle\\CoreBundle\\', '../tests/');
+
+    $configurator->import('services/*');
 };

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Operation\Read\FindById;
 
-use Mono\Bundle\AoBundle\Admin\Author\Domain\View\Model\AuthorInterface;
+use Mono\Bundle\AoBundle\Admin\Author\Domain\View\DataProvider\Model\AuthorInterface;
 use Mono\Bundle\AoBundle\Admin\Author\Domain\View\ViewerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 

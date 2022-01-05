@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Domain\Close;
 
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\Close\DataPersister\ClosePersisterInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\Close\Exception\SpaceWasNotClosed;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\Close\Repository\WriterInterface;
+use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
 
 final class Closer implements CloserInterface
 {
     public function __construct(
-        private WriterInterface $writer,
+        private ClosePersisterInterface $persister,
     ) {
     }
 
     public function close(SpaceId $id): void
     {
         try {
-            $this->writer->close($id);
+            $this->persister->close($id);
         } catch (\Exception $exception) {
             throw new SpaceWasNotClosed($id);
         }

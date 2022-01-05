@@ -7,17 +7,19 @@ namespace Mono\Bundle\CoreBundle\Application\Gateway;
 final class GatewayException extends \Exception
 {
     public function __construct(
-        string $identifier,
-        string $serviceName,
-        string $message
+        string $message,
+        string $className,
+        string $error,
+        ?\Exception $previous = null,
     ) {
         parent::__construct(
-            \Safe\sprintf(
+            message: \Safe\sprintf(
                 '%s in %s: %s',
-                $identifier,
-                $serviceName,
-                $message
-            )
+                $message,
+                $className,
+                $error
+            ),
+            previous: $previous
         );
     }
 }

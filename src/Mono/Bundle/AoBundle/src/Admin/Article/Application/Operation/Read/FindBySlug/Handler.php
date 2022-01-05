@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Article\Application\Operation\Read\FindBySlug;
 
-use Mono\Bundle\AoBundle\Admin\Article\Domain\View\Model\ArticleInterface;
+use Mono\Bundle\AoBundle\Admin\Article\Domain\View\DataProvider\Model\ArticleInterface;
 use Mono\Bundle\AoBundle\Admin\Article\Domain\View\ViewerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 

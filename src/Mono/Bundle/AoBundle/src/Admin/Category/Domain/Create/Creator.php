@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Category\Domain\Create;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\Exception\UnableToCreateException;
+use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\DataPersister\Model\CategoryInterface;
+use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\DataPersister\CreatePersisterInterface;
 use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\Exception\AlreadyExistingCategoryException;
-use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\Model\CategoryInterface;
-use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\Repository\WriterInterface;
+use Mono\Bundle\AoBundle\Admin\Category\Domain\Create\Exception\UnableToCreateException;
 
 final class Creator implements CreatorInterface
 {
     public function __construct(
-        private WriterInterface $writer
+        private CreatePersisterInterface $persister
     ) {
     }
 
     public function create(CategoryInterface $category): void
     {
         try {
-            $this->writer->create($category);
+            $this->persister->create($category);
         } catch (UniqueConstraintViolationException $exception) {
             throw new AlreadyExistingCategoryException($category->getId());
         } catch (\Exception $exception) {

@@ -18,9 +18,11 @@ final class Processor
 
     public function __invoke(Request $request): Response
     {
-        return new Response(($this->commandBus)(new UpdatePassword\Command(
+        ($this->commandBus)(new UpdatePassword\Command(
             $request->getIdentifier(),
             $request->getPassword(),
-        )));
+        ));
+
+        return new Response();
     }
 }

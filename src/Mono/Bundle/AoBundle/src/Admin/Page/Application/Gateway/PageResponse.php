@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Page\Application\Gateway;
 
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Model\PageInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\Model\PageInterface;
 
 trait PageResponse
 {

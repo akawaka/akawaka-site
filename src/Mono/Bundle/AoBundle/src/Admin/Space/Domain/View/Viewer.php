@@ -4,23 +4,24 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Domain\View;
 
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Factory\BuilderInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\ViewProviderInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Exception\SpaceWasNotFound;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
 use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Code;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Exception\SpaceWasNotFound;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
 
 final class Viewer implements ViewerInterface
 {
     public function __construct(
-        private ReaderInterface $reader,
+        private ViewProviderInterface $provider,
         private BuilderInterface $builder,
     ) {
     }
 
     public function read(SpaceId $id): SpaceInterface
     {
-        $result = $this->reader->get($id);
+        $result = $this->provider->get($id);
 
         if ([] === $result) {
             throw new SpaceWasNotFound($id->getValue());
@@ -31,7 +32,7 @@ final class Viewer implements ViewerInterface
 
     public function readByCode(Code $code): ?SpaceInterface
     {
-        $result = $this->reader->getByCode($code);
+        $result = $this->provider->getByCode($code);
 
         if (null === $result) {
             throw new SpaceWasNotFound($code->getValue());
@@ -42,7 +43,7 @@ final class Viewer implements ViewerInterface
 
     public function readByHostname(string $hostname): ?SpaceInterface
     {
-        $result = $this->reader->getByHostname($hostname);
+        $result = $this->provider->getByHostname($hostname);
 
         if (null === $result) {
             throw new SpaceWasNotFound($hostname);
@@ -54,7 +55,7 @@ final class Viewer implements ViewerInterface
     public function readAll(): array
     {
         $collection = [];
-        $results = $this->reader->getAll();
+        $results = $this->provider->getAll();
 
         foreach ($results as $result) {
             $collection[] = $this->builder::build($result);

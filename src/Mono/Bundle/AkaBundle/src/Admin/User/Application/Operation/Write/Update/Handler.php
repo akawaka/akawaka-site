@@ -4,37 +4,42 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\Update;
 
-use Mono\Bundle\AkaBundle\Shared\Domain\Repository\FindUserById;
-use Mono\Bundle\AkaBundle\Shared\Domain\Repository\UpdateUser;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Update\Exception\UnableToUpdateException;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Update\DataPersister\Factory\BuilderInterface;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Update\UpdaterInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindUserById $reader,
-        private UpdateUser $writer,
+        private BuilderInterface $builder,
+        private UpdaterInterface $updater,
         private MessageBusInterface $eventBus,
     ) {
     }
 
-    public function __invoke(Command $command): UserInterface
+    public function __invoke(Command $command): bool
     {
-        $user = $this->reader->find($command->getId());
-        $user->update(
-            $command->getUsername(),
-            $command->getEmail(),
-        );
+        $user = $this->builder::build([
+            'id' => $command->getId(),
+            'username' => $command->getUsername(),
+            'email' => $command->getEmail(),
+        ]);
 
-        $this->writer->update($user);
+        try {
+            $this->updater->update($user);
+        } catch (UnableToUpdateException $exception) {
+            return false;
+        }
+
         $this->eventBus->dispatch(
-            (new Envelope(new AdminWasUpdated($user->getId()->getValue())))
+            (new Envelope(new AdminWasUpdated($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
 
-        return $user;
+        return true;
     }
 }

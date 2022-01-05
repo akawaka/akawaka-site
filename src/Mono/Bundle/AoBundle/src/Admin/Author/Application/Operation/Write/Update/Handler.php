@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Operation\Write\Update;
 
-use Mono\Bundle\AoBundle\Admin\Author\Domain\Update\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Admin\Author\Domain\Update\UpdaterInterface;
+use Mono\Bundle\AoBundle\Admin\Author\Domain\Update\DataPersister\Factory\BuilderInterface;
 use Mono\Bundle\AoBundle\Admin\Author\Domain\Update\Exception\UnableToUpdateException;
+use Mono\Bundle\AoBundle\Admin\Author\Domain\Update\UpdaterInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;

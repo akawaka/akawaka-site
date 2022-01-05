@@ -26,7 +26,8 @@ final class ErrorHandler
             throw new GatewayException(
                 'Error during find spaces process',
                 $exception->getFile(),
-                $exception->getMessage()
+                $exception->getMessage(),
+                $exception,
             );
         }
     }

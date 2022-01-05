@@ -22,9 +22,6 @@ final class UpdatePasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('oldPassword', PasswordType::class, [
-                'label' => $this->translate('oldPassword.label'),
-            ])
             ->add('newPassword', RepeatedType::class, [
                 'label' => $this->translate('password.label'),
                 'type' => PasswordType::class,

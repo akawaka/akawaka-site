@@ -4,37 +4,41 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\Create;
 
-use Mono\Bundle\AkaBundle\Shared\Domain\Entity\AdminUser;
-use Mono\Bundle\AkaBundle\Shared\Domain\Repository\CreateUser;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Create\Exception\UnableToCreateException;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Create\CreatorInterface;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Create\DataPersister\Factory\BuilderInterface;
+use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private CreateUser $repository,
-        private UserPasswordEncoderInterface $passwordEncoder,
+        private BuilderInterface $builder,
+        private CreatorInterface $creator,
         private MessageBusInterface $eventBus,
     ) {
     }
 
-    public function __invoke(Command $command): UserInterface
+    public function __invoke(Command $command): void
     {
-        $entity = AdminUser::create(
-            $this->repository->nextIdentity(),
-            $command->getUsername(),
-            $command->getEmail(),
+        $user = $this->builder::build([
+            'id' => $command->getId(),
+            'username' => $command->getUsername(),
+            'email' => $command->getEmail(),
+            'password' => $command->getPassword(),
+        ]);
+
+        try {
+            $this->creator->create($user);
+        } catch (UnableToCreateException $exception) {
+            throw $exception;
+        }
+
+        $this->eventBus->dispatch(
+            (new Envelope(new AdminWasCreated($user->getId()->getValue())))
+                ->with(new DispatchAfterCurrentBusStamp())
         );
-
-        $entity->updatePassword(
-            $this->passwordEncoder->encodePassword($entity, $command->getPassword())
-        );
-
-        $this->repository->insert($entity);
-        $this->eventBus->dispatch(new AdminWasRegistered($entity));
-
-        return $entity;
     }
 }

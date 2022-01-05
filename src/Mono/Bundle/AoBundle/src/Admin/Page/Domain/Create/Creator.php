@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Page\Domain\Create;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\Exception\UnableToCreateException;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\DataPersister\Model\PageInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\DataPersister\CreatePersisterInterface;
 use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\Exception\AlreadyExistingPageException;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\Model\PageInterface;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\Repository\WriterInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\Create\Exception\UnableToCreateException;
 
 final class Creator implements CreatorInterface
 {
     public function __construct(
-        private WriterInterface $writer
+        private CreatePersisterInterface $persister
     ) {
     }
 
     public function create(PageInterface $page): void
     {
         try {
-            $this->writer->create($page);
+            $this->persister->create($page);
         } catch (UniqueConstraintViolationException $exception) {
             throw new AlreadyExistingPageException($page->getId());
         } catch (\Exception $exception) {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Domain\View;
 
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
 use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Code;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
 
 interface ViewerInterface
 {

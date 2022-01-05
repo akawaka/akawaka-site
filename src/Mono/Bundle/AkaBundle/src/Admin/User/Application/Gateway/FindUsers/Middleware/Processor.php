@@ -18,11 +18,11 @@ final class Processor
 
     public function __invoke(Request $request): Response
     {
-        $Users = ($this->queryBus)(new Query());
+        $users = ($this->queryBus)(new Query());
 
         $response = new Response();
-        foreach ($Users as $User) {
-            $response->add($User);
+        foreach ($users->getUsers() as $user) {
+            $response->add($user);
         }
 
         return $response;

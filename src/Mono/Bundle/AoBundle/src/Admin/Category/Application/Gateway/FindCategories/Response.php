@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategories;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Bundle\AoBundle\Admin\Category\Domain\View\DataProvider\Model\CategoryInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Category\Domain\View\Model\CategoryInterface;
 
 final class Response implements GatewayResponse
 {

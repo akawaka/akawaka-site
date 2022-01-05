@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword;
 
-use JetBrains\PhpStorm\ArrayShape;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
@@ -40,7 +39,6 @@ final class Request implements GatewayRequest
         return $this->password;
     }
 
-    #[ArrayShape(['identifier' => 'string', 'password' => 'string'])]
     public function data(): array
     {
         return [

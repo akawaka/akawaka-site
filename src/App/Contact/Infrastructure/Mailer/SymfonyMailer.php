@@ -15,8 +15,8 @@ class SymfonyMailer implements MailerInterface
     public function __construct(
         private SymfonyMailerInterface $mailer,
         private TranslatorInterface $translator,
-        private string $senderEmail = '%env(resolve:SENDER_EMAIL)%',
-        private string $senderName = '%env(resolve:SENDER_NAME)%'
+        private string $senderEmail,
+        private string $senderName,
     ) {
     }
 

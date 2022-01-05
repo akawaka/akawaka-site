@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Infrastructure\Space\Context\Request;
 
 use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByHostname;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Request;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
 
 final class HostnameSpaceContext implements RequestSpaceContextInterface
 {

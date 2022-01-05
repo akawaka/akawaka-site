@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\ResetPassword;
 
-use Mono\Bundle\AkaBundle\Admin\Security\Application\Gateway\ResetPassword;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
+use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordDTO;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordType;
@@ -22,11 +23,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 final class Action
 {
     public function __construct(
-        private ResetPassword\Gateway $recoverGateway,
+        private CreatePasswordRecovery\Gateway $resetPasswordGateway,
         private FormFactoryInterface $formFactory,
         private HtmlResponder $htmlResponder,
         private RedirectResponder $redirectResponder,
         private UrlGeneratorInterface $urlGenerator,
+        private FlashNotifier $flashNotifier,
     ) {
     }
 
@@ -43,6 +45,8 @@ final class Action
         if (true === $form->isSubmitted() && true === $form->isValid()) {
             $this->process($form);
 
+            ($this->flashNotifier)('admin_security.password_recovered', 'success');
+
             return ($this->redirectResponder)(
                 $this->urlGenerator->generate(Routes::ADMIN_SECURITY_PASSWORD_RESET_SUCCESS['name'])
             );
@@ -53,13 +57,13 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): ResetPassword\Response
+    private function process(FormInterface $form): CreatePasswordRecovery\Response
     {
         /** @var ResetPasswordDTO $data */
         $data = $form->getData();
 
         try {
-            return ($this->recoverGateway)(ResetPassword\Request::fromData(
+            return ($this->resetPasswordGateway)(CreatePasswordRecovery\Request::fromData(
                 $data->toArray()
             ));
         } catch (GatewayException $exception) {

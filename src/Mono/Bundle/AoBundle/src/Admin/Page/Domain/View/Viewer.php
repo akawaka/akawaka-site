@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Page\Domain\View;
 
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\Factory\BuilderInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\Model\PageInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\ViewProviderInterface;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Exception\UnknownPageException;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\PageId;
 use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Slug;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Exception\UnknownPageException;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Model\PageInterface;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Repository\ReaderInterface;
 
 final class Viewer implements ViewerInterface
 {
     public function __construct(
-        private ReaderInterface $reader,
+        private ViewProviderInterface $provider,
         private BuilderInterface $builder,
     ) {
     }
 
     public function read(PageId $id): PageInterface
     {
-        $result = $this->reader->get($id);
+        $result = $this->provider->get($id);
 
         if ([] === $result) {
             throw new UnknownPageException($id->getValue());
@@ -32,7 +32,7 @@ final class Viewer implements ViewerInterface
 
     public function readBySlug(Slug $slug): ?PageInterface
     {
-        $result = $this->reader->getBySlug($slug);
+        $result = $this->provider->getBySlug($slug);
 
         if ([] === $result) {
             throw new UnknownPageException($slug->getValue());
@@ -44,7 +44,7 @@ final class Viewer implements ViewerInterface
     public function readAll(): array
     {
         $collection = [];
-        $results = $this->reader->getAll();
+        $results = $this->provider->getAll();
 
         foreach ($results as $result) {
             $collection[] = $this->builder::build($result);

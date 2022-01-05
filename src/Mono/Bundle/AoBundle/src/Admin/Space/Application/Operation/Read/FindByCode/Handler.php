@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Application\Operation\Read\FindByCode;
 
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\ViewerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 

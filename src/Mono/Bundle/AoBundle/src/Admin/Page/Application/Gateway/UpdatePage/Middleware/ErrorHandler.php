@@ -26,7 +26,8 @@ final class ErrorHandler
             throw new GatewayException(
                 'Error during update page process',
                 $exception->getFile(),
-                $exception->getMessage()
+                $exception->getMessage(),
+                $exception,
             );
         }
     }

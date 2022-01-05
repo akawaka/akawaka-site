@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Mono\\Bundle\\CoreBundle\\Tests\\": "tests/"
+            "Mono\\Tests\\Bundle\\CoreBundle\\": "tests/"
         }
     },
     "require": {
@@ -36,6 +36,7 @@
         "webmozart/assert": "^1.5"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "fakerphp/faker": "^1.13",
         "league/flysystem-memory": "^2.0",
         "phpspec/phpspec": "^7.0",

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Bundle\AoBundle\Admin\Article\Domain\View\DataProvider\Model\ArticleInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Article\Domain\View\Model\ArticleInterface;
 
 final class Response implements GatewayResponse
 {

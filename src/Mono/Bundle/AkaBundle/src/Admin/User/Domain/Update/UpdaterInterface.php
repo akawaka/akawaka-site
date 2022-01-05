@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Domain\Update;
 
-use Mono\Bundle\AkaBundle\Admin\User\Domain\Update\Model\UserInterface;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Update\DataPersister\Model\UserInterface;
 
 interface UpdaterInterface
 {
-    public function update(UserInterface $User): void;
+    public function update(UserInterface $user): void;
 }

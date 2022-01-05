@@ -26,7 +26,8 @@ final class ErrorHandler
             throw new GatewayException(
                 'Error during update article process',
                 $exception->getFile(),
-                $exception->getMessage()
+                $exception->getMessage(),
+                $exception,
             );
         }
     }

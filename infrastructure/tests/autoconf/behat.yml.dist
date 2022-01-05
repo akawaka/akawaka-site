@@ -1,13 +1,73 @@
 default:
     suites:
+        default:
+            contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
+
         ao:
             paths:
-                - 'features'
+                - 'src/Mono/Bundle/AoBundle/features'
             contexts:
-                - App\Tests\Behat\CMS\Application\ArticleContext
-                - App\Tests\Behat\CMS\Application\CategoryContext
-                - App\Tests\Behat\CMS\Application\ChannelContext
-                - App\Tests\Behat\CMS\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\SpaceContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\AuthorContext
+
+        space:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\SpaceContext
+            filters:
+                tags: "@space"
+
+        page:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\PageContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\SpaceContext
+            filters:
+                tags: "@page"
+
+        article:
+            paths:
+                - 'src/Mono/Bundle/AoBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\ArticleContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\CategoryContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\AuthorContext
+                - Mono\Tests\Bundle\AoBundle\Behat\Application\SpaceContext
+            filters:
+                tags: "@article,@category,@author"
+
+        admin_user:
+            paths:
+                - 'src/Mono/Bundle/AkaBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Admin\UserContext
+            filters:
+                tags: "@admin_user"
+
+        security_user:
+            paths:
+                - 'src/Mono/Bundle/AkaBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Security\UserContext
+            filters:
+                tags: "@security_user"
+
+        security_password_recovery:
+            paths:
+                - 'src/Mono/Bundle/AkaBundle/features'
+            contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Security\PasswordRecoveryContext
+            filters:
+                tags: "@security_password_recovery"
 
     extensions:
         FriendsOfBehat\SymfonyExtension:

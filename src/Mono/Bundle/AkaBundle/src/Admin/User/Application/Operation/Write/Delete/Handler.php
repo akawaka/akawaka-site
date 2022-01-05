@@ -4,33 +4,32 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\Delete;
 
-use Mono\Bundle\AkaBundle\Shared\Domain\Repository\FindUserById;
-use Mono\Bundle\AkaBundle\Shared\Domain\Repository\RemoveUser;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Delete\DeleterInterface;
+use Mono\Bundle\AkaBundle\Admin\User\Domain\Delete\Exception\UnableToDeleteException;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 final class Handler implements MessageHandlerInterface
 {
     public function __construct(
-        private FindUserById $reader,
-        private RemoveUser $writer,
+        private DeleterInterface $deleter,
         private MessageBusInterface $eventBus,
     ) {
     }
 
-    public function __invoke(Command $command): UserInterface
+    public function __invoke(Command $command): void
     {
-        $user = $this->reader->find($command->getId());
+        try {
+            $this->deleter->delete($command->getId());
+        } catch (UnableToDeleteException $exception) {
+            throw $exception;
+        }
 
-        $this->writer->remove($user);
         $this->eventBus->dispatch(
-            (new Envelope(new AdminWasDeleted($user->getId()->getValue())))
+            (new Envelope(new AdminWasDeleted($command->getId()->getValue())))
                 ->with(new DispatchAfterCurrentBusStamp())
         );
-
-        return $user;
     }
 }

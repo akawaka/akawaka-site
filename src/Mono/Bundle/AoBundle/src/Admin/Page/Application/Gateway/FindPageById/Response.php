@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById;
 
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\Model\PageInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Model\PageInterface;
 
 final class Response implements GatewayResponse
 {

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Model\SpaceInterface;
 
 final class Response implements GatewayResponse
 {

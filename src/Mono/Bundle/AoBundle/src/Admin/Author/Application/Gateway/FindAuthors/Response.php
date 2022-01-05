@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthors;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Bundle\AoBundle\Admin\Author\Domain\View\DataProvider\Model\AuthorInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Author\Domain\View\Model\AuthorInterface;
 
 final class Response implements GatewayResponse
 {

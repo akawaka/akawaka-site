@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Category\Domain\View;
 
+use Mono\Bundle\AoBundle\Admin\Category\Domain\View\DataProvider\Model\CategoryInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\CategoryId;
 use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Slug;
-use Mono\Bundle\AoBundle\Admin\Category\Domain\View\Model\CategoryInterface;
 
 interface ViewerInterface
 {

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Mono\Bundle\AoBundle\Admin\Page\Domain\View\DataProvider\Model\PageInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
-use Mono\Bundle\AoBundle\Admin\Page\Domain\View\Model\PageInterface;
 
 final class Response implements GatewayResponse
 {

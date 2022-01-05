@@ -21,6 +21,7 @@ final class Processor
     public function __invoke(Request $request): Response
     {
         $identity = $this->identityGenerator->nextIdentity();
+
         ($this->commandBus)(new Command(
             $identity,
             $request->getUsername(),

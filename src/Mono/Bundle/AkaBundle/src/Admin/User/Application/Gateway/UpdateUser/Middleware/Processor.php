@@ -18,14 +18,12 @@ final class Processor
 
     public function __invoke(Request $request): Response
     {
-        return new Response(($this->commandBus)(new Command(
+        ($this->commandBus)(new Command(
             $request->getIdentifier(),
-            $request->getName(),
-            $request->getSlug(),
-            $request->getContent(),
-            $request->getCategories(),
-            $request->getAuthors(),
-            $request->getSpaces(),
-        )));
+            $request->getUsername(),
+            $request->getEmail(),
+        ));
+
+        return new Response();
     }
 }

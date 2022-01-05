@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Domain\View;
 
+use Mono\Bundle\AoBundle\Admin\Author\Domain\View\DataProvider\Model\AuthorInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\AuthorId;
 use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Slug;
-use Mono\Bundle\AoBundle\Admin\Author\Domain\View\Model\AuthorInterface;
 
 interface ViewerInterface
 {
