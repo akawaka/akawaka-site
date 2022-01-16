@@ -19,12 +19,12 @@ final class FroalaType extends AbstractType
         ]);
     }
 
-    public function getParent(): string
+    public function getParent(): ?string
     {
         return TextareaType::class;
     }
 
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'froala';
     }

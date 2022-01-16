@@ -48,7 +48,7 @@ final class SpaceChoiceType extends AbstractType
         return $choices;
     }
 
-    public function getParent(): string
+    public function getParent(): ?string
     {
         return ChoiceType::class;
     }

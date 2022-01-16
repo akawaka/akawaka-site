@@ -57,7 +57,7 @@ final class CommandNaming
             });
         }
 
-        return sprintf('mono:%s:%s', $name[0], $name[1]);
+        return \Safe\sprintf('mono:%s:%s', $name[0], $name[1]);
     }
 
     private static function resolveShortName(string $class): array

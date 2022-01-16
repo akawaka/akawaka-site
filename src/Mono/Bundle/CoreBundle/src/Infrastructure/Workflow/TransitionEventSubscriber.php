@@ -17,7 +17,7 @@ final class TransitionEventSubscriber implements EventSubscriberInterface
         $event->setContext($context);
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             TransitionEvent::class => 'onWorkflowTransition',

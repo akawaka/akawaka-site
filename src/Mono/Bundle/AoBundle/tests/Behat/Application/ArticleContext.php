@@ -170,7 +170,7 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(\Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(FindArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
@@ -246,7 +246,7 @@ final class ArticleContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(GatewayException::class === get_class($exception));
+            Assert::true($exception instanceof GatewayException);
         }
     }
 }

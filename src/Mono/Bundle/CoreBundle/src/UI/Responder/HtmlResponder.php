@@ -21,7 +21,7 @@ final class HtmlResponder
         array $headers = []
     ): Response {
         $template = $this->templating->render(
-            sprintf('%s.html.twig', $template),
+            \Safe\sprintf('%s.html.twig', $template),
             $parameters
         );
 

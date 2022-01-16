@@ -20,7 +20,7 @@ final class FlashNotifier
     public function __invoke(string $message, string $level = 'info', array $parameters = []): void
     {
         $message = $this->translator->trans(
-            sprintf('flash.front.%s', $message),
+            \Safe\sprintf('flash.front.%s', $message),
             $parameters,
             'notification'
         );

@@ -20,7 +20,7 @@ final class Updater implements UpdaterInterface
         try {
             $this->persister->recover($passwordRecovery);
         } catch (\Exception $exception) {
-            throw new UnableToUpdateException($passwordRecovery->getToken());
+            throw new UnableToUpdateException($passwordRecovery->getToken(), $exception->getCode(), $exception);
         }
     }
 }

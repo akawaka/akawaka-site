@@ -9,13 +9,14 @@ use Mono\Bundle\AkaBundle\Admin\User\Domain\UpdatePassword\DataPersister\Model\U
 use Mono\Bundle\AkaBundle\Admin\User\Domain\UpdatePassword\DataPersister\UpdatePasswordPersisterInterface;
 use Mono\Bundle\AkaBundle\Admin\User\Domain\UpdatePassword\Exception\UnknownUserException;
 use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\AdminUserRepository;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 final class UpdatePasswordPersister implements UpdatePasswordPersisterInterface
 {
     public function __construct(
-        private UserPasswordEncoderInterface $passwordEncoder,
-        private AdminUserRepository $repository,
+        private UserPasswordHasherInterface $userPasswordHasher,
+        private AdminUserRepository         $repository,
     ) {
     }
 
@@ -27,7 +28,7 @@ final class UpdatePasswordPersister implements UpdatePasswordPersisterInterface
             throw new UnknownUserException($user->getId());
         }
 
-        $password = $this->passwordEncoder->encodePassword($dbUser, $user->getPassword());
+        $password = $this->userPasswordHasher->hashPassword($dbUser, $user->getPassword());
         $dbUser->updatePassword($password);
 
         $this->repository->flush();

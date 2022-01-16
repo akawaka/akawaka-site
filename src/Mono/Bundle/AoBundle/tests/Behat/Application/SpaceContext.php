@@ -241,7 +241,7 @@ final class SpaceContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(GatewayException::class === get_class($exception));
+            Assert::true($exception instanceof GatewayException);
         }
     }
 }

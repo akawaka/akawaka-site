@@ -180,7 +180,7 @@ final class PageContext implements Context
      */
     public function iListAllPages()
     {
-        $this->responses = ($this->findPagesGateway)(\Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Request::fromData())->data();
+        $this->responses = ($this->findPagesGateway)(FindPages\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
@@ -299,7 +299,7 @@ final class PageContext implements Context
                 $this->responses[0]->data()
             ));
         } catch (\Exception $exception) {
-            Assert::true(GatewayException::class === get_class($exception));
+            Assert::true($exception instanceof GatewayException);
         }
     }
 }

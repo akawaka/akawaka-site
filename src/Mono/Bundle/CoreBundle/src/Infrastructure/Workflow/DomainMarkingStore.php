@@ -20,7 +20,7 @@ final class DomainMarkingStore implements MarkingStoreInterface
     {
         $method = 'get'.ucfirst($this->property);
         if (!method_exists($subject, $method)) {
-            throw new LogicException(sprintf('The method "%s::%s()" does not exist.', \get_class($subject), $method));
+            throw new LogicException(\Safe\sprintf('The method "%s::%s()" does not exist.', \get_class($subject), $method));
         }
 
         $marking = $subject->{$method}();
@@ -45,14 +45,12 @@ final class DomainMarkingStore implements MarkingStoreInterface
 
         $method = 'set'.ucfirst($this->property);
 
-        if (true === isset($context['method'])) {
-            if (true === method_exists($subject, $context['method'])) {
-                $method = $context['method'];
-            }
+        if (isset($context['method']) && method_exists($subject, $context['method'])) {
+            $method = $context['method'];
         }
 
-        if (false === method_exists($subject, $method)) {
-            throw new LogicException(sprintf('The method "%s::%s()" does not exist.', \get_class($subject), $method));
+        if (!method_exists($subject, $method)) {
+            throw new LogicException(\Safe\sprintf('The method "%s::%s()" does not exist.', \get_class($subject), $method));
         }
 
         $subject->{$method}($marking, $context);

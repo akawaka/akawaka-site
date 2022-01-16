@@ -12,11 +12,13 @@ use Mono\Primitive\EmailAddress\EmailAddress;
 use Safe\DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 
 #[ORM\Entity, ORM\Table(name: 'user_admin')]
-class AdminUser implements UserInterface, SecurityUserInterface
+class AdminUser implements UserInterface, SecurityUserInterface, PasswordAuthenticatedUserInterface
 {
+    public string $status;
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]
     protected string $id;
 
@@ -85,6 +87,11 @@ class AdminUser implements UserInterface, SecurityUserInterface
     public function getId(): UserId
     {
         return new UserId($this->id);
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->username;
     }
 
     public function getUsername(): string

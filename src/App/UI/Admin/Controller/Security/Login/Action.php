@@ -46,10 +46,6 @@ final class Action
 
     private function isAuthenticated(): bool
     {
-        if (null === $this->security->getUser()) {
-            return false;
-        }
-
-        return true;
+        return null !== $this->security->getUser();
     }
 }

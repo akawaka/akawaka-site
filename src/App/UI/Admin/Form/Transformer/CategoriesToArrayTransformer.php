@@ -53,11 +53,7 @@ final class CategoriesToArrayTransformer implements DataTransformerInterface
      */
     public function reverseTransform($array)
     {
-        if ('' === $array || null === $array) {
-            $array = [];
-        } else {
-            $array = (array) $array;
-        }
+        $array = '' === $array || null === $array ? [] : (array) $array;
 
         return new ArrayCollection($array);
     }

@@ -29,7 +29,7 @@ final class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     ) {
     }
 
-    public function authenticate(Request $request): PassportInterface
+    public function authenticate(Request $request): \Symfony\Component\Security\Http\Authenticator\Passport\Passport
     {
         $credentials = $this->getCredentials($request);
 

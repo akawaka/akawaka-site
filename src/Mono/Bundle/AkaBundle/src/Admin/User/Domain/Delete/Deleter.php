@@ -19,7 +19,7 @@ final class Deleter implements DeleterInterface
     {
         $deleted = $this->persister->delete($id);
 
-        if (false === $deleted) {
+        if (!$deleted) {
             throw new UnableToDeleteException($id);
         }
     }

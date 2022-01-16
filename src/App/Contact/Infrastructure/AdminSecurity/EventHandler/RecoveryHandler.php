@@ -60,7 +60,7 @@ final class RecoveryHandler implements MessageSubscriberInterface
     private function sendNotification(MailerContext $context): void
     {
         $subject = $this->translator->trans(
-            sprintf('mailer.security.%s', $context->getSubject()),
+            \Safe\sprintf('mailer.security.%s', $context->getSubject()),
             $context->getParameters(),
             'notification'
         );

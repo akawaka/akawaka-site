@@ -17,7 +17,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 ]
             ]
         ],
-        'encoders' => [
+        'password_hashers' => [
             AdminUser::class => [
                 'algorithm' => 'auto'
             ]

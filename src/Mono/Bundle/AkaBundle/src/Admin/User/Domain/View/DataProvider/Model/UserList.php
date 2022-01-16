@@ -13,7 +13,7 @@ final class UserList implements UserListInterface
 
     public function add(UserInterface $user): void
     {
-        if (false === $this->contains($user)) {
+        if (!$this->contains($user)) {
             $this->users[] = $user;
         }
     }

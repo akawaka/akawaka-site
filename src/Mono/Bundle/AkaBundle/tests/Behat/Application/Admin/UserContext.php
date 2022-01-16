@@ -165,7 +165,7 @@ final class UserContext implements Context
                 $this->responses[0]
             ));
         } catch (\Exception $exception) {
-            Assert::true(GatewayException::class === get_class($exception));
+            Assert::true($exception instanceof \Mono\Bundle\CoreBundle\Application\Gateway\GatewayException);
         }
     }
 }

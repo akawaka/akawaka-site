@@ -18,7 +18,7 @@ final class RequestBasedSpaceContext
 
     public function getSpace(): SpaceInterface
     {
-        $request = $this->stack->getMasterRequest();
+        $request = $this->stack->getMainRequest();
 
         if (null !== $request) {
             $space = $this->hostnameContext->getSpace($request);
