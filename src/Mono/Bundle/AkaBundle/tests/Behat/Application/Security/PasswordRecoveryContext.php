@@ -9,7 +9,6 @@ use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
 use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
 use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\FindPasswordRecoveryById;
 use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword;
-use Mono\Bundle\AkaBundle\Security\User\Application\Gateway\Connect;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -51,7 +50,7 @@ final class PasswordRecoveryContext implements Context
             ]));
         }
 
-        Assert::allIsInstanceOf($this->responses,  CreatePasswordRecovery\Response::class);
+        Assert::allIsInstanceOf($this->responses, CreatePasswordRecovery\Response::class);
     }
 
     /**
@@ -59,7 +58,6 @@ final class PasswordRecoveryContext implements Context
      */
     public function aRecoveryTokenIsCreated()
     {
-
     }
 
     /**
@@ -67,6 +65,5 @@ final class PasswordRecoveryContext implements Context
      */
     public function myNewPasswordShouldBeGenerated()
     {
-
     }
 }

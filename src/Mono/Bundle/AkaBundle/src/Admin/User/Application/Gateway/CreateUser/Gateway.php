@@ -7,6 +7,8 @@ namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Middleware\ErrorHandler;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Middleware\Logger;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Middleware\Processor;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 use Mono\Bundle\CoreBundle\Application\Gateway\Middleware\Pipe;
 
 final class Gateway
@@ -18,7 +20,7 @@ final class Gateway
     ) {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(GatewayRequest $request): GatewayResponse
     {
         return (new Pipe([
             $this->logger,

@@ -30,21 +30,25 @@ abstract class ORMRepository
 
     public function getQueryBuilder(): QueryBuilder
     {
+        // @phpstan-ignore-next-line
         return $this->manager->createQueryBuilder();
     }
 
-    public function getQuery($sql): Query
+    public function getQuery(string $sql): Query
     {
+        // @phpstan-ignore-next-line
         return $this->manager->createQuery($sql);
     }
 
-    public function getNativeQuery($sql, ResultSetMapping $rsm): NativeQuery
+    public function getNativeQuery(string $sql, ResultSetMapping $rsm): NativeQuery
     {
+        // @phpstan-ignore-next-line
         return $this->manager->createNativeQuery($sql, $rsm);
     }
 
     public function getRsm(): Query\ResultSetMappingBuilder
     {
+        // @phpstan-ignore-next-line
         return new Query\ResultSetMappingBuilder($this->manager);
     }
 }

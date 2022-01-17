@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword\Middleware;
 
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword\Request;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword\Response;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\UpdatePassword;
 

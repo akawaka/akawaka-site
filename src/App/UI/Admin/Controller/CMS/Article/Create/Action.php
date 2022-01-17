@@ -64,6 +64,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreateArticle\Response $response */
             $response = ($this->createArticleGateway)(CreateArticle\Request::fromData(
                 $data->toArray()
             ));

@@ -15,7 +15,7 @@ final class Handler implements MessageHandlerInterface
     ) {
     }
 
-    public function __invoke(Query $query): SpaceInterface
+    public function __invoke(Query $query): ?SpaceInterface
     {
         return $this->viewer->readByHostname($query->getHostname());
     }

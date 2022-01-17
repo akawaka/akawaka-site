@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class RedirectResponder
 {
+    /**
+     * @param array<string, string> $headers
+     */
     public function __invoke(
         string $uri,
         int $status = 302,

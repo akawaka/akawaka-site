@@ -10,13 +10,12 @@ use Mono\Bundle\AkaBundle\Admin\User\Domain\UpdatePassword\DataPersister\UpdateP
 use Mono\Bundle\AkaBundle\Admin\User\Domain\UpdatePassword\Exception\UnknownUserException;
 use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\AdminUserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 final class UpdatePasswordPersister implements UpdatePasswordPersisterInterface
 {
     public function __construct(
         private UserPasswordHasherInterface $userPasswordHasher,
-        private AdminUserRepository         $repository,
+        private AdminUserRepository $repository,
     ) {
     }
 

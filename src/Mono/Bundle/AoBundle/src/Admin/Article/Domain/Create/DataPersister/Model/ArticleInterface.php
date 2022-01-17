@@ -20,4 +20,8 @@ interface ArticleInterface
     public function getCategories(): array;
 
     public function getCreationDate(): \Safe\DateTimeImmutable;
+
+    public function getStatus(): string;
+
+    public function getSpaces(): array;
 }

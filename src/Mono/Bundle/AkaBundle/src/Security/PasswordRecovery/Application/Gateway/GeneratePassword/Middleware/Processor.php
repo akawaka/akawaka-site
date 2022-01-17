@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword\Middleware;
 
-use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword\Request;
 use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword\Response;
+use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Operation\Write\GeneratePassword;
 

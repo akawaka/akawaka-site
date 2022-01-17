@@ -49,6 +49,7 @@ final class Action
     private function process(FormInterface $form): SendContact\Response
     {
         try {
+            /** @var SendContact\Response $response */
             $response = ($this->sendContactGateway)(SendContact\Request::fromData(
                 $form->getData()->data(),
             ));

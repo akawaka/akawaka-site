@@ -35,6 +35,7 @@ final class Action
     private function find(): FindUsers\Response
     {
         try {
+            /** @var FindUsers\Response $results */
             $results = ($this->findUsersGateway)(FindUsers\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());

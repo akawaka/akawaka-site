@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace\Request;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace\Response;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Operation\Write\Update\Command;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor

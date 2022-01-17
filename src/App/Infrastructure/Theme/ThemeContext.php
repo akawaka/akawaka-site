@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Theme;
 
-use App\Infrastructure\Space\Context\SpaceContextInterface;
+use App\Infrastructure\Theme\Space\Context\SpaceContextInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\Space;
 use Sylius\Bundle\ThemeBundle\Context\ThemeContextInterface;
 use Sylius\Bundle\ThemeBundle\Model\ThemeInterface;

@@ -35,6 +35,9 @@ final class DomainMarkingStore implements MarkingStoreInterface
         return new Marking($marking);
     }
 
+    /**
+     * @param array<string, string> $context
+     */
     public function setMarking(object $subject, Marking $marking, array $context = []): void
     {
         $marking = $marking->getPlaces();

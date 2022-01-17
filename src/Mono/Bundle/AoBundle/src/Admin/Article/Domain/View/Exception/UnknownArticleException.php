@@ -6,7 +6,7 @@ namespace Mono\Bundle\AoBundle\Admin\Article\Domain\View\Exception;
 
 final class UnknownArticleException extends \Exception
 {
-    public function __construct($identifier)
+    public function __construct(string $identifier)
     {
         parent::__construct(
             \Safe\sprintf('Article with identifier %s is unknown', $identifier)

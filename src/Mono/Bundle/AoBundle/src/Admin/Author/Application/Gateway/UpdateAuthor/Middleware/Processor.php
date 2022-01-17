@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\UpdateAuthor\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\UpdateAuthor\Request;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\UpdateAuthor\Response;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Operation\Write\Update\Command;
+use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\UpdateAuthor\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor

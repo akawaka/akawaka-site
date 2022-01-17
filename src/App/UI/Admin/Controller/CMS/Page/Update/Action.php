@@ -71,6 +71,7 @@ final class Action
     private function find(string $identifier): FindPageById\Response
     {
         try {
+            /** @var FindPageById\Response $response */
             return ($this->findPageGateway)(\Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById\Request::fromData([
                 'identifier' => $identifier,
             ]));
@@ -85,6 +86,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var UpdatePage\Response $response */
             $response = ($this->updatePageGateway)(UpdatePage\Request::fromData(array_merge(
                 $page->data(),
                 $data->data()

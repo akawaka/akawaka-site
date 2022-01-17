@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\CoreBundle\Infrastructure\MessageBus;
 
+use Symfony\Component\Messenger\Envelope;
+
 interface CommandBusInterface
 {
-    public function __invoke($query);
+    /**
+     * @param Envelope|object $command
+     *
+     * @return mixed
+     */
+    public function __invoke($command);
 }

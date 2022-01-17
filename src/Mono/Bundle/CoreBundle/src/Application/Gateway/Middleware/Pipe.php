@@ -6,9 +6,13 @@ namespace Mono\Bundle\CoreBundle\Application\Gateway\Middleware;
 
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
+use Webmozart\Assert\Assert;
 
 final class Pipe
 {
+    /**
+     * @param array<callable> $middlewares
+     */
     public function __construct(
         private array $middlewares = [],
     ) {
@@ -21,6 +25,8 @@ final class Pipe
                 return $middleware($request, $next);
             };
         }
+
+        Assert::notNull($next);
 
         return $next($request);
     }

@@ -19,7 +19,8 @@ final class Updater implements UpdaterInterface
         SpaceId $id,
         string $name,
         ?string $url,
-        ?string $description
+        ?string $description,
+        ?string $theme,
     ): void {
         try {
             $this->persister->update(
@@ -27,6 +28,7 @@ final class Updater implements UpdaterInterface
                 $name,
                 $url,
                 $description,
+                $theme,
             );
         } catch (\Exception $exception) {
             throw new SpaceWasNotUpdated($id->getValue());

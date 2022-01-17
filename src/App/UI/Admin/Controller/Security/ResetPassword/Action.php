@@ -63,6 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreatePasswordRecovery\Response $response */
             return ($this->resetPasswordGateway)(CreatePasswordRecovery\Request::fromData(
                 $data->toArray()
             ));

@@ -15,7 +15,8 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
         SpaceId $id,
         string $name,
         ?string $url,
-        ?string $description
+        ?string $description,
+        ?string $theme,
     ): bool {
         $this->beginTransaction();
 
@@ -26,12 +27,14 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                 ->set('name', ':name')
                 ->set('url', ':url')
                 ->set('description', ':description')
+                ->set('theme', ':theme')
                 ->set('last_update', ':update')
                 ->where('id = :id')
                 ->setParameters([
                     'name' => $name,
                     'url' => $url,
                     'description' => $description,
+                    'theme' => $theme,
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $id->getValue(),
                 ])

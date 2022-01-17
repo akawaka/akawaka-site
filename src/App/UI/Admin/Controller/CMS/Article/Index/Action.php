@@ -36,6 +36,7 @@ final class Action
     private function find(): FindArticles\Response
     {
         try {
+            /** @var BaseArticles\Response $results */
             $results = ($this->findArticlesGateway)(BaseArticles\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());

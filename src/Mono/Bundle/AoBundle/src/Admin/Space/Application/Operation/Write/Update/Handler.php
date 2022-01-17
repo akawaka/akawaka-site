@@ -27,6 +27,7 @@ final class Handler implements MessageHandlerInterface
                 $command->getName(),
                 $command->getUrl(),
                 $command->getDescription(),
+                $command->getTheme(),
             );
         } catch (SpaceWasNotUpdated $exception) {
             throw $exception;

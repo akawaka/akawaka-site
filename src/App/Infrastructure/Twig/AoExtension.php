@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Twig;
 
-use App\Infrastructure\Space\Context\SpaceContextInterface;
+use App\Infrastructure\Theme\Space\Context\SpaceContextInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 

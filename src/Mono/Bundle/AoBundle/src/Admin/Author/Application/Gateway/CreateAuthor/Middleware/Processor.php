@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor\Request;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor\Response;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Operation\Write\Create\Command;
 use Mono\Bundle\AoBundle\Shared\Infrastructure\Identity\AuthorIdentityGenerator;
+use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor

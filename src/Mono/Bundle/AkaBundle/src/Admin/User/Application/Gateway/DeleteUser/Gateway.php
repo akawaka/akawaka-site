@@ -6,6 +6,8 @@ namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\DeleteUser;
 
 use Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\Delete\Command;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Gateway
@@ -16,7 +18,7 @@ final class Gateway
     ) {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(GatewayRequest $request): GatewayResponse
     {
         $this->instrumentation->start($request);
 

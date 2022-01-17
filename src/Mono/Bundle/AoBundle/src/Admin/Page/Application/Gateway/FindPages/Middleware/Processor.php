@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Request;
 use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Response;
 use Mono\Bundle\AoBundle\Admin\Page\Application\Operation\Read\FindAll\Query;
+use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

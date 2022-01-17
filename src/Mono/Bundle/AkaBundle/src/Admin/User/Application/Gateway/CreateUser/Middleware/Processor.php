@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Middleware;
 
 use Mono\Bundle\AkaBundle\Shared\Infrastructure\Identity\UserIdentityGenerator;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Request;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Response;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Write\Create\Command;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor

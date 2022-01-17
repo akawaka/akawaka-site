@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug\Request;
 use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug\Response;
 use Mono\Bundle\AoBundle\Admin\Category\Application\Operation\Read\FindBySlug\Query;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

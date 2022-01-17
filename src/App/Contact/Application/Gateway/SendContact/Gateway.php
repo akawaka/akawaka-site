@@ -4,42 +4,28 @@ declare(strict_types=1);
 
 namespace App\Contact\Application\Gateway\SendContact;
 
-use App\Contact\Application\Operation\Write\Send\Command;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
-use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
+use App\Contact\Application\Gateway\SendContact\Middleware\ErrorHandler;
+use App\Contact\Application\Gateway\SendContact\Middleware\Logger;
+use App\Contact\Application\Gateway\SendContact\Middleware\Processor;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
+use Mono\Bundle\CoreBundle\Application\Gateway\Middleware\Pipe;
 
 final class Gateway
 {
     public function __construct(
-        private Instrumentation $instrumentation,
-        private CommandBusInterface $commandBus,
+        private ErrorHandler $errorHandler,
+        private Logger $logger,
+        private Processor $processor
     ) {
     }
 
-    public function __invoke(Request $request): Response
+    public function __invoke(GatewayRequest $request): GatewayResponse
     {
-        $this->instrumentation->start($request);
-
-        try {
-            ($this->commandBus)(new Command(
-                $request->getFirstname(),
-                $request->getLastname(),
-                $request->getEmail(),
-                $request->getPhone(),
-                $request->getMessage(),
-                $request->getBudget(),
-                $request->getHow(),
-            ));
-
-            $response = new Response();
-
-            $this->instrumentation->success($response);
-
-            return $response;
-        } catch (\Exception $exception) {
-            $this->instrumentation->error($request, $exception->getMessage());
-
-            throw new GatewayException('Error during send contact process', $exception->getFile(), $exception->getMessage());
-        }
+        return (new Pipe([
+            $this->logger,
+            $this->errorHandler,
+            $this->processor,
+        ]))($request);
     }
 }

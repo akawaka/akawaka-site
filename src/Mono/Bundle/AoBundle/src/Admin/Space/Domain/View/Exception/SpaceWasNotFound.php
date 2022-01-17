@@ -6,7 +6,7 @@ namespace Mono\Bundle\AoBundle\Admin\Space\Domain\View\Exception;
 
 final class SpaceWasNotFound extends \Exception
 {
-    public function __construct($identifier)
+    public function __construct(string $identifier)
     {
         parent::__construct(
             \Safe\sprintf('Space with identifier %s is unknown', $identifier)

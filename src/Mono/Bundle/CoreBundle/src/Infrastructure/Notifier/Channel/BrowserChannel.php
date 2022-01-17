@@ -23,7 +23,7 @@ final class BrowserChannel implements ChannelInterface
         }
 
         $message = $notification->getSubject();
-        if ($notification->getEmoji() !== '' && $notification->getEmoji() !== '0') {
+        if ('' !== $notification->getEmoji() && '0' !== $notification->getEmoji()) {
             $message = \Safe\sprintf('%s %s', $notification->getEmoji(), $message);
         }
 

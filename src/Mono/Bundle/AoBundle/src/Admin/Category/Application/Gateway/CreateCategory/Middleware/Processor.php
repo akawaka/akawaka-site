@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory\Request;
 use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory\Response;
 use Mono\Bundle\AoBundle\Admin\Category\Application\Operation\Write\Create\Command;
 use Mono\Bundle\AoBundle\Shared\Infrastructure\Identity\CategoryIdentityGenerator;
+use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor

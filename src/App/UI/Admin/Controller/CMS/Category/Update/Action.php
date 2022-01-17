@@ -71,6 +71,7 @@ final class Action
     private function find(string $identifier): FindCategoryById\Response
     {
         try {
+            /** @var FindCategoryById\Response $response */
             return ($this->findCategoryGateway)(FindCategoryById\Request::fromData([
                 'identifier' => $identifier,
             ]));
@@ -85,6 +86,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var UpdateCategory\Response $response */
             $response = ($this->updateCategoryGateway)(UpdateCategory\Request::fromData(array_merge(
                 $category->data(),
                 $data->data()

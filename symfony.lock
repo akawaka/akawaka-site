@@ -247,8 +247,14 @@
     "phpstan/phpstan": {
         "version": "0.12.81"
     },
+    "phpstan/phpstan-doctrine": {
+        "version": "1.0.4"
+    },
     "phpstan/phpstan-symfony": {
         "version": "0.12.21"
+    },
+    "phpstan/phpstan-webmozart-assert": {
+        "version": "1.0.7"
     },
     "psalm/plugin-symfony": {
         "version": "v2.2.1"

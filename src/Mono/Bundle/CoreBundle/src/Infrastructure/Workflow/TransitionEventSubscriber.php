@@ -9,7 +9,7 @@ use Symfony\Component\Workflow\Event\TransitionEvent;
 
 final class TransitionEventSubscriber implements EventSubscriberInterface
 {
-    public function onWorkflowTransition(TransitionEvent $event)
+    public function onWorkflowTransition(TransitionEvent $event): void
     {
         $context = $event->getContext();
         $context['method'] = $event->getTransition()->getName();

@@ -23,7 +23,7 @@ final class File
     }
 
     /**
-     * @return resource
+     * @return bool|resource
      */
     public function getStream()
     {

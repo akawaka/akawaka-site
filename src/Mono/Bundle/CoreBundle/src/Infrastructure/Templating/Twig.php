@@ -15,7 +15,10 @@ final class Twig implements TemplatingInterface
         $this->environment = $environment;
     }
 
-    public function render(string $name, array $parameters): string
+    /**
+     * @param array<string, string> $parameters
+     */
+    public function render(string $name, array $parameters = []): string
     {
         return $this->environment->render($name, $parameters);
     }

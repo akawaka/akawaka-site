@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUsers\Middleware;
 
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUsers\Request;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUsers\Response;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Operation\Read\FindAll\Query;
+use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUsers\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

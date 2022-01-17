@@ -7,9 +7,6 @@ Feature:
         Given I want to create a user
             | username | email         | password |
             | jdoe     | jdoe@jdoe.com | test     |
-        When I create this user
-
-    Scenario: Create an user
         Then I should be able to find my user with his identifier
 
     Scenario: List users

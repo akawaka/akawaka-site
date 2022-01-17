@@ -63,6 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreateSpace\Response $response */
             $response = ($this->createSpaceGateway)(CreateSpace\Request::fromData(
                 $data->data()
             ));

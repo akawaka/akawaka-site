@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorById\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorById\Request;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorById\Response;
 use Mono\Bundle\AoBundle\Admin\Author\Application\Operation\Read\FindById\Query;
+use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorById\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

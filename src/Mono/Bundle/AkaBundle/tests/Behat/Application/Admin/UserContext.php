@@ -12,7 +12,6 @@ use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\DeleteUser;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdateUser;
 use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword;
 use Behat\Behat\Context\Context;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class UserContext implements Context
@@ -36,17 +35,7 @@ final class UserContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-            $this->requests[] = CreateUser\Request::fromData($row);
-        }
-    }
-
-    /**
-     * @When I create this user
-     */
-    public function iCreateThisUser()
-    {
-        foreach ($this->requests as $request) {
-            $this->responses[] = ($this->createUserGateway)($request);
+            $this->responses[] = ($this->createUserGateway)(CreateUser\Request::fromData($row));
         }
 
         Assert::allIsInstanceOf($this->responses, CreateUser\Response::class);

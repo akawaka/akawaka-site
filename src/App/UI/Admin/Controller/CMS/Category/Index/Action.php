@@ -35,6 +35,7 @@ final class Action
     private function find(): FindCategories\Response
     {
         try {
+            /** @var FindCategories\Response $results */
             $results = ($this->findcategoriesGateway)(FindCategories\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());

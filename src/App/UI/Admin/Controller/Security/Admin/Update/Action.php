@@ -97,7 +97,8 @@ final class Action
     private function find(string $identifier): FindUserById\Response
     {
         try {
-            return ($this->findUserGateway)(FindUserById\Request::fromData([
+            /** @var FindUserById\Response $response */
+            $response = ($this->findUserGateway)(FindUserById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {
@@ -111,6 +112,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var UpdateUser\Response $response */
             $response = ($this->updateUserGateway)(UpdateUser\Request::fromData(array_merge(
                 $admin->data(),
                 $data->data()

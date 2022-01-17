@@ -16,6 +16,9 @@ final class DownloadResponder
     ) {
     }
 
+    /**
+     * @param array<string, string> $headers
+     */
     public function __invoke(
         string $encodedFilename,
         string $filename,
@@ -25,6 +28,7 @@ final class DownloadResponder
         $file = ($this->downloader)($encodedFilename);
 
         $response = new StreamedResponse(function () use ($file): void {
+            // @phpstan-ignore-next-line
             \Safe\stream_copy_to_stream($file->getStream(), \Safe\fopen('php://output', 'wb'));
         });
 

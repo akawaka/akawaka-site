@@ -14,6 +14,10 @@ final class HtmlResponder
     ) {
     }
 
+    /**
+     * @param array<string, string> $parameters
+     * @param array<string, string> $headers
+     */
     public function __invoke(
         string $template,
         array $parameters = [],

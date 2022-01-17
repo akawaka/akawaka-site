@@ -71,6 +71,7 @@ final class Action
     private function find(string $identifier): FindSpaceById\Response
     {
         try {
+            /** @var FindSpaceById\Response $response */
             return ($this->findSpaceGateway)(FindSpaceById\Request::fromData([
                 'identifier' => $identifier,
             ]));
@@ -85,6 +86,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var UpdateSpace\Response $response */
             $response = ($this->updateSpaceGateway)(UpdateSpace\Request::fromData(array_merge(
                 $space->data(),
                 $data->data()

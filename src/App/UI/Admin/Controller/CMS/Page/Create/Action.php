@@ -63,6 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreatePage\Response $response */
             $response = ($this->createPageGateway)(CreatePage\Request::fromData(
                 $data->toArray()
             ));

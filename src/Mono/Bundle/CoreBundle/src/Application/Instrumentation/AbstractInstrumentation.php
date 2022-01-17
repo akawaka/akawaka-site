@@ -20,16 +20,19 @@ abstract class AbstractInstrumentation implements InstrumentationInterface
 
     public function start(GatewayRequest $request): void
     {
+        // @phpstan-ignore-next-line
         $this->logger->info(static::NAME, $request->data());
     }
 
     public function success(GatewayResponse $response): void
     {
+        // @phpstan-ignore-next-line
         $this->logger->info(\Safe\sprintf('%s.success', static::NAME), $response->data());
     }
 
     public function error(GatewayRequest $request, string $reason): void
     {
+        // @phpstan-ignore-next-line
         $this->logger->error(\Safe\sprintf('%s.error', static::NAME), array_merge(
             $request->data(),
             [' reason' => $reason]

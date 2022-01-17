@@ -63,6 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreateUser\Response $response */
             $response = ($this->registerGateway)(CreateUser\Request::fromData(
                 $data->toArray()
             ));

@@ -63,6 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var CreateCategory\Response $response */
             $response = ($this->createCategoryGateway)(CreateCategory\Request::fromData(
                 $data->data()
             ));

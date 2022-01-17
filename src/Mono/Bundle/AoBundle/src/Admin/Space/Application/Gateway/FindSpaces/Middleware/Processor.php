@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces\Request;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces\Response;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Operation\Read\FindAll\Query;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

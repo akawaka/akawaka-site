@@ -6,6 +6,11 @@ namespace Mono\Bundle\CoreBundle\Infrastructure\Notifier;
 
 final class BrowserContext
 {
+    /**
+     * @param string               $subject
+     * @param string               $alert
+     * @param array<string,string> $parameters
+     */
     public function __construct(
         private string $subject,
         private string $alert = 'info',
@@ -23,6 +28,9 @@ final class BrowserContext
         return $this->alert;
     }
 
+    /**
+     * @return array<string,string>
+     */
     public function getParameters(): array
     {
         return $this->parameters;

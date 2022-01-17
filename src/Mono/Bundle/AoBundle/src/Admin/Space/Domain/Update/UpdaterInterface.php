@@ -12,6 +12,7 @@ interface UpdaterInterface
         SpaceId $id,
         string $name,
         ?string $url,
-        ?string $description
+        ?string $description,
+        ?string $theme
     ): void;
 }

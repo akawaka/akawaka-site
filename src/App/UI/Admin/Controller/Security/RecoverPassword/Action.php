@@ -40,6 +40,7 @@ final class Action
     private function updatePassword(string $token, string $password): GeneratePassword\Response
     {
         try {
+            /** @var GeneratePassword\Response $response */
             return ($this->updatePasswordGateway)(GeneratePassword\Request::fromData([
                 'token' => $token,
                 'password' => $password,

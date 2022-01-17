@@ -34,7 +34,7 @@ final class Viewer implements ViewerInterface
     {
         $result = $this->provider->getByCode($code);
 
-        if (null === $result) {
+        if ([] === $result) {
             throw new SpaceWasNotFound($code->getValue());
         }
 
@@ -45,7 +45,7 @@ final class Viewer implements ViewerInterface
     {
         $result = $this->provider->getByHostname($hostname);
 
-        if (null === $result) {
+        if ([] === $result) {
             throw new SpaceWasNotFound($hostname);
         }
 

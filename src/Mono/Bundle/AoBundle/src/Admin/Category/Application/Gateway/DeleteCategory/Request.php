@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\DeleteCategory;
 
-use JetBrains\PhpStorm\ArrayShape;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Space\Context;
+namespace App\Infrastructure\Theme\Space\Context;
 
-use App\Infrastructure\Space\Context\Request\RequestBasedSpaceContext;
+use App\Infrastructure\Theme\Space\Context\Request\RequestBasedSpaceContext;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\Exception\SpaceWasNotFound;
 

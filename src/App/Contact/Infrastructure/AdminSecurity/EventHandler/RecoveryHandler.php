@@ -40,6 +40,7 @@ final class RecoveryHandler implements MessageSubscriberInterface
 
     private function find(string $id): FindPasswordRecoveryById\Response
     {
+        /** @var FindPasswordRecoveryById\Response $response */
         return ($this->gateway)(FindPasswordRecoveryById\Request::fromData(['id' => $id]));
     }
 

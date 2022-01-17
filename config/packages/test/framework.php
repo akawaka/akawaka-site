@@ -8,7 +8,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->extension('framework', [
         'test' => true,
         'session' => [
-            'native' => 'session.storage.mock_file'
+            'storage_id' => 'session.storage.mock_file'
         ]
     ]);
 };

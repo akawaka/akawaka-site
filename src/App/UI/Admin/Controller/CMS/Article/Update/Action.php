@@ -11,7 +11,6 @@ use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleById;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleById as BaseArticleById;
 use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\UpdateArticle;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -72,7 +71,8 @@ final class Action
     private function find(string $identifier): FindArticleById\Response
     {
         try {
-            return ($this->findArticleGateway)(BaseArticleById\Request::fromData([
+            // @var FindArticleById\Response $article
+            return ($this->findArticleGateway)(FindArticleById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {
@@ -86,6 +86,7 @@ final class Action
         $data = $form->getData();
 
         try {
+            /** @var UpdateArticle\Response $response */
             $response = ($this->updateArticleGateway)(UpdateArticle\Request::fromData(array_merge(
                 $article->data(),
                 $data->data()

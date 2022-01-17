@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CloseSpace\Middleware;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CloseSpace\Request;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CloseSpace\Response;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Operation\Write\Close\Command;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CloseSpace\Request;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
 
 final class Processor
