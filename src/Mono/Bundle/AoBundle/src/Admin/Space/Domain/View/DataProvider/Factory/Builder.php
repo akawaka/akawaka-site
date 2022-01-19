@@ -22,7 +22,6 @@ final class Builder implements BuilderInterface
             null !== $space['last_update'] ? \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $space['last_update']) : null,
             $space['url'],
             $space['description'],
-            $space['theme'],
         );
     }
 }

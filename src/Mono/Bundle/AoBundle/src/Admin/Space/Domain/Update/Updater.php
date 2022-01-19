@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Domain\Update;
 
+use Mono\Bundle\AoBundle\Admin\Space\Domain\Update\DataPersister\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\Update\DataPersister\UpdatePersisterInterface;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\Update\Exception\SpaceWasNotUpdated;
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
 
 final class Updater implements UpdaterInterface
 {
@@ -15,23 +15,11 @@ final class Updater implements UpdaterInterface
     ) {
     }
 
-    public function update(
-        SpaceId $id,
-        string $name,
-        ?string $url,
-        ?string $description,
-        ?string $theme,
-    ): void {
+    public function update(SpaceInterface $space): void {
         try {
-            $this->persister->update(
-                $id,
-                $name,
-                $url,
-                $description,
-                $theme,
-            );
+            $this->persister->update($space);
         } catch (\Exception $exception) {
-            throw new SpaceWasNotUpdated($id->getValue());
+            throw new SpaceWasNotUpdated($space->getId()->getValue());
         }
     }
 }

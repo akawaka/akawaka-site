@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Theme\Space\Context\Request;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByHostname;
+use App\Admin\Space\Application\Gateway\FindSpaceByHostname;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByHostname as AkaFindSpaceByHostname;
 use Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ final class HostnameSpaceContext implements RequestSpaceContextInterface
     public function getSpace(Request $request): ?SpaceInterface
     {
         try {
-            $response = ($this->hostnameGateway)(FindSpaceByHostname\Request::fromData([
+            $response = ($this->hostnameGateway)(AkaFindSpaceByHostname\Request::fromData([
                 'hostname' => $request->getSchemeAndHttpHost(),
             ]));
 

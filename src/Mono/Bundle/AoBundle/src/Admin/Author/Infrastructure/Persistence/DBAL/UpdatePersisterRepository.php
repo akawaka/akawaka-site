@@ -27,7 +27,7 @@ class UpdatePersisterRepository extends DBALRepository implements UpdatePersiste
                     'slug' => $author->getSlug()->getValue(),
                     'id' => $author->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

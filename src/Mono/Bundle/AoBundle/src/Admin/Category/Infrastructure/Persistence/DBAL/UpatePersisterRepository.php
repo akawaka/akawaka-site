@@ -27,7 +27,7 @@ class UpatePersisterRepository extends DBALRepository implements UpatePersisterI
                     'slug' => $category->getSlug()->getValue(),
                     'id' => $category->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

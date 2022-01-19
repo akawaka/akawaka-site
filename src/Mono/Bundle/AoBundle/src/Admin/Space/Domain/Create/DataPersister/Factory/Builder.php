@@ -15,7 +15,6 @@ final class Builder implements BuilderInterface
             $space['id'],
             $space['code'],
             $space['name'],
-            $space['theme'],
         );
     }
 }

@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Admin\Space\Domain\Update;
 
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
+use Mono\Bundle\AoBundle\Admin\Space\Domain\Update\DataPersister\Model\SpaceInterface;
 
 interface UpdaterInterface
 {
-    public function update(
-        SpaceId $id,
-        string $name,
-        ?string $url,
-        ?string $description,
-        ?string $theme
-    ): void;
+    public function update(SpaceInterface $space): void;
 }

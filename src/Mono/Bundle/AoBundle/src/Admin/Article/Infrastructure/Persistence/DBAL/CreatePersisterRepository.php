@@ -38,7 +38,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                     'status' => $article->getStatus(),
                     'creation_date' => $article->getCreationDate()->format('Y-m-d H:i:s'),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             foreach ($article->getCategories() as $category) {
@@ -52,7 +52,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                         'id' => $article->getId()->getValue(),
                         'category' => $category,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 
@@ -67,7 +67,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                         'id' => $article->getId()->getValue(),
                         'author' => $author,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 
@@ -82,7 +82,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                         'id' => $article->getId()->getValue(),
                         'space' => $space,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 

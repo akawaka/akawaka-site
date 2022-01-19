@@ -18,7 +18,6 @@ final class Space implements SpaceInterface
         private ?\DateTimeImmutable $lastUpdate,
         private ?string $url = null,
         private ?string $description = null,
-        private ?string $theme = null,
     ) {
     }
 
@@ -50,11 +49,6 @@ final class Space implements SpaceInterface
     public function getStatus(): string
     {
         return $this->status;
-    }
-
-    public function getTheme(): ?string
-    {
-        return $this->theme;
     }
 
     public function getCreationDate(): \Safe\DateTimeImmutable

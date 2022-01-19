@@ -27,7 +27,6 @@ final class Handler implements MessageHandlerInterface
             'id' => $command->getId(),
             'code' => $command->getCode(),
             'name' => $command->getName(),
-            'theme' => $command->getTheme(),
         ]);
 
         try {

@@ -33,7 +33,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                     'status' => $space->getStatus(),
                     'creation_date' => $space->getCreationDate()->format('Y-m-d H:i:s'),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

@@ -11,7 +11,8 @@ use App\UI\Admin\Notifier\Flash\FlashNotifier;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceById;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace;
+use App\Admin\Space\Application\Gateway\UpdateSpace;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace as AkaUpdateSpace;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -80,7 +81,7 @@ final class Action
         }
     }
 
-    private function process(FormInterface $form, FindSpaceById\Response $space): UpdateSpace\Response
+    private function process(FormInterface $form, FindSpaceById\Response $space): AkaUpdateSpace\Response
     {
         /** @var UpdateSpaceDTO $data */
         $data = $form->getData();

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Space\Create\Form;
 
 use Sylius\Bundle\ThemeBundle\Form\Type\ThemeChoiceType;
+use Sylius\Bundle\ThemeBundle\Form\Type\ThemeNameChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +29,7 @@ final class CreateSpaceType extends AbstractType
             ->add('code', TextType::class, [
                 'label' => $this->translate('code.label'),
             ])
-            ->add('theme', ThemeChoiceType::class, [
+            ->add('theme', ThemeNameChoiceType::class, [
                 'label' => $this->translate('theme.label'),
                 'required' => false,
             ])

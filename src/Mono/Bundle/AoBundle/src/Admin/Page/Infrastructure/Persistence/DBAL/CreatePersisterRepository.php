@@ -38,7 +38,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                     'status' => $page->getStatus(),
                     'creation_date' => $page->getCreationDate()->format('Y-m-d H:i:s'),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             foreach ($spaces as $space) {
@@ -52,7 +52,7 @@ final class CreatePersisterRepository extends DBALRepository implements CreatePe
                         'id' => $page->getId()->getValue(),
                         'space' => $space,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 

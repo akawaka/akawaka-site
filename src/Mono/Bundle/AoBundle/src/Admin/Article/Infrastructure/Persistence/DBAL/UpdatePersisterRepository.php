@@ -31,7 +31,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $article->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $builder
@@ -40,7 +40,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                 ->setParameters([
                     'id' => $article->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $builder
@@ -49,7 +49,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                 ->setParameters([
                     'id' => $article->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $builder
@@ -58,7 +58,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                 ->setParameters([
                     'id' => $article->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             foreach ($article->getCategories() as $category) {
@@ -72,7 +72,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                         'id' => $article->getId()->getValue(),
                         'category' => $category,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 
@@ -87,7 +87,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                         'id' => $article->getId()->getValue(),
                         'author' => $author,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 
@@ -102,7 +102,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                         'id' => $article->getId()->getValue(),
                         'space' => $space,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 

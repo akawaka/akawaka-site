@@ -13,7 +13,6 @@ final class Command
         private string $name,
         private ?string $url,
         private ?string $description,
-        private ?string $theme,
     ) {
     }
 
@@ -35,10 +34,5 @@ final class Command
     public function getDescription(): ?string
     {
         return $this->description;
-    }
-
-    public function getTheme(): ?string
-    {
-        return $this->theme;
     }
 }

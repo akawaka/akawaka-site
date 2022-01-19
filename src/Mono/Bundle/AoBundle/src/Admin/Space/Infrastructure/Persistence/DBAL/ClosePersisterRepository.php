@@ -28,7 +28,7 @@ final class ClosePersisterRepository extends DBALRepository implements ClosePers
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $id->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

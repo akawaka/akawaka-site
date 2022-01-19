@@ -29,7 +29,7 @@ class CreatePersisterRepository extends DBALRepository implements CreatePersiste
                     'slug' => $author->getSlug()->getValue(),
                     'name' => $author->getName(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

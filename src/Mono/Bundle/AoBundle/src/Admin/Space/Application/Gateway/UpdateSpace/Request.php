@@ -17,8 +17,6 @@ final class Request implements GatewayRequest
 
     private ?string $url = null;
 
-    private ?string $theme = null;
-
     public static function fromData(array $data = []): self
     {
         $dto = new self();
@@ -30,7 +28,6 @@ final class Request implements GatewayRequest
         $optionalFields = [
             'description',
             'url',
-            'theme',
         ];
 
         $accessor = PropertyAccess::createPropertyAccessor();
@@ -67,11 +64,6 @@ final class Request implements GatewayRequest
         return $this->url;
     }
 
-    public function getTheme(): ?string
-    {
-        return $this->theme;
-    }
-
     public function data(): array
     {
         return [
@@ -79,7 +71,6 @@ final class Request implements GatewayRequest
             'name' => $this->getName(),
             'url' => $this->getUrl(),
             'description' => $this->getDescription(),
-            'theme' => $this->getTheme(),
         ];
     }
 }

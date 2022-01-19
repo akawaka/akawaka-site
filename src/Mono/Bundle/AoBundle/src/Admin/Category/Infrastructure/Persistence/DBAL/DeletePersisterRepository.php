@@ -23,7 +23,7 @@ final class DeletePersisterRepository extends DBALRepository implements DeletePe
                 ->setParameters([
                     'id' => $id->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();

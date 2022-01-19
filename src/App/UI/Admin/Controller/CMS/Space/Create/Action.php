@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Space\Create;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
+use App\Admin\Space\Application\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace as AoCreateSpace;
 use App\UI\Admin\Controller\CMS\Space\Create\Form\CreateSpaceDTO;
 use App\UI\Admin\Controller\CMS\Space\Create\Form\CreateSpaceType;
 use App\UI\Admin\Controller\Routes;
@@ -57,13 +58,13 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): CreateSpace\Response
+    private function process(FormInterface $form): AoCreateSpace\Response
     {
         /** @var CreateSpaceDTO $data */
         $data = $form->getData();
 
         try {
-            /** @var CreateSpace\Response $response */
+            /** @var AoCreateSpace\Response $response */
             $response = ($this->createSpaceGateway)(CreateSpace\Request::fromData(
                 $data->data()
             ));

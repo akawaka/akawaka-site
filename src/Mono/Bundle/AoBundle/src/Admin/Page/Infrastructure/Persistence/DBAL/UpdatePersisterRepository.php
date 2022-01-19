@@ -31,7 +31,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $page->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $builder
@@ -40,7 +40,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                 ->setParameters([
                     'id' => $page->getId()->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             foreach ($page->getSpaces() as $space) {
@@ -54,7 +54,7 @@ final class UpdatePersisterRepository extends DBALRepository implements UpdatePe
                         'id' => $page->getId()->getValue(),
                         'space' => $space,
                     ])
-                    ->execute()
+                    ->executeQuery()
                 ;
             }
 

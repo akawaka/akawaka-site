@@ -26,7 +26,6 @@ final class Processor
             $identity,
             $request->getCode(),
             $request->getName(),
-            $request->getTheme(),
         ));
 
         return new Response($identity);

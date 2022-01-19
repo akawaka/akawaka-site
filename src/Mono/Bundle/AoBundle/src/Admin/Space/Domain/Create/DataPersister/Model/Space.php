@@ -18,7 +18,6 @@ final class Space implements SpaceInterface
         private SpaceId $id,
         private Code $code,
         private string $name,
-        private ?string $theme,
     ) {
         $this->status = SpaceStatus::CLOSED;
         $this->creationDate = new \Safe\DateTimeImmutable();
@@ -42,11 +41,6 @@ final class Space implements SpaceInterface
     public function getStatus(): string
     {
         return $this->status;
-    }
-
-    public function getTheme(): ?string
-    {
-        return $this->theme;
     }
 
     public function getCreationDate(): \Safe\DateTimeImmutable

@@ -31,4 +31,36 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(SymfonyMailer::class)
         ->bind('$senderEmail', '%env(resolve:SENDER_EMAIL)%')
         ->bind('$senderName','%env(resolve:SENDER_NAME)%');
+
+
+    $services
+        ->set(App\Admin\Space\Domain\Create\DataPersister\Factory\Builder::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Admin\Space\Domain\Create\DataPersister\Factory\BuilderInterface::class,
+            App\Admin\Space\Domain\Create\DataPersister\Factory\Builder::class
+        )
+        ->set(App\Admin\Space\Infrastructure\Persistence\DBAL\CreatePersisterRepository::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Admin\Space\Domain\Create\DataPersister\CreatePersisterInterface::class,
+            App\Admin\Space\Infrastructure\Persistence\DBAL\CreatePersisterRepository::class
+        );
+
+    $services
+        ->set(App\Admin\Space\Domain\Update\DataPersister\Factory\Builder::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Admin\Space\Domain\Update\DataPersister\Factory\BuilderInterface::class,
+            App\Admin\Space\Domain\Update\DataPersister\Factory\Builder::class
+        )
+        ->set(App\Admin\Space\Infrastructure\Persistence\DBAL\UpdatePersisterRepository::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Admin\Space\Domain\Update\DataPersister\UpdatePersisterInterface::class,
+            App\Admin\Space\Infrastructure\Persistence\DBAL\UpdatePersisterRepository::class
+        );
+
+    $services
+        ->set(App\Admin\Space\Domain\View\DataProvider\Factory\Builder::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Admin\Space\Domain\View\DataProvider\Factory\BuilderInterface::class,
+            App\Admin\Space\Domain\View\DataProvider\Factory\Builder::class
+        );
 };

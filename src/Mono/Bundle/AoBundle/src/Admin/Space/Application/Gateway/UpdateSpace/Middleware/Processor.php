@@ -23,7 +23,6 @@ final class Processor
             $request->getName(),
             $request->getUrl(),
             $request->getDescription(),
-            $request->getTheme(),
         ));
 
         return new Response();

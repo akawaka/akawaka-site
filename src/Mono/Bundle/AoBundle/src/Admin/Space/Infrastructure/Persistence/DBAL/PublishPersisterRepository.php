@@ -28,7 +28,7 @@ final class PublishPersisterRepository extends DBALRepository implements Publish
                     'update' => (new \Safe\DateTimeImmutable())->format('Y-m-d H:i:s'),
                     'id' => $id->getValue(),
                 ])
-                ->execute()
+                ->executeQuery()
             ;
 
             $this->getConnection()->commit();
