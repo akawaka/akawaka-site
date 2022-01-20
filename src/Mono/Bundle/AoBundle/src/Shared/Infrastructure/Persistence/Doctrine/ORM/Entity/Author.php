@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\ArticleInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\AuthorInterface;
 
-#[ORM\Entity, ORM\Table(name: 'ao_author')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'ao_author')]
 class Author implements AuthorInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]

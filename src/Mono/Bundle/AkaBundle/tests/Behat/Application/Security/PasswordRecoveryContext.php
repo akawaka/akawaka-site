@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AkaBundle\Behat\Application\Security;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
-use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
-use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\FindPasswordRecoveryById;
-use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\GeneratePassword;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser\Request;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser\Response;
+use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
+use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Application\Gateway\FindPasswordRecoveryById;
+use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Application\Gateway\GeneratePassword;
 use Webmozart\Assert\Assert;
 
 final class PasswordRecoveryContext implements Context
@@ -33,10 +35,10 @@ final class PasswordRecoveryContext implements Context
 
         /** @var array $row */
         foreach ($table as $row) {
-            $responses[] = ($this->createUserGateway)(CreateUser\Request::fromData($row));
+            $responses[] = ($this->createUserGateway)(Request::fromData($row));
         }
 
-        Assert::allIsInstanceOf($responses, CreateUser\Response::class);
+        Assert::allIsInstanceOf($responses, Response::class);
     }
 
     /**

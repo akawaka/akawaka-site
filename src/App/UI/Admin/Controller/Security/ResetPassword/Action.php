@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\Security\ResetPassword;
 
-use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AkaBundle\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordDTO;
 use App\UI\Admin\Controller\Security\ResetPassword\Form\ResetPasswordType;
+use App\UI\Admin\Notifier\Flash\FlashNotifier;
+use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Application\Gateway\CreatePasswordRecovery;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,7 +63,7 @@ final class Action
         $data = $form->getData();
 
         try {
-            /** @var CreatePasswordRecovery\Response $response */
+            // @var CreatePasswordRecovery\Response $response
             return ($this->resetPasswordGateway)(CreatePasswordRecovery\Request::fromData(
                 $data->toArray()
             ));

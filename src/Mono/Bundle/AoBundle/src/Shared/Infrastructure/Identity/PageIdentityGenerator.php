@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AoBundle\Shared\Infrastructure\Identity;
 
-use Mono\Bundle\CoreBundle\Infrastructure\Generator\GeneratorInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Identifier\PageId;
+use Mono\Bundle\CoreBundle\Infrastructure\Generator\GeneratorInterface;
 
 final class PageIdentityGenerator
 {

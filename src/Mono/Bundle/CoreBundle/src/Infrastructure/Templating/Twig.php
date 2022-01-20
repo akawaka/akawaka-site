@@ -16,7 +16,7 @@ final class Twig implements TemplatingInterface
     }
 
     /**
-     * @param array<string, string> $parameters
+     * @param array<array-key, mixed> $parameters
      */
     public function render(string $name, array $parameters = []): string
     {

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles as BaseArticles;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticles\Request;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,8 +36,8 @@ final class Action
     private function find(): FindArticles\Response
     {
         try {
-            /** @var BaseArticles\Response $results */
-            $results = ($this->findArticlesGateway)(BaseArticles\Request::fromData());
+            /** @var FindArticles\Response $results */
+            $results = ($this->findArticlesGateway)(Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

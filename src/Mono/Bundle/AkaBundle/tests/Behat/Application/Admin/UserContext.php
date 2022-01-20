@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AkaBundle\Behat\Application\Admin;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUserById;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUsers;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\DeleteUser;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdateUser;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser\Request;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser\Response;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\DeleteUser;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\FindUserById;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\FindUsers;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\UpdatePassword;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\UpdateUser;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class UserContext implements Context
@@ -35,10 +38,10 @@ final class UserContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-            $this->responses[] = ($this->createUserGateway)(CreateUser\Request::fromData($row));
+            $this->responses[] = ($this->createUserGateway)(Request::fromData($row));
         }
 
-        Assert::allIsInstanceOf($this->responses, CreateUser\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**
@@ -136,6 +139,8 @@ final class UserContext implements Context
 
     /**
      * @When I delete this user
+     *
+     * @throws GatewayException
      */
     public function iDeleteThisUser()
     {
@@ -154,7 +159,7 @@ final class UserContext implements Context
                 $this->responses[0]
             ));
         } catch (\Exception $exception) {
-            Assert::true($exception instanceof \Mono\Bundle\CoreBundle\Application\Gateway\GatewayException);
+            Assert::true($exception instanceof GatewayException);
         }
     }
 }

@@ -8,11 +8,11 @@ use App\UI\Admin\Controller\CMS\Page\Update\Form\UpdatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Update\Form\UpdatePageType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\UpdatePage;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,8 +71,8 @@ final class Action
     private function find(string $identifier): FindPageById\Response
     {
         try {
-            /** @var FindPageById\Response $response */
-            return ($this->findPageGateway)(\Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById\Request::fromData([
+            // @var FindPageById\Response $response
+            return ($this->findPageGateway)(FindPageById\Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {
@@ -86,8 +86,8 @@ final class Action
         $data = $form->getData();
 
         try {
-            /** @var UpdatePage\Response $response */
-            $response = ($this->updatePageGateway)(UpdatePage\Request::fromData(array_merge(
+            /** @var \Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage\Response $response */
+            $response = ($this->updatePageGateway)(\Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage\Request::fromData(array_merge(
                 $page->data(),
                 $data->data()
             )));

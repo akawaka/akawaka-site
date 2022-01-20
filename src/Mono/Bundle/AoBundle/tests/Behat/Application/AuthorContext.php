@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorById;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorBySlug;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthors;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\DeleteAuthor;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\UpdateAuthor;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\CreateAuthor;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\CreateAuthor\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\DeleteAuthor;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorById;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorById\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthors;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\UpdateAuthor;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -49,7 +51,7 @@ final class AuthorContext implements Context
             $this->responses[] = ($this->createAuthorGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreateAuthor\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**
@@ -58,7 +60,7 @@ final class AuthorContext implements Context
     public function iShouldBeAbleToFindMyAuthorWithHisIdentifier()
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findAuthorByIdGateway)(FindAuthorById\Request::fromData($response->data()));
+            $result = ($this->findAuthorByIdGateway)(Request::fromData($response->data()));
             Assert::isInstanceOf($result, FindAuthorById\Response::class);
         }
     }

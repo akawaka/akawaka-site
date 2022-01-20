@@ -8,16 +8,14 @@ final class GatewayException extends \Exception
 {
     public function __construct(
         string $message,
-        string $className,
-        string $error,
-        ?\Exception $previous = null,
+        \Exception $previous,
     ) {
         parent::__construct(
             message: \Safe\sprintf(
                 '%s in %s: %s',
                 $message,
-                $className,
-                $error
+                $previous->getFile(),
+                $previous->getMessage(),
             ),
             previous: $previous
         );

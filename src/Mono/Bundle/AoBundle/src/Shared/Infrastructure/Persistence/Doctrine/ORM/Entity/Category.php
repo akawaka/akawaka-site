@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\ArticleInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\CategoryInterface;
 
-#[ORM\Entity, ORM\Table(name: 'ao_category')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'ao_category')]
 class Category implements CategoryInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]

@@ -37,7 +37,7 @@ final class EmailAddress
     }
 
     /**
-     * @return array<string, string>
+     * @return array<array-key, mixed>
      */
     public function getValueAsArray(): array
     {

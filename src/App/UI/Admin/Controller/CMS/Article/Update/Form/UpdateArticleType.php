@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Update\Form;
 
 use App\UI\Admin\Form\Type\CategoryChoiceType;
-use App\UI\Admin\Form\Type\SpaceChoiceType;
 use App\UI\Admin\Form\Type\FroalaType;
+use App\UI\Admin\Form\Type\SpaceChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

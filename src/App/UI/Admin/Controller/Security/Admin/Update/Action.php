@@ -10,12 +10,12 @@ use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdateAdminType;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordDTO;
 use App\UI\Admin\Controller\Security\Admin\Update\Form\UpdatePasswordType;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\FindUserById;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\UpdatePassword;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\UpdateUser;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\FindUserById;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdatePassword;
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\UpdateUser;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -101,6 +101,8 @@ final class Action
             $response = ($this->findUserGateway)(FindUserById\Request::fromData([
                 'identifier' => $identifier,
             ]));
+
+            return $response;
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

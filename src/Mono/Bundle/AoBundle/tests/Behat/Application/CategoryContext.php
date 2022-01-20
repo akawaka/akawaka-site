@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryById;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategories;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\DeleteCategory;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\UpdateCategory;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\DeleteCategory;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategoryById;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\UpdateCategory;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -36,7 +38,7 @@ final class CategoryContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-            $this->requests[] = CreateCategory\Request::fromData($row);
+            $this->requests[] = Request::fromData($row);
         }
     }
 
@@ -49,7 +51,7 @@ final class CategoryContext implements Context
             $this->responses[] = ($this->createCategoryGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreateCategory\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**

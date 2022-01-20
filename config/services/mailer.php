@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-use App\Contact\Infrastructure\Mailer\SymfonyMailer;
+use App\Context\Front\Contact\Infrastructure\Mailer\SymfonyMailer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {

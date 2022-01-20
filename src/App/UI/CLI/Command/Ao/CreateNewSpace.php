@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command\Ao;
 
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
 use App\UI\CLI\Command\CommandNaming;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

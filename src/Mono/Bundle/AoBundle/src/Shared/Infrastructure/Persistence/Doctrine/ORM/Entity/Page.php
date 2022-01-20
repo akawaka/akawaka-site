@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\PageInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\SpaceInterface;
 
-#[ORM\Entity, ORM\Table(name: 'ao_page')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'ao_page')]
 class Page implements PageInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]

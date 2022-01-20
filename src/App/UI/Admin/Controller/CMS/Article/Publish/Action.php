@@ -6,9 +6,10 @@ namespace App\UI\Admin\Controller\CMS\Article\Publish;
 
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\PublishArticle;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\PublishArticle;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\PublishArticle\Request;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,7 +33,7 @@ final class Action
     public function __invoke(string $identifier): Response
     {
         try {
-            ($this->publishArticleGateway)(PublishArticle\Request::fromData([
+            ($this->publishArticleGateway)(Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

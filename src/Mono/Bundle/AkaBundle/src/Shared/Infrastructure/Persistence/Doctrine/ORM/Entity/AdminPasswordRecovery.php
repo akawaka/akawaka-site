@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity;
 
-use Mono\Bundle\AkaBundle\Shared\Domain\Model\PasswordRecoveryInterface;
-use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
-use Mono\Bundle\AkaBundle\Shared\Domain\Identifier\PasswordRecoveryId;
-use Ramsey\Uuid\Uuid;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Mono\Bundle\AkaBundle\Shared\Domain\Identifier\PasswordRecoveryId;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\PasswordRecoveryInterface;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
+use Ramsey\Uuid\Uuid;
 
-#[ORM\Entity, ORM\Table(name: 'security_admin_recovery')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'security_admin_recovery')]
 class AdminPasswordRecovery implements PasswordRecoveryInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]

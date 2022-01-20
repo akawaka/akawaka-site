@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity;
 
-use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
 use Mono\Bundle\AkaBundle\Shared\Domain\Enum\StatusEnum;
 use Mono\Bundle\AkaBundle\Shared\Domain\Identifier\UserId;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
 use Mono\Bundle\AkaBundle\Shared\Domain\ValueObject\Username;
 use Mono\Primitive\EmailAddress\EmailAddress;
 use Safe\DateTimeImmutable;
-use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 
-#[ORM\Entity, ORM\Table(name: 'user_admin')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'user_admin')]
 class AdminUser implements UserInterface, SecurityUserInterface, PasswordAuthenticatedUserInterface
 {
     public string $status;

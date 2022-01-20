@@ -17,7 +17,7 @@ final class DownloadResponder
     }
 
     /**
-     * @param array<string, string> $headers
+     * @param array<array-key, mixed> $headers
      */
     public function __invoke(
         string $encodedFilename,

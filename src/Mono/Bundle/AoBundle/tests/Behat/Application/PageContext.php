@@ -4,27 +4,28 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Mono\Bundle\AoBundle\Shared\Domain\Enum\PageStatus;
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\UnpublishPage;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageBySlug;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\PublishPage;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\UpdatePage;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\CreatePage;
 use Behat\Behat\Context\Context;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\CreatePage\Response;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\DeletePage;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPageById\Request;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\CreatePage;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\CreatePage\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\DeletePage;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\PublishPage;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UnpublishPage;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceByCode\Gateway;
+use Mono\Bundle\AoBundle\Shared\Domain\Enum\PageStatus;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
 {
-    private FindSpaceByCode\Gateway $findSpaceByCodeGateway;
+    private Gateway $findSpaceByCodeGateway;
 
     private CreateSpace\Gateway $createSpaceGateway;
 
@@ -46,7 +47,7 @@ final class PageContext implements Context
 
     public function __construct(
         UnpublishPage\Gateway $unpublishPageGateway,
-        FindSpaceByCode\Gateway $findSpaceByCodeGateway,
+        Gateway $findSpaceByCodeGateway,
         CreateSpace\Gateway $createSpaceGateway,
         CreatePage\Gateway $createPageGateway,
         FindPageById\Gateway $findPageByIdGateway,

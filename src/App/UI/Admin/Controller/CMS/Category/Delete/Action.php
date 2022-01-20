@@ -6,9 +6,9 @@ namespace App\UI\Admin\Controller\CMS\Category\Delete;
 
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\DeleteCategory;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\DeleteCategory;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;

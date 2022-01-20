@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Space\Update;
 
+use App\Context\Admin\Space\Application\Gateway\UpdateSpace;
 use App\UI\Admin\Controller\CMS\Space\Update\Form\UpdateSpaceDTO;
 use App\UI\Admin\Controller\CMS\Space\Update\Form\UpdateSpaceType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceById;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace as AkaUpdateSpace;
+use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceById;
-use App\Admin\Space\Application\Gateway\UpdateSpace;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace as AkaUpdateSpace;
-use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,7 +72,7 @@ final class Action
     private function find(string $identifier): FindSpaceById\Response
     {
         try {
-            /** @var FindSpaceById\Response $response */
+            // @var FindSpaceById\Response $response
             return ($this->findSpaceGateway)(FindSpaceById\Request::fromData([
                 'identifier' => $identifier,
             ]));
@@ -87,7 +87,7 @@ final class Action
         $data = $form->getData();
 
         try {
-            /** @var UpdateSpace\Response $response */
+            /** @var AkaUpdateSpace\Response $response */
             $response = ($this->updateSpaceGateway)(UpdateSpace\Request::fromData(array_merge(
                 $space->data(),
                 $data->data()

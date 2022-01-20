@@ -15,8 +15,8 @@ final class HtmlResponder
     }
 
     /**
-     * @param array<string, string> $parameters
-     * @param array<string, string> $headers
+     * @param array<array-key, mixed> $parameters
+     * @param array<array-key, mixed> $headers
      */
     public function __invoke(
         string $template,

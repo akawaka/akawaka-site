@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\UI\Admin\Controller\CMS\Space\Create\Form;
 
-use Sylius\Bundle\ThemeBundle\Form\Type\ThemeChoiceType;
 use Sylius\Bundle\ThemeBundle\Form\Type\ThemeNameChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

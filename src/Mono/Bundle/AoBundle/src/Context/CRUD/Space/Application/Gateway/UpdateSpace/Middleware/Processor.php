@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Middleware;
+
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Write\Update\Command;
+use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;
+
+final class Processor
+{
+    public function __construct(
+        private CommandBusInterface $commandBus,
+    ) {
+    }
+
+    public function __invoke(Request $request): Response
+    {
+        ($this->commandBus)(new Command(
+            $request->getIdentifier(),
+            $request->getName(),
+            $request->getUrl(),
+            $request->getDescription(),
+        ));
+
+        return new Response();
+    }
+}

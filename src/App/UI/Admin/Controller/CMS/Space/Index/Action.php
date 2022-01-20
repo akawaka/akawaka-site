@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Space\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;

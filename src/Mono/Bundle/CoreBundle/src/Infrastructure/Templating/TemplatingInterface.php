@@ -7,7 +7,7 @@ namespace Mono\Bundle\CoreBundle\Infrastructure\Templating;
 interface TemplatingInterface
 {
     /**
-     * @param array<string, string> $parameters
+     * @param array<array-key, mixed> $parameters
      */
     public function render(string $name, array $parameters = []): string;
 }

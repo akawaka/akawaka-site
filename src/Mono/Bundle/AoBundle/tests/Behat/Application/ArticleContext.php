@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\CreateArticle;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleBySlug\Request;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\CreateCategory;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\CreateAuthor;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleById;
-use Mono\Bundle\AoBundle\Admin\Category\Application\Gateway\FindCategoryBySlug;
-use Mono\Bundle\AoBundle\Admin\Author\Application\Gateway\FindAuthorBySlug;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticleBySlug;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\FindArticles;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\DeleteArticle;
-use Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\UpdateArticle;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByCode;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\CreateArticle;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\DeleteArticle;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleById;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleById\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleBySlug\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\UpdateArticle;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\CreateAuthor;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategoryBySlug;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceByCode;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
@@ -38,7 +39,7 @@ final class ArticleContext implements Context
         private CreateSpace\Gateway $createSpaceGateway,
         private CreateCategory\Gateway $createCategoryGateway,
         private CreateAuthor\Gateway $createAuthorGateway,
-        private FindSpaceByCOde\Gateway $findSpaceByCode,
+        private FindSpaceByCode\Gateway $findSpaceByCode,
         private CreateArticle\Gateway $createArticleGateway,
         private FindArticleById\Gateway $findArticleByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
@@ -122,7 +123,7 @@ final class ArticleContext implements Context
             $this->responses[] = ($this->createArticleGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, \Mono\Bundle\AoBundle\Admin\Article\Application\Gateway\CreateArticle\Response::class);
+        Assert::allIsInstanceOf($this->responses, CreateArticle\Response::class);
     }
 
     /**
@@ -132,7 +133,7 @@ final class ArticleContext implements Context
     {
         foreach ($this->responses as $response) {
             $result = ($this->findArticleByIdGateway)(FindArticleById\Request::fromData($response->data()));
-            Assert::isInstanceOf($result, FindArticleById\Response::class);
+            Assert::isInstanceOf($result, Response::class);
         }
     }
 
@@ -142,7 +143,7 @@ final class ArticleContext implements Context
     public function iShouldBeAbleToFindMyArticleWithHisSlug(string $slug)
     {
         foreach ($this->responses as $response) {
-            $result = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData([
+            $result = ($this->findArticleBySlugGateway)(Request::fromData([
                 'slug' => $slug,
             ]));
             Assert::isInstanceOf($result, FindArticleBySlug\Response::class);
@@ -219,7 +220,7 @@ final class ArticleContext implements Context
     public function theArticleshouldBeUpdatedWith(TableNode $table)
     {
         foreach ($table as $row) {
-            $response = ($this->findArticleBySlugGateway)(FindArticleBySlug\Request::fromData($row));
+            $response = ($this->findArticleBySlugGateway)(Request::fromData($row));
 
             Assert::true($response->data()['slug'] === $row['slug']);
             Assert::true($response->data()['name'] === $row['name']);

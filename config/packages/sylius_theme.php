@@ -10,6 +10,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'sources' => [
             'filesystem' => null,
         ],
-        'context' => ThemeContext::class,
     ]);
 };

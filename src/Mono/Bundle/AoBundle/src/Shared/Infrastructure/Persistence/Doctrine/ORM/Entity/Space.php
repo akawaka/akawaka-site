@@ -8,7 +8,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\SpaceInterface;
 
-#[ORM\Entity, ORM\Table(name: 'ao_space')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'ao_space')]
 class Space implements SpaceInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]
@@ -28,9 +28,6 @@ class Space implements SpaceInterface
 
     #[ORM\Column(type: Types::STRING)]
     protected string $status;
-
-    #[ORM\Column(type: Types::STRING, nullable: true)]
-    protected ?string $theme;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     protected \DateTimeImmutable $creationDate;

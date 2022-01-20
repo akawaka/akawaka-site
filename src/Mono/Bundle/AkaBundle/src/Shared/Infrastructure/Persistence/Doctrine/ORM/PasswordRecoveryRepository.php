@@ -6,9 +6,9 @@ namespace Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query\Parameter;
+use Doctrine\Persistence\ManagerRegistry;
 use Mono\Bundle\AkaBundle\Shared\Domain\Identifier\PasswordRecoveryId;
 use Mono\Bundle\AkaBundle\Shared\Domain\Model\PasswordRecoveryInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Mono\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\ORMRepository;
 
 final class PasswordRecoveryRepository extends ORMRepository

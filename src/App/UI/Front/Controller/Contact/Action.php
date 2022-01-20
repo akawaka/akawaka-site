@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\UI\Front\Controller\Contact;
 
-use App\Contact\Application\Gateway\SendContact;
 use App\UI\Front\Controller\Contact\Form\ContactType;
 use App\UI\Front\Controller\Routes;
 use App\UI\Front\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Context\Front\Contact\Application\Gateway\SendContact;
 
 final class Action
 {

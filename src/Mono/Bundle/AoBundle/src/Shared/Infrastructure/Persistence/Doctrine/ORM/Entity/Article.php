@@ -12,7 +12,7 @@ use Mono\Bundle\AoBundle\Shared\Domain\Model\AuthorInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\CategoryInterface;
 use Mono\Bundle\AoBundle\Shared\Domain\Model\SpaceInterface;
 
-#[ORM\Entity, ORM\Table(name: 'ao_article')]
+#[ORM\MappedSuperclass, ORM\Table(name: 'ao_article')]
 class Article implements ArticleInterface
 {
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]

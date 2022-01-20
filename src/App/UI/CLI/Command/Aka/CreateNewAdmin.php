@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\CLI\Command\Aka;
 
-use Mono\Bundle\AkaBundle\Admin\User\Application\Gateway\CreateUser;
 use App\UI\CLI\Command\CommandNaming;
+use Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\CreateUser;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

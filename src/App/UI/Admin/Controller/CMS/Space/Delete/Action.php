@@ -6,9 +6,9 @@ namespace App\UI\Admin\Controller\CMS\Space\Delete;
 
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\RemoveSpace;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
+use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,7 +32,7 @@ final class Action
     public function __invoke(string $identifier): Response
     {
         try {
-            ($this->removeSpaceGateway)(RemoveSpace\Request::fromData([
+            ($this->removeSpaceGateway)(Request::fromData([
                 'identifier' => $identifier,
             ]));
         } catch (GatewayException $exception) {

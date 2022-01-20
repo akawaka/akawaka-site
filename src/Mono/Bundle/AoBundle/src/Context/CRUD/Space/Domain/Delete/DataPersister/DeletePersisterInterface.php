@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Delete\DataPersister;
+
+use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
+
+interface DeletePersisterInterface
+{
+    public function delete(SpaceId $id): bool;
+}

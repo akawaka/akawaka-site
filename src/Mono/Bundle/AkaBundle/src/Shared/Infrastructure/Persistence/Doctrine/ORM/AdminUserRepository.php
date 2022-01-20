@@ -6,11 +6,10 @@ namespace Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query\Parameter;
+use Doctrine\Persistence\ManagerRegistry;
 use Mono\Bundle\AkaBundle\Shared\Domain\Identifier\UserId;
 use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
 use Mono\Bundle\AkaBundle\Shared\Domain\ValueObject\Username;
-use Doctrine\Persistence\ManagerRegistry;
-use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminUser;
 use Mono\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\ORMRepository;
 
 final class AdminUserRepository extends ORMRepository
@@ -18,7 +17,7 @@ final class AdminUserRepository extends ORMRepository
     public function __construct(
         ManagerRegistry $managerRegistry,
     ) {
-        parent::__construct($managerRegistry, AdminUser::class);
+        parent::__construct($managerRegistry, UserInterface::class);
     }
 
     public function find(UserId $id): UserInterface

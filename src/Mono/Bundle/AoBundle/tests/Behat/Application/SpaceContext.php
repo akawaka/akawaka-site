@@ -4,23 +4,26 @@ declare(strict_types=1);
 
 namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 
-use Behat\Gherkin\Node\TableNode;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CloseSpace;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\CreateSpace;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceById;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaceByCode;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\FindSpaces;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\PublishSpace;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\RemoveSpace;
-use Mono\Bundle\AoBundle\Admin\Space\Application\Gateway\UpdateSpace;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CloseSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CloseSpace\Gateway;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace\Response;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceByCode;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceById;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\PublishSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\RemoveSpace;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace;
 use Mono\Bundle\AoBundle\Shared\Domain\Enum\SpaceStatus;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
 final class SpaceContext implements Context
 {
-    private CloseSpace\Gateway $closeSpaceGateway;
+    private Gateway $closeSpaceGateway;
 
     private CreateSpace\Gateway $createSpaceGateway;
 
@@ -37,7 +40,7 @@ final class SpaceContext implements Context
     private UpdateSpace\Gateway $updateSpaceGateway;
 
     public function __construct(
-        CloseSpace\Gateway $closeSpaceGateway,
+        Gateway $closeSpaceGateway,
         CreateSpace\Gateway $createSpaceGateway,
         FindSpaceById\Gateway $findSpaceByIdGateway,
         FindSpaceByCode\Gateway $findSpaceByCodeGateway,
@@ -65,7 +68,7 @@ final class SpaceContext implements Context
     {
         /** @var array $row */
         foreach ($table as $row) {
-            $this->requests[] = CreateSpace\Request::fromData($row);
+            $this->requests[] = Request::fromData($row);
         }
     }
 
@@ -78,7 +81,7 @@ final class SpaceContext implements Context
             $this->responses[] = ($this->createSpaceGateway)($request);
         }
 
-        Assert::allIsInstanceOf($this->responses, CreateSpace\Response::class);
+        Assert::allIsInstanceOf($this->responses, Response::class);
     }
 
     /**

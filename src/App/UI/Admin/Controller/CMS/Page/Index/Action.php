@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Page\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPages\Request;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages;
-use Mono\Bundle\AoBundle\Admin\Page\Application\Gateway\FindPages\Request;
+use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,7 +36,7 @@ final class Action
     private function find(): FindPages\Response
     {
         try {
-            /** @var FindPages\Response $results */
+            /** @var \Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPages\Response $results */
             $results = ($this->findPagesGateway)(Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
