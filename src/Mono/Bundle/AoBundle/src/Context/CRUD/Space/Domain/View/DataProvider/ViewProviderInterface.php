@@ -14,6 +14,4 @@ interface ViewProviderInterface
     public function getByCode(Code $code): array;
 
     public function getByHostname(string $hostname): array;
-
-    public function getAll(): array;
 }

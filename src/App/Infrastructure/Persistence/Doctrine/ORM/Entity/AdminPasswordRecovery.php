@@ -10,5 +10,4 @@ use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\
 #[ORM\Entity, ORM\Table(name: 'security_admin_recovery')]
 class AdminPasswordRecovery extends BaseAdminPasswordRecovery
 {
-
 }

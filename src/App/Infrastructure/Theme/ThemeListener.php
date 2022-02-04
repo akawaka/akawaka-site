@@ -7,7 +7,6 @@ namespace App\Infrastructure\Theme;
 use App\Infrastructure\Theme\Space\Context\SpaceContextInterface;
 use App\Context\Admin\Space\Domain\View\DataProvider\Model\Space;
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
-use Sylius\Bundle\ThemeBundle\Context\ThemeContextInterface;
 use Sylius\Bundle\ThemeBundle\Repository\ThemeRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;

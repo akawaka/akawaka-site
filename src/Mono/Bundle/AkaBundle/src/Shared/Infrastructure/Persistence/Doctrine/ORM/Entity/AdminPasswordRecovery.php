@@ -32,16 +32,15 @@ class AdminPasswordRecovery implements PasswordRecoveryInterface
         $this->creationDate = new \DateTimeImmutable();
     }
 
-    public static function create(
+    public function create(
         PasswordRecoveryId $id,
         UserInterface $user,
     ): PasswordRecoveryInterface {
-        $recovery = new self();
-        $recovery->id = $id->getValue();
-        $recovery->user = $user;
-        $recovery->token = Uuid::uuid6()->toString();
+        $this->id = $id->getValue();
+        $this->user = $user;
+        $this->token = Uuid::uuid6()->toString();
 
-        return $recovery;
+        return $this;
     }
 
     public function getId(): PasswordRecoveryId

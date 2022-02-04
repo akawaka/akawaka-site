@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Form\Type;
 
 use App\UI\Admin\Form\Transformer\SpacesToArrayTransformer;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class SpaceChoiceType extends AbstractType
 {
     public function __construct(
-        private FindSpaces\Gateway $findSpacesGateway,
+        private BrowseSpaces\Gateway $findSpacesGateway,
     ) {
     }
 
@@ -41,7 +41,7 @@ final class SpaceChoiceType extends AbstractType
     {
         $choices = [];
 
-        foreach (($this->findSpacesGateway)(FindSpaces\Request::fromData([]))->data() as $space) {
+        foreach (($this->findSpacesGateway)(BrowseSpaces\Request::fromData([]))->data() as $space) {
             $choices[$space['name']] = $space['identifier'];
         }
 

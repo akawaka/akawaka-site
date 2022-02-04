@@ -51,16 +51,4 @@ final class Viewer implements ViewerInterface
 
         return $this->builder::build($result);
     }
-
-    public function readAll(): array
-    {
-        $collection = [];
-        $results = $this->provider->getAll();
-
-        foreach ($results as $result) {
-            $collection[] = $this->builder::build($result);
-        }
-
-        return $collection;
-    }
 }

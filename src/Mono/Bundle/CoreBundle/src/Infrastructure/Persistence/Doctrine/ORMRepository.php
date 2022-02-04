@@ -23,6 +23,11 @@ abstract class ORMRepository
         $this->class = $class;
     }
 
+    public function getClass()
+    {
+        return new ($this->manager->getClassMetadata($this->getClassName())->getName());
+    }
+
     public function getClassName(): string
     {
         return $this->class;

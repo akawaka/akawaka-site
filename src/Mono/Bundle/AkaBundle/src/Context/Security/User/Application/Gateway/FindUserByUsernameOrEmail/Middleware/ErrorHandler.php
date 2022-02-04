@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during find user by username or email process',
-                                $exception,
+                $exception,
             );
         }
     }

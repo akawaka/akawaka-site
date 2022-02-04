@@ -13,6 +13,4 @@ interface ViewerInterface
     public function read(CategoryId $id): ?CategoryInterface;
 
     public function readBySlug(Slug $slug): ?CategoryInterface;
-
-    public function readAll(): array;
 }

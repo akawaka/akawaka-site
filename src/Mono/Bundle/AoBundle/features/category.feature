@@ -3,7 +3,7 @@ Feature:
     As a developer
     I want to manage my categories and tests my gateways
 
-    Scenario: Create a category
+    Background: Create a category
         Given I want to create a category
             | name          | slug |
             | test category | test |

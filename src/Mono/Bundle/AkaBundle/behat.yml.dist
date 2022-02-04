@@ -1,29 +1,27 @@
 default:
     suites:
-        admin_user:
-            paths:
-                - 'src/Mono/Bundle/AkaBundle/features'
+        default:
             contexts:
                 - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
-                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Admin\UserContext
+
+        admin_user:
+            contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Context\CRUD\UserContext
             filters:
                 tags: "@admin_user"
 
         security_user:
-            paths:
-                - 'src/Mono/Bundle/AkaBundle/features'
             contexts:
                 - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
-                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Security\UserContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Context\Security\UserContext
             filters:
                 tags: "@security_user"
 
         security_password_recovery:
-            paths:
-                - 'src/Mono/Bundle/AkaBundle/features'
             contexts:
                 - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
-                - Mono\Tests\Bundle\AkaBundle\Behat\Application\Security\PasswordRecoveryContext
+                - Mono\Tests\Bundle\AkaBundle\Behat\Context\Security\PasswordRecoveryContext
             filters:
                 tags: "@security_password_recovery"
 

@@ -10,5 +10,4 @@ use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\P
 #[ORM\Entity, ORM\Table(name: 'ao_page')]
 class Page extends BasePage
 {
-
 }

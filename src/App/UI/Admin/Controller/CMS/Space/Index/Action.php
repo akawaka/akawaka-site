@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Space\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class Action
 {
     public function __construct(
-        private FindSpaces\Gateway $findSpacesGateway,
+        private BrowseSpaces\Gateway $findSpacesGateway,
         private HtmlResponder $htmlResponder
     ) {
     }
@@ -32,10 +32,10 @@ final class Action
         ]);
     }
 
-    private function find(): FindSpaces\Response
+    private function find(): BrowseSpaces\Response
     {
         try {
-            $results = ($this->findSpacesGateway)(FindSpaces\Request::fromData());
+            $results = ($this->findSpacesGateway)(BrowseSpaces\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

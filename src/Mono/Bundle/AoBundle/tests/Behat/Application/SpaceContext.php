@@ -7,13 +7,12 @@ namespace Mono\Tests\Bundle\AoBundle\Behat\Application;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CloseSpace;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CloseSpace\Gateway;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace\Request;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\CreateSpace\Response;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceByCode;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceById;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\PublishSpace;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\RemoveSpace;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace;
@@ -21,44 +20,20 @@ use Mono\Bundle\AoBundle\Shared\Domain\Enum\SpaceStatus;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
 
-final class SpaceContext implements Context
+class SpaceContext implements Context
 {
-    private Gateway $closeSpaceGateway;
-
-    private CreateSpace\Gateway $createSpaceGateway;
-
-    private FindSpaceById\Gateway $findSpaceByIdGateway;
-
-    private FindSpaceByCode\Gateway $findSpaceByCodeGateway;
-
-    private FindSpaces\Gateway $findSpacesGateway;
-
-    private PublishSpace\Gateway $publishSpaceGateway;
-
-    private RemoveSpace\Gateway $removeSpaceGateway;
-
-    private UpdateSpace\Gateway $updateSpaceGateway;
-
     public function __construct(
-        Gateway $closeSpaceGateway,
-        CreateSpace\Gateway $createSpaceGateway,
-        FindSpaceById\Gateway $findSpaceByIdGateway,
-        FindSpaceByCode\Gateway $findSpaceByCodeGateway,
-        FindSpaces\Gateway $findSpacesGateway,
-        PublishSpace\Gateway $publishSpaceGateway,
-        RemoveSpace\Gateway $removeSpaceGateway,
-        UpdateSpace\Gateway $updateSpaceGateway,
+        private CloseSpace\Gateway $closeSpaceGateway,
+        private CreateSpace\Gateway $createSpaceGateway,
+        private FindSpaceById\Gateway $findSpaceByIdGateway,
+        private FindSpaceByCode\Gateway $findSpaceByCodeGateway,
+        private BrowseSpaces\Gateway $findSpacesGateway,
+        private PublishSpace\Gateway $publishSpaceGateway,
+        private RemoveSpace\Gateway $removeSpaceGateway,
+        private UpdateSpace\Gateway $updateSpaceGateway,
         private array $requests = [],
         private array $responses = [],
     ) {
-        $this->closeSpaceGateway = $closeSpaceGateway;
-        $this->createSpaceGateway = $createSpaceGateway;
-        $this->findSpaceByIdGateway = $findSpaceByIdGateway;
-        $this->findSpaceByCodeGateway = $findSpaceByCodeGateway;
-        $this->findSpacesGateway = $findSpacesGateway;
-        $this->publishSpaceGateway = $publishSpaceGateway;
-        $this->removeSpaceGateway = $removeSpaceGateway;
-        $this->updateSpaceGateway = $updateSpaceGateway;
     }
 
     /**
@@ -129,7 +104,7 @@ final class SpaceContext implements Context
      */
     public function iListAllSpaces()
     {
-        $this->responses = ($this->findSpacesGateway)(FindSpaces\Request::fromData())->data();
+        $this->responses = ($this->findSpacesGateway)(BrowseSpaces\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

@@ -3,13 +3,12 @@ Feature:
     As a developer
     I want to manage my spaces and tests my gateways
 
-    Scenario: Create a space
+    Background: Create a space
         Given I want to create a space
             | name       | code |
             | test space | test |
         When I create this space
         Then I should be able to find my space with his identifier
-        And I should be able to find my space with his code "test"
 
     Scenario: List spaces
         Given I already have a space with code

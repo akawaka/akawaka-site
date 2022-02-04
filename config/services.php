@@ -63,4 +63,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             App\Context\Admin\Space\Domain\View\DataProvider\Factory\Builder::class
         );
 
+    $services
+        ->set(App\Context\Admin\Space\Domain\Browse\DataProvider\Factory\Builder::class)
+        ->alias(
+            Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Browse\DataProvider\Factory\BuilderInterface::class,
+            App\Context\Admin\Space\Domain\Browse\DataProvider\Factory\Builder::class
+        );
 };

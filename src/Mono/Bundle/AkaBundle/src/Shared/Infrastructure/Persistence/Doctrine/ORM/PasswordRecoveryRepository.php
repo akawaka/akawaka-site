@@ -62,4 +62,9 @@ final class PasswordRecoveryRepository extends ORMRepository
     {
         $this->manager->flush();
     }
+
+    public function getClass(): PasswordRecoveryInterface
+    {
+        return parent::getClass();
+    }
 }

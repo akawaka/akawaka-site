@@ -25,7 +25,7 @@ final class ViewProviderRepository extends DBALRepository implements ViewProvide
         ;
 
         try {
-            $statement = $builder->execute();
+            $statement = $builder->executeQuery();
         } catch (Exception $exception) {
             return [];
         }
@@ -46,7 +46,7 @@ final class ViewProviderRepository extends DBALRepository implements ViewProvide
         ;
 
         try {
-            $statement = $builder->execute();
+            $statement = $builder->executeQuery();
         } catch (Exception $exception) {
             return [];
         }
@@ -67,28 +67,11 @@ final class ViewProviderRepository extends DBALRepository implements ViewProvide
         ;
 
         try {
-            $statement = $builder->execute();
+            $statement = $builder->executeQuery();
         } catch (Exception $exception) {
             return [];
         }
 
         return $statement->fetchAssociative();
-    }
-
-    public function getAll(): array
-    {
-        $builder = $this->getQueryBuilder();
-        $builder
-            ->from('ao_space', 'space')
-            ->select('space.*')
-        ;
-
-        try {
-            $statement = $builder->execute();
-        } catch (Exception $exception) {
-            return [];
-        }
-
-        return $statement->fetchAllAssociative();
     }
 }

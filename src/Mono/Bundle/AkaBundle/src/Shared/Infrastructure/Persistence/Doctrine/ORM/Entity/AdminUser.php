@@ -19,6 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 class AdminUser implements UserInterface, SecurityUserInterface, PasswordAuthenticatedUserInterface
 {
     public string $status;
+
     #[ORM\Id, ORM\GeneratedValue(strategy: 'NONE'), ORM\Column(type: Types::GUID)]
     protected string $id;
 
@@ -47,17 +48,16 @@ class AdminUser implements UserInterface, SecurityUserInterface, PasswordAuthent
         $this->lastConnection = null;
     }
 
-    public static function create(
+    public function create(
         UserId $id,
         Username $username,
         EmailAddress $emailAddress,
-    ): self {
-        $user = new self();
-        $user->id = $id->getValue();
-        $user->username = $username->getValue();
-        $user->email = $emailAddress->getValue();
+    ): UserInterface {
+        $this->id = $id->getValue();
+        $this->username = $username->getValue();
+        $this->email = $emailAddress->getValue();
 
-        return $user;
+        return $this;
     }
 
     public function register(): void

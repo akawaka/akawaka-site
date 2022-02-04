@@ -12,6 +12,4 @@ interface ViewProviderInterface
     public function get(PageId $id): array;
 
     public function getBySlug(Slug $slug): array;
-
-    public function getAll(): array;
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Category\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\BrowseCategories;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class Action
 {
     public function __construct(
-        private FindCategories\Gateway $findcategoriesGateway,
+        private BrowseCategories\Gateway $findcategoriesGateway,
         private HtmlResponder $htmlResponder
     ) {
     }
@@ -32,11 +32,11 @@ final class Action
         ]);
     }
 
-    private function find(): FindCategories\Response
+    private function find(): BrowseCategories\Response
     {
         try {
-            /** @var FindCategories\Response $results */
-            $results = ($this->findcategoriesGateway)(FindCategories\Request::fromData());
+            /** @var BrowseCategories\Response $results */
+            $results = ($this->findcategoriesGateway)(BrowseCategories\Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

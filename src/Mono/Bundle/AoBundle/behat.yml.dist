@@ -4,6 +4,7 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\PageContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\ArticleContext
@@ -14,6 +15,7 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
             filters:
                 tags: "@space"
@@ -22,6 +24,7 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\PageContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\SpaceContext
             filters:
@@ -31,6 +34,7 @@ default:
             paths:
                 - 'src/Mono/Bundle/AoBundle/features'
             contexts:
+                - Mono\Tests\Bundle\CoreBundle\Behat\Functional\Hook\DoctrineContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\ArticleContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\CategoryContext
                 - Mono\Tests\Bundle\AoBundle\Admin\Behat\Application\AuthorContext

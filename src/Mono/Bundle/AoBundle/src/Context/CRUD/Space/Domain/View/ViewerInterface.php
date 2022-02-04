@@ -15,6 +15,4 @@ interface ViewerInterface
     public function readByCode(Code $code): ?SpaceInterface;
 
     public function readByHostname(string $hostname): ?SpaceInterface;
-
-    public function readAll(): array;
 }

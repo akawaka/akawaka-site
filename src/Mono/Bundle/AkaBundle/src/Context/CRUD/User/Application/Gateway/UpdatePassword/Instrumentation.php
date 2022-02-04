@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Mono\Bundle\AkaBundle\Context\CRUD\User\Application\Gateway\UpdatePassword;
 
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
-use Mono\Bundle\CoreBundle\Application\Instrumentation\AbstractInstrumentation;
+use Mono\Bundle\CoreBundle\Application\Instrumentation\AbstractGatewayInstrumentation;
 
-final class Instrumentation extends AbstractInstrumentation
+final class Instrumentation extends AbstractGatewayInstrumentation
 {
     public const NAME = 'admin_security.change_password';
 

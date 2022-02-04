@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Form\Type;
 
 use App\UI\Admin\Form\Transformer\CategoriesToArrayTransformer;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\BrowseCategories;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class CategoryChoiceType extends AbstractType
 {
     public function __construct(
-        private FindCategories\Gateway $findCategoriesGateway,
+        private BrowseCategories\Gateway $findCategoriesGateway,
     ) {
     }
 
@@ -40,7 +40,7 @@ final class CategoryChoiceType extends AbstractType
     {
         $choices = [];
 
-        foreach (($this->findCategoriesGateway)(FindCategories\Request::fromData([]))->data() as $category) {
+        foreach (($this->findCategoriesGateway)(BrowseCategories\Request::fromData([]))->data() as $category) {
             $choices[$category['name']] = $category['identifier'];
         }
 

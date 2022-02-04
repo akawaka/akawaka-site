@@ -13,6 +13,4 @@ interface ViewerInterface
     public function read(ArticleId $id): ?ArticleInterface;
 
     public function readBySlug(Slug $slug): ?ArticleInterface;
-
-    public function readAll(): array;
 }

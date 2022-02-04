@@ -10,5 +10,4 @@ use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\A
 #[ORM\Entity, ORM\Table(name: 'ao_author')]
 class Author extends BaseAuthor
 {
-
 }

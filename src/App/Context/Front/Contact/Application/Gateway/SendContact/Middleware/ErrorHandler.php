@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during send contact process',
-                                $exception,
+                $exception,
             );
         }
     }

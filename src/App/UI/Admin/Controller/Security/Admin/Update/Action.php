@@ -98,11 +98,9 @@ final class Action
     {
         try {
             /** @var FindUserById\Response $response */
-            $response = ($this->findUserGateway)(FindUserById\Request::fromData([
+            return ($this->findUserGateway)(FindUserById\Request::fromData([
                 'identifier' => $identifier,
             ]));
-
-            return $response;
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());
         }

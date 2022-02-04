@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during find page by slug process',
-                                $exception,
+                $exception,
             );
         }
     }

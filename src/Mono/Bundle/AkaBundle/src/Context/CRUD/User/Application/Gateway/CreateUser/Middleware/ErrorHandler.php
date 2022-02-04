@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during create admin process',
-                                $exception,
+                $exception,
             );
         }
     }

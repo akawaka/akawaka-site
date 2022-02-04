@@ -105,4 +105,9 @@ final class AdminUserRepository extends ORMRepository
     {
         $this->manager->flush();
     }
+
+    public function getClass(): UserInterface
+    {
+        return parent::getClass();
+    }
 }

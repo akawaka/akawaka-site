@@ -3,7 +3,7 @@ Feature:
     As a developer
     I want to manage my authors and tests my gateways
 
-    Scenario: Create an author
+    Background: Create an author
         Given I want to create an author
             | name        | slug |
             | test author | test |

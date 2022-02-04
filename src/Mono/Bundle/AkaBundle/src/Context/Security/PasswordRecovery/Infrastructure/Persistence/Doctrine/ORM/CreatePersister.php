@@ -7,7 +7,6 @@ namespace Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Infrastructure
 use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Domain\Create\DataPersister\CreatePersisterInterface;
 use Mono\Bundle\AkaBundle\Context\Security\PasswordRecovery\Domain\Create\DataPersister\Model\RecoveryInterface;
 use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\AdminUserRepository;
-use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminPasswordRecovery;
 use Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\PasswordRecoveryRepository;
 
 final class CreatePersister implements CreatePersisterInterface
@@ -21,7 +20,9 @@ final class CreatePersister implements CreatePersisterInterface
     public function create(RecoveryInterface $recovery): bool
     {
         $dbUser = $this->userRepository->findByUsernameOrEmail($recovery->getUsernameOrEmail());
-        $dbRecovery = AdminPasswordRecovery::create($recovery->getId(), $dbUser);
+
+        $dbRecovery = $this->passwordRecoveryRepository->getClass();
+        $dbRecovery->create($recovery->getId(), $dbUser);
 
         $this->passwordRecoveryRepository->persist($dbRecovery);
     }

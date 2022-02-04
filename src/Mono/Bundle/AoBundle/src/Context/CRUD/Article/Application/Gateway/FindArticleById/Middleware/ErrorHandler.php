@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during find article by id process',
-                                $exception,
+                $exception,
             );
         }
     }

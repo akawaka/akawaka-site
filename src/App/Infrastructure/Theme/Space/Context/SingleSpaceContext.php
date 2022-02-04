@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Theme\Space\Context;
 
-use App\Context\Admin\Space\Application\Gateway\FindSpaces\Gateway;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces\Request;
+use App\Context\Admin\Space\Application\Gateway\BrowseSpaces\Gateway;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces\Request;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\View\Exception\SpaceWasNotFound;
 

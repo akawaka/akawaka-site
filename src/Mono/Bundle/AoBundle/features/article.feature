@@ -5,9 +5,7 @@ Feature:
 
     Background: Prepare
         Given I have a space named "test" with a category named "test" and an author named "test"
-
-    Scenario: Create an article
-        Given I want to create an article
+        And I want to create an article
             | name         | slug |
             | test article | test |
         When I create this article
@@ -40,19 +38,3 @@ Feature:
             | test |
         When I delete this article
         Then the article should not be found
-
-    Scenario: Clean
-        Given I already have a space with code
-            | code |
-            | TEST |
-        When I delete this space
-        Then the space should not be found
-        And I already have a category with slug
-            | slug |
-            | test |
-        When I delete this category
-        And I already have an author with slug
-            | slug |
-            | test |
-        When I delete this author
-        Then the author should not be found

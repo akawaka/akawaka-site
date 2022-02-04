@@ -10,5 +10,4 @@ use Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\C
 #[ORM\Entity, ORM\Table(name: 'ao_category')]
 class Category extends BaseCategory
 {
-
 }

@@ -12,7 +12,7 @@ use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleByI
 use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleById\Response;
 use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleBySlug;
 use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticleBySlug\Request;
-use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\FindArticles;
+use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\BrowseArticles;
 use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\UpdateArticle;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\CreateAuthor;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorBySlug;
@@ -25,16 +25,6 @@ use Webmozart\Assert\Assert;
 
 final class ArticleContext implements Context
 {
-    private array $space = [];
-
-    private array $category = [];
-
-    private array $author = [];
-
-    private array $requests = [];
-
-    private array $responses = [];
-
     public function __construct(
         private CreateSpace\Gateway $createSpaceGateway,
         private CreateCategory\Gateway $createCategoryGateway,
@@ -45,9 +35,14 @@ final class ArticleContext implements Context
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
         private FindAuthorBySlug\Gateway $findAuthorBySlugGateway,
         private FindArticleBySlug\Gateway $findArticleBySlugGateway,
-        private FindArticles\Gateway $findArticlesGateway,
+        private BrowseArticles\Gateway $findArticlesGateway,
         private DeleteArticle\Gateway $deleteArticleGateway,
         private UpdateArticle\Gateway $updateArticleGateway,
+        private array $space = [],
+        private array $category = [],
+        private array $author = [],
+        private array $requests = [],
+        private array $responses = [],
     ) {
     }
 
@@ -171,7 +166,7 @@ final class ArticleContext implements Context
      */
     public function iListAllArticles()
     {
-        $this->responses = ($this->findArticlesGateway)(FindArticles\Request::fromData())->data();
+        $this->responses = ($this->findArticlesGateway)(BrowseArticles\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

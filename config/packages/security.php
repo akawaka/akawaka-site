@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Mono\Bundle\AkaBundle\Context\Security\User\Infrastructure\Authentication\LoginFormAuthenticator;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminUser;
+use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -12,13 +12,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'providers' => [
             'admin' => [
                 'entity' => [
-                    'class' => AdminUser::class,
+                    'class' => UserInterface::class,
                     'property' => 'id'
                 ]
             ]
         ],
         'password_hashers' => [
-            AdminUser::class => [
+            UserInterface::class => [
                 'algorithm' => 'auto'
             ]
         ],

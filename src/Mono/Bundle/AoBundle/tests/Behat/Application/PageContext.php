@@ -12,7 +12,7 @@ use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\DeletePage;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById\Request;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageBySlug;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPages;
+use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\BrowsePages;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\PublishPage;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UnpublishPage;
 use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage;
@@ -25,51 +25,21 @@ use Webmozart\Assert\Assert;
 
 final class PageContext implements Context
 {
-    private Gateway $findSpaceByCodeGateway;
-
-    private CreateSpace\Gateway $createSpaceGateway;
-
-    private UnpublishPage\Gateway $unpublishPageGateway;
-
-    private CreatePage\Gateway $createPageGateway;
-
-    private FindPageById\Gateway $findPageByIdGateway;
-
-    private FindPageBySlug\Gateway $findPageBySlugGateway;
-
-    private FindPages\Gateway $findPagesGateway;
-
-    private PublishPage\Gateway $publishPageGateway;
-
-    private DeletePage\Gateway $deletePageGateway;
-
-    private UpdatePage\Gateway $updatePageGateway;
-
     public function __construct(
-        UnpublishPage\Gateway $unpublishPageGateway,
-        Gateway $findSpaceByCodeGateway,
-        CreateSpace\Gateway $createSpaceGateway,
-        CreatePage\Gateway $createPageGateway,
-        FindPageById\Gateway $findPageByIdGateway,
-        FindPageBySlug\Gateway $findPageBySlugGateway,
-        FindPages\Gateway $findPagesGateway,
-        PublishPage\Gateway $publishPageGateway,
-        DeletePage\Gateway $deletePageGateway,
-        UpdatePage\Gateway $updatePageGateway,
+        private UnpublishPage\Gateway $unpublishPageGateway,
+        private Gateway $findSpaceByCodeGateway,
+        private CreateSpace\Gateway $createSpaceGateway,
+        private CreatePage\Gateway $createPageGateway,
+        private FindPageById\Gateway $findPageByIdGateway,
+        private FindPageBySlug\Gateway $findPageBySlugGateway,
+        private BrowsePages\Gateway $findPagesGateway,
+        private PublishPage\Gateway $publishPageGateway,
+        private DeletePage\Gateway $deletePageGateway,
+        private UpdatePage\Gateway $updatePageGateway,
         private array $space = [],
         private array $requests = [],
         private array $responses = [],
     ) {
-        $this->createSpaceGateway = $createSpaceGateway;
-        $this->findSpaceByCodeGateway = $findSpaceByCodeGateway;
-        $this->createPageGateway = $createPageGateway;
-        $this->unpublishPageGateway = $unpublishPageGateway;
-        $this->findPageByIdGateway = $findPageByIdGateway;
-        $this->findPageBySlugGateway = $findPageBySlugGateway;
-        $this->findPagesGateway = $findPagesGateway;
-        $this->publishPageGateway = $publishPageGateway;
-        $this->deletePageGateway = $deletePageGateway;
-        $this->updatePageGateway = $updatePageGateway;
     }
 
     /**
@@ -181,7 +151,7 @@ final class PageContext implements Context
      */
     public function iListAllPages()
     {
-        $this->responses = ($this->findPagesGateway)(FindPages\Request::fromData())->data();
+        $this->responses = ($this->findPagesGateway)(BrowsePages\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

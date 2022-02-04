@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Context\Admin\Space\Application\Gateway\FindSpaceById\Middleware;
 
 use App\Context\Admin\Space\Application\Gateway\FindSpaceById\Response;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaces\Request;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Read\FindAll\Query;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceById\Request;
+use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Read\FindById\Query;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor
@@ -18,13 +18,8 @@ final class Processor
 
     public function __invoke(Request $request): Response
     {
-        $spaces = ($this->queryBus)(new Query());
+        $space = ($this->queryBus)(new Query($request->getIdentifier()));
 
-        $response = new Response();
-        foreach ($spaces as $space) {
-            $response->addSpace($space);
-        }
-
-        return $response;
+        return new Response($space);
     }
 }

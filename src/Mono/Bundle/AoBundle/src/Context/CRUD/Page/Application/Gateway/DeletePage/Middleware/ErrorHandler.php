@@ -25,7 +25,7 @@ final class ErrorHandler
 
             throw new GatewayException(
                 'Error during delete page process',
-                                $exception,
+                $exception,
             );
         }
     }

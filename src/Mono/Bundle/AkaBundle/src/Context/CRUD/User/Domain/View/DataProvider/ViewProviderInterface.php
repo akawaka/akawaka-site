@@ -10,6 +10,4 @@ use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
 interface ViewProviderInterface
 {
     public function get(UserId $id): UserInterface;
-
-    public function getAll(): array;
 }

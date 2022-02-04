@@ -20,9 +20,4 @@ final class ViewProvider implements ViewProviderInterface
     {
         return $this->repository->find($id);
     }
-
-    public function getAll(): array
-    {
-        return $this->repository->findAll();
-    }
 }

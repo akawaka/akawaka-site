@@ -74,36 +74,6 @@ final class ViewProviderRepository extends DBALRepository implements ViewProvide
         return $this->format($result);
     }
 
-    public function getAll(): array
-    {
-        $builder = $this->getQueryBuilder();
-        $builder
-            ->select('
-                page.*,
-                space.id as space_id,
-                space.name as space_name
-            ')
-            ->from('ao_page', 'page')
-            ->leftJoin('page', 'ao_page_spaces', 'page_space', 'page.id = page_space.page_id')
-            ->leftJoin('page_space', 'ao_space', 'space', 'space.id = page_space.space_id')
-        ;
-
-        try {
-            $statement = $builder->execute();
-        } catch (Exception $exception) {
-            return [];
-        }
-
-        $results = $statement->fetchAllAssociative();
-        $collection = [];
-
-        foreach ($results as $result) {
-            $collection[$result['id']] ??= $this->format($result);
-        }
-
-        return $collection;
-    }
-
     private function format(array $result = []): array
     {
         $page = [

@@ -10,7 +10,7 @@ use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategor
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory\Request;
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory\Response;
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\DeleteCategory;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategories;
+use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\BrowseCategories;
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategoryById;
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\FindCategoryBySlug;
 use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\UpdateCategory;
@@ -23,7 +23,7 @@ final class CategoryContext implements Context
         private CreateCategory\Gateway $createCategoryGateway,
         private FindCategoryById\Gateway $findCategoryByIdGateway,
         private FindCategoryBySlug\Gateway $findCategoryBySlugGateway,
-        private FindCategories\Gateway $findCategoriesGateway,
+        private BrowseCategories\Gateway $findCategoriesGateway,
         private DeleteCategory\Gateway $deleteCategoryGateway,
         private UpdateCategory\Gateway $updateCategoryGateway,
         private array $requests = [],
@@ -99,7 +99,7 @@ final class CategoryContext implements Context
      */
     public function iListAllCategories()
     {
-        $this->responses = ($this->findCategoriesGateway)(FindCategories\Request::fromData())->data();
+        $this->responses = ($this->findCategoriesGateway)(BrowseCategories\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 

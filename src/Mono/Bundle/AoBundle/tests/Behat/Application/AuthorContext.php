@@ -12,7 +12,7 @@ use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\DeleteAuthor;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorById;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorById\Request;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthorBySlug;
-use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\FindAuthors;
+use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\BrowseAuthors;
 use Mono\Bundle\AoBundle\Context\CRUD\Author\Application\Gateway\UpdateAuthor;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Webmozart\Assert\Assert;
@@ -23,7 +23,7 @@ final class AuthorContext implements Context
         private CreateAuthor\Gateway $createAuthorGateway,
         private FindAuthorById\Gateway $findAuthorByIdGateway,
         private FindAuthorBySlug\Gateway $findAuthorBySlugGateway,
-        private FindAuthors\Gateway $findAuthorsGateway,
+        private BrowseAuthors\Gateway $findAuthorsGateway,
         private DeleteAuthor\Gateway $deleteAuthorGateway,
         private UpdateAuthor\Gateway $updateAuthorGateway,
         private array $requests = [],
@@ -99,7 +99,7 @@ final class AuthorContext implements Context
      */
     public function iListAllAuthors()
     {
-        $this->responses = ($this->findAuthorsGateway)(FindAuthors\Request::fromData())->data();
+        $this->responses = ($this->findAuthorsGateway)(BrowseAuthors\Request::fromData())->data();
         Assert::notEmpty($this->responses);
     }
 
