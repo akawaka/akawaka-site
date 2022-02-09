@@ -18,8 +18,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             __DIR__.'/../src/Kernel.php'
         ]);
 
-    $services->load('Mono\\Bundle\\AkaBundle\\', __DIR__.'/../src/Mono/Bundle/AkaBundle/src/');
-
     $services->load('App\\UI\\Admin\\Controller\\',
         __DIR__.'/../src/App/UI/Admin/Controller/**/Action.php')
         ->tag('controller.service_arguments');

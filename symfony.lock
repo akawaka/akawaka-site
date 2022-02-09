@@ -57,7 +57,7 @@
         "version": "3.1.1"
     },
     "doctrine/data-fixtures": {
-        "version": "1.5.1"
+        "version": "1.5.2"
     },
     "doctrine/dbal": {
         "version": "2.12.1"
@@ -81,7 +81,7 @@
         ]
     },
     "doctrine/doctrine-fixtures-bundle": {
-        "version": "3.0",
+        "version": "3.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
@@ -132,8 +132,17 @@
     "egulias/email-validator": {
         "version": "3.1.0"
     },
-    "fakerphp/faker": {
-        "version": "v1.14.1"
+    "ergebnis/composer-normalize": {
+        "version": "2.23.1"
+    },
+    "ergebnis/json-normalizer": {
+        "version": "2.1.0"
+    },
+    "ergebnis/json-printer": {
+        "version": "3.2.0"
+    },
+    "ergebnis/json-schema-validator": {
+        "version": "2.0.0"
     },
     "felixfbecker/advanced-json-rpc": {
         "version": "v3.2.0"
@@ -171,6 +180,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "justinrainbow/json-schema": {
+        "version": "5.2.11"
+    },
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
@@ -196,13 +208,22 @@
             "var/storage/.gitignore"
         ]
     },
-    "league/flysystem-memory": {
-        "version": "2.0.5"
-    },
     "league/mime-type-detection": {
         "version": "1.7.0"
     },
+    "localheinz/diff": {
+        "version": "1.1.1"
+    },
+    "mono/aka-bundle": {
+        "version": "1.0.x-dev"
+    },
+    "mono/ao-bundle": {
+        "version": "1.0.x-dev"
+    },
     "mono/cms-bundle": {
+        "version": "1.0.x-dev"
+    },
+    "mono/core-bundle": {
         "version": "1.0.x-dev"
     },
     "monolog/monolog": {
@@ -497,9 +518,6 @@
     },
     "symfony/options-resolver": {
         "version": "v5.2.4"
-    },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
     },
     "symfony/password-hasher": {
         "version": "v5.4.2"

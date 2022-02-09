@@ -1,10 +1,8 @@
 {
     "name": "mono/ao",
     "description": "ao",
-    "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "type": "project",
     "require": {
         "php": ">=8.0.3",
         "ext-ctype": "*",
@@ -14,9 +12,13 @@
         "cocur/slugify": "^4.1",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.9",
         "league/flysystem-bundle": "^2.2",
+        "mono/aka-bundle": "1.0.x-dev",
+        "mono/ao-bundle": "1.0.x-dev",
+        "mono/core-bundle": "1.0.x-dev",
         "psr/log": "^1.1",
         "qossmic/rich-model-forms-bundle": "^0.2.0",
         "ramsey/uuid": "^4.1",
@@ -45,87 +47,15 @@
         "twig/intl-extra": "^3.3",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": {
-            "*": "dist"
-        },
-        "sort-packages": true,
-        "allow-plugins": {
-            "composer/package-versions-deprecated": true,
-            "rector/rector-installer": true,
-            "symfony/flex": true,
-            "wikimedia/composer-merge-plugin": true
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/App/",
-            "Mono\\Bundle\\AoBundle\\": "src/Mono/Bundle/AoBundle/src/",
-            "Mono\\Bundle\\AkaBundle\\": "src/Mono/Bundle/AkaBundle/src/",
-            "Mono\\Bundle\\CoreBundle\\": "src/Mono/Bundle/CoreBundle/src/",
-            "Mono\\Primitive\\EmailAddress\\": "src/Mono/Primitive/EmailAddress/src/"
-        },
-        "exclude-from-classmap": [
-            "src/Mono/*/*/Tests/"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
-    },
-    "replace": {
-        "mono/ao-bundle": "^1.0",
-        "mono/aka-bundle": "^1.0",
-        "mono/core-bundle": "^1.0",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true,
-            "require": "5.4.*"
-        },
-        "merge-plugin": {
-            "include": [
-                "src/Mono/*/*/composer.json"
-            ],
-            "recurse": true,
-            "replace": true,
-            "ignore-duplicates": true,
-            "merge-dev": true,
-            "merge-extra": false,
-            "merge-extra-deep": false,
-            "merge-scripts": false
-        }
-    },
     "require-dev": {
         "behat/behat": "^3.8",
+        "ergebnis/composer-normalize": "^2.23",
         "friends-of-behat/symfony-extension": "^2.2",
         "friendsofphp/php-cs-fixer": "^2.18",
         "phpspec/phpspec": "^7.0",
         "phpstan/phpstan": "^1.4",
-        "phpstan/phpstan-doctrine": "^1.0",
-        "phpstan/phpstan-symfony": "^1.1",
+        "phpstan/phpstan-doctrine": "^1.2",
+        "phpstan/phpstan-symfony": "^1.1.0",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "psalm/plugin-symfony": "^2.2",
         "rector/rector": "^0.12.10",
@@ -141,5 +71,83 @@
         "thecodingmachine/phpstan-safe-rule": "^1.1",
         "vimeo/psalm": "^4.6",
         "webmozart/assert": "^1.10"
-    }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App/",
+            "Mono\\Primitive\\EmailAddress\\": "src/Mono/Primitive/EmailAddress/src/"
+        },
+        "exclude-from-classmap": [
+            "src/Mono/*/*/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/",
+            "Mono\\Tests\\Bundle\\AkaBundle\\Behat\\": "mono/Bundle/AkaBundle/tests/Behat/",
+            "Mono\\Tests\\Bundle\\AoBundle\\Behat\\": "mono/Bundle/AoBundle/tests/Behat/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "rector/rector-installer": true,
+            "symfony/flex": true,
+            "wikimedia/composer-merge-plugin": true,
+            "ergebnis/composer-normalize": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "merge-plugin": {
+            "ignore-duplicates": true,
+            "include": [
+                "src/Mono/*/*/composer.json"
+            ],
+            "merge-dev": true,
+            "merge-extra": false,
+            "merge-extra-deep": false,
+            "merge-scripts": false,
+            "recurse": true,
+            "replace": true
+        },
+        "symfony": {
+            "allow-contrib": true,
+            "require": "5.4.*"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./mono/Bundle/*"
+        }
+    ]
 }

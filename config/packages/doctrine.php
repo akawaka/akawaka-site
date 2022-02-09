@@ -47,14 +47,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'Ao' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AoBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
+                    'dir' => '%kernel.project_dir%/mono/Bundle/AoBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
                     'prefix' => 'Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
                     'alias' => 'Ao',
                 ],
                 'Aka' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/src/Mono/Bundle/AkaBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
+                    'dir' => '%kernel.project_dir%/mono/Bundle/AkaBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
                     'prefix' => 'Mono\Bundle\AkaBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
                     'alias' => 'Aka',
                 ],
