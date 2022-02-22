@@ -19,6 +19,12 @@ Encore
    */
   .addEntry('app', './assets/front/app.js')
 
+  .copyFiles({
+    from: './assets/front/images',
+    to: 'images/[path][name].[ext]',
+  })
+
+
   // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
   .splitEntryChunks()
 
