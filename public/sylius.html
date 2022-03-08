@@ -1,184 +1,340 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Expertise SYLIUS e-commerce Lyon - AKAWAKA</title>
-        <meta name="description" content="Akawaka est une agence experte dans la conception de projets web sur-mesure. Expert en Symfony, Sylius et PHP nous mettrons tout en œuvre pour vous aider à concevoir vos projets." />
+<head>
+    <meta charset="UTF-8"/>
+    <title>Expertise SYLIUS e-commerce Lyon - AKAWAKA</title>
+    <meta name="description"
+          content="Akawaka est une agence experte dans la conception de projets web sur-mesure. Expert en Symfony, Sylius et PHP nous mettrons tout en œuvre pour vous aider à concevoir vos projets."/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="build/front/app.css" rel="stylesheet" />
-        <link rel="icon" href="build/front/images/favicon.ico" />
-    </head>
-    <body class="text-gray-700">
-        <header class="fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20">
-            <div class="flex flex-1 items-center justify-between px-8 md:px-16 xl:px-64">
-                <div class="flex flex-1 items-center justify-between 2xl:container 2xl:m-auto">
-                    <a href="/"><img src="build/front/images/logo_akawaka_blanc.svg" class="w-28 md:w-28 xl:w-36" alt="logo akawaka agence experte php symfony" /></a>
-                    <nav>
-                        <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
-                            <li>
-                                <a href="/" class="hover:text-yellow-500">Accueil</a>
-                            </li>
-                            <li>
-                                <a href="services.html" class="hover:text-yellow-500">Services</a>
-                            </li>
-                            <li>
-                                <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
-                            </li>
-                            <li>
-                                <a href="equipe.html" class="hover:text-yellow-500">Équipe</a>
-                            </li>
-                            <li>
-                                <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
-                            </li>
-                        </ol>
-                    </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="build/front/app.css" rel="stylesheet"/>
+    <link rel="icon" href="build/front/images/favicon.ico"/>
+</head>
 
-                    <label for="menu-toggle" class="z-10 block cursor-pointer md:hidden">
-                        <img src="build/front/images/burger.svg" alt="icone menu burger" />
-                    </label>
-                    <label for="menu-toggle" class="z-10 hidden cursor-pointer">
-                        <img src="build/front/images/burger.svg" alt="icone menu burger" />
-                    </label>
-                </div>
-                <input type="checkbox" class="hidden" id="menu-toggle" />
-                <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
-                    <nav>
-                        <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
-                            <li>
-                                <a href="/" class="hover:text-yellow-500">Accueil</a>
-                            </li>
-                            <li>
-                                <a href="services.html" class="hover:text-yellow-500">Services</a>
-                            </li>
-                            <li>
-                                <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
-                            </li>
-                            <li>
-                                <a href="equipe.html" class="hover:text-yellow-500">Équipe</a>
-                            </li>
-                            <li>
-                                <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+<body class="text-gray-700">
+
+<header class="fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20">
+    <div class="flex flex-1 items-center justify-between px-8 md:px-16 xl:px-64">
+        <div class="flex flex-1 items-center justify-between 2xl:container 2xl:m-auto">
+            <a href="/">
+                <img src="build/front/images/logo_akawaka_blanc.svg"
+                     class="w-28 md:w-28 xl:w-36"
+                     alt="logo akawaka agence experte php symfony"/>
+            </a>
+
+            <nav>
+                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
+                    <li>
+                        <a href="/" class="hover:text-yellow-500">Accueil</a>
+                    </li>
+
+                    <li>
+                        <a href="services.html" class="hover:text-yellow-500">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
+                    </li>
+
+                    <li>
+                        <a href="equipe.html" class="hover:text-yellow-500">Équipe</a>
+                    </li>
+
+                    <li>
+                        <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
+                    </li>
+                </ol>
+            </nav>
+
+            <label for="menu-toggle" class="z-10 block cursor-pointer md:hidden">
+                <img src="build/front/images/burger.svg" alt="icone menu burger"/>
+            </label>
+
+            <label for="menu-toggle" class="z-10 hidden cursor-pointer">
+                <img src="build/front/images/burger.svg" alt="icone menu burger"/>
+            </label>
+        </div>
+
+        <input type="checkbox" class="hidden" id="menu-toggle"/>
+
+        <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
+            <nav>
+                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
+                    <li>
+                        <a href="/" class="hover:text-yellow-500">Accueil</a>
+                    </li>
+
+                    <li>
+                        <a href="services.html" class="hover:text-yellow-500">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
+                    </li>
+
+                    <li>
+                        <a href="equipe.html" class="hover:text-yellow-500">Équipe</a>
+                    </li>
+
+                    <li>
+                        <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<article class="mx-8 mt-24 mb-12 md:mx-16 md:mt-32 md:mb-16 xl:mx-64 xl:mt-48">
+    <div class="2xl:container 2xl:mx-auto">
+        <h1 class="hidden">Agence experte Lyon</h1>
+
+        <header class="flex items-center pb-4">
+            <img src="build/front/images/losange-coupe.svg"
+                 class="w-8 md:w-10 xl:w-11"
+                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+            <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">
+                Sylius
+            </h2>
         </header>
-        <article class="mx-8 mt-24 mb-12 md:mx-16 md:mt-32 md:mb-16 xl:mx-64 xl:mt-48">
-            <div class="2xl:container 2xl:mx-auto">
-                <h1 class="hidden">Agence experte Lyon</h1>
-                <header class="flex items-center pb-4">
-                    <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                    <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">Sylius</h2>
-                </header>
-                <div class="flex flex-wrap items-center justify-around font-hind_guntur xl:flex-nowrap">
-                    <p class="text-justify text-sm md:text-base xl:text-lg">Sylius est une solution pour les sites e-commerce sur-mesure. Encore peu connue en France, la plateforme bat cependant des records et s’annonce comme l’un des acteurs majeurs du e-commerce. Basé sur le framework Symfony, Sylius permet de développer des applications répondant à vos besoins : B2B, B2C ou marketplace.</p>
-                    <img class="mt-5 w-32 md:w-44 xl:mt-0 xl:ml-12 xl:w-52" src="build/front/images/sylius_e-commerce.png" srcset="build/front/images/sylius_e-commerce.webp" alt="certification premium solution partner sylius" />
-                </div>
-            </div>
-        </article>
-        <article class="bg-gray-700 text-center text-white">
-            <div class="mx-8 py-10 md:mx-16 lg:py-16 xl:mx-64">
-                <div class="2xl:container 2xl:mx-auto">
-                    <header class="flex items-center justify-center pb-4">
-                        <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                        <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">Pourquoi Sylius ?</h2>
-                    </header>
-                    <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
-                        Sylius est Open Source, suit l'état de l'art du PHP et son code est entièrement couvert par des tests unitaires et fonctionnels. <br />
-                        Ces points correspondent à nos valeurs qui sont le partage et la qualité tout en intégrant notre domaine d'expertise : Symfony.
-                    </p>
-                    <br />
-                    <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
-                        L'outil permet de bénéficier d’un ensemble de fonctionnalités prêtes à l’emploi qui pourront par la suite être personnalisées en toute simplicité.<br />
 
-                        La conception de Sylius permet également de s'interconnecter et de s'adapter facilement à l'ensemble de votre SI (ERP, PIM, CRM, mailing, ...).
-                    </p>
-                </div>
+        <div class="flex flex-wrap items-center justify-around font-hind_guntur xl:flex-nowrap">
+            <p class="text-justify text-sm md:text-base xl:text-lg">
+                Sylius est une solution pour les sites e-commerce
+                sur-mesure. Encore peu connue en France, la plateforme bat cependant des records et s’annonce comme l’un
+                des acteurs majeurs du e-commerce. Basé sur le framework Symfony, Sylius permet de développer des
+                applications répondant à vos besoins : B2B, B2C ou marketplace.
+            </p>
+
+            <img class="mt-5 w-32 md:w-44 xl:mt-0 xl:ml-12 xl:w-52"
+                 src="build/front/images/sylius_e-commerce.png"
+                 srcset="build/front/images/sylius_e-commerce.webp"
+                 alt="certification premium solution partner sylius"/>
+        </div>
+    </div>
+</article>
+
+<article class="bg-gray-700 text-center text-white">
+    <div class="mx-8 py-10 md:mx-16 lg:py-16 xl:mx-64">
+        <div class="2xl:container 2xl:mx-auto">
+            <header class="flex items-center justify-center pb-4">
+                <img src="build/front/images/losange-coupe.svg"
+                     class="w-8 md:w-10 xl:w-11"
+                     alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+                <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">
+                    Pourquoi Sylius ?
+                </h2>
+            </header>
+
+            <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
+                Sylius est Open Source, suit l'état de l'art du PHP et son code est entièrement couvert par des tests
+                unitaires et fonctionnels. <br/>
+                Ces points correspondent à nos valeurs qui sont le partage et la qualité tout en intégrant notre domaine
+                d'expertise : Symfony.
+            </p>
+
+            <br/>
+
+            <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
+                L'outil permet de bénéficier d’un ensemble de fonctionnalités prêtes à l’emploi qui pourront par la
+                suite être personnalisées en toute simplicité.<br/>
+
+                La conception de Sylius permet également de s'interconnecter et de s'adapter facilement à l'ensemble de
+                votre SI (ERP, PIM, CRM, mailing, ...).
+            </p>
+        </div>
+    </div>
+</article>
+
+<article class="bg-gray-100 px-8 py-12 md:px-16 md:py-16 xl:px-64 xl:py-24">
+    <div class="2xl:container 2xl:mx-auto">
+        <header class="flex items-start pb-4 md:items-center">
+            <img src="build/front/images/losange-coupe.svg"
+                 class="w-8 md:w-10 xl:w-11"
+                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+            <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-0 md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">
+                Une solution e-commerce complète
+            </h2>
+        </header>
+
+        <section class="items-start font-hind_guntur">
+            <h3 class="list-none text-justify text-sm md:text-base xl:text-lg">
+                Sylius regroupe les fonctionnalités classiques du e-commerce tout en permettant d’adapter votre projet :
+            </h3>
+
+            <ul class="list-disc">
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Multicanal et cross-device
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Gestion complète des produits et de ces variants grâce aux options et aux attributs
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Gestion des coupons et des promotions au travers d'un moteur de règles puissant et personnalisable
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Gestion avancée des devises, modes et règles de transport mais aussi des taxes et moyens de paiement
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Une bibliothèque de plugins Open Source
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Une API qui couvre 100% des fonctionnalités
+                </li>
+            </ul>
+        </section>
+
+        <br/>
+
+        <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
+            Sylius est certainement la solution ecommerce la
+            plus flexible à ce jour dans l'écosystème PHP. Cela s’explique par le fait qu’il est possible d’utiliser une
+            grande partie des ressources liées à Symfony tout en apportant une attention sur l'architecture et la
+            qualité logicielle liée aux contraintes de l'e-commerce.
+        </p>
+    </div>
+</article>
+
+<article class="bg-gray-700 text-white xxl:text-center">
+    <div class="mx-8 py-5 md:mx-16 lg:py-16 xl:mx-64">
+        <div class="2xl:container 2xl:mx-auto">
+            <header class="flex items-start justify-center pb-4 xxl:items-center">
+                <img src="build/front/images/losange-coupe.svg"
+                     class="w-8 md:w-10 xl:w-11"
+                     alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+                <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-3 md:text-2xl lg:mt-3 lg:-ml-3 xl:text-3xl xxl:mt-0 xxl:-ml-4">
+                    Une boutique entièrement personnalisable
+                </h2>
+            </header>
+
+            <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
+                Sylius étant un framework, il est possible de personnaliser votre boutique sans limites graphique ou
+                techniques.
+
+                <br/>
+
+                De la simple charte graphique aux interfaces headless, tout est possible.
+            </p>
+        </div>
+    </div>
+</article>
+
+<article class="bg-gray-100 px-8 py-12 md:px-16 md:py-16 xl:px-64 xl:py-24">
+    <div class="2xl:container 2xl:mx-auto">
+        <header class="flex items-center pb-4">
+            <img src="build/front/images/losange-coupe.svg"
+                 class="w-8 md:w-10 xl:w-11"
+                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+            <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">
+                Pour résumer
+            </h2>
+        </header>
+
+        <section class="items-start font-hind_guntur">
+            <h3 class="list-none text-justify text-sm md:text-base xl:text-lg">Les avantages que propose Sylius :</h3>
+
+            <ul class="list-disc">
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Des APIs pré-intégrées pour créer facilement des applications mobiles pour votre marque,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Une expérience utilisateur unique grâce à la grande flexibilité dans la manipulation des thèmes,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    La simplicité d’intégration de vos outils déjà existants,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Un back office souple et modifiable afin de répondre à vos besoins,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Un pré-intégration des solutions de paiement,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    La possibilité de l'héberger aussi bien dans le cloud que sur vos propres serveurs,
+                </li>
+
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    Une stack technique continuellement à jour avec les standards du moment.
+                </li>
+            </ul>
+        </section>
+    </div>
+</article>
+
+<article class="my-12 mx-8 md:my-16 md:mx-16 xl:my-24 xl:mx-64">
+    <div class="2xl:container 2xl:mx-auto">
+        <header class="flex items-start pb-4 xxl:items-center">
+            <img src="build/front/images/losange-coupe.svg"
+                 class="w-8 md:w-10 xl:w-11"
+                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+            <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-3 md:text-2xl lg:mt-3 lg:-ml-3 xl:text-3xl xxl:mt-0 xxl:-ml-4">
+                Nous vous accompagnons sur votre projet
+            </h2>
+        </header>
+
+        <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
+            Nous avons fait le choix de devenir expert et partenaire Sylius car nous avons entièrement confiance dans
+            les performances de cette plateforme. Nos années d’expérience en développement nous permettent de vous
+            accompagner du début à la fin de votre projet. Que ce soit dans la conception, le développement ou la prise
+            en main de votre site nous travaillerons ne collaboration avec vous afin de vous offrir une solution qui
+            vous ressemble.
+        </p>
+    </div>
+</article>
+
+<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
+    <div class="mx-8 md:mx-16 xl:mx-64">
+        <div class="flex items-center justify-between pt-5 md:pt-10 xl:pt-12 2xl:container 2xl:mx-auto">
+            <a href="/">
+                <img src="build/front/images/logo_akawaka_blanc.svg"
+                     alt="logo akawaka agence experte php, symfony, sylius"
+                     title="Logo Akawaka"
+                     class="w-20 md:w-28 xl:w-36"/>
+            </a>
+
+            <div class="flex w-2/5 flex-wrap justify-around md:flex">
+                <a href="contacter.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Contact</a>
+
+                <a href="mention.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Mentions légales</a>
             </div>
-        </article>
-        <article class="bg-gray-100 px-8 py-12 md:px-16 md:py-16 xl:px-64 xl:py-24">
-            <div class="2xl:container 2xl:mx-auto">
-                <header class="flex items-start pb-4 md:items-center">
-                    <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                    <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-0 md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">Une solution e-commerce complète</h2>
-                </header>
-                <section class="items-start font-hind_guntur">
-                    <h3 class="list-none text-justify text-sm md:text-base xl:text-lg">Sylius regroupe les fonctionnalités classiques du e-commerce tout en permettant d’adapter votre projet :</h3>
-                    <ul class="list-disc">
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Multicanal et cross-device</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Gestion complète des produits et de ces variants grâce aux options et aux attributs</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Gestion des coupons et des promotions au travers d'un moteur de règles puissant et personnalisable</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Gestion avancée des devises, modes et règles de transport mais aussi des taxes et moyens de paiement</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Une bibliothèque de plugins Open Source</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Une API qui couvre 100% des fonctionnalités</li>
-                    </ul>
-                </section>
-                <br />
-                <p class="font-hind_guntur text-sm md:text-base xl:text-lg">Sylius est certainement la solution ecommerce la plus flexible à ce jour dans l'écosystème PHP. Cela s’explique par le fait qu’il est possible d’utiliser une grande partie des ressources liées à Symfony tout en apportant une attention sur l'architecture et la qualité logicielle liée aux contraintes de l'e-commerce.</p>
+
+            <div class="flex w-14 flex-wrap justify-around md:w-24">
+                <a href="https://www.linkedin.com/company/akawaka/" target="_blank" class="justify-around">
+                    <img src="build/front/images/linkedin-min.png"
+                         alt="icone linkedin"
+                         title="Logo Linkedin"
+                         class="w-6 md:w-8 xl:w-10"/>
+                </a>
+
+                <a href="https://twitter.com/Akawakaweb?t=vq3fHte09FfFtaaxbyVYVQ&s=09" target="_blank" class="justify-around">
+                    <img src="build/front/images/twitter.png"
+                         alt="icone twitter"
+                         title="Logo Twitter"
+                         class="w-6 md:w-8 xl:w-10"/>
+                </a>
             </div>
-        </article>
-        <article class="bg-gray-700 text-white xxl:text-center">
-            <div class="mx-8 py-5 md:mx-16 lg:py-16 xl:mx-64">
-                <div class="2xl:container 2xl:mx-auto">
-                    <header class="flex items-start justify-center pb-4 xxl:items-center">
-                        <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                        <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-3 md:text-2xl lg:mt-3 lg:-ml-3 xl:text-3xl xxl:mt-0 xxl:-ml-4">Une boutique entièrement personnalisable</h2>
-                    </header>
-                    <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
-                        Sylius étant un framework, il est possible de personnaliser votre boutique sans limites graphique ou techniques.
-                        <br />De la simple charte graphique aux interfaces headless, tout est possible.
-                    </p>
-                </div>
-            </div>
-        </article>
-        <article class="bg-gray-100 px-8 py-12 md:px-16 md:py-16 xl:px-64 xl:py-24">
-            <div class="2xl:container 2xl:mx-auto">
-                <header class="flex items-center pb-4">
-                    <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                    <h2 class="-ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:-ml-3 md:text-2xl xl:-ml-4 xl:text-3xl">Pour résumer</h2>
-                </header>
-                <section class="items-start font-hind_guntur">
-                    <h3 class="list-none text-justify text-sm md:text-base xl:text-lg">Les avantages que propose Sylius :</h3>
-                    <ul class="list-disc">
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Des APIs pré-intégrées pour créer facilement des applications mobiles pour votre marque,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Une expérience utilisateur unique grâce à la grande flexibilité dans la manipulation des thèmes,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">La simplicité d’intégration de vos outils déjà existants,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Un back office souple et modifiable afin de répondre à vos besoins,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Un pré-intégration des solutions de paiement,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">La possibilité de l'héberger aussi bien dans le cloud que sur vos propres serveurs,</li>
-                        <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">Une stack technique continuellement à jour avec les standards du moment.</li>
-                    </ul>
-                </section>
-            </div>
-        </article>
-        <article class="my-12 mx-8 md:my-16 md:mx-16 xl:my-24 xl:mx-64">
-            <div class="2xl:container 2xl:mx-auto">
-                <header class="flex items-start pb-4 xxl:items-center">
-                    <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                    <h2 class="mt-2.5 -ml-2 font-trirong text-xl font-bold uppercase tracking-widest md:mt-3 md:text-2xl lg:mt-3 lg:-ml-3 xl:text-3xl xxl:mt-0 xxl:-ml-4">Nous vous accompagnons sur votre projet</h2>
-                </header>
-                <p class="font-hind_guntur text-sm md:text-base xl:text-lg">
-                    Nous avons fait le choix de devenir expert et partenaire Sylius car nous avons entièrement confiance dans les performances de cette plateforme. Nos années d’expérience en développement nous permettent de vous accompagner du début à la fin de votre projet. Que ce soit dans la conception, le développement ou la prise en main de votre site nous travaillerons ne collaboration avec vous afin de vous offrir une solution qui vous ressemble.
-                </p>
-            </div>
-        </article>
-        <footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
-            <div class="mx-8 md:mx-16 xl:mx-64">
-                <div class="flex items-center justify-between pt-5 md:pt-10 xl:pt-12 2xl:container 2xl:mx-auto">
-                    <a href="/"><img src="build/front/images/logo_akawaka_blanc.svg" alt="logo akawaka agence experte php, symfony, sylius" title="Logo Akawaka" class="w-20 md:w-28 xl:w-36" /></a>
-                    <div class="flex w-2/5 flex-wrap justify-around md:flex">
-                        <a href="contacter.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Contact</a>
-                        <a href="mention.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Mentions légales</a>
-                    </div>
-                    <div class="flex w-14 flex-wrap justify-around md:w-24">
-                        <a href="https://www.linkedin.com/company/akawaka/" target="_blank" class="justify-around"><img src="build/front/images/linkedin-min.png" alt="icone linkedin" title="Logo Linkedin" class="w-6 md:w-8 xl:w-10" /></a>
-                        <a href="https://twitter.com/Akawakaweb?t=vq3fHte09FfFtaaxbyVYVQ&s=09" target="_blank" class="justify-around"><img src="build/front/images/twitter.png" alt="icone twitter" title="Logo Twitter" class="w-6 md:w-8 xl:w-10" /></a>
-                    </div>
-                </div>
-                <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© 2022 - AKAWAKA - Tous droits réservés</p>
-            </div>
-        </footer>
-    </body>
+        </div>
+
+        <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© 2022 - AKAWAKA - Tous droits réservés</p>
+    </div>
+</footer>
+
+</body>
+
 </html>

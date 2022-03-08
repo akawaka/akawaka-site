@@ -1,316 +1,521 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Experts passionnés en PHP - Symfony - Sylius - JS - AKAWAKA Lyon</title>
-        <meta name="description" content="Akawaka, notre agence experte en Symfony, Sylius et PHP, possède une super équipe pour concrétiser tous vos projets." />
+<head>
+    <meta charset="UTF-8"/>
+    <title>Experts passionnés en PHP - Symfony - Sylius - JS - AKAWAKA Lyon</title>
+    <meta name="description"
+          content="Akawaka, notre agence experte en Symfony, Sylius et PHP, possède une super équipe pour concrétiser tous vos projets."/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="build/front/app.css" rel="stylesheet" />
-        <link rel="icon" href="build/front/images/favicon.ico" />
-    </head>
-    <body class="text-gray-700">
-        <header class="fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20">
-            <div class="flex flex-1 items-center justify-between px-8 md:px-16 xl:px-64">
-                <div class="flex flex-1 items-center justify-between 2xl:container 2xl:m-auto">
-                    <a href="/"><img src="build/front/images/logo_akawaka_blanc.svg" class="w-28 md:w-28 xl:w-36" alt="logo akawaka agence experte php symfony" /></a>
-                    <nav>
-                        <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
-                            <li>
-                                <a href="/" class="hover:text-yellow-500">Accueil</a>
-                            </li>
-                            <li>
-                                <a href="services.html" class="hover:text-yellow-500">Services</a>
-                            </li>
-                            <li>
-                                <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
-                            </li>
-                            <li class="text-yellow-500">Équipe</li>
-                            <li>
-                                <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
-                            </li>
-                        </ol>
-                    </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="build/front/app.css" rel="stylesheet"/>
+    <link rel="icon" href="build/front/images/favicon.ico"/>
+</head>
 
-                    <label for="menu-toggle" class="z-10 block cursor-pointer md:hidden">
-                        <img src="build/front/images/burger.svg" alt="icone menu burger" />
-                    </label>
-                    <label for="menu-toggle" class="z-10 hidden cursor-pointer">
-                        <img src="build/front/images/burger.svg" alt="icone menu burger" />
-                    </label>
-                </div>
-                <input type="checkbox" class="hidden" id="menu-toggle" />
-                <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
-                    <nav>
-                        <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
-                            <li>
-                                <a href="/" class="hover:text-yellow-500">Accueil</a>
-                            </li>
-                            <li>
-                                <a href="services.html" class="hover:text-yellow-500">Services</a>
-                            </li>
-                            <li>
-                                <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
-                            </li>
-                            <li class="text-yellow-500">Équipe</li>
-                            <li>
-                                <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+<body class="text-gray-700">
+
+<header class="fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20">
+    <div class="flex flex-1 items-center justify-between px-8 md:px-16 xl:px-64">
+        <div class="flex flex-1 items-center justify-between 2xl:container 2xl:m-auto">
+            <a href="/">
+                <img src="build/front/images/logo_akawaka_blanc.svg" class="w-28 md:w-28 xl:w-36" alt="logo akawaka agence experte php symfony"/>
+            </a>
+
+            <nav>
+                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
+                    <li>
+                        <a href="/" class="hover:text-yellow-500">Accueil</a>
+                    </li>
+
+                    <li>
+                        <a href="services.html" class="hover:text-yellow-500">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
+                    </li>
+
+                    <li class="text-yellow-500">Équipe</li>
+
+                    <li>
+                        <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
+                    </li>
+                </ol>
+            </nav>
+
+            <label for="menu-toggle" class="z-10 block cursor-pointer md:hidden">
+                <img src="build/front/images/burger.svg" alt="icone menu burger"/>
+            </label>
+
+            <label for="menu-toggle" class="z-10 hidden cursor-pointer">
+                <img src="build/front/images/burger.svg" alt="icone menu burger"/>
+            </label>
+        </div>
+
+        <input type="checkbox" class="hidden" id="menu-toggle"/>
+
+        <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
+            <nav>
+                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
+                    <li>
+                        <a href="/" class="hover:text-yellow-500">Accueil</a>
+                    </li>
+
+                    <li>
+                        <a href="services.html" class="hover:text-yellow-500">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="valeurs.html" class="hover:text-yellow-500">Valeurs</a>
+                    </li>
+
+                    <li class="text-yellow-500">Équipe</li>
+
+                    <li>
+                        <a href="contacter.html" class="hover:text-yellow-500">Contact</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<article class="title mt-14 h-64 bg-cover bg-auto bg-top bg-no-repeat font-trirong md:mt-20 md:h-72 xl:mt-20 xl:h-80"
+         style="background-image: url(build/front/images/fond_gris_header.png)">
+    <div class="mx-8 flex h-full items-center pb-4 md:mx-16 xl:mx-64">
+        <header class="flex items-center 2xl:container 2xl:mx-auto">
+            <img src="build/front/images/losange-coupe.svg"
+                 class="w-8 md:w-10 xl:w-11"
+                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+            <h2 class="txtshadow -ml-3 text-xl font-black uppercase tracking-widest text-white md:text-2xl xl:-ml-5 xl:text-3xl">
+                Notre équipe
+            </h2>
         </header>
-        <article class="title mt-14 h-64 bg-cover bg-auto bg-top bg-no-repeat font-trirong md:mt-20 md:h-72 xl:mt-20 xl:h-80" style="background-image: url(build/front/images/fond_gris_header.png)">
-            <div class="mx-8 flex h-full items-center pb-4 md:mx-16 xl:mx-64">
-                <header class="flex items-center 2xl:container 2xl:mx-auto">
-                    <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
-                    <h2 class="txtshadow -ml-3 text-xl font-black uppercase tracking-widest text-white md:text-2xl xl:-ml-5 xl:text-3xl">Notre équipe</h2>
-                </header>
-            </div>
-        </article>
-        <article class="mx-8 mt-12 md:mx-16 md:mt-16 xl:mx-64 xl:mt-24">
-            <header class="2xl:container 2xl:mx-auto">
-                <h2 class="text-center font-expletus_sans text-sm font-semibold tracking-widest md:text-base xl:text-lg">Les projets ne se font pas seul, nous avons créé une <strong>super équipe</strong> pour les concrétiser.</h2>
-            </header>
-            <div class="my-12 flex grid grid-cols-equipe flex-wrap justify-around gap-y-2 gap-x-2 md:mt-16 2xl:container 2xl:mx-auto">
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">CTO</h2>
-                        <img srcset="build/front/images/alexandre-sm.webp 160w, build/front/images/alexandre-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/alexandre.jpg" alt="alexandre balmes directeur agence akawaka experte php, symfony, sylius" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Alexandre BALMES</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/pockystar" target="_blank">
-                                    <img src="build/front/images/twitter_violet.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/alexandrebalmes/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_violet.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
+    </div>
+</article>
+
+<article class="mx-8 mt-12 md:mx-16 md:mt-16 xl:mx-64 xl:mt-24">
+    <header class="2xl:container 2xl:mx-auto">
+        <h2 class="text-center font-expletus_sans text-sm font-semibold tracking-widest md:text-base xl:text-lg">
+            Les projets ne se font pas seul, nous avons créé une <strong>super équipe</strong> pour les concrétiser.
+        </h2>
+    </header>
+
+    <div class="my-12 flex grid grid-cols-equipe flex-wrap justify-around gap-y-2 gap-x-2 md:mt-16 2xl:container 2xl:mx-auto">
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">CTO</h2>
+
+                <img srcset="build/front/images/alexandre-sm.webp 160w, build/front/images/alexandre-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/alexandre.jpg"
+                     alt="alexandre balmes directeur agence akawaka experte php, symfony, sylius"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Alexandre BALMES</h3>
                     </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">CEO</h2>
-                        <img srcset="build/front/images/gaetan-sm.webp 160w, build/front/images/gaetan-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/gaetan.png" alt="Gaetan Buellet directeur technique agence akawaka experte php, symfony" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Gaëtan BUELLET</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/gaetanbuellet" target="_blank">
-                                    <img src="build/front/images/twitter_rose.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/gaetan-buellet-1a891b5a/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_rose.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Développeur</h2>
-                        <img srcset="build/front/images/christophe-sm.webp 160w, build/front/images/christophe-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/christophe.jpg" alt="Christophe LIGNERES développeur php symfony" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Christophe LIGNERES</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/Stolidbug" target="_blank">
-                                    <img src="build/front/images/twitter.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence expert" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/christophe-ligneres-087996ba/" target="_blank">
-                                    <img src="build/front/images/linkedin-min.png" class="w-5" alt="icone linkedin de couleur de l'agence expert" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="losange avec dégradé des couleurs akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeuse</h2>
-                        <img srcset="build/front/images/amelia-sm.webp 160w, build/front/images/amelia-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/amelia.jpg" alt="Amelia MASSOT développeuse php symfony" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Amélia MASSOT</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/Amel_CSGO" target="_blank">
-                                    <img src="build/front/images/twitter_violet.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/am%C3%A9lia-massot-d%C3%A9veloppement-communication-digital-web/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_violet.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
-                        <img srcset="build/front/images/franck-sm.webp 160w, build/front/images/franck-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/franck.jpg" alt="Franck MATSOS développeur php, symfony et js" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Franck MATSOS</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/fmatsos" target="_blank">
-                                    <img src="build/front/images/twitter_rose.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/fmatsos/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_rose.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Lead-développeur</h2>
-                        <img srcset="build/front/images/kevin-sm.webp 160w, build/front/images/kevin-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/kevin.jpg" alt="Kevin BALICOT lead developer php, symfony, js, docker, sylius" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Kevin BALICOT</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/kevinbalicot" target="_blank">
-                                    <img src="build/front/images/twitter.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/kevin-balicot-93522365/" target="_blank">
-                                    <img src="build/front/images/linkedin-min.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
-                        <img srcset="build/front/images/florian-sm.webp 160w, build/front/images/florian-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/florian.jpeg" alt="Florian Merle développeur php, symfony, vuejs, sylius" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Florian MERLE</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/florianm__" target="_blank">
-                                    <img src="build/front/images/twitter_violet.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/florian-merle-2752b814a/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_violet.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
-                        <img srcset="build/front/images/jb-sm.webp 160w, build/front/images/jb-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/jb.jpg" alt="Jean-Baptiste Mercier développeur php, symfony, sylius" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Jean-Baptiste MERCIER</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/_jback_" target="_blank">
-                                    <img src="build/front/images/twitter_rose.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/jean-baptiste-mercier-428631137/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_rose.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Expert technique</h2>
-                        <img srcset="build/front/images/emeric-sm.webp 160w, build/front/images/emeric-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/emeric.jpg" alt="Emeric KASBARIAN expert technique php, symfony, rust" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Emeric KASBARIAN</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/emerick42" target="_blank">
-                                    <img src="build/front/images/twitter.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/emerickasbarian/" target="_blank">
-                                    <img src="build/front/images/linkedin-min.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-                <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
-                    <div class="z-10">
-                        <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
-                        <img srcset="build/front/images/jeremy-sm.webp 160w, build/front/images/jeremy-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/jeremy.jpg" alt="Jeremy James développeur php, symfony" />
-                        <div class="mt-4 flex flex-col flex-wrap justify-center">
-                            <div class="m-auto">
-                                <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Jérémy JAMES</h3>
-                            </div>
-                            <div class="flex justify-center gap-x-2">
-                                <a href="https://twitter.com/JamesJrmy" target="_blank">
-                                    <img src="build/front/images/twitter_violet.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-james-78580868/" target="_blank">
-                                    <img src="build/front/images/linkedin_min_violet.png" class="w-5" alt="icone linkedin de couleur de l'agence experte" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
-                        <img src="build/front/images/losange-team.png" srcset="build/front/images/losange-team.webp" class="hidden w-36 md:block" alt="double losanges en dégradé avec les couleurs de l'agence akawaka" />
-                    </div>
-                </section>
-            </div>
-        </article>
-        <footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
-            <div class="mx-8 md:mx-16 xl:mx-64">
-                <div class="flex items-center justify-between pt-5 md:pt-10 xl:pt-12 2xl:container 2xl:mx-auto">
-                    <a href="/"><img src="build/front/images/logo_akawaka_blanc.svg" alt="logo akawaka agence experte php, symfony, sylius" title="Logo Akawaka" class="w-20 md:w-28 xl:w-36" /></a>
-                    <div class="flex w-2/5 flex-wrap justify-around md:flex">
-                        <a href="contacter.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Contact</a>
-                        <a href="mention.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Mentions légales</a>
-                    </div>
-                    <div class="flex w-14 flex-wrap justify-around md:w-24">
-                        <a href="https://www.linkedin.com/company/akawaka/" target="_blank" class="justify-around"><img src="build/front/images/linkedin-min.png" alt="icone linkedin" title="Logo Linkedin" class="w-6 md:w-8 xl:w-10" /></a>
-                        <a href="https://twitter.com/Akawakaweb?t=vq3fHte09FfFtaaxbyVYVQ&s=09" target="_blank" class="justify-around"><img src="build/front/images/twitter.png" alt="icone twitter" title="Logo Twitter" class="w-6 md:w-8 xl:w-10" /></a>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/pockystar" target="_blank">
+                            <img src="build/front/images/twitter_violet.png" class="ml-auto w-5" alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/alexandrebalmes/" target="_blank">
+                            <img src="build/front/images/linkedin_min_violet.png" class="w-5" alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
                     </div>
                 </div>
-                <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© 2022 - AKAWAKA - Tous droits réservés</p>
             </div>
-        </footer>
-    </body>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">CEO</h2>
+
+                <img srcset="build/front/images/gaetan-sm.webp 160w, build/front/images/gaetan-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/gaetan.png"
+                     alt="Gaetan Buellet directeur technique agence akawaka experte php, symfony"/>
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Gaëtan BUELLET</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/gaetanbuellet" target="_blank">
+                            <img src="build/front/images/twitter_rose.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/gaetan-buellet-1a891b5a/" target="_blank">
+                            <img src="build/front/images/linkedin_min_rose.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Développeur</h2>
+
+                <img srcset="build/front/images/christophe-sm.webp 160w, build/front/images/christophe-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/christophe.jpg"
+                     alt="Christophe LIGNERES développeur php symfony"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Christophe LIGNERES</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/Stolidbug" target="_blank">
+                            <img src="build/front/images/twitter.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence expert"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/christophe-ligneres-087996ba/" target="_blank">
+                            <img src="build/front/images/linkedin-min.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence expert"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="losange avec dégradé des couleurs akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeuse</h2>
+
+                <img srcset="build/front/images/amelia-sm.webp 160w, build/front/images/amelia-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/amelia.jpg"
+                     alt="Amelia MASSOT développeuse php symfony"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Amélia MASSOT</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/Amel_CSGO" target="_blank">
+                            <img src="build/front/images/twitter_violet.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/am%C3%A9lia-massot-d%C3%A9veloppement-communication-digital-web/" target="_blank">
+                            <img src="build/front/images/linkedin_min_violet.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
+
+                <img srcset="build/front/images/franck-sm.webp 160w, build/front/images/franck-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/franck.jpg"
+                     alt="Franck MATSOS développeur php, symfony et js"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Franck MATSOS</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/fmatsos" target="_blank">
+                            <img src="build/front/images/twitter_rose.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/fmatsos/" target="_blank">
+                            <img src="build/front/images/linkedin_min_rose.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Lead-développeur</h2>
+
+                <img srcset="build/front/images/kevin-sm.webp 160w, build/front/images/kevin-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/kevin.jpg"
+                     alt="Kevin BALICOT lead developer php, symfony, js, docker, sylius"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Kevin BALICOT</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/kevinbalicot" target="_blank">
+                            <img src="build/front/images/twitter.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/kevin-balicot-93522365/" target="_blank">
+                            <img src="build/front/images/linkedin-min.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
+
+                <img srcset="build/front/images/florian-sm.webp 160w, build/front/images/florian-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/florian.jpeg"
+                     alt="Florian Merle développeur php, symfony, vuejs, sylius"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Florian MERLE</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/florianm__" target="_blank">
+                            <img src="build/front/images/twitter_violet.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/florian-merle-2752b814a/" target="_blank">
+                            <img src="build/front/images/linkedin_min_violet.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
+
+                <img srcset="build/front/images/jb-sm.webp 160w, build/front/images/jb-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/jb.jpg"
+                     alt="Jean-Baptiste Mercier développeur php, symfony, sylius"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Jean-Baptiste MERCIER</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/_jback_" target="_blank">
+                            <img src="build/front/images/twitter_rose.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/jean-baptiste-mercier-428631137/" target="_blank">
+                            <img src="build/front/images/linkedin_min_rose.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Expert technique</h2>
+
+                <img srcset="build/front/images/emeric-sm.webp 160w, build/front/images/emeric-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/emeric.jpg"
+                     alt="Emeric KASBARIAN expert technique php, symfony, rust"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Emeric KASBARIAN</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/emerick42" target="_blank">
+                            <img src="build/front/images/twitter.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/emerickasbarian/" target="_blank">
+                            <img src="build/front/images/linkedin-min.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
+
+                <img srcset="build/front/images/jeremy-sm.webp 160w, build/front/images/jeremy-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/jeremy.jpg"
+                     alt="Jeremy James développeur php, symfony"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="mb-2 text-center font-hind_guntur text-sm md:text-base xl:text-lg">Jérémy JAMES</h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/JamesJrmy" target="_blank">
+                            <img src="build/front/images/twitter_violet.png"
+                                 class="ml-auto w-5"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-james-78580868/" target="_blank">
+                            <img src="build/front/images/linkedin_min_violet.png"
+                                 class="w-5"
+                                 alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="build/front/images/losange-team.png"
+                     srcset="build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+    </div>
+</article>
+
+<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
+    <div class="mx-8 md:mx-16 xl:mx-64">
+        <div class="flex items-center justify-between pt-5 md:pt-10 xl:pt-12 2xl:container 2xl:mx-auto">
+            <a href="/">
+                <img src="build/front/images/logo_akawaka_blanc.svg"
+                     alt="logo akawaka agence experte php, symfony, sylius"
+                     title="Logo Akawaka"
+                     class="w-20 md:w-28 xl:w-36"/>
+            </a>
+
+            <div class="flex w-2/5 flex-wrap justify-around md:flex">
+                <a href="contacter.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Contact</a>
+
+                <a href="mention.html" class="justify-around text-sm hover:text-yellow-500 md:text-base xl:text-lg">Mentions légales</a>
+            </div>
+
+            <div class="flex w-14 flex-wrap justify-around md:w-24">
+                <a href="https://www.linkedin.com/company/akawaka/" target="_blank" class="justify-around">
+                    <img src="build/front/images/linkedin-min.png"
+                         alt="icone linkedin"
+                         title="Logo Linkedin"
+                         class="w-6 md:w-8 xl:w-10"/>
+                </a>
+
+                <a href="https://twitter.com/Akawakaweb?t=vq3fHte09FfFtaaxbyVYVQ&s=09" target="_blank" class="justify-around">
+                    <img src="build/front/images/twitter.png"
+                         alt="icone twitter"
+                         title="Logo Twitter"
+                         class="w-6 md:w-8 xl:w-10"/>
+                </a>
+            </div>
+        </div>
+
+        <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© 2022 - AKAWAKA - Tous droits réservés</p>
+    </div>
+</footer>
+
+</body>
+
 </html>
