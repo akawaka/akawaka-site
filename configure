@@ -44,6 +44,7 @@ if [ $clean = true ]; then
 
   preserve=(
     .gitignore
+    .prettierrc
     configure
     package.json
     package-lock.json

@@ -7,7 +7,7 @@
 /infrastructure/dev/docker
 
 ###> dev environment ##
-.editorconfig
+/.editorconfig
 ###< dev environment ###
 
 ###> docker environment ##

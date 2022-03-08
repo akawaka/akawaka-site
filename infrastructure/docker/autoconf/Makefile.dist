@@ -36,6 +36,9 @@ assets: node_modules ## Build the development version of the assets
 watch: node_modules ## Watch the assets and build their development version on change
 	$(EXECJS) npm run watch
 
+prettier: node_modules ## Watch the assets and build their development version on change
+	$(EXECJS) npx prettier --write ./public/*.html
+
 ##
 ## Dependencies
 ##---------------------------------------------------------------------------
