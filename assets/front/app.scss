@@ -23,3 +23,79 @@
   background-color: #f29e19;
   color: #1e1e1e;
 }
+
+*//------------Class for balise-----------//*
+
+    footer {
+        @apply h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48;
+    }
+
+*//-------------Class for placement-------------//*
+
+    .encadrement-big {
+        @apply 2xl:container 2xl:mx-auto;
+    }
+
+    .largeur {
+        @apply px-8 md:px-16 xl:px-64;
+    }
+
+    .hauteur {
+        @apply py-12 md:py-16 xl:py-24;
+    }
+
+*//------------Class for text-------------//*
+
+    .text-principal {
+        @apply font-hind_guntur text-sm md:text-base xl:text-lg;
+    }
+
+    .titre {
+        @apply font-trirong text-xl font-bold uppercase tracking-widest md:text-2xl xl:text-3xl;
+    }
+
+    .sous-titre {
+        @apply text-center font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl;
+    }
+
+*//-------------Class created-----------*//
+
+    .menu {
+        @apply fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20;
+    }
+
+    .button {
+        @apply mt-10 h-14 w-32 border-2 border-solid border-transparent font-expletus_sans border-gradient-r-rose-orange-white md:w-36;
+        &-black {
+            @apply h-full w-full bg-gradient-to-r from-gray-700 to-gray-700 py-4 text-center text-sm hover:from-pink-500 hover:to-yellow-500 md:py-3 md:text-base;
+        }
+        &-white {
+            @apply h-full w-full bg-gradient-to-r from-white to-white py-4 text-center text-sm hover:from-pink-500 hover:to-yellow-500 md:py-3 md:text-base;
+        }
+    }
+
+    .losange-h2 {
+        @apply w-8 md:w-10 xl:w-11;
+    }
+
+    .part-fond-black {
+        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 encadrement-big 2xl:w-4/5 2xxl:gap-x-20;
+        > img {
+            @apply ml-auto hidden w-64 lg:block 2xl:ml-0;
+        }
+    }
+
+    .outils {
+        @apply relative m-auto flex h-20 w-32 items-center justify-center bg-white shadow-2xl md:h-40 md:w-52;
+        .start {
+            @apply absolute inset-0 m-4 bg-contain bg-center bg-no-repeat;
+        }
+
+        .action {
+            @apply opacite absolute inset-0 z-10 flex flex-col items-center justify-center px-3 font-semibold text-white opacity-0 duration-300 hover:opacity-100;
+        }
+    }
+
+    .list-services {
+        @apply ml-2 text-sm md:text-base xl:text-lg;
+    }
