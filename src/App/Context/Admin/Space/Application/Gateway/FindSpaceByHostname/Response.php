@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Gateway\FindSpaceByHostname;
 
-use App\Context\Admin\Space\Domain\View\DataProvider\Model\Space;
-use Doctrine\Common\Collections\ArrayCollection;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\View\DataProvider\Model\SpaceInterface;
+use App\Context\Admin\Space\Domain\View\DataProvider\Model\SpaceInterface;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 
 final class Response implements GatewayResponse

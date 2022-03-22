@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Context\Admin\Space\Application\Gateway\BrowseSpaces;
 
 use App\Context\Admin\Space\Application\Gateway\BrowseSpaces\Middleware\Processor;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces\Middleware\ErrorHandler;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces\Middleware\Logger;
+use App\Context\Admin\Space\Application\Gateway\BrowseSpaces\Middleware\ErrorHandler;
+use App\Context\Admin\Space\Application\Gateway\BrowseSpaces\Middleware\Logger;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 use Mono\Bundle\CoreBundle\Application\Gateway\Middleware\Pipe;

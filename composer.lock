@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18f7580d9276b1d2ff1e9c453128f86c",
+    "content-hash": "c66ef826f723353ceae046da69b581c9",
     "packages": [
         {
             "name": "brick/math",
@@ -2155,7 +2155,7 @@
             "dist": {
                 "type": "path",
                 "url": "./mono/Bundle/AkaBundle",
-                "reference": "513999151c75f66aae3cfa5d51c44e0107946a65"
+                "reference": "acb872a40005187f152a7fad5698fd789f96d9f2"
             },
             "require": {
                 "ext-ctype": "*",
@@ -2220,83 +2220,6 @@
                 }
             ],
             "description": "Security bundle for Symfony",
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
-            "name": "mono/ao-bundle",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "./mono/Bundle/AoBundle",
-                "reference": "69a92fd40e8cef23e2adea39c447cb7d4858e590"
-            },
-            "require": {
-                "ext-ctype": "*",
-                "ext-iconv": "*",
-                "mono/core-bundle": "1.0.x-dev",
-                "php": ">=8.0.2"
-            },
-            "conflict": {
-                "symfony/symfony": "*"
-            },
-            "require-dev": {
-                "behat/behat": "^3.10",
-                "doctrine/doctrine-fixtures-bundle": "^3.4",
-                "ergebnis/composer-normalize": "^2.23",
-                "fakerphp/faker": "^1.13",
-                "friends-of-behat/symfony-extension": "^2.3",
-                "league/flysystem-memory": "^2.0",
-                "phpspec/phpspec": "^7.0",
-                "phpstan/phpstan": "^1.4.0",
-                "phpstan/phpstan-doctrine": "^1.2",
-                "phpstan/phpstan-symfony": "^1.1.0",
-                "phpstan/phpstan-webmozart-assert": "^1.0",
-                "rector/rector": "^0.12.15",
-                "roave/security-advisories": "dev-master",
-                "symplify/easy-coding-standard": "^10.0",
-                "thecodingmachine/phpstan-safe-rule": "^1.2.0"
-            },
-            "type": "mono-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.0.x-dev"
-                },
-                "symfony": {
-                    "allow-contrib": true,
-                    "require": "5.4.*"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Mono\\Bundle\\AoBundle\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "classmap": [
-                    "tests/Application/src/Kernel.php"
-                ],
-                "psr-4": {
-                    "Mono\\Tests\\Bundle\\AoBundle\\Behat\\": "tests/Behat/"
-                }
-            },
-            "scripts": {
-                "auto-scripts": {
-                    "cache:clear": "symfony-cmd",
-                    "assets:install %PUBLIC_DIR%": "symfony-cmd"
-                }
-            },
-            "license": [
-                "EUPLv1-2"
-            ],
-            "authors": [
-                {
-                    "name": "Alexandre Balmes",
-                    "email": "oss@alexandre.balmes.co"
-                }
-            ],
-            "description": "Content bundle for Symfony",
             "transport-options": {
                 "relative": true
             }
@@ -13282,7 +13205,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "mono/aka-bundle": 20,
-        "mono/ao-bundle": 20,
         "mono/core-bundle": 20,
         "roave/security-advisories": 20
     },

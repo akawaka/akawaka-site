@@ -8,7 +8,7 @@ use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Create\Form\CreatePageType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\CreatePage;
+use App\Context\Admin\Page\Application\Gateway\CreatePage;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;

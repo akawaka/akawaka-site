@@ -15,15 +15,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Context\Front\Contact\Application\Gateway\SendContact;
+use App\Context\Front\Contact\Application\Gateway\SendMessage;
 
 final class Action
 {
     public function __construct(
         private FormFactoryInterface $formFactory,
-        private SendContact\Gateway $sendContactGateway,
-        private HtmlResponder $htmlResponder,
-        private FlashNotifier $flashNotifier,
+        private SendMessage\Gateway  $sendContactGateway,
+        private HtmlResponder        $htmlResponder,
+        private FlashNotifier        $flashNotifier,
     ) {
     }
 
@@ -46,11 +46,11 @@ final class Action
         ]);
     }
 
-    private function process(FormInterface $form): SendContact\Response
+    private function process(FormInterface $form): SendMessage\Response
     {
         try {
-            /** @var SendContact\Response $response */
-            $response = ($this->sendContactGateway)(SendContact\Request::fromData(
+            /** @var SendMessage\Response $response */
+            $response = ($this->sendContactGateway)(SendMessage\Request::fromData(
                 $form->getData()->data(),
             ));
         } catch (GatewayException $exception) {

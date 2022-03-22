@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Context\Admin\Space\Application\Gateway\UpdateSpace;
 
 use App\Context\Admin\Space\Application\Gateway\UpdateSpace\Middleware\Processor;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Middleware\ErrorHandler;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Middleware\Logger;
+use App\Context\Admin\Space\Application\Gateway\UpdateSpace\Middleware\ErrorHandler;
+use App\Context\Admin\Space\Application\Gateway\UpdateSpace\Middleware\Logger;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayRequest;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayResponse;
 use Mono\Bundle\CoreBundle\Application\Gateway\Middleware\Pipe;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Operation\Write\Create;
 
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
-use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Code;
+use App\Shared\Domain\Identifier\SpaceId;
+use App\Shared\Domain\ValueObject\Code;
 
 final class Command
 {

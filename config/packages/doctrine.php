@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminPasswordRecovery;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminUser;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Article;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Author;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Category;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Page;
+use App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity\Space;
 use Mono\Bundle\AkaBundle\Shared\Domain\Model\PasswordRecoveryInterface;
 use Mono\Bundle\AkaBundle\Shared\Domain\Model\UserInterface;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminPasswordRecovery;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\AdminUser;
-use Mono\Bundle\AoBundle\Shared\Domain\Model\ArticleInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Model\AuthorInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Model\CategoryInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Model\PageInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Model\SpaceInterface;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\Article;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\Author;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\Category;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\Page;
-use App\Infrastructure\Persistence\Doctrine\ORM\Entity\Space;
+use App\Shared\Domain\Model\ArticleInterface;
+use App\Shared\Domain\Model\AuthorInterface;
+use App\Shared\Domain\Model\CategoryInterface;
+use App\Shared\Domain\Model\PageInterface;
+use App\Shared\Domain\Model\SpaceInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -40,16 +40,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                 'App' => [
                     'is_bundle' => false,
                     'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/src/App/Infrastructure/Persistence/Doctrine/ORM/Entity',
-                    'prefix' => 'App\Infrastructure\Persistence\Doctrine\ORM\Entity',
+                    'dir' => '%kernel.project_dir%/src/App/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
+                    'prefix' => 'App\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
                     'alias' => 'App',
-                ],
-                'Ao' => [
-                    'is_bundle' => false,
-                    'type' => 'attribute',
-                    'dir' => '%kernel.project_dir%/mono/Bundle/AoBundle/src/Shared/Infrastructure/Persistence/Doctrine/ORM/Entity',
-                    'prefix' => 'Mono\Bundle\AoBundle\Shared\Infrastructure\Persistence\Doctrine\ORM\Entity',
-                    'alias' => 'Ao',
                 ],
                 'Aka' => [
                     'is_bundle' => false,

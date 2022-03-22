@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Gateway\UpdateSpace\Middleware;
 
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\UpdateSpace\Response;
+use App\Context\Admin\Space\Application\Gateway\UpdateSpace\Response;
 use App\Context\Admin\Space\Application\Gateway\UpdateSpace\Request;
 use App\Context\Admin\Space\Application\Operation\Write\Update\Command;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\CommandBusInterface;

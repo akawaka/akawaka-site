@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Category\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\BrowseCategories;
+use App\Context\Admin\Category\Application\Gateway\BrowseCategories;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;

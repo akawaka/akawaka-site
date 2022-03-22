@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Context\Front\Contact\Application\Operation\Write\Send;
 
-use App\Context\Front\Contact\Domain\Message\Contact;
-use App\Context\Front\Contact\Infrastructure\Mailer\Email;
-use App\Context\Front\Contact\Infrastructure\Mailer\MailerInterface;
+use App\Context\Front\Contact\Domain\SendMessage\DataPersister\Model\Message;
+use App\Shared\Infrastructure\Mailer\Email;
+use App\Shared\Infrastructure\Mailer\MailerInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -22,7 +22,7 @@ final class Handler implements MessageHandlerInterface
 
     public function __invoke(Command $command): Email
     {
-        $email = (new Contact(
+        $email = (new Message(
             $this->mailer->getSender(),
             $command->getFirstname(),
             $command->getLastname(),

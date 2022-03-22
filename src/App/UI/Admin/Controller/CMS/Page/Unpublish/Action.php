@@ -6,7 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Page\Unpublish;
 
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UnpublishPage;
+use App\Context\Admin\Page\Application\Gateway\UnpublishPage;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Context\Admin\Space\Domain\Create\DataPersister\Factory;
 
 use App\Context\Admin\Space\Domain\Create\DataPersister\Model\Space;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\Model\SpaceInterface;
+use App\Context\Admin\Space\Domain\Create\DataPersister\Model\SpaceInterface;
 
 final class Builder implements BuilderInterface
 {

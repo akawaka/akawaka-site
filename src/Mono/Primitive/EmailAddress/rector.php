@@ -13,12 +13,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     // get parameters
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::PATHS, [
-        __DIR__ . '/src',
-        __DIR__ . '/tests',
+        __DIR__.'/src',
+        __DIR__.'/tests',
     ]);
 
     $parameters->set(Option::SKIP, [
-        __DIR__ . '/tests/Application',
+        __DIR__.'/tests/Application',
     ]);
 
     $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_80);

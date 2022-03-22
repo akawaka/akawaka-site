@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Form\Type;
 
 use App\UI\Admin\Form\Transformer\CategoriesToArrayTransformer;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\BrowseCategories;
+use App\Context\Admin\Category\Application\Gateway\BrowseCategories;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Admin\Form\Type;
 
 use App\UI\Admin\Form\Transformer\SpacesToArrayTransformer;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\BrowseSpaces;
+use App\Context\Admin\Space\Application\Gateway\BrowseSpaces;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;

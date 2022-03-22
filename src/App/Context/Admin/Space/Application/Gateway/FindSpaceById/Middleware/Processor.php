@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Context\Admin\Space\Application\Gateway\FindSpaceById\Middleware;
 
 use App\Context\Admin\Space\Application\Gateway\FindSpaceById\Response;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Gateway\FindSpaceById\Request;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Read\FindById\Query;
+use App\Context\Admin\Space\Application\Gateway\FindSpaceById\Request;
+use App\Context\Admin\Space\Application\Operation\Read\FindById\Query;
 use Mono\Bundle\CoreBundle\Infrastructure\MessageBus\QueryBusInterface;
 
 final class Processor

@@ -8,8 +8,8 @@ use App\UI\Admin\Controller\CMS\Page\Update\Form\UpdatePageDTO;
 use App\UI\Admin\Controller\CMS\Page\Update\Form\UpdatePageType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\FindPageById;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage;
+use App\Context\Admin\Page\Application\Gateway\FindPageById;
+use App\Context\Admin\Page\Application\Gateway\UpdatePage;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
@@ -86,8 +86,8 @@ final class Action
         $data = $form->getData();
 
         try {
-            /** @var \Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage\Response $response */
-            $response = ($this->updatePageGateway)(\Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\UpdatePage\Request::fromData(array_merge(
+            /** @var \App\Context\Admin\Page\Application\Gateway\UpdatePage\Response $response */
+            $response = ($this->updatePageGateway)(\App\Context\Admin\Page\Application\Gateway\UpdatePage\Request::fromData(array_merge(
                 $page->data(),
                 $data->data()
             )));

@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer;
-use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer;
-use PhpCsFixer\RuleSet\Sets\PHP80MigrationSet;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
@@ -15,12 +13,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::PARALLEL, true);
 
     $parameters->set(Option::PATHS, [
-        __DIR__ . '/src',
-        __DIR__ . '/tests',
+        __DIR__.'/src',
+        __DIR__.'/tests',
     ]);
 
     $parameters->set(Option::SKIP, [
-        __DIR__ . '/tests/Application',
+        __DIR__.'/tests/Application',
         PhpdocAlignFixer::class,
     ]);
 
@@ -28,7 +26,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(ArraySyntaxFixer::class)
         ->call('configure', [[
             'syntax' => 'short',
-        ]]);
+        ]])
+    ;
 
     // run and fix, one by one
     $containerConfigurator->import(SetList::SYMFONY);

@@ -6,8 +6,8 @@ namespace App\Context\Admin\Space\Infrastructure\Persistence\DBAL;
 
 use App\Context\Admin\Space\Domain\Create\DataPersister\Model\Space;
 use Doctrine\DBAL\Exception;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\CreatePersisterInterface;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\Model\SpaceInterface;
+use App\Context\Admin\Space\Domain\Create\DataPersister\CreatePersisterInterface;
+use App\Context\Admin\Space\Domain\Create\DataPersister\Model\SpaceInterface;
 use Mono\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\DBALRepository;
 
 final class CreatePersisterRepository extends DBALRepository implements CreatePersisterInterface

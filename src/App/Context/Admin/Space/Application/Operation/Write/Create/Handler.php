@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Operation\Write\Create;
 
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Write\Create\SpaceWasCreated;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\CreatorInterface;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\Exception\UnableToCreateException;
+use App\Context\Admin\Space\Domain\Create\CreatorInterface;
+use App\Context\Admin\Space\Domain\Create\DataPersister\Factory\BuilderInterface;
+use App\Context\Admin\Space\Domain\Create\Exception\UnableToCreateException;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;

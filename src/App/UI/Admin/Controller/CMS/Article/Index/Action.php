@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Article\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\BrowseArticles;
-use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\BrowseArticles\Request;
+use App\Context\Admin\Article\Application\Gateway\BrowseArticles;
+use App\Context\Admin\Article\Application\Gateway\BrowseArticles\Request;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;

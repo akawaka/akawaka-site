@@ -217,9 +217,6 @@
     "mono/aka-bundle": {
         "version": "1.0.x-dev"
     },
-    "mono/ao-bundle": {
-        "version": "1.0.x-dev"
-    },
     "mono/cms-bundle": {
         "version": "1.0.x-dev"
     },

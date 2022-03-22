@@ -15,7 +15,6 @@ return [
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Mono\Bundle\CoreBundle\MonoCoreBundle::class => ['all' => true],
     Mono\Bundle\AkaBundle\MonoAkaBundle::class => ['all' => true],
-    Mono\Bundle\AoBundle\MonoAoBundle::class => ['all' => true],
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
     Sylius\Bundle\ThemeBundle\SyliusThemeBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],

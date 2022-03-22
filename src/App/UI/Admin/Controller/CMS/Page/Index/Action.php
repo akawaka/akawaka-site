@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Admin\Controller\CMS\Page\Index;
 
 use App\UI\Admin\Controller\Routes;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\BrowsePages;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\BrowsePages\Request;
+use App\Context\Admin\Page\Application\Gateway\BrowsePages;
+use App\Context\Admin\Page\Application\Gateway\BrowsePages\Request;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,7 +36,7 @@ final class Action
     private function find(): BrowsePages\Response
     {
         try {
-            /** @var \Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\BrowsePages\Response $results */
+            /** @var \App\Context\Admin\Page\Application\Gateway\BrowsePages\Response $results */
             $results = ($this->findPagesGateway)(Request::fromData());
         } catch (GatewayException $exception) {
             throw new HttpException(500, $exception->getMessage());

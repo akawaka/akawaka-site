@@ -8,7 +8,7 @@ use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryDTO;
 use App\UI\Admin\Controller\CMS\Category\Create\Form\CreateCategoryType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Category\Application\Gateway\CreateCategory;
+use App\Context\Admin\Category\Application\Gateway\CreateCategory;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;

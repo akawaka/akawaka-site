@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Domain\Create\DataPersister\Model;
 
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Create\DataPersister\Model\SpaceInterface;
-use Mono\Bundle\AoBundle\Shared\Domain\Enum\SpaceStatus;
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
-use Mono\Bundle\AoBundle\Shared\Domain\ValueObject\Code;
+use App\Shared\Domain\Enum\SpaceStatus;
+use App\Shared\Domain\Identifier\SpaceId;
+use App\Shared\Domain\ValueObject\Code;
 
 final class Space implements SpaceInterface
 {

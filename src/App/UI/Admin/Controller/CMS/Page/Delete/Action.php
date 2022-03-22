@@ -6,7 +6,7 @@ namespace App\UI\Admin\Controller\CMS\Page\Delete;
 
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Page\Application\Gateway\DeletePage;
+use App\Context\Admin\Page\Application\Gateway\DeletePage;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;
 use Symfony\Component\HttpFoundation\Response;

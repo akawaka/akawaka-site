@@ -8,7 +8,7 @@ use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleDTO;
 use App\UI\Admin\Controller\CMS\Article\Create\Form\CreateArticleType;
 use App\UI\Admin\Controller\Routes;
 use App\UI\Admin\Notifier\Flash\FlashNotifier;
-use Mono\Bundle\AoBundle\Context\CRUD\Article\Application\Gateway\CreateArticle;
+use App\Context\Admin\Article\Application\Gateway\CreateArticle;
 use Mono\Bundle\CoreBundle\Application\Gateway\GatewayException;
 use Mono\Bundle\CoreBundle\UI\Responder\HtmlResponder;
 use Mono\Bundle\CoreBundle\UI\Responder\RedirectResponder;

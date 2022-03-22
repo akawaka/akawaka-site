@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Operation\Write\Update;
 
-use Mono\Bundle\AoBundle\Shared\Domain\Identifier\SpaceId;
+use App\Shared\Domain\Identifier\SpaceId;
 
 final class Command
 {

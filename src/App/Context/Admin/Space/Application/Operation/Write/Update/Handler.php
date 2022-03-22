@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Context\Admin\Space\Application\Operation\Write\Update;
 
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Application\Operation\Write\Update\SpaceWasUpdated;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Update\DataPersister\Factory\BuilderInterface;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Update\Exception\SpaceWasNotUpdated;
-use Mono\Bundle\AoBundle\Context\CRUD\Space\Domain\Update\UpdaterInterface;
+use App\Context\Admin\Space\Domain\Update\DataPersister\Factory\BuilderInterface;
+use App\Context\Admin\Space\Domain\Update\Exception\SpaceWasNotUpdated;
+use App\Context\Admin\Space\Domain\Update\UpdaterInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;

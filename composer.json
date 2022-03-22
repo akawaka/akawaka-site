@@ -17,7 +17,6 @@
         "doctrine/orm": "^2.9",
         "league/flysystem-bundle": "^2.2",
         "mono/aka-bundle": "1.0.x-dev",
-        "mono/ao-bundle": "1.0.x-dev",
         "mono/core-bundle": "1.0.x-dev",
         "psr/log": "^1.1",
         "qossmic/rich-model-forms-bundle": "^0.2.0",
@@ -96,8 +95,7 @@
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/",
-            "Mono\\Tests\\Bundle\\AkaBundle\\Behat\\": "mono/Bundle/AkaBundle/tests/Behat/",
-            "Mono\\Tests\\Bundle\\AoBundle\\Behat\\": "mono/Bundle/AoBundle/tests/Behat/"
+            "Mono\\Tests\\Bundle\\AkaBundle\\Behat\\": "mono/Bundle/AkaBundle/tests/Behat/"
         }
     },
     "config": {
