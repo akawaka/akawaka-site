@@ -32,7 +32,7 @@
      class="hidden w-28 md:w-28 xl:w-36"
      alt="logo akawaka agence experte php symfony"/>
 
-<header class="menu">
+<header class="menu" itemscope itemtype="https://schema.org/WebPage">
     <div class="largeur flex flex-1 items-center justify-between">
         <div class="encadrement-big flex flex-1 items-center justify-between">
             <a href="/">
@@ -40,7 +40,7 @@
             </a>
 
             <nav>
-                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
+                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg" itemprop="itemListElement">
                     <li>
                         <a href="/" class="hover:text-yellow-500">Accueil</a>
                     </li>
@@ -74,7 +74,7 @@
 
         <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
             <nav>
-                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
+                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl" itemprop="itemListElement">
                     <li>
                         <a href="/" class="hover:text-yellow-500">Accueil</a>
                     </li>
@@ -110,26 +110,29 @@
     </div>
 </article>
 
-<article class="largeur hauteur">
+<article class="largeur hauteur" itemscope itemtype="https://schema.org/WebPage">
     <header class="encadrement-big">
-        <h1 class="sous-titre">
+        <h1 class="sous-titre" itemprop="description">
             Les projets ne se font pas seul, nous avons créé une <strong>super équipe</strong> pour les concrétiser.
         </h1>
     </header>
 
-    <div class="encadrement-big mt-12 flex grid grid-cols-equipe flex-wrap justify-around gap-y-2 gap-x-2 md:mt-16 xl:mt-24">
+    <div class="encadrement-big mt-12 flex grid grid-cols-equipe flex-wrap justify-around gap-y-2 gap-x-2 md:mt-16 xl:mt-24" itemscope itemtype="https://schema.org/Person">
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">CTO</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800" itemprop="jobTitle">CTO</h2>
 
                 <img srcset="build/front/images/alexandre-sm.webp 160w, build/front/images/alexandre-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/alexandre.jpg"
-                     alt="alexandre balmes directeur agence akawaka experte php, symfony, sylius"/>
+                     alt="alexandre balmes directeur agence akawaka experte php, symfony, sylius"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Alexandre BALMES</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Alexandre BALMES
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -154,12 +157,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">CEO</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500" itemprop="jobTitle">CEO</h2>
 
-                <img srcset="build/front/images/gaetan-sm.webp 160w, build/front/images/gaetan-lg.webp 192w" sizes="(max-width: 1024px) 160px, 192px" src="build/front/images/gaetan.png" alt="Gaetan Buellet directeur technique agence akawaka experte php, symfony" />
+                <img srcset="build/front/images/gaetan-sm.webp 160w, build/front/images/gaetan-lg.webp 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="build/front/images/gaetan.png"
+                     alt="Gaetan Buellet directeur technique agence akawaka experte php, symfony"
+                     itemprop="image"/>
+
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Gaëtan BUELLET</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Gaëtan BUELLET
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -188,16 +198,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500" itemprop="jobTitle">Développeur</h2>
 
                 <img srcset="build/front/images/christophe-sm.webp 160w, build/front/images/christophe-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/christophe.jpg"
-                     alt="Christophe LIGNERES développeur php symfony"/>
+                     alt="Christophe LIGNERES développeur php symfony"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Christophe LIGNERES</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Christophe LIGNERES
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -226,16 +239,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeuse</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800" itemprop="jobTitle">Développeuse</h2>
 
                 <img srcset="build/front/images/amelia-sm.webp 160w, build/front/images/amelia-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/amelia.jpg"
-                     alt="Amelia MASSOT développeuse php symfony"/>
+                     alt="Amelia MASSOT développeuse php symfony"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Amélia MASSOT</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Amélia MASSOT
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -264,16 +280,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500" itemprop="jobTitle">Développeur</h2>
 
                 <img srcset="build/front/images/franck-sm.webp 160w, build/front/images/franck-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/franck.jpg"
-                     alt="Franck MATSOS développeur php, symfony et js"/>
+                     alt="Franck MATSOS développeur php, symfony et js"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Franck MATSOS</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Franck MATSOS
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -302,16 +321,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Lead-développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500" itemprop="jobTitle">Lead-développeur</h2>
 
                 <img srcset="build/front/images/kevin-sm.webp 160w, build/front/images/kevin-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/kevin.jpg"
-                     alt="Kevin BALICOT lead developer php, symfony, js, docker, sylius"/>
+                     alt="Kevin BALICOT lead developer php, symfony, js, docker, sylius"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Kevin BALICOT</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Kevin BALICOT
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -340,16 +362,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800" itemprop="jobTitle">Développeur</h2>
 
                 <img srcset="build/front/images/florian-sm.webp 160w, build/front/images/florian-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/florian.jpeg"
-                     alt="Florian Merle développeur php, symfony, vuejs, sylius"/>
+                     alt="Florian Merle développeur php, symfony, vuejs, sylius"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Florian MERLE</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Florian MERLE
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -378,16 +403,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500">Développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-pink-500" itemprop="jobTitle">Développeur</h2>
 
                 <img srcset="build/front/images/jb-sm.webp 160w, build/front/images/jb-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/jb.jpg"
-                     alt="Jean-Baptiste Mercier développeur php, symfony, sylius"/>
+                     alt="Jean-Baptiste Mercier développeur php, symfony, sylius"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Jean-Baptiste MERCIER</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Jean-Baptiste MERCIER
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -416,16 +444,19 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500">Expert technique</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-yellow-500" itemprop="jobTitle">Expert technique</h2>
 
                 <img srcset="build/front/images/emeric-sm.webp 160w, build/front/images/emeric-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/emeric.jpg"
-                     alt="Emeric KASBARIAN expert technique php, symfony, rust"/>
+                     alt="Emeric KASBARIAN expert technique php, symfony, rust"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Emeric KASBARIAN</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">
+                            Emeric KASBARIAN
+                        </h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -454,16 +485,17 @@
 
         <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
             <div class="z-10">
-                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800">Développeur</h2>
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-blue-800" itemprop="jobTitle">Développeur</h2>
 
                 <img srcset="build/front/images/jeremy-sm.webp 160w, build/front/images/jeremy-lg.webp 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
                      src="build/front/images/jeremy.jpg"
-                     alt="Jeremy James développeur php, symfony"/>
+                     alt="Jeremy James développeur php, symfony"
+                     itemprop="image"/>
 
                 <div class="mt-4 flex flex-col flex-wrap justify-center">
                     <div class="m-auto">
-                        <h3 class="text-principal mb-2 text-center">Jérémy JAMES</h3>
+                        <h3 class="text-principal mb-2 text-center" itemprop="name">Jérémy JAMES</h3>
                     </div>
 
                     <div class="flex justify-center gap-x-2">
@@ -492,11 +524,15 @@
     </div>
 </article>
 
-<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
+<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48" itemscope itemtype="https://schema.org/WebPage">
     <div class="largeur">
         <div class="encadrement-big flex items-center justify-between pt-5 md:pt-10 xl:pt-12">
             <a href="/">
-                <img src="build/front/images/logo_akawaka_blanc.svg" alt="logo akawaka agence experte php, symfony, sylius" title="Logo akawaka" class="w-20 md:w-28 xl:w-36" />
+                <img src="build/front/images/logo_akawaka_blanc.svg"
+                     alt="logo akawaka agence experte php, symfony, sylius"
+                     title="Logo akawaka"
+                     class="w-20 md:w-28 xl:w-36"
+                     itemprop="image"/>
             </a>
 
             <div class="flex w-2/5 flex-wrap justify-around md:flex">

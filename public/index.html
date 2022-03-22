@@ -28,13 +28,13 @@
     <link rel="icon" href="build/front/images/favicon.ico"/>
 </head>
 
-<body class="text-gray-700" itemscope itemtype="https://schema.org/WebPage">
+<body class="text-gray-700">
 
 <img src="build/front/images/logo_akawaka_noir.png"
      class="hidden w-28 md:w-28 xl:w-36"
      alt="logo akawaka agence experte php symfony"/>
 
-<header class="menu">
+<header class="menu" itemscope itemtype="https://schema.org/WebPage">
     <div class="largeur flex flex-1 items-center justify-between">
         <div class="encadrement-big flex flex-1 items-center justify-between">
             <a href="/">
@@ -45,7 +45,7 @@
             </a>
 
             <nav>
-                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg">
+                <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg" itemprop="itemListElement">
                     <li class="text-yellow-500">Accueil</li>
 
                     <li>
@@ -79,7 +79,7 @@
 
         <div class="absolute top-14 right-0 hidden w-2/4 bg-gray-700" id="menu">
             <nav>
-                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl">
+                <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl" itemprop="itemListElement">
                     <li class="text-yellow-500">Accueil</li>
 
                     <li>
@@ -103,7 +103,7 @@
     </div>
 </header>
 
-<article class="largeur mt-24 mb-12 md:mt-32 md:mb-16 xl:mt-48">
+<article class="largeur mt-24 mb-12 md:mt-32 md:mb-16 xl:mt-48" itemscope itemtype="https://schema.org/WebPage">
     <div class="encadrement-big">
         <header class="flex items-start pb-4 md:items-center">
             <img src="build/front/images/losange-coupe.svg" class="w-8 md:w-10 xl:w-11"
@@ -177,14 +177,18 @@
                 sizes="(max-width: 640px) 240px, (max-width: 768px) 288px, 320px"
                 src="build/front/images/image_presentation.png"
                 class="mt-5 xl:ml-12 xl:mt-0"
-                alt="image femme présentant l'agence akawaka avec un tableau aux couleurs de celle-ci"/>
+                alt="image femme présentant l'agence akawaka avec un tableau aux couleurs de celle-ci"
+                itemprop="image"/>
         </section>
     </div>
 </article>
 
-<article class="bg-gray-700 text-white md:text-center">
+<article class="bg-gray-700 text-white md:text-center" itemscope itemtype="https://schema.org/WebPage">
     <div class="part-fond-black">
-        <img src="build/front/images/sylius_e-commerce.png" srcset="build/front/images/sylius_e-commerce.webp" alt="certification premium solution partner sylius" />
+        <img src="build/front/images/sylius_e-commerce.png"
+             srcset="build/front/images/sylius_e-commerce.webp"
+             alt="certification premium solution partner sylius"
+             itemprop="image"/>
 
         <div class="col-span-5 lg:col-span-3">
             <header class="flex items-start pb-4 md:items-center md:justify-center">
@@ -333,9 +337,12 @@
     </section>
 </article>
 
-<article class="bg-gray-700 text-white md:text-center">
+<article class="bg-gray-700 text-white md:text-center" itemscope itemtype="https://schema.org/WebPage">
     <div class="part-fond-black">
-        <img src="build/front/images/losange_objectifs-min.png" srcset="build/front/images/losange_objectifs.webp" alt="losange de l'agence akwaka avec les couleurs en dégradés" />
+        <img src="build/front/images/losange_objectifs-min.png"
+             srcset="build/front/images/losange_objectifs.webp"
+             alt="losange de l'agence akwaka avec les couleurs en dégradés"
+             itemprop="image"/>
 
         <div class="col-span-5 lg:col-span-3">
             <header class="flex items-center pb-4 md:justify-center">
@@ -366,7 +373,7 @@
     </div>
 </article>
 
-<article class="largeur hauteur">
+<article class="largeur hauteur" itemscope itemtype="https://schema.org/WebPage">
     <div class="encadrement-big">
         <header class="flex items-center pb-4">
             <img src="build/front/images/losange-coupe.svg" class="losange-h2" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
@@ -381,52 +388,61 @@
                  src="build/front/images/gpdis-logo.jpg"
                  srcset="build/front/images/gpdis-logo.webp"
                  alt="logo gpdis client d'akawaka"
-                 title="Logo Gpdis"/>
+                 title="Logo Gpdis"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/logo-alain-afflelou.svg"
                  alt="logo afflelou client d'akawaka"
-                 title="Logo Afflelou"/>
+                 title="Logo Afflelou"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/logo_credit_agricole.svg"
                  alt="logo crédit agricole client d'akawaka"
-                 title="Logo Crédit Agricole"/>
+                 title="Logo Crédit Agricole"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/logo_convelio.png"
                  srcset="build/front/images/logo_convelio.webp"
                  alt="logo convelio client d'akawaka"
-                 title="Logo Convelio"/>
+                 title="Logo Convelio"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/logo-djuringa.png"
                  srcset="build/front/images/logo-djuringa.webp"
                  alt="logo djuringa client d'akawaka"
-                 title="Logo Djuringa"/>
+                 title="Logo Djuringa"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/logo-dr-data.png"
                  srcset="build/front/images/logo-dr-data.webp"
                  alt="logo dr data client d'akawaka"
-                 title="Logo Dr Data"/>
+                 title="Logo Dr Data"
+                 itemprop="image"/>
 
             <img class="m-auto w-40"
                  src="build/front/images/wava_logo.png"
                  srcset="build/front/images/wava_logo.webp"
                  alt="logo wava client d'akawaka"
-                 title="Logo Wava"/>
+                 title="Logo Wava"
+                 itemprop="image"/>
         </div>
     </div>
 </article>
 
-<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48">
+<footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48" itemscope itemtype="https://schema.org/WebPage">
     <div class="largeur">
         <div class="encadrement-big flex items-center justify-between pt-5 md:pt-10 xl:pt-12">
             <a href="/">
                 <img src="build/front/images/logo_akawaka_blanc.svg"
-                     alt="logo akawaka agence experte php, symfony, sylius" title="Logo akawaka"
-                     class="w-20 md:w-28 xl:w-36"/>
+                     alt="logo akawaka agence experte php, symfony, sylius"
+                     title="Logo akawaka"
+                     class="w-20 md:w-28 xl:w-36"
+                     itemprop="image"/>
             </a>
 
             <div class="flex w-2/5 flex-wrap justify-around md:flex">
