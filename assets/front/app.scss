@@ -99,3 +99,19 @@
     .list-services {
         @apply ml-2 text-sm md:text-base xl:text-lg;
     }
+
+    .card {
+        @apply py-8 flex flex-col items-center justify-center px-8 mx-10 xxl:mx-20 xxl:w-2/4 shadow-xl lg:shadow-2xl flex-1;
+
+        &-degrade {
+            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-white;
+        }
+
+        &-black {
+            @apply bg-white border-b-8 border-gray-700;
+        }
+
+        h2 {
+            @apply my-5;
+        }
+    }
