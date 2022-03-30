@@ -28,7 +28,9 @@
     <link rel="icon" href="build/front/images/favicon.ico"/>
 
     <script src="build/front/runtime.js" defer></script>
+    <script src="build/front/vendors-node_modules_glidejs_glide_dist_glide_esm_js.js" defer></script>
     <script src="build/front/app.js" defer></script>
+
 </head>
 
 <body class="text-gray-700">
@@ -383,7 +385,7 @@
     </div>
 </article>
 
-<article class="largeur hauteur" itemscope itemtype="https://schema.org/WebPage">
+<article class="largeur hauteur bg-gray-100" itemscope itemtype="https://schema.org/WebPage">
     <div class="encadrement-big">
         <header class="flex items-center pb-4">
             <img src="build/front/images/losange-coupe.svg" class="losange-h2"
@@ -394,53 +396,71 @@
             </h1>
         </header>
 
-        <div class="my-12 flex grid grid-cols-clients flex-col items-center justify-between gap-y-10 gap-x-10 md:flex-row md:flex-wrap">
-            <img class="m-auto w-40"
-                 src="build/front/images/gpdis-logo.jpg"
-                 srcset="build/front/images/gpdis-logo.webp"
-                 alt="logo gpdis client d'akawaka"
-                 title="Logo Gpdis"
-                 itemprop="image"/>
+        <div class="glide px-20 md:px-28 xl:px-40 my-12 md:my-16 xl:my-24">
+            <div data-glide-el="track" class="glide__track">
+                <ul class="glide__slides">
+                    <li class="glide__slide">
+                        <img src="build/front/images/gpdis-logo.jpg"
+                             srcset="build/front/images/gpdis-logo.webp"
+                             alt="logo gpdis client d'akawaka"
+                             title="Logo Gpdis"
+                             itemprop="image"/>
+                    </li>
 
-            <img class="m-auto w-40"
-                 src="build/front/images/logo-alain-afflelou.svg"
-                 alt="logo afflelou client d'akawaka"
-                 title="Logo Afflelou"
-                 itemprop="image"/>
+                    <li class="glide__slide">
+                        <img src="build/front/images/logo-alain-afflelou.svg"
+                             alt="logo afflelou client d'akawaka"
+                             title="Logo Afflelou"
+                             itemprop="image"/>
+                    </li>
 
-            <img class="m-auto w-40"
-                 src="build/front/images/logo_credit_agricole.svg"
-                 alt="logo crédit agricole client d'akawaka"
-                 title="Logo Crédit Agricole"
-                 itemprop="image"/>
+                    <li class="glide__slide">
+                        <img src="build/front/images/logo_credit_agricole.svg"
+                             alt="logo crédit agricole client d'akawaka"
+                             title="Logo Crédit Agricole"
+                             itemprop="image"/>
+                    </li>
 
-            <img class="m-auto w-40"
-                 src="build/front/images/logo_convelio.png"
-                 srcset="build/front/images/logo_convelio.webp"
-                 alt="logo convelio client d'akawaka"
-                 title="Logo Convelio"
-                 itemprop="image"/>
+                    <li class="glide__slide">
+                        <img src="build/front/images/logo_convelio.png"
+                             srcset="build/front/images/logo_convelio.webp"
+                             alt="logo convelio client d'akawaka"
+                             title="Logo Convelio"
+                             itemprop="image"/>
+                    </li>
 
-            <img class="m-auto w-40"
-                 src="build/front/images/logo-djuringa.png"
-                 srcset="build/front/images/logo-djuringa.webp"
-                 alt="logo djuringa client d'akawaka"
-                 title="Logo Djuringa"
-                 itemprop="image"/>
+                    <li class="glide__slide">
+                        <img src="build/front/images/logo-dr-data.png"
+                             srcset="build/front/images/logo-dr-data.webp"
+                             alt="logo dr data client d'akawaka"
+                             title="Logo Dr Data"
+                             itemprop="image"/>
+                    </li>
+                    <li class="glide__slide">
+                        <img src="build/front/images/wava_logo.png"
+                             srcset="build/front/images/wava_logo.webp"
+                             alt="logo wava client d'akawaka"
+                             title="Logo Wava"
+                             itemprop="image"/>
+                    </li>
+                    <li class="glide__slide">
+                        <img src="build/front/images/logo-djuringa.png"
+                             srcset="build/front/images/logo-djuringa.webp"
+                             alt="logo djuringa client d'akawaka"
+                             title="Logo Djuringa"
+                             itemprop="image"/>
+                    </li>
+                </ul>
+            </div>
 
-            <img class="m-auto w-40"
-                 src="build/front/images/logo-dr-data.png"
-                 srcset="build/front/images/logo-dr-data.webp"
-                 alt="logo dr data client d'akawaka"
-                 title="Logo Dr Data"
-                 itemprop="image"/>
-
-            <img class="m-auto w-40"
-                 src="build/front/images/wava_logo.png"
-                 srcset="build/front/images/wava_logo.webp"
-                 alt="logo wava client d'akawaka"
-                 title="Logo Wava"
-                 itemprop="image"/>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                    <img class="w-8 md:w-16 xl:w-20" src="build/front/images/nav-gauche.png" alt="">
+                </button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                    <img class="w-8 md:w-16 xl:w-20" src="build/front/images/nav-droite.png" alt="">
+                </button>
+            </div>
         </div>
     </div>
 </article>
