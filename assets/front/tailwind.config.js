@@ -78,6 +78,7 @@ module.exports = {
         phpunit: "url('images/phpunit-logo.svg')",
         phpspec: "url('images/phpspec-logo.webp')",
         behat: "url('images/behat-logo.webp')",
+        elastic: "url('images/elastic-logo.svg')",
       },
       backgroundSize: {
         "50%": "50%",
