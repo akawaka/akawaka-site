@@ -27,12 +27,12 @@ module.exports = {
             },
             background: {
                 "gray-50": "#F9FAFB",
+                "gray-100": "#f3f4f6",
+                "gray-700": "#1e1e1e",
                 "gray-900": "#111827",
                 white: "#fff",
                 transparent: "#001e1e1e",
                 roseorange: "#de1e7e",
-                "gray-100": "#f3f4f6",
-                "gray-700": "#1e1e1e",
             },
             border: {
                 // defaults to these values (optional)
