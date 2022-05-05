@@ -82,7 +82,7 @@
     }
 
     .part-fond-black {
-        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 encadrement-big 2xl:w-4/5 2xxl:gap-x-20;
+        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 encadrement-big 2xl:w-4/5 2xl:gap-x-20;
         > img {
             @apply ml-auto hidden w-64 lg:block 2xl:ml-0;
         }
@@ -104,7 +104,7 @@
     }
 
     .card {
-        @apply py-8 flex flex-col items-center justify-center px-8 mx-10 xxl:mx-20 xxl:w-2/4 shadow-xl lg:shadow-2xl flex-1;
+        @apply py-8 flex flex-col items-center justify-center px-8 mx-10 2xl:mx-20 2xl:w-2/4 shadow-xl lg:shadow-2xl flex-1;
 
         &-degrade {
             @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-white;
@@ -117,6 +117,18 @@
         h2 {
             @apply my-5;
         }
+    }
+
+    .blog {
+        @apply py-20 flex flex-col justify-center px-20 shadow-xl lg:shadow-2xl flex-1;
+
+        &-degrade {
+            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-gray-100;
+        }
+    }
+
+    .quote {
+        @apply bg-gray-100 text-center font-semibold font-trirong mx-10 my-8 px-20 py-16 xl:mx-32 xl:my-10 xl:px-32 xl:py-20;
     }
 
 *//------------Class for carrousel-------------//*
