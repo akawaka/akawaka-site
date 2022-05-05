@@ -12,6 +12,7 @@ assets:
   script:
     - npm install
     - npm run build
+    - npx prettier --parser html --write ./public/*.html
     - mv ./public/build ./build
   artifacts:
     paths:
