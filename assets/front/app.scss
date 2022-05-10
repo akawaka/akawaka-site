@@ -44,6 +44,10 @@ img {
     }
 
     .largeur {
+        @apply mx-8 md:mx-16 xl:mx-64;
+    }
+
+    .width-padding {
         @apply px-8 md:px-16 xl:px-64;
     }
 
