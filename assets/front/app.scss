@@ -14,7 +14,7 @@ img {
     object-fit: cover;
 }
 
-.opacite {
+.opacity {
   background: linear-gradient(
     to right,
     rgba(242, 158, 25, 0.9),
@@ -22,7 +22,7 @@ img {
   );
 }
 
-.txtshadow {
+.text-shadow {
   text-shadow: 1px 1px 2px #000000;
 }
 
@@ -31,19 +31,19 @@ img {
   color: #1e1e1e;
 }
 
-*//------------Class for balise-----------//*
+/*------------Class for balise-----------*/
 
     footer {
         @apply h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48;
     }
 
-*//-------------Class for placement-------------//*
+/*-------------Class for placement-------------*/
 
-    .encadrement-big {
+    .container-big {
         @apply 2xl:container 2xl:mx-auto;
     }
 
-    .largeur {
+    .width {
         @apply mx-8 md:mx-16 xl:mx-64;
     }
 
@@ -51,28 +51,28 @@ img {
         @apply px-8 md:px-16 xl:px-64;
     }
 
-    .hauteur {
+    .height {
         @apply py-12 md:py-16 xl:py-24;
     }
 
-*//------------Class for text-------------//*
+/*------------Class for text-------------*/
 
-    .text-principal {
+    .main-text {
         @apply font-hind_guntur text-sm md:text-base xl:text-lg;
     }
 
-    .titre {
+    .title {
         @apply font-trirong text-xl font-bold uppercase tracking-widest md:text-2xl xl:text-3xl;
     }
 
-    .sous-titre {
+    .subtitle {
         @apply text-center font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl;
         &-blog {
             @apply font-expletus_sans text-sm font-semibold tracking-widest md:text-base xl:text-lg;
         }
     }
 
-*//-------------Class created-----------*//
+/*-------------Class created-----------*/
 
     .menu {
         @apply fixed top-0 z-20 flex h-14 w-full items-center bg-gray-700 font-expletus_sans text-white md:h-20 xl:h-20;
@@ -95,25 +95,25 @@ img {
         }
     }
 
-    .losange-h2 {
+    .diamond {
         @apply w-8 md:w-10 xl:w-11;
     }
 
-    .part-fond-black {
-        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 encadrement-big 2xl:w-4/5 2xl:gap-x-20;
+    .part-black-background {
+        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 container-big 2xl:w-4/5 2xl:gap-x-20;
         > img {
             @apply ml-auto hidden w-64 lg:block 2xl:ml-0;
         }
     }
 
-    .outils {
+    .tools {
         @apply relative m-auto flex h-20 w-32 items-center justify-center bg-white shadow-2xl md:h-40 md:w-52;
         .start {
             @apply absolute inset-0 m-4 bg-contain bg-center bg-no-repeat;
         }
 
         .action {
-            @apply opacite absolute inset-0 z-10 flex flex-col items-center justify-center px-3 font-semibold text-white opacity-0 duration-300 hover:opacity-100;
+            @apply opacity absolute inset-0 z-10 flex flex-col items-center justify-center px-3 font-semibold text-white opacity-0 duration-300 hover:opacity-100;
         }
     }
 
@@ -124,7 +124,7 @@ img {
     .card {
         @apply py-8 flex flex-col items-center justify-center px-8 mx-10 shadow-xl flex-1 lg:shadow-2xl 2xl:mx-20 2xl:w-2/4;
 
-        &-degrade {
+        &-gradient {
             @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-white;
         }
 
@@ -144,7 +144,7 @@ img {
     .blog {
         @apply py-20 flex flex-col justify-center px-20 shadow-xl lg:shadow-2xl flex-1;
 
-        &-degrade {
+        &-gradient {
             @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-gray-100;
         }
     }
@@ -153,7 +153,7 @@ img {
         @apply bg-gray-100 text-center font-semibold font-trirong mx-10 my-8 px-20 py-16 xl:mx-32 xl:my-10 xl:px-32 xl:py-20;
     }
 
-*//------------Class for carrousel-------------//*
+/*------------Class for carrousel-------------*/
 
     .glide__slides {
         align-items: center;
