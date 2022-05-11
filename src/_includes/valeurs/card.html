@@ -1,0 +1,16 @@
+<div class="card {{ include.color }}">
+    <img src="{{ include.image }}"
+         class="mb-6 hidden md:mb-0 md:block md:w-40 xl:w-56"
+         alt="{{ include.alt }}"
+         itemprop="image"/>
+
+    <div>
+        <h2 class="font-expletus_sans text-base font-semibold normal-case md:text-lg xl:text-xl">
+            {{ include.title }}
+        </h2>
+
+        <p class="main-text">
+            {{ include.content }}
+        </p>
+    </div>
+</div>

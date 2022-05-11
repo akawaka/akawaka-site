@@ -1,0 +1,30 @@
+<article class="width-padding height bg-gray-100" itemscope itemtype="https://schema.org/WebPage">
+    <div class="container-big">
+        {% include title.html %}
+
+        <div class="glide px-20 md:px-28 xl:px-40 my-12 md:my-16 xl:my-24">
+            <div data-glide-el="track" class="glide__track">
+                <ul class="glide__slides">
+                    {% for customers in site.clients %}
+                    <li class="glide__slide">
+                        <img src="{{ customers.src }}"
+                             srcset="{{ customers.srcset }}"
+                             alt="{{ customers.alt }}"
+                             title="{{ customers.title }}"
+                             itemprop="image"/>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                    <img class="w-8 md:w-16 xl:w-20" src="{{ '/build/front/images/nav-gauche.png' | prepend: site.baseurl | prepend: site.url }}" alt="">
+                </button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                    <img class="w-8 md:w-16 xl:w-20" src="{{ '/build/front/images/nav-droite.png' | prepend: site.baseurl | prepend: site.url }}" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</article>

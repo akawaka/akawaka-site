@@ -1,0 +1,50 @@
+<div class="container-big">
+    {% include sentence.html
+        sentence="Les projets ne se font pas seul, nous avons créé une <strong>super équipe</strong> pour les concrétiser."
+    %}
+
+    <div class="mx-10 2xl:mx-20 mt-12 flex grid grid-cols-equipe flex-wrap justify-around gap-y-2 gap-x-2 md:mt-16 xl:mt-24" itemscope itemtype="https://schema.org/Person">
+        {% for trainer in site.team %}
+        <section class="my-10 mx-auto md:mr-0 md:ml-14 md:flex md:justify-center">
+            <div class="z-10">
+                <h2 class="mb-3 bg-white text-center font-expletus_sans text-xl font-bold text-{{ trainer.color }}" itemprop="jobTitle">
+                    {{ trainer.position }}
+                </h2>
+
+                <img srcset="{{ trainer.picture-person-sm }} 160w, {{ trainer.picture-person-lg }} 192w"
+                     sizes="(max-width: 1024px) 160px, 192px"
+                     src="{{ trainer.picture-person }}"
+                     alt="{{ trainer.alt }}"
+                     itemprop="image"/>
+
+                <div class="mt-4 flex flex-col flex-wrap justify-center">
+                    <div class="m-auto">
+                        <h3 class="main-text mb-2 text-center" itemprop="name">
+                            {{ trainer.name }}
+                        </h3>
+                    </div>
+
+                    <div class="flex justify-center gap-x-2">
+                        <a href="https://twitter.com/{{ trainer.twitter }}" target="_blank">
+                            <img src="/build/front/images/reseaux-sociaux/twitter.svg"
+                                 class="ml-auto w-5 bg-{{ trainer.color }} rounded-full"
+                                 alt="icone twitter de couleur de l'agence experte"/>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/{{ trainer.linkedin }}/" target="_blank">
+                            <img src="/build/front/images/reseaux-sociaux/linkedin-{{ trainer.color }}.svg" class="w-5" alt="icone linkedin de couleur de l'agence experte"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="z-0 -mt-10 -ml-20 justify-end md:-ml-20">
+                <img src="/build/front/images/losange-team.png"
+                     srcset="/build/front/images/losange-team.webp"
+                     class="hidden w-36 md:block"
+                     alt="double losanges en dégradé avec les couleurs de l'agence akawaka"/>
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+</div>

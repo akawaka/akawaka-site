@@ -1,0 +1,25 @@
+{% assign items = include.items | split: ";" %}
+
+<article class="width-padding height bg-gray-100">
+    <div class="container-big">
+        {% include title.html %}
+
+        <div class="items-start font-hind_guntur">
+            <h2 class="list-none text-justify text-sm md:text-base xl:text-lg">
+                {{ include.subtitle }}
+            </h2>
+
+            <ul class="mt-4 list-disc">
+                {% for item in items %}
+                <li class="ml-5 text-justify text-sm md:text-base xl:text-lg">
+                    {{ item }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <p class="mt-4 main-text">
+            {{ include.content }}
+        </p>
+    </div>
+</article>

@@ -1,0 +1,15 @@
+<article class="width-padding height bg-gray-100 text-center">
+    {% include title.html %}
+
+    <section class="container-big mt-12 grid grid-cols-technos gap-x-10 gap-y-10 md:grid-cols-technos-md">
+        {% for tools in site.outils %}
+        <div class="tools" title="{{ tools.title }}">
+            <div class="start bg-{{ tools.class }}"></div>
+
+            <div class="action">
+                <h2 class="mb-2 font-expletus_sans text-2xl md:text-4xl">{{ tools.subtitle }}</h2>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</article>

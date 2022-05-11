@@ -1,0 +1,13 @@
+<div class="flex justify-center items-center mt-24 gap-x-10">
+    <a href="{{ paginator.previous_page_path }}">
+        <img src="/build/front/images/nav-gauche.png" alt="flèche de gauche navigation akawaka" class="w-8 md:w-16">
+    </a>
+
+    <span class="title">
+    Page: {{ paginator.page }} / {{ paginator.total_pages }}
+    </span>
+
+    <a href="{{ paginator.next_page_path }}">
+        <img src="/build/front/images/nav-droite.png" alt="flèche de droite navigation akawaka" class="w-8 md:w-16">
+    </a>
+</div>

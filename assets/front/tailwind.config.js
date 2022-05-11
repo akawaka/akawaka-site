@@ -91,6 +91,12 @@ module.exports = {
                 5: "5rem",
                 8: "8rem",
             },
+
+            backgroundPosition: {
+                'top_left-10': '2.5rem 2.5rem',
+                'bottom_right_10': '2.5rem 2.5rem',
+            },
+
             spacing: {
                 128: "32rem",
             },

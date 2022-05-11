@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+{% include header.html %}
+
+<body class="text-gray-700">
+
+<img src="{{ '/build/front/images/logo_akawaka_noir.png' | absolute_url }}"
+     class="hidden w-28 md:w-28 xl:w-36"
+     alt="logo akawaka agence experte php symfony"/>
+
+{% include nav.html %}
+
+{% include pages/article.html %}
+
+<article id="post" class="width height">
+    <div class="container-big px-8 md:px-16 2xl:px-48">
+        {{ content }}
+    </div>
+</article>
+
+{% include footer.html %}
+
+</body>
+</html>

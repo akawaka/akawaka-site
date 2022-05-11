@@ -1,0 +1,24 @@
+<article class="bg-gray-700 text-white md:text-center" itemscope itemtype="https://schema.org/WebPage">
+    <div class="part-black-background">
+        <img src="{{ include.image_svg }}"
+             srcset="{{ include.image_webp }}"
+             alt="{{ include.alt }}"
+             itemprop="image"/>
+
+        <div class="col-span-5 lg:col-span-3">
+            {% include title.html %}
+
+            <p class="main-text">{{ include.content }}</p>
+
+            <p class="main-text mt-4">{{ include.content_2 }}</p>
+
+            {% include button.html
+                center="m-auto"
+                title="Cliquez ici pour accéder à Sylius"
+                url="sylius.html"
+                color="black"
+                content="En savoir plus"
+            %}
+        </div>
+    </div>
+</article>

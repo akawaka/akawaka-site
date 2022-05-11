@@ -1,0 +1,53 @@
+{% assign items = include.items | split: ";" %}
+
+<article class="width height shadow-2xl {{ include.color }}" itemscope itemtype="https://schema.org/WebPage">
+    <div class="container-big">
+        <div class="flexwrap flex flex-col items-center justify-between md:flex-row md:flex-nowrap mx-10 2xl:mx-20">
+            <div class="md:mr-16">
+                <header>
+                    <h1 class="mb-5 font-expletus_sans text-base font-bold normal-case md:text-lg xl:text-xl">
+                        {{ include.title }}
+                    </h1>
+                </header>
+
+                <p class="main-text">
+                    {{ include.content }}
+                </p>
+            </div>
+
+            <img src="{{ include.image }}"
+                 class="hidden md:block md:w-40 xl:w-56"
+                 alt="{{ include.alt }}"
+                 itemprop="image"/>
+        </div>
+
+        <section class="mt-10 font-hind_guntur mx-10 2xl:mx-20">
+            <h2 class="text-sm md:text-base xl:text-lg">{{ include.subtitle }}</h2>
+
+            <div class="font-hind_guntur md:mx-8 xl:mx-16">
+                <div class="flexwrap mt-10 justify-around space-y-2 md:flex md:flex-nowrap md:justify-between md:gap-x-16 md:space-y-0">
+                    {% for item in items %}
+                    {% assign iteration = forloop.index | modulo: include.iteration %}
+                    {% if iteration == 1 %}
+                        <div class="space-y-2 md:flex md:flex-1 md:flex-col md:items-center md:gap-y-5 md:space-y-0">
+                    {% endif %}
+
+                        <div class="flex items-center md:w-3/4 md:w-full">
+                            <img src="/build/front/images/losange-min.png"
+                                 srcset="/build/front/images/losange-min.webp"
+                                 class="w-5"
+                                 alt="losange en dégradé avec les couleurs de l'agence akawaka"/>
+
+                            <p class="list-services">{{ item }}</p>
+                        </div>
+
+                        {% if iteration == 0 %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+    </div>
+</article>

@@ -1,0 +1,18 @@
+<article class="width mt-24 mb-12 md:mt-32 md:mb-16 xl:mt-48" itemscope itemtype="https://schema.org/WebPage">
+    <div class="container-big">
+        {% include title.html %}
+
+        <div class="flex flex-wrap items-center justify-between font-hind_guntur xl:flex-nowrap">
+            <p class="text-justify text-sm md:text-base xl:text-lg w-2/4">
+                {{ include.content }}
+            </p>
+
+            <video src="{{ include.video }}"
+                   class="mt-5 w-32 shadow-2xl border-4 border-solid border-gray-900 md:w-44 xl:mt-0 xl:ml-12 xl:w-128"
+                   controls
+                   poster="{{ include.img_video }}">
+                {{ include.title_video }}
+            </video>
+        </div>
+    </div>
+</article>
