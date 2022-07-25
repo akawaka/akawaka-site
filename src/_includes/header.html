@@ -1,0 +1,24 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    {% seo %}
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:image" content="https://www.akawaka.fr/build/front/images/logo_akawaka_noir.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:domain" content="akawaka.fr">
+    <meta name="twitter:image" content="https://www.akawaka.fr/build/front/images/logo_akawaka_noir.png">
+
+    <link rel="shortcut icon" type="image/png" href="{{ '/build/front/images/favicon.ico' | prepend: site.baseurl | prepend: site.url }}" >
+
+    <link href="{{ '/build/front/app.css' | prepend: site.baseurl | prepend: site.url }}" rel="stylesheet">
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <link rel="alternate" type="application/atom+xml" title="{{ site.theme_settings.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}" />
+
+    <script src="{{ '/build/front/runtime.js' | prepend: site.baseurl | prepend: site.url }}" defer></script>
+    <script src="{{ '/build/front/app.js' | prepend: site.baseurl | prepend: site.url }}" defer></script>
+</head>

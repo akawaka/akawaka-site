@@ -1,0 +1,138 @@
+<main class="bg-gray-100">
+    <div class="-translate-y-12 md:-translate-y-16 xl:-translate-y-24">
+        {% if paginator.page == 1 %}
+        <article class="width height shadow-2xl bg-white">
+            <div class="container-big">
+                {% for post in paginator.posts limit:1 %}
+                <a href="{{ post.url }}">
+                    <div class="flex flex-col lg:flex-wrap lg:flex-row relative mx-24 md:mx-20 lg:mx-10 2xl:mx-20">
+                        <img src="{{ post.image }}" alt="{{ post.alt }}" class="w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
+
+                        <div
+                            class="bg-pink-500 text-gray-100 py-4 px-4 space-y-10 space-y-8 absolute right-0 top-0 lg:top-auto lg:right-1/2 lg:bottom-0 xl:right-0 xl:top-0 xl:bottom-auto 2xl:top-auto 2xl:right-1/2 2xl:bottom-0">
+                            <div class="space-y-2">
+                                <h2 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
+                                    Auteur :
+                                </h2>
+
+                                <p class="main-text">{{ post.author }}</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <h3 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
+                                    Publication
+                                </h3>
+
+                                <p class="main-text">{{ post.date | date: "%d %B %Y" }}</p>
+                            </div>
+                        </div>
+
+                        <div class="blog blog-gradient">
+                            <h1 class="mb-5 title">{{ post.title }}</h1>
+
+                            <p class="main-text">{{ post.subtitle }}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </article>
+
+        {% if paginator.posts.size < 2 %}
+            <hr class="width bg-gray-700 h-2 text-pink-500 border-t-0">
+        {% else %}
+        <article class="width height shadow-2xl bg-gray-700">
+            <div class="container-big">
+                {% for post in paginator.posts limit:2 offset:1 %}
+                <div class="flex-col items-center lg:items-start lg:flex-row flex space-y-10 lg:space-y-0 lg:space-x-10 mx-10 2xl:mx-20">
+                    <img src="{{ post.image }}" alt="portrait de Jeanne" class="w-80 h-44 lg:h-80 lg:w-96">
+
+                    <div class="text-white">
+                        <p class="text-yellow-500 main-text mb-10">{{ post.date | date: "%d %B %Y"}}</p>
+
+                        <h1 class="title">{{ post.title }}</h1>
+
+                        <h2 class="main-text">{{ post.subtitle }}</h2>
+
+                        <div class="button" title="Cliquez ici pour découvrir l'article">
+                            <a href="{{ post.url }}">
+                                <p class="button-black">Lire l'article</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {% unless forloop.last %}
+                <hr class="bg-gradient-to-r from-pink-500 to-yellow-500 h-2 text-pink-500 border-t-0 my-12 md:my-16 xl:my-24 mx-10 2xl:mx-20">
+                {% endunless %}
+
+                {% endfor %}
+            </div>
+        </article>
+        {% endif %}
+
+        <article class="bg-gray-100 shadow-2xl width height">
+            <div class="container-big">
+                <div class="mx-10 2xl:mx-20 grid grid-cols-blog gap-x-10 gap-y-10 md:grid-cols-blog-md">
+                    {% for post in paginator.posts %}
+
+                    <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                        <p class="main-text">{{ post.date | date: "%d %B %Y"}}</p>
+
+                        <img src="{{ post.image }}" alt="" class="w-full">
+
+                        <h1 class="subtitle-blog">{{ post.title }}</h1>
+
+                        <p class="main-text">{{ post.subtitle }}</p>
+
+                        <div class="flex justify-center">
+                            <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                <a href="{{ post.url }}">
+                                    <p class="button-blog-gray">Lire l'article</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% include blog/paginate.html %}
+
+            </div>
+        </article>
+
+        {% else %}
+
+        <article class="bg-gray-100 shadow-2xl width height">
+            <div class="container-big">
+                <div class="mx-10 2xl:mx-20 grid grid-cols-blog gap-x-10 gap-y-10 md:grid-cols-blog-md">
+                    {% for post in paginator.posts %}
+
+                    <div class="space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                        <p class="main-text">{{ post.date | date: "%d %B %Y"}}</p>
+
+                        <img src="{{ post.image }}" alt="" class="w-full">
+
+                        <h1 class="subtitle-blog">{{ post.title }}</h1>
+
+                        <p class="main-text">{{ post.subtitle }}</p>
+
+                        <div class="flex justify-center">
+                            <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                <a href="{{ post.url }}">
+                                    <p class="button-blog-gray">Lire l'article</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% include blog/paginate.html %}
+
+            </div>
+        </article>
+
+        {% endif %}
+    </div>
+</main>

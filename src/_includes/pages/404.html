@@ -1,0 +1,27 @@
+<main class="bg-gray-100">
+    <article class="text-center width bg-white shadow-2xl -translate-y-12 md:-translate-y-16 xl:-translate-y-24" itemscope itemtype="https://schema.org/WebPage">
+        <div class="py-24 md:py-32 xl:py-48">
+            <div class="container-big">
+                <div class="mx-10 2xl:mx-20">
+                    <header>
+                        <h1 class="mb-5 text-center font-expletus_sans text-lg font-bold normal-case lg:text-xl">
+                            {{ include.title }}</h1>
+                    </header>
+
+                    <p class="m-auto font-hind_guntur text-sm md:text-base md:text-lg">
+                        {{ include.content }}
+                    </p>
+
+                    <img src="/build/front/images/logo_akawaka_noir.svg"
+                         class="m-auto my-4 w-40 border border-solid border-transparent py-2 px-5 border-gradient-r-rose-orange-white md:w-48 md:border-2"
+                         alt="logo akawaka agence experte php, symfony, sylius"
+                         itemprop="image"/>
+                </div>
+            </div>
+        </div>
+
+        <div class=" pb-4">
+            <a href="{{ site.url }}" class="m-auto text-center font-hind_guntur text-sm md:text-base md:text-lg hover:text-yellow-500">{{ include.link }}</a>
+        </div>
+    </article>
+</main>

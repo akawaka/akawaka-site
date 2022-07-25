@@ -9,7 +9,19 @@ services:
     volumes:
       - "./infrastructure/docker/nginx/conf.d:/etc/nginx/conf.d:ro"
       - "./public:/var/www/html/public:ro"
+    depends_on:
+      - jekyll
     ports:
-      - "80:80"
+      - "80"
     networks:
       backend: ~
+
+  jekyll:
+    build:
+      context: .
+    tty: true
+    volumes:
+      - ".:/srv/jekyll:rw"
+    environment:
+      BUNDLER_VERSION: 2.3.13
+      JEKYLL_ENV: docker

@@ -45,7 +45,10 @@ if [ $clean = true ]; then
   preserve=(
     .gitignore
     .prettierrc
+    _config.yml
     configure
+    Gemfile
+    Gemfile.lock
     package.json
     package-lock.json
     postcss.config.js
@@ -65,12 +68,14 @@ fi
 if [ $docker = true ]; then
   echo "Add docker files!"
   cp ./infrastructure/docker/autoconf/docker-compose.yaml.dist ./docker-compose.yaml
-  cp ./infrastructure/docker/autoconf/.dockerignore ./.dockerignore
+  cp ./infrastructure/docker/autoconf/.dockerignore ./
+  cp ./infrastructure/docker/autoconf/Dockerfile ./
   cp ./infrastructure/docker/autoconf/Makefile.dist ./
 
   if [ $proxy = true ]; then
     echo "Oh! You want a reverse proxy!"
     cp infrastructure/docker/autoconf/docker-compose.override.yaml.dist ./docker-compose.override.yaml
+	cp ./infrastructure/docker/autoconf/_config_docker.yml ./
 
     sed -i -e 's/80:80/80/g' ./docker-compose.yaml
     sed -i -e 's/8025:8025/8025/g' ./docker-compose.yaml

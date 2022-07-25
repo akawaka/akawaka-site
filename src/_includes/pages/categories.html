@@ -1,0 +1,70 @@
+<main class="bg-gray-100">
+    <div class="-translate-y-12 md:-translate-y-16 xl:-translate-y-24">
+        <article class="bg-gray-100 shadow-2xl width height">
+            <div class="container-big">
+                {% if page.title == 'categories' %}
+                    <header>
+                        <p class="text-yellow-500 main-text mb-5 mx-10 2xl:mx-20">
+                            <a href="/blog" class="hover:text-gray-700">Blog </a>/
+                            {{ page.title | capitalize }}
+                        </p>
+                    </header>
+                {% else %}
+                    <header>
+                        <p class="text-yellow-500 main-text mb-5 mx-10 2xl:mx-20">
+                            <a href="/blog" class="hover:text-gray-700">Blog </a>/
+                            <a href="{{ site.baseurl }}{% link blog/categories.md %}" class="hover:text-gray-700">Catégories</a> /
+                            {{ page.title | capitalize }}
+                        </p>
+                    </header>
+                {% endif %}
+
+                <div class="mx-10 2xl:mx-20 grid grid-cols-blog gap-x-10 gap-y-10 md:grid-cols-blog-md">
+                    {% if page.title == 'categories' %}
+
+                        {% for category in site.categories %}
+                            <div class="{% if site.categories.size == 1 %}w-1/2 lg:w-1/4{% endif %} space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                                <img src="{{ category.image }}" alt="" class="w-full">
+
+                                <h1 class="subtitle-blog">{{ category.subtitle }}</h1>
+
+                                <div class="flex justify-center">
+                                    <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                        <a href="{{ category.url }}">
+                                            <p class="button-blog-gray">Voir la catégorie</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+
+                        {% for post in site.posts %}
+                            {% if page.title == post.category %}
+                                {% assign total_posts = site.posts | where: "category", post.category %}
+                                <div class="{% if total_posts.size == 1 %}w-1/2 lg:w-1/4{% endif %} space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                                    <img src="{{ post.image }}" alt="" class="w-full">
+
+                                    <h1 class="text-center subtitle-blog">{{ post.title }}</h1>
+
+                                    <p class="main-text">{{ post.subtitle }}</p>
+
+                                    <div class="flex justify-center">
+                                        <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                            <a href="{{ post.url }}">
+                                                <p class="button-blog-gray">Lire l'article</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+
+            </div>
+        </article>
+    </div>
+</main>

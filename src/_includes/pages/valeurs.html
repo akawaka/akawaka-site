@@ -1,0 +1,60 @@
+<main class="bg-gray-100">
+    <article class="mx-8 md:mx-16 xl:mx-64 height bg-white shadow-2xl -translate-y-12 md:-translate-y-16 xl:-translate-y-24" itemscope itemtype="https://schema.org/WebPage">
+        {% include sentence.html
+            sentence="Akawaka ne serait pas l'entreprise qu'elle est sans des valeurs."
+        %}
+
+        <section class="mt-12 md:mt-16 xl:mt-24">
+            <div class="container-big flex flex-col gap-x-10 gap-y-12 md:gap-y-16 lg:flex-row xl:gap-y-24 2xl:gap-x-20">
+                {% include valeurs/card.html color="card-gradient"
+                image="build//front/images/humain.svg"
+                alt="L'humain, valeur d'akawaka illustré par une poignée de main"
+                title="Humaine"
+                content="<strong>Notre métier évolue chaque jour</strong>
+                et nous oblige à devoir prendre du temps pour de la réflexion et de la montée en compétence,
+                c'est pourquoi nous attachons une grande importance au bien être quotidien des personnes. En
+                respectant ce temps, nous assurons
+                <strong>l’employabilité de chacun</strong>
+                et permettons à tout le monde de réussir à relever de nouveaux défis."
+                %}
+
+                {% include valeurs/card.html color="card-black"
+                image="build//front/images/partage.svg"
+                alt="Le partage, valeur d'akawaka illustré par le symbole du partage"
+                title="Partage"
+                content="Parce que
+                <strong>l’Open Source est fondamental</strong>
+                dans notre métier, nous pensons qu’il est important d’alimenter le cercle
+                <strong>en partageant notre savoir</strong>. Nous aimons apporter notre pierre à l’édifice grâce
+                à des <strong>contributions au code source</strong>, des animations de conférences locales et
+                nationales ainsi que par le mentorat de juniors et personnes en reconversion."
+                %}
+            </div>
+        </section>
+
+        <section class="mt-12 md:mt-16 xl:mt-24">
+            <div class="container-big flex flex-col gap-x-10 gap-y-12 lg:flex-row-reverse md:gap-y-16 lg:flex-row xl:gap-y-24 xxl:gap-x-20">
+                {% include valeurs/card.html color="card-gradient"
+                image="build//front/images/ethique.svg"
+                alt="L'éthique, valeur d'akawaka illustré par le symbole de la justice"
+                title="Éthique"
+                content="Parce que nous nous investissons pleinement dans les projets qui nous sont confiés nous tenons à
+                <strong>nous engager sur des projets avec des clients partageant nos valeurs</strong>."
+                %}
+
+                {% include valeurs/card.html color="card-black"
+                image="build//front/images/qualite.svg"
+                alt="La qualité, valeur d'akawaka illustré par une poignée de main"
+                title="Qualité"
+                content="Parce que chaque projet est important pour nous,
+                <strong>nous accordons une attention particulière</strong>
+                à la
+                <strong>qualité des services que nous fournissons</strong>.
+                Dans un milieu où les règles changent continuellement, nous misons sur des
+                <strong>architectures techniques évolutives</strong>
+                sur le long terme et la capitalisation du savoir."
+                %}
+            </div>
+        </section>
+    </article>
+</main>

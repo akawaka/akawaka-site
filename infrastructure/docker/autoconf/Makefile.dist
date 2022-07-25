@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
 DOCKER?=docker
-DOCKER_COMPOSE?=docker-compose
+DOCKER_COMPOSE?=docker compose
 EXECJS?=$(DOCKER) run -it --rm --name akawaka_node -v "$(shell pwd)/":/home/node/app -w /home/node/app node:12-buster-slim
+EXECJEKYLL?=$(DOCKER_COMPOSE) run -it --rm --name akawaka_jekyll jekyll
 
 ##
 ## Project setup
@@ -13,7 +14,7 @@ install: build start ## Install and start the project with vendors update
 up: ## Start the project without vendors update
 	$(DOCKER_COMPOSE) up -d --remove-orphans
 
-start: up public/build ## Start the project with vendors update
+start: up public/build jekyll-build ## Start the project with vendors update
 
 stop: ## Do nothing
 	$(DOCKER_COMPOSE) kill
@@ -24,6 +25,18 @@ reset: clear build ## Stop clear and install
 clear: stop ## clear project
 	rm -Rf node_modules npm-cache public/build
 	rm docker-dev.lock
+
+
+##
+## Jekyll
+##---------------------------------------------------------------------------
+
+jekyll-watch: jekyll_modules ## Watch jekyll
+	$(EXECJEKYLL) bundle exec jekyll serve --force_polling --verbose --trace --config _config.yml,_config_docker.yml -
+
+jekyll-build: jekyll_modules ## Build jekyll
+	$(EXECJEKYLL) bundle exec jekyll build --force_polling --verbose --trace --config _config.yml,_config_docker.yml -
+
 
 ##
 ## Assets
@@ -61,6 +74,12 @@ package-lock.json: package.json
 	@echo JS vendors are not up to date.
 
 public/build: assets
+
+jekyll_modules: Gemfile.lock
+	$(EXECJEKYLL) bundle install
+
+Gemfile.lock: Gemfile
+	@echo Gem are not up to date.
 
 ##
 ## Utilities

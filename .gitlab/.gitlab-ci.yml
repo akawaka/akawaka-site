@@ -12,7 +12,7 @@ assets:
   script:
     - npm install
     - npm run build
-    - npx prettier --parser html --write ./public/*.html
+    #- npx prettier --parser html --write ./public/*.html
     - mv ./public/build ./build
   artifacts:
     paths:
@@ -20,9 +20,12 @@ assets:
     expire_in: 1 day
 
 pages:
-  image: alpine:latest
+  image: ruby:2.7
   stage: deploy
   script:
+    - ./configure --env=prod --clean-before-tasks
+    - bundle install
+    - bundle exec jekyll build -d public --config _config.yml,_config_prod.yml
     - mv ./build ./public
   artifacts:
     paths:
@@ -34,9 +37,12 @@ pages:
     - main
 
 test:
-  image: alpine:latest
+  image: ruby:2.7
   stage: deploy
   script:
+    - ./configure --env=prod --clean-before-tasks
+    - bundle install
+    - bundle exec jekyll build -d public --config _config.yml
     - mv ./build ./public
   artifacts:
     paths:

@@ -1,0 +1,45 @@
+{% assign items = include.items | split: ";" %}
+
+<article class="width mt-24 mb-12 md:mt-32 md:mb-16 xl:mt-48" itemscope itemtype="https://schema.org/WebPage">
+    <div class="container-big">
+        {% include title.html %}
+
+        <section class="flex flex-wrap items-center justify-around font-hind_guntur xl:flex-nowrap xl:justify-between">
+            <div class="flex flex-col items-end">
+                <div class="items-start">
+                    <h2 class="main-text mb-5 text-justify">
+                        Nous vous aidons à concevoir et améliorer vos projets :
+                    </h2>
+
+                    <ul class="list-none space-y-2">
+                        {% for item in items %}
+                        <li class="main-text text-justify">
+                            <div class="flex items-center md:w-3/4 md:w-full">
+                                <img src="{{ '/build/front/images/losange-min.png' | prepend: site.baseurl | prepend: site.url }}"
+                                     srcset="{{ '/build/front/images/losange-min.webp' | prepend: site.baseurl | prepend: site.url }}" class="w-5" alt="losange en dégradé avec les couleurs de l'agence akawaka" />
+
+                                <p class="main-text ml-2">{{ item }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {% include button.html
+                    title="Cliquez ici pour accéder à Nos Services"
+                    url="services.html"
+                    color="white"
+                    content="Nos services"
+                %}
+            </div>
+
+            <img
+                srcset="{{ '/build/front/images/image_presentation_sm.webp' | prepend: site.baseurl | prepend: site.url }} 240w, {{ '/build/front/images/image_presentation_md.webp' | prepend: site.baseurl | prepend: site.url }} 288w, {{ '/build/front/images/image_presentation_lg.webp' | prepend: site.baseurl | prepend: site.url }} 320w"
+                sizes="(max-width: 640px) 240px, (max-width: 768px) 288px, 320px"
+                src="{{ '/build/front/images/image_presentation.png' | prepend: site.baseurl | prepend: site.url }}"
+                class="mt-5 xl:ml-12 xl:mt-0"
+                alt="image femme présentant l'agence akawaka avec un tableau aux couleurs de celle-ci"
+                itemprop="image"/>
+        </section>
+    </div>
+</article>
