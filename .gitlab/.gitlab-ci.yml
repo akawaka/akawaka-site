@@ -38,6 +38,8 @@ assets:
 pages:
   image: node:12-buster-slim
   stage: deploy
+  script:
+    - echo 'deploy'
   artifacts:
     paths:
       - public
