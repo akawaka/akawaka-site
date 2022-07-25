@@ -1,13 +1,15 @@
 stages:
+  - jekyll
+  - assets
   - test
   - deploy
 
 cache:
   key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
 
-pages:
+jekyll:
   image: ruby:2.7
-  stage: deploy
+  stage: jekyll
   script:
     - ./configure --env=prod --clean-before-tasks
     - bundle install
@@ -20,7 +22,7 @@ pages:
 
 assets:
   image: node:12-buster-slim
-  stage: deploy
+  stage: assets
   script:
     - npm install
     - npm run build
@@ -30,7 +32,18 @@ assets:
       - public
     expire_in: 1 day
   needs:
-    - job: pages
+    - job: jekyll
+      artifacts: true
+
+pages:
+  image: node:12-buster-slim
+  stage: deploy
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 day
+  needs:
+    - job: assets
       artifacts: true
 
 test:
@@ -44,8 +57,5 @@ test:
   artifacts:
     paths:
       - public
-  needs:
-    - job: assets
-      artifacts: true
   except:
     - main
