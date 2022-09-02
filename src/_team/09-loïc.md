@@ -5,7 +5,7 @@ picture-person-sm: /build/front/images/equipe/loic-sm.webp
 alt: Loïc FREMONT expert technique php, symfony, Sylius
 name: Loïc FREMONT
 position: Expert Technique
-twitter: loïc_425
+twitter: loic_425
 linkedin: loïc-fremont-b21813145
 color: blue-800
 ---
