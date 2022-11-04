@@ -5,7 +5,7 @@
             <div class="container-big">
                 {% for post in paginator.posts limit:1 %}
                 <a href="{{ post.url }}">
-                    <div class="flex flex-col lg:flex-wrap lg:flex-row relative mx-24 md:mx-20 lg:mx-10 2xl:mx-20">
+                    <div class="flex flex-col lg:flex-wrap lg:flex-row relative mx-12 md:mx-20 lg:mx-10 2xl:mx-20">
                         <img src="{{ post.image }}" alt="{{ post.alt }}" class="w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
 
                         <div
