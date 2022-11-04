@@ -31,11 +31,19 @@ clear: stop ## clear project
 ## Jekyll
 ##---------------------------------------------------------------------------
 
+ifeq (,$(wildcard _config_docker.yml))
+jekyll-watch: jekyll_modules ## Watch jekyll
+	$(EXECJEKYLL) bundle exec jekyll serve --force_polling --verbose --trace --config _config.yml -
+
+jekyll-build: jekyll_modules ## Build jekyll
+	$(EXECJEKYLL) bundle exec jekyll build --force_polling --verbose --trace --config _config.yml -
+else
 jekyll-watch: jekyll_modules ## Watch jekyll
 	$(EXECJEKYLL) bundle exec jekyll serve --force_polling --verbose --trace --config _config.yml,_config_docker.yml -
 
 jekyll-build: jekyll_modules ## Build jekyll
 	$(EXECJEKYLL) bundle exec jekyll build --force_polling --verbose --trace --config _config.yml,_config_docker.yml -
+endif
 
 
 ##
