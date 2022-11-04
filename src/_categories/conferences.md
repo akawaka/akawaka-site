@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Conférences PHP - Symfony - Sylius - JS - Vue - React - Architecture logicielle
+title: conferences 
 permalink: /blog/categories/conferences.html
 subtitle: Conférences
 ---
