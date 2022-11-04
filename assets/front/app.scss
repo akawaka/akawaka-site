@@ -68,7 +68,7 @@ img {
 /*------------Class for text-------------*/
 
     .main-text {
-        @apply font-hind_guntur text-sm md:text-base xl:text-lg;
+        @apply font-hind_guntur text-base md:text-lg xl:text-xl;
     }
 
     .title {
@@ -196,7 +196,7 @@ img {
 
 #post {
     h1 {
-        @apply title text-yellow-500 text-center mb-6;
+        @apply title text-yellow-500 text-center mb-6 pt-10;
     }
 
     h2 {
@@ -271,6 +271,10 @@ img {
             background: none;
             padding: 0 0;
         }
+    }
+
+    hr {
+        @apply border-b-2 border-yellow-500 w-2/4 my-10 mx-auto;
     }
 }
 
