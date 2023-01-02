@@ -34,6 +34,8 @@ assets:
   needs:
     - job: jekyll
       artifacts: true
+  only:
+      - main
 
 pages:
   image: node:12-buster-slim
@@ -47,15 +49,16 @@ pages:
   needs:
     - job: assets
       artifacts: true
+  only:
+      - main
 
 test:
   image: ruby:2.7
-  stage: deploy
+  stage: test
   script:
     - ./configure --env=prod --clean-before-tasks
     - bundle install
     - bundle exec jekyll build -d public --config _config.yml
-    - mv ./build ./public
   artifacts:
     paths:
       - public
