@@ -280,6 +280,10 @@ img {
     hr {
         @apply border-b-2 border-yellow-500 w-2/4 my-10 mx-auto;
     }
+
+    iframe {
+        margin: 0 auto;
+    }
 }
 
 
