@@ -2,7 +2,7 @@
 picture-person: /build/front/images/equipe/amelia.jpg
 picture-person-lg: /build/front/images/equipe/amelia-lg.webp
 picture-person-sm: /build/front/images/equipe/amelia-sm.webp
-alt: Amelia MASSOT développeuse php symfony
+alt: Amélia MASSOT développeuse php symfony
 name: Amélia MASSOT
 position: Développeuse
 twitter: Amel_CSGO
