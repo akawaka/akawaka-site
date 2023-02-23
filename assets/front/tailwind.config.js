@@ -23,7 +23,8 @@ module.exports = {
                 "blue-green": ["#0000ff", "#00FF00"],
                 "red-green-blue": ["#f00", "#0f0", "#00f"],
                 "black-white-with-stops": ["#000", "#000 45%", "#fff 55%", "#fff"],
-                "rose-orange": ["#de1e7e", "#f29e19"],
+                "pink-orange": ["#de1e7e", "#f29e19"],
+                "orange-pink": ["#f29e19", "#de1e7e"],
             },
             background: {
                 "gray-50": "#F9FAFB",
@@ -32,7 +33,6 @@ module.exports = {
                 "gray-900": "#111827",
                 white: "#fff",
                 transparent: "#001e1e1e",
-                roseorange: "#de1e7e",
             },
             border: {
                 // defaults to these values (optional)
@@ -80,6 +80,13 @@ module.exports = {
                 phpspec: "url('images/phpspec-logo.webp')",
                 behat: "url('images/behat-logo.webp')",
                 elastic: "url('images/elastic-logo.svg')",
+                gpdis: "url('images/gpdis-logo.jpg')",
+                afflelou: "url('images/logo-alain-afflelou.svg')",
+                "credit-agricole": "url('images/logo_credit_agricole.svg')",
+                convelio: "url('images/logo_convelio.png')",
+                "dr-data": "url('images/logo-dr-data.png')",
+                wava: "url('images/wava_logo.png')",
+                djuringa: "url('images/logo-djuringa.png')",
             },
             backgroundSize: {
                 "50%": "50%",
@@ -108,7 +115,8 @@ module.exports = {
             gridTemplateColumns: {
                 technos: "repeat(auto-fit, minmax(8rem, 1fr))",
                 "technos-md": "repeat(auto-fit, minmax(13rem, 1fr))",
-                clients: "repeat(auto-fit, minmax(10rem, 1fr))",
+                clients: "repeat(auto-fit, minmax(8rem, 1fr))",
+                "clients-md": "repeat(auto-fit, minmax(20rem, 1fr))",
                 equipe: "repeat(auto-fit, minmax(19rem, 1fr))",
                 blog: "repeat(auto-fit, minmax(11rem, 1fr))",
                 "blog-md": "repeat(auto-fit, minmax(16rem, 1fr))",

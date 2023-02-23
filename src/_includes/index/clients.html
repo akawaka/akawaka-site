@@ -1,30 +1,15 @@
-<article class="width-padding height bg-gray-100" itemscope itemtype="https://schema.org/WebPage">
-    <div class="container-big">
-        {% include title.html %}
+<article class="width-padding height bg-gray-100 text-center">
+    {% include title.html %}
 
-        <div class="glide px-20 md:px-28 xl:px-40 my-12 md:my-16 xl:my-24">
-            <div data-glide-el="track" class="glide__track">
-                <ul class="glide__slides">
-                    {% for customers in site.clients %}
-                    <li class="glide__slide">
-                        <img src="{{ customers.src }}"
-                             srcset="{{ customers.srcset }}"
-                             alt="{{ customers.alt }}"
-                             title="{{ customers.title }}"
-                             itemprop="image"/>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+    <section class="container-big mt-12 grid grid-cols-clients gap-x-2 gap-y-2 md:grid-cols-clients-md">
+        {% for customer in site.clients %}
+        <div class="customer" title="{{ customer.title }}">
+            <div class="start bg-{{ customer.class }}"></div>
 
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                    <img class="w-8 md:w-16 xl:w-20" src="{{ '/build/front/images/nav-gauche.png' | prepend: site.baseurl | prepend: site.url }}" alt="">
-                </button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                    <img class="w-8 md:w-16 xl:w-20" src="{{ '/build/front/images/nav-droite.png' | prepend: site.baseurl | prepend: site.url }}" alt="">
-                </button>
+            <div class="action">
+                <h2 class="mb-2 font-expletus_sans text-2xl md:text-4xl">{{ customer.subtitle }}</h2>
             </div>
         </div>
-    </div>
+        {% endfor %}
+    </section>
 </article>

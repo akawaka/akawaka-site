@@ -89,7 +89,7 @@ img {
     }
 
     .button {
-        @apply mt-10 h-14 w-32 border-2 border-solid border-transparent font-expletus_sans border-gradient-r-rose-orange-gray-700 md:w-36 hover:border-0;
+        @apply mt-10 h-14 w-32 border-2 border-solid border-transparent font-expletus_sans border-gradient-r-pink-orange-gray-700 md:w-36 hover:border-0;
         &-black {
             @apply h-full w-full flex justify-center items-center bg-gradient-to-r from-gray-700 to-gray-700 text-center text-sm hover:from-pink-500 hover:to-yellow-500 md:text-base;
         }
@@ -99,7 +99,7 @@ img {
     }
 
     .button-blog {
-        @apply h-10 w-24 border-2 border-solid border-transparent font-expletus_sans border-gradient-r-rose-orange-white md:h-14 md:w-36 hover:border-0;
+        @apply h-10 w-24 border-2 border-solid border-transparent font-expletus_sans border-gradient-r-pink-orange-white md:h-14 md:w-36 hover:border-0;
         &-gray {
             @apply h-full w-full flex justify-center items-center bg-gradient-to-r from-white to-white text-center text-sm hover:from-pink-500 hover:to-yellow-500 md:text-base;
         }
@@ -127,6 +127,17 @@ img {
         }
     }
 
+    .customer {
+        @apply relative m-auto flex h-20 w-32 items-center justify-center bg-white border-b-4 border-solid border-transparent border-gradient-r-orange-pink-white md:h-48 md:w-full;
+        .start {
+            @apply absolute inset-0 m-4 bg-contain bg-center bg-no-repeat md:bg-10;
+        }
+
+        .action {
+            @apply opacity absolute inset-0 z-10 flex flex-col items-center justify-center px-3 font-semibold text-white opacity-0 duration-300 hover:opacity-100;
+        }
+    }
+
     .list-services {
         @apply ml-2 text-sm md:text-base xl:text-lg;
     }
@@ -135,7 +146,7 @@ img {
         @apply py-8 flex flex-col items-center justify-center px-8 mx-10 shadow-xl flex-1 lg:shadow-2xl 2xl:mx-20 2xl:w-2/4;
 
         &-gradient {
-            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-white;
+            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-pink-orange-white;
         }
 
         &-black {
@@ -155,41 +166,12 @@ img {
         @apply py-20 flex flex-col justify-center px-12 md:px-20 shadow-xl lg:shadow-2xl flex-1;
 
         &-gradient {
-            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-rose-orange-gray-100;
+            @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-pink-orange-gray-100;
         }
     }
 
     .quote {
         @apply bg-gray-100 text-center font-semibold font-trirong mx-10 my-8 px-20 py-16 xl:mx-32 xl:my-10 xl:px-32 xl:py-20;
-    }
-
-/*------------Class for carrousel-------------*/
-
-    .glide__slides {
-        align-items: center;
-        justify-content: center;
-    }
-
-    .glide__slide {
-        @apply p-2 mx-2 flex items-center bg-white shadow-lg border-b-4 border-solid border-transparent border-gradient-r-rose-orange-white justify-center;
-        > img {
-            @apply p-4 lg:p-4 xl:p-2 2xl:px-16 h-40;
-            object-fit: contain;
-        }
-    }
-
-    .glide__arrow {
-        background-color: transparent;
-        border: 0 solid rgba(255, 255, 255, 0.5);
-        border-radius: 0;
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
-    }
-
-    .glide__arrow--left {
-        left: 1em;
-    }
-    .glide__arrow--right {
-        right: 1em;
     }
 
 /*------------Class for post-------------*/
