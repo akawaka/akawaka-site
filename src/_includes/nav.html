@@ -14,7 +14,7 @@
                     {% endfor %}
 
                     <li>
-                        <a href="{{ site.baseurl }}/blog" class="{% if page.Title == 'Blog' %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">Blog</a>
+                        <a href="{{ site.baseurl }}/blog.html" class="{% if page.titlenav == 'Blog' %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">Blog</a>
                     </li>
 
                     <li>
@@ -44,7 +44,11 @@
                     {% endfor %}
 
                     <li>
-                        <a href="{{ site.baseurl }}/contacter.html" class="{% if nav.titlenav == 'Contact' %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">Contact</a>
+                        <a href="{{ site.baseurl }}/blog.html" class="{% if page.titlenav == 'Blog' %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">Blog</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ site.baseurl }}/contacter.html" class="{% if page.titlenav == 'Contact' %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">Contact</a>
                     </li>
                 </ol>
             </nav>

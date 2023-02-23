@@ -96,7 +96,9 @@
                     {% endfor %}
                 </div>
 
-                {% include blog/paginate.html %}
+                {% if paginator.total_pages != 1 %}
+                    {% include blog/paginate.html %}
+                {% endif %}
 
             </div>
         </article>
@@ -128,7 +130,9 @@
                     {% endfor %}
                 </div>
 
-                {% include blog/paginate.html %}
+                {% if paginator.total_pages != 1 %}
+                    {% include blog/paginate.html %}
+                {% endif %}
 
             </div>
         </article>
