@@ -264,7 +264,8 @@ img {
     }
 
     iframe {
-        margin: 0 auto;
+        margin: 10px auto;
+        @apply w-11/12 lg:w-7/12;
     }
 }
 
