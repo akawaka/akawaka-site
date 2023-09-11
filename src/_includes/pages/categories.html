@@ -43,7 +43,7 @@
                         {% for post in site.posts %}
                             {% if page.title == post.category %}
                                 {% assign total_posts = site.posts | where: "category", post.category %}
-                                <div class="{% if total_posts.size == 1 %}w-1/2 lg:w-1/4{% endif %} space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                                <div class="{% if total_posts.size == 1 %}w-full lg:w-1/2 {% endif %} space-y-5 flex-1 text-gray-700 card-blog card-gradient">
                                     <img src="{{ post.image }}" alt="" class="w-full">
 
                                     <h1 class="text-center subtitle-blog">{{ post.title }}</h1>

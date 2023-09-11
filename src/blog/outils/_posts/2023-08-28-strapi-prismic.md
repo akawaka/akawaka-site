@@ -116,14 +116,11 @@ Vous pourrez tester leur fonctionnement, leur intégration à votre projet.
 Consulter les différentes communautés peut aussi vous aider, lisez les retours d'expérience d'autres utilisateurs car ils ont eu à se poser les mêmes questions que vous.
 
 Comme vous l'avez compris, ce choix dépend tellement des spécificités de votre projet et de vos préférences techniques que je ne pourrais pas vous donner une réponse qui conviendra à tout le monde et tout le temps. Toutes ces solutions ont des avantages et des inconvénients et répondent à des besoins spécifiques.
-En prenant tout cela en compte, vous pourrez choisir la solution qui vous convient le mieux pour tel ou tel projet. 
+En prenant tout cela en compte, vous pourrez choisir la solution qui vous convient le mieux pour tel ou tel projet.
 
-## Ressources 
-Documentation de Strapi :
-https://docs.strapi.io/dev-docs/intro
-
-Documentation de Prismic : 
-https://prismic.io/docs
+## Ressources
+- [Documentation de Strapi](https://docs.strapi.io/dev-docs/intro)
+- [Documentation de Prismic](https://prismic.io/docs)
 
 Turoriels et guides : 
 
