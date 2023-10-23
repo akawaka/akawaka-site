@@ -1,5 +1,5 @@
 <footer class="h-36 bg-gray-700 text-center font-expletus_sans text-white md:h-40 xl:h-48" itemscope itemtype="https://schema.org/WebPage">
-    <div class="width">
+    <div class="width-header-footer">
         <div class="container-big flex items-center justify-between pt-5 md:pt-10 xl:pt-12">
             <a href="{{ site.url }}">
                 <img src="{{ '/build//front/images/logo_akawaka_blanc.svg' | prepend: site.baseurl | prepend: site.url }}"
@@ -32,6 +32,6 @@
             </div>
         </div>
 
-        <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© 2022 - AKAWAKA - Tous droits réservés</p>
+        <p class="pt-10 pb-2 text-xs text-white xl:pt-12 xl:text-base">© {{ "now" | date: "%Y" }} - AKAWAKA - Tous droits réservés</p>
     </div>
 </footer>
