@@ -2,7 +2,7 @@
 
 <article class="width height shadow-2xl {{ include.color }}" itemscope itemtype="https://schema.org/WebPage">
     <div class="container-big">
-        <div class="flexwrap flex flex-col items-center justify-between md:flex-row md:flex-nowrap mx-10 2xl:mx-20">
+        <div class="flexwrap flex flex-col items-center justify-between md:flex-row md:flex-nowrap mx-4 2xl:mx-20">
             <div class="md:mr-16">
                 <header>
                     <h1 class="mb-5 font-expletus_sans text-base font-bold normal-case md:text-lg xl:text-xl">
@@ -21,15 +21,15 @@
                  itemprop="image"/>
         </div>
 
-        <section class="mt-10 font-hind_guntur mx-10 2xl:mx-20">
+        <section class="mx-4 mt-9 font-hind_guntur 2xl:mx-20">
             <h2 class="text-sm md:text-base xl:text-lg">{{ include.subtitle }}</h2>
 
-            <div class="font-hind_guntur md:mx-8 xl:mx-16">
-                <div class="flexwrap mt-10 justify-around space-y-2 md:flex md:flex-nowrap md:justify-between md:gap-x-16 md:space-y-0">
+            <div class=" font-hind_guntur md:mx-8 xl:mx-16">
+                <div class="flex flex-wrap mt-10 md:flex md:flex-nowrap md:justify-between md:gap-x-16 md:space-y-0">
                     {% for item in items %}
                     {% assign iteration = forloop.index | modulo: include.iteration %}
                     {% if iteration == 1 %}
-                        <div class="space-y-2 md:flex md:flex-1 md:flex-col md:items-center md:gap-y-5 md:space-y-0">
+                        <div class="mt-2 w-2/4 space-y-2 md:flex md:flex-1 md:flex-col md:items-center md:gap-y-5 md:space-y-0">
                     {% endif %}
 
                         <div class="flex items-center md:w-full">
