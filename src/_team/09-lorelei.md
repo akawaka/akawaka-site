@@ -7,5 +7,5 @@ name: Loreleï MOUTIEZ
 position: Développeuse
 twitter: taisezmoi
 linkedin: lorelei-moutiez
-color: pink-500
+color: blue-800
 ---

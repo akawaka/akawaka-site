@@ -7,5 +7,5 @@ name: Jean-Baptiste MERCIER
 position: Développeur
 twitter: _jback_
 linkedin: jean-baptiste-mercier-428631137
-color: pink-500
+color: blue-800
 ---

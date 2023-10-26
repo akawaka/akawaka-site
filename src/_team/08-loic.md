@@ -7,5 +7,5 @@ name: Loïc FREMONT
 position: Expert Technique
 twitter: loic_425
 linkedin: loïc-fremont-b21813145
-color: blue-800
+color: yellow-500
 ---

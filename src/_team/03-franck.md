@@ -7,5 +7,5 @@ name: Franck MATSOS
 position: Développeur
 twitter: fmatsos
 linkedin: fmatsos
-color: pink-500
+color: blue-800
 ---
