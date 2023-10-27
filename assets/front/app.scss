@@ -147,7 +147,7 @@ img {
     }
 
     .card {
-        @apply py-2 flex flex-col items-center justify-center shadow-xl flex-1 lg:shadow-2xl 2xl:mx-10 ;
+        @apply py-2 px-4 flex flex-col items-center justify-center mx-4 shadow-xl flex-1 lg:shadow-2xl 2xl:mx-10;
 
         &-gradient {
             @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-pink-orange-white;
