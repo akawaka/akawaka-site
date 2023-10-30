@@ -26,6 +26,11 @@ make reset # Clear and start the project
 make assets # Build assets
 make watch # Watch assets
 
+make watch & make jekyll-watch # Allows webpack watch & jekyll watch simultaneously
+```
+Use the `fg` command to regain control over the `make watch` command running background after terminating `make jekyll-watch`
+
+```
 # And moar!
 ```
 
