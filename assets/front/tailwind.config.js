@@ -117,7 +117,7 @@ module.exports = {
                 "technos-md": "repeat(auto-fit, minmax(13rem, 1fr))",
                 clients: "repeat(auto-fit, minmax(8rem, 1fr))",
                 "clients-md": "repeat(auto-fit, minmax(20rem, 1fr))",
-                equipe: "repeat(auto-fit, minmax(19rem, 1fr))",
+                equipe: "repeat(auto-fit, minmax(15rem, 1fr))",
                 blog: "repeat(auto-fit, minmax(11rem, 1fr))",
                 "blog-md": "repeat(auto-fit, minmax(16rem, 1fr))",
             },
