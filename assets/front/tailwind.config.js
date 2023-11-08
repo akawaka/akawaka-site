@@ -63,6 +63,17 @@ module.exports = {
                 },
             },
             backgroundImage: {
+                blacksheep: "url('images/logo-blacksheep.png')",
+                wanimo: "url('images/logo-wanimo.png')",
+                cfc: "url('images/logo-cfc.png')",
+                toosports: "url('images/logo-toosports.png')",
+                "brico-fenetre": "url('images/logo-brico-fenetre.png')",
+                activinnov: "url('images/logo-activinnov.png')",
+                psih: "url('images/logo-psih.png')",
+                smsp: "url('images/logo-smsp.png')",
+                wimova: "url('images/logo-wimova.png')",
+                "gamma-software": "url('images/logo-gamma-software.jpg')",
+                enoptea: "url('images/logo-enoptea.png')",
                 "ensemble-losange-header": "url('images/fond_header.png')",
                 "fond-noir": "url('images/fond_noir.png')",
                 docker: "url('images/docker_logo.webp')",
@@ -86,7 +97,7 @@ module.exports = {
                 convelio: "url('images/logo_convelio.png')",
                 "dr-data": "url('images/logo-dr-data.png')",
                 wava: "url('images/wava_logo.png')",
-                djuringa: "url('images/logo-djuringa.png')",
+                djuringa: "url('images/logo-djuringa.png')"
             },
             backgroundSize: {
                 "50%": "50%",
