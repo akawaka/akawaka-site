@@ -114,9 +114,9 @@ img {
     }
 
     .part-black-background {
-        @apply m-auto grid grid-cols-5 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 container-big 2xl:w-4/5 2xl:gap-x-20;
+        @apply m-auto grid grid-cols-4 items-center justify-center gap-x-10 py-5 px-8 md:w-3/4 md:px-0 lg:py-10 xl:w-3/4 container-big 2xl:w-4/5 2xl:gap-x-16;
         > img {
-            @apply ml-auto hidden w-64 lg:block 2xl:ml-0;
+            @apply ml-auto hidden w-64 lg:block lg:col-span-1 2xl:ml-0;
         }
     }
 
