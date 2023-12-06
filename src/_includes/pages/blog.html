@@ -4,9 +4,9 @@
         <article class="width height shadow-2xl bg-white">
             <div class="container-big">
                 {% for post in paginator.posts limit:1 %}
-                <a href="{{ post.url }}">
+                <a href="{{ site.baseurl }}{{ post.url }}">
                     <div class="flex flex-col lg:flex-wrap lg:flex-row relative mx-4 md:mx-20 lg:mx-10 2xl:mx-20">
-                        <img src="{{ post.image }}" alt="{{ post.alt }}" class="md:w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.alt }}" class="md:w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
 
                         <div
                             class="bg-pink-500 text-gray-100 w-full md:w-48 px-4 py-4 space-y-8 absolute right-0 top-0 lg:top-auto lg:right-1/2 lg:bottom-0 xl:right-0 xl:top-0 xl:bottom-auto 2xl:top-auto 2xl:right-1/2 2xl:bottom-0">
@@ -46,7 +46,7 @@
                     <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} md:relative space-y-5 flex-1 text-gray-700 card-blog card-gradient">
                         <p class="main-text">{{ post.date | date_to_french }}</p>
 
-                        <img src="{{ post.image }}" alt="" class="w-full">
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="" class="w-full">
 
                         <h1 class="subtitle-blog">{{ post.title }}</h1>
 
@@ -54,7 +54,7 @@
 
                         <div class="md:absolute md:start-auto md:bottom-0 md:h-20">
                             <div class="button-blog" title="Cliquez ici pour découvrir l'article">
-                                <a href="{{ post.url }}">
+                                <a href="{{ site.baseurl }}{{ post.url }}">
                                     <p class="button-blog-gray">Lire l'article</p>
                                 </a>
                             </div>
@@ -80,7 +80,7 @@
                     <div class="space-y-5 flex-1 text-gray-700 card-blog card-gradient">
                         <p class="main-text">{{ post.date | date_to_french }}</p>
 
-                        <img src="{{ post.image }}" alt="" class="w-full">
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="" class="w-full">
 
                         <h1 class="subtitle-blog">{{ post.title }}</h1>
 
@@ -88,7 +88,7 @@
 
                         <div class="flex justify-center">
                             <div class="button-blog" title="Cliquez ici pour découvrir l'article">
-                                <a href="{{ post.url }}">
+                                <a href="{{ site.baseurl }}{{ post.url }}">
                                     <p class="button-blog-gray">Lire l'article</p>
                                 </a>
                             </div>

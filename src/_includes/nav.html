@@ -9,7 +9,7 @@
                 <ol class="hidden list-none gap-x-7 text-sm md:flex md:text-base xl:text-lg" itemprop="itemListElement">
                     {% for node in site.header %}
                     <li>
-                        <a href="{{ node.url }}" class="{% if page.url == node.url %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">{{ node.titlenav }}</a>
+                        <a href="{{ site.baseurl }}{{ node.url }}" class="{% if page.url == node.url %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">{{ node.titlenav }}</a>
                     </li>
                     {% endfor %}
 
@@ -39,7 +39,7 @@
                 <ol class="flex w-full list-none flex-col gap-y-4 py-8 text-center text-xl" itemprop="itemListElement">
                     {% for nav in site.header %}
                     <li>
-                        <a href="{{ nav.url }}" class="{% if page.url == nav.url %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">{{ nav.titlenav }}</a>
+                        <a href="{{ site.baseurl }}{{ nav.url }}" class="{% if page.url == nav.url %}text-yellow-500{% else %}hover:text-yellow-500{% endif %}">{{ nav.titlenav }}</a>
                     </li>
                     {% endfor %}
 

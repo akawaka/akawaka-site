@@ -11,9 +11,9 @@
                     {{ trainer.position }}
                 </h2>
 
-                <img srcset="{{ trainer.picture-person-sm }} 160w, {{ trainer.picture-person-lg }} 192w"
+                <img srcset="{{ site.baseurl }}{{ trainer.picture-person-sm }} 160w, {{ site.baseurl }}{{ trainer.picture-person-lg }} 192w"
                      sizes="(max-width: 1024px) 160px, 192px"
-                     src="{{ trainer.picture-person }}"
+                     src="{{ site.baseurl }}{{ trainer.picture-person }}"
                      alt="{{ trainer.alt }}"
                      itemprop="image"
                      class="border-b-4 border-{{ trainer.color }}"/>
@@ -27,13 +27,13 @@
 
                     <div class="flex justify-center gap-x-2">
                         <a href="https://twitter.com/{{ trainer.twitter }}" target="_blank">
-                            <img src="/build/front/images/reseaux-sociaux/twitter.svg"
+                            <img src="{{ site.baseurl }}/build/front/images/reseaux-sociaux/twitter.svg"
                                  class="ml-auto w-5 bg-{{ trainer.color }} rounded-full"
                                  alt="icone twitter de couleur de l'agence experte"/>
                         </a>
 
                         <a href="https://www.linkedin.com/in/{{ trainer.linkedin }}/" target="_blank">
-                            <img src="/build/front/images/reseaux-sociaux/linkedin-{{ trainer.color }}.svg" class="w-5" alt="icone linkedin de couleur de l'agence experte"/>
+                            <img src="{{ site.baseurl }}/build/front/images/reseaux-sociaux/linkedin-{{ trainer.color }}.svg" class="w-5" alt="icone linkedin de couleur de l'agence experte"/>
                         </a>
                     </div>
                 </div>

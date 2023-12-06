@@ -3,14 +3,14 @@
         <header>
             <p class="text-yellow-500 main-text mb-5 mx-4">
                 <a href="/blog.html" class="hover:text-gray-700">Blog </a>/
-                <a href="{{ site.baseurl }}{% link blog/categories.md %}" class="hover:text-gray-700">Catégories</a> /
-                <a href="{{ site.baseurl }}{% link _categories/{{ page.category }}.md %}" class="hover:text-gray-700">{{ page.category | capitalize }}</a> /
+                <a href="{% link blog/categories.md %}" class="hover:text-gray-700">Catégories</a> /
+                <a href="{% link _categories/{{ page.category }}.md %}" class="hover:text-gray-700">{{ page.category | capitalize }}</a> /
                 {{ page.title | capitalize }}
             </p>
         </header>
 
         <div class="flex flex-col mx-4 md:relative lg:flex-row md:mx-20 lg:mx-0">
-            <img src="{{ page.image }}" alt="{{ page.alt }}" class="w-full lg:w-2/4">
+            <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.alt }}" class="w-full lg:w-2/4">
 
             <div class="blog blog-gradient">
                 <h1 class="mb-5 title">{{ page.title }}</h1>

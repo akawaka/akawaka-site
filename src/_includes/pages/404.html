@@ -12,7 +12,7 @@
                         {{ include.content }}
                     </p>
 
-                    <img src="/build/front/images/logo_akawaka_noir.svg"
+                    <img src="{{ site.baseurl }}/build/front/images/logo_akawaka_noir.svg"
                          class="m-auto my-4 w-40 border border-solid border-transparent py-2 px-5 border-gradient-r-pink-orange-white md:w-48 md:border-2"
                          alt="logo akawaka agence experte php, symfony, sylius"
                          itemprop="image"/>
@@ -21,7 +21,7 @@
         </div>
 
         <div class=" pb-4">
-            <a href="{{ site.url }}" class="m-auto text-center font-hind_guntur text-sm md:text-base md:text-lg hover:text-yellow-500">{{ include.link }}</a>
+            <a href="{{ site.baseurl }}{{ site.url }}" class="m-auto text-center font-hind_guntur text-sm md:text-base md:text-lg hover:text-yellow-500">{{ include.link }}</a>
         </div>
     </article>
 </main>
