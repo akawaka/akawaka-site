@@ -7,5 +7,5 @@ name: Valentin SILVESTRE
 position: Développeur
 twitter: ValentinSilves
 linkedin: v-silvestre
-color: yellow-500
+color: pink-500
 ---

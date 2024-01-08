@@ -7,5 +7,5 @@ name: Florian MERLE
 position: Développeur
 twitter: florianm__
 linkedin: florian-merle-2752b814a
-color: blue-800
+color: yellow-500
 ---

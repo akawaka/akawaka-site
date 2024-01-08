@@ -7,5 +7,5 @@ name: Kevin BALICOT
 position: Lead-développeur
 twitter: kevinbalicot
 linkedin: kevin-balicot-93522365
-color: yellow-500
+color: pink-500
 ---
