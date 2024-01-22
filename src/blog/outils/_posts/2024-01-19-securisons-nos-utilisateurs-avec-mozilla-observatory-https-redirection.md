@@ -19,7 +19,7 @@ Dans cette série d’articles, nous allons voir les principales erreurs que peu
 
 Lorsqu’on arrive sur le site [https://observatory.mozilla.org/](https://observatory.mozilla.org/) on nous invite à rentrer l’URL du site que l’on souhaite analyse, essayons donc avec akawaka.fr
 
-![Résultat d’analyse de Mozilla Observability sur akawaka.fr](/build/front/images/blog/mozilla-observability-akawaka.png)
+![Résultat d’analyse de Mozilla Observability sur akawaka.fr](/build/front/images/blog/mozilla-observatory-akawaka.png)
 
 Résultat d’analyse de Mozilla Observability sur akawaka.fr
 
