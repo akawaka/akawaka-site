@@ -1,30 +1,32 @@
 <article class="width mt-24 md:mt-32 xl:mt-48">
     <div class="container-big">
-        <header>
+        <nav>
             <p class="text-yellow-500 main-text mb-5 mx-4">
                 <a href="/blog.html" class="hover:text-gray-700">Blog </a>/
                 <a href="{% link blog/categories.md %}" class="hover:text-gray-700">Catégories</a> /
                 <a href="{% link _categories/{{ page.category }}.md %}" class="hover:text-gray-700">{{ page.category | capitalize }}</a> /
                 {{ page.title | capitalize }}
             </p>
-        </header>
+        </nav>
 
-        <div class="flex flex-col mx-4 md:relative lg:flex-row md:mx-20 lg:mx-0">
-            <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.alt }}" class="w-full lg:w-2/4">
-
-            <div class="blog blog-gradient">
-                <h1 class="mb-5 title">{{ page.title }}</h1>
-
-                <p class="main-text hidden md:block">{{ page.subtitle }}</p>
+        <div class="flex flex-col mx-4 md:relative xl:flex-row lg:flex-col md:mx-20 lg:mx-0">
+            <div class="xl:w-1/2 hidden md:block">
+                <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.alt }}" class="w-full">
             </div>
 
-            <div class="bg-pink-500 text-gray-100 py-4 px-8 md:absolute md:bottom-0 lg:top-auto md:right-0 lg:right-1/2">
-                <div class="md:pb-0">
-                    <p class="main-text">Par {{ page.author }},</p>
+            <div class="xl:w-1/2">
+                <div class="blog blog-gradient">
+                    <h1 class="title">{{ page.title }}</h1>
+
+                    {% if page.subtitle %}
+                        <p class="main-text mt-5">{{ page.subtitle }}</p>
+                    {% endif %}
                 </div>
 
-                <div class="pt-0">
-                    <p class="main-text">Le {{ page.date | date_to_french }}</p>
+                <div class="bg-pink-500 text-gray-100 py-2 px-4 md:py-3 md:px-5">
+                    <div class="md:pb-0">
+                        <p class="main-text">Par {{ page.author }}, Le {{ page.date | date_to_french }}</p>
+                    </div>
                 </div>
             </div>
         </div>
