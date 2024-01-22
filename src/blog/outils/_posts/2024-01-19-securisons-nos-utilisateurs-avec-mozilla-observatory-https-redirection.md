@@ -1,4 +1,14 @@
-# Sécurisons nos utilisateurs avec Mozilla Observatory - HTTPS et redirection
+---
+layout: post
+title: Sécurisons nos utilisateurs avec Mozilla Observatory - HTTPS et redirection
+image: /build/front/images/blog/mozilla-observatory-https-redirection.png
+alt: logo Mozzila Observatory
+subtitle: Sécurisons nos utilisateurs avec Mozilla Observatory
+date: 2024-01-22 12:00:00
+date_modified: 2024-01-22 12:00:00
+category: outils
+author: Équipe AKAWAKA
+---
 
 Nous avons eu la chance d'assister, lors d’un Meetup de LyonJs, à la conférence d'[Antoine Caron](https://twitter.com/Slashgear_) sur l'outil Mozilla Observatory. Il dresse un constat intéressant : pourquoi avons-nous tendance à croire que nous sommes en sécurité sur Internet, alors que les navigateurs pourraient être comparés, selon lui, à *des coffres-forts dont la porte serait grande ouverte* ? Ainsi, nos utilisateurs ne sont pas à l'abri tant que les navigateurs leur permettent d'être la cible d'attaques, telles que le vol de session via un lien dissimulant une injection de script JavaScript.
 
