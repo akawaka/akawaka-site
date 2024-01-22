@@ -2,8 +2,7 @@
 layout: post
 title: Sécurisons nos utilisateurs avec Mozilla Observatory - HTTPS et redirection
 image: /build/front/images/blog/mozilla-observatory-https-redirection.png
-alt: logo Mozzila Observatory
-subtitle: Sécurisons nos utilisateurs avec Mozilla Observatory
+alt: logo Mozilla Observatory
 date: 2024-01-22 10:00:00
 date_modified: 2024-01-22 10:00:00
 category: outils
@@ -40,7 +39,7 @@ Pour chaque règle, Mozilla nous fournit un lien vers leur documentation avec un
 
 Dans le cas de la règle [Redirection](https://infosec.mozilla.org/guidelines/web_security#http-redirections), la documentation nous dit qu’un site doit être disponible via le protocole HTTPS et que tout accès au site via le protocole non sécurisé HTTP doit être redirigé vers sa version sécurisée. Pour ce faire, c’est au niveau de la configuration du serveur HTTP que cela se passe et Mozilla nous fournit un exemple pour les deux principales solutions, Nginx et Apache.
 
-```bash
+```
 # Redirect all incoming http requests to the same site and URI on https, using nginx
 server {
   listen 80;
@@ -49,7 +48,7 @@ server {
 }
 ```
 
-```apacheconf
+```
 # Redirect for site.example.org from http to https, using Apache
 <VirtualHost *:80>
   ServerName site.example.org
@@ -71,7 +70,7 @@ Cet entête possède 3 paramètres :
 
 Enfin, Mozilla nous donne quelques exemples pour illustrer cet entête.
 
-```bash
+```
 # Only connect to this site via HTTPS for the two years (recommended)
 Strict-Transport-Security: max-age=63072000
 
