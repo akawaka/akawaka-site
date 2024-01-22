@@ -167,7 +167,7 @@ img {
     }
 
     .blog {
-        @apply pt-12 pb-8 md:py-20 flex flex-col justify-center px-4 md:px-20 shadow-xl lg:shadow-2xl flex-1;
+        @apply px-8 py-8 xl:px-16 xl:py-16 lg:px-14 lg:py-14 md:px-12 md:py-12 flex flex-col justify-center shadow-xl lg:shadow-2xl flex-1;
 
         &-gradient {
             @apply bg-white border-b-8 border-solid border-transparent border-gradient-r-pink-orange-gray-100;
