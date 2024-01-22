@@ -4,8 +4,8 @@ title: Sécurisons nos utilisateurs avec Mozilla Observatory - HTTPS et redirect
 image: /build/front/images/blog/mozilla-observatory-https-redirection.png
 alt: logo Mozzila Observatory
 subtitle: Sécurisons nos utilisateurs avec Mozilla Observatory
-date: 2024-01-22 12:00:00
-date_modified: 2024-01-22 12:00:00
+date: 2024-01-22 10:00:00
+date_modified: 2024-01-22 10:00:00
 category: outils
 author: Équipe AKAWAKA
 ---
@@ -30,7 +30,7 @@ La première en haut à gauche nous donne des infos sur la notation du site, on 
 
 La deuxième section en haut à droite nous donne en recommandation la règle la plus urgente à corriger. Ici Mozilla Observatory nous conseille d’ajouter l’entête `X-Frame-Options` avant toute chose.
 
- Enfin, la troisième section liste toutes les règles évaluées pas Mozilla Observatory sur notre site, ainsi que si on passe le test ou non et son score.
+Enfin, la troisième section liste toutes les règles évaluées pas Mozilla Observatory sur notre site, ainsi que si on passe le test ou non et son score.
 
 ### HTTPS et redirection
 
