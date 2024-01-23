@@ -46,7 +46,7 @@
                     <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} md:relative space-y-5 flex-1 text-gray-700 card-blog card-gradient">
                         <p class="main-text">{{ post.date | date_to_french }}</p>
 
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="" class="w-full">
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="image d'illustration de l'article" class="w-full md:min-w-60 md:min-h-32 md:max-h-32">
 
                         <h1 class="subtitle-blog">{{ post.title }}</h1>
 
