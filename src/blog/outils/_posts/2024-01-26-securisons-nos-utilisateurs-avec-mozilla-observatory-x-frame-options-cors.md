@@ -49,7 +49,7 @@ Le **CORS** (Cross-Origin Resource Sharing) est souvent perçu comme un véritab
 
 *Je ne vais pas entrer dans les détails techniques du fonctionnement du CORS, ni souligner son importance ici. Si vous êtes intéressés par une compréhension approfondie de ce mécanisme je vous invite à consulter mon article dédié au [CORS appliqué aux applications Node](https://boutdecode.fr/article/cors-avec-nodejs). Dans cet article j'aborde en profondeur tous les aspects pertinents, fournissant ainsi une ressource complète sur le sujet.*
 
-De nos jours, la majorité des développeurs sont au fait des principes de sécurité CORS, mais il arrive souvent que son implémentation soit effectuée de manière trop permissive. Pour administrer le CORS, l'entête HTTP `Access-Control-Allow-Origin` est utilisé pour spécifier une liste d'origines autorisées à interagir avec votre API.
+De nos jours la majorité des développeurs sont au fait des principes de sécurité CORS. Mais il arrive souvent que son implémentation soit effectuée de manière trop permissive. Pour administrer le CORS l'entête HTTP `Access-Control-Allow-Origin` est utilisé pour spécifier une liste d'origines autorisées à interagir avec votre API.
 
 ```
 # Allow any site to read the contents of this JavaScript library, so that subresource integrity works
