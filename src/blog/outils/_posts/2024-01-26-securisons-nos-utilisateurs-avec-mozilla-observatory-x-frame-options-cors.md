@@ -9,7 +9,7 @@ category: outils
 author: Équipe AKAWAKA
 ---
 
-Cet article fait partie d’une série d’articles consacrés à Mozilla Observatory, vous pouvez retrouver le premier article qui fait le focus sur [les règles HTTPS et redirection](https://www.akawaka.fr/blog/outils/securisons-nos-utilisateurs-avec-mozilla-observatory-https-redirection.html).
+Cet article fait partie d’une série d’articles consacrés à Mozilla Observatory. Vous pouvez retrouver le premier article parlant des [règles HTTPS et redirection](https://www.akawaka.fr/blog/outils/securisons-nos-utilisateurs-avec-mozilla-observatory-https-redirection.html).
 
 Continuons notre présentation des règles de sécurités testées par Mozilla Observatory et comment les corriger.
 
