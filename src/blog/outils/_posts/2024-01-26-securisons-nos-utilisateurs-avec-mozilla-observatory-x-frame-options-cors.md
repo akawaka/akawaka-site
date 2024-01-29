@@ -26,7 +26,7 @@ Dans la plupart des cas, on ne souhaite pas que notre site puisse être affiché
 On retrouve trois stratégies différentes :
 
 - `DENY` / `none`: On bloque tout simplement la possibilité d’afficher le site dans un iframe.
-- `SAMEORIGIN` / `self`: On autorise seulement d’afficher notre site dans un iframe si on est sur le même nom de domaine, en d’autres termes, on accepte d’afficher un site A dans un iframe seulement à partir du site A.
+- `SAMEORIGIN` / `self`: On autorise seulement d’afficher notre site dans un iframe si nous sommes sur le même nom de domaine. En d’autres termes on accepte d’afficher un site A dans un iframe, mais seulement à partir du site A.
 - `ALLOW-FROM`: On autorise d’afficher notre site dans un iframe seulement pour les noms de domaines cités.
 
 ```
