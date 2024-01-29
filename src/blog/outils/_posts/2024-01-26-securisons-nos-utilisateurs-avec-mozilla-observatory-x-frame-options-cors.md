@@ -21,7 +21,7 @@ Imaginez qu'un individu malintentionné acquiert un nom de domaine semblable à 
 
 Dans la plupart des cas, on ne souhaite pas que notre site puisse être affiché dans un iframe. Heureusement l’entête HTTP `X-Frame-Options` permet de dire au navigateur comment notre site doit se comporter au sein de celui-ci.
 
-À noter que la directive `X-Frame-Options` est dépréciée pour `Content-Security-Policy`, mais pour une compatibilité optimale avec tous les navigateurs, il est préférable de mettre les deux.
+À noter que la directive `X-Frame-Options` est dépréciée pour `Content-Security-Policy`. Mais pour une compatibilité optimale avec tous les navigateurs il est préférable de mettre les deux.
 
 On retrouve trois stratégies différentes :
 
