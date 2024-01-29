@@ -19,7 +19,7 @@ Cette directive de sécurité est essentielle pour définir la politique à suiv
 
 Imaginez qu'un individu malintentionné acquiert un nom de domaine semblable à celui de votre site web. Cette personne pourrait alors intégrer votre site dans une iframe sur sa propre page, se mettant ainsi en position de contrôler tout ce qui se passe au sein de cette iframe. Cela ouvre la porte à des pratiques malveillantes, comme la capture de sessions utilisateur, le vol d'identifiants ou d'autres données sensibles. L'utilisateur final, ne remarquant pas la supercherie, pourrait interagir avec l'iframe en pensant naviguer sur le site authentique.
 
-Dans la plupart des cas, on ne souhaite pas que notre site puisse être affiché dans un iframe, heureusement l’entête HTTP `X-Frame-Options` permet de dire au navigateur comme notre site doit se comporter dans un iframe.
+Dans la plupart des cas, on ne souhaite pas que notre site puisse être affiché dans un iframe. Heureusement l’entête HTTP `X-Frame-Options` permet de dire au navigateur comment notre site doit se comporter au sein de celui-ci.
 
 À noter que la directive `X-Frame-Options` est dépréciée pour `Content-Security-Policy`, mais pour une compatibilité optimale avec tous les navigateurs, il est préférable de mettre les deux.
 
