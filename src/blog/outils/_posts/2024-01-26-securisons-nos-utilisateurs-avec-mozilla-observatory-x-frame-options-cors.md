@@ -43,7 +43,7 @@ Content-Security-Policy: frame-ancestors https://framer.example.org
 X-Frame-Options: ALLOW-FROM https://framer.example.org
 ```
 
-## Cross-origin Resource Sharing
+### Cross-origin Resource Sharing
 
 Le **CORS** (Cross-Origin Resource Sharing) est souvent perçu comme un véritable casse-tête pour les développeurs d'applications Web qui consomment des API. Cependant, il s'agit d'une mesure de sécurité essentielle conçue pour protéger vos applications contre les requêtes provenant de sources inconnues ou non autorisées. Par défaut, les navigateurs sont configurés pour restreindre et contrôler l'accès aux API depuis des domaines différents de celui d'origine, garantissant ainsi que seules les requêtes fiables et prévues sont traitées.
 
