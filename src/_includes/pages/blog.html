@@ -5,32 +5,32 @@
             <div class="container-big">
                 {% for post in paginator.posts limit:1 %}
                 <a href="{{ site.baseurl }}{{ post.url }}">
-                    <div class="flex flex-col lg:flex-wrap lg:flex-row relative mx-4 md:mx-20 lg:mx-10 2xl:mx-20">
+                    <div class="flex flex-col lg:flex-row relative mx-4 md:mx-20 lg:mx-10 2xl:mx-20">
                         <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.alt }}" class="md:w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
 
-                        <div
-                            class="bg-pink-500 text-gray-100 w-full md:w-48 px-4 py-4 space-y-8 absolute right-0 top-0 lg:top-auto lg:right-1/2 lg:bottom-0 xl:right-0 xl:top-0 xl:bottom-auto 2xl:top-auto 2xl:right-1/2 2xl:bottom-0">
-                            <div class="space-y-2">
-                                <h2 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
-                                    Auteur :
-                                </h2>
-
-                                <p class="main-text">{{ post.author }}</p>
+                        <div>
+                            <div class="blog blog-gradient">
+                                <h1 class="mb-5 title">{{ post.title }}</h1>
+                                <p class="main-text">{{ post.subtitle }}</p>
                             </div>
+                            <div
+                                class="bg-pink-500 text-gray-100 w-full flex flex-row text-center">
+                                <div class="space-y-2 flex-1">
+                                    <h2 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
+                                        Auteur :
+                                    </h2>
 
-                            <div class="space-y-2">
-                                <h3 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
-                                    Publication
-                                </h3>
+                                    <p class="main-text">{{ post.author }}</p>
+                                </div>
 
-                                <p class="main-text">{{ post.date | date_to_french }}</p>
+                                <div class="space-y-2 flex-1">
+                                    <h3 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
+                                        Publication
+                                    </h3>
+
+                                    <p class="main-text">{{ post.date | date_to_french }}</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="blog blog-gradient">
-                            <h1 class="mb-5 title">{{ post.title }}</h1>
-
-                            <p class="main-text">{{ post.subtitle }}</p>
                         </div>
                     </div>
                 </a>
@@ -46,7 +46,7 @@
                     <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} md:relative space-y-5 flex-1 text-gray-700 card-blog card-gradient">
                         <p class="main-text">{{ post.date | date_to_french }}</p>
 
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="image d'illustration de l'article" class="w-full md:min-w-60 md:min-h-32 md:max-h-32">
+                        <img src="{{ site.baseurl }}{{ post.image }}" alt="image d'illustration de l'article" class="object-contain w-full md:min-w-60 md:min-h-32 md:max-h-32">
 
                         <h1 class="subtitle-blog">{{ post.title }}</h1>
 
