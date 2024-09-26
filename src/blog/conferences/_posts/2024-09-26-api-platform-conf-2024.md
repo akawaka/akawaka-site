@@ -223,15 +223,15 @@ En résumé, Frédéric nous propose des astuces pour simplifier et optimiser l'
 
 Participants : Clément Talleu, Jeanne Londiche et Olivier Mansour.
 
-La discussion s’ouvre sur le sujet des freelances et des difficultés qu’ils rencontrent pour trouver du travail. Jeanne constate qu'en raison du ralentissement actuel du marché, de nombreux développeurs envisagent de revenir vers des CDI. Olivier souligne que la perspective de hauts salaires a poussé beaucoup de jeunes diplômés à se tourner rapidement vers le freelance.
+La discussion s’ouvre sur le sujet des freelances et des difficultés qu’ils rencontrent pour trouver du travail. Jeanne constate qu'en raison du ralentissement actuel du marché, de nombreux développeurs envisagent de revenir vers des CDI. Olivier souligne que la perspective de hauts salaires a poussé beaucoup de jeunes diplômés à se tourner rapidement vers le freelancing.
 
-Jeanne revient sur l'impact de la pandémie : le secteur du e-commerce a connu une forte croissance pendant le COVID, mais subit désormais un déclin marqué, avec la fermeture de nombreuses boutiques. Clément ajoute que le marché du divertissement, notamment avec le streaming, a également stimulé l'embauche de nombreux développeurs durant cette période.
+Jeanne revient sur l'impact de la pandémie : le secteur du e-commerce a connu une forte croissance pendant le COVID, mais subit désormais un déclin marqué, avec la fermeture de nombreuses boutiques. Clément ajoute que le marché du divertissement a également stimulé les embauches durant cette période, notamment grâce à l'usage accru des plateformes de streaming.
 
-Aujourd'hui, selon Jeanne, le marché devient plus difficile avec une baisse des besoins et des salaires en recul. Olivier confirme cette tendance à travers le baromètre des salaires de l'AFUP, indiquant une stagnation des rémunérations pour les développeurs juniors et intermédiaires.
+Pour Jeanne, le marché devient aujourd'hui plus difficile à cause d'une baisse des besoins et des salaires en recul. Olivier confirme cette tendance à travers le baromètre des salaires de l'AFUP, indiquant une stagnation des rémunérations pour les développeurs juniors et intermédiaires.
 
 Sur l'attractivité des entreprises, Clément explique que Les-Tilleuls.coop, bien que proposant des salaires inférieurs à la moyenne, attire grâce à son modèle social coopératif. Olivier, quant à lui, affirme qu'il n'y a pas de forte tendance au turn-over et que les développeurs restent globalement fidèles à leur entreprise. Il précise que des avantages comme le télétravail ou la semaine de quatre jours sont des atouts majeurs pour attirer de nouveaux talents.
 
-Concernant les langages demandés sur le marché, une étude montre que PHP est désormais peu recherché. Olivier remarque que les entreprises privilégient de plus en plus des développeurs capables de maîtriser plusieurs langages, plutôt que de se spécialiser dans une seule technologie.
+Concernant les langages demandés sur le marché : une étude montre que PHP est désormais peu recherché. Olivier remarque que les entreprises privilégient de plus en plus des développeurs capables de maîtriser plusieurs langages, plutôt que de se spécialiser dans une seule technologie.
 
 Pour ce qui est de l'attractivité des développeurs eux-mêmes, Olivier conseille de consulter le baromètre des salaires pour se positionner de manière juste en fonction de son expérience. Jeanne ajoute que la veille technologique et les projets personnels sont des moyens efficaces pour se démarquer. Olivier nuance cependant en précisant que les entreprises devraient éviter de demander aux développeurs de réaliser des projets sur leur temps libre, et plutôt les soutenir avec des programmes de mentorat pour les juniors.
 
@@ -239,24 +239,24 @@ En conclusion, cette table ronde a été particulièrement intéressante, offran
 
 ## Comment se sortir du legacy ? par Smaïne Milliani
 
-Le terme **legacy** est souvent mal défini. Cela peut faire référence à du vieux code, à du code sans tests, ou même à du code qui génère des revenus pour l'entreprise, mais qui est difficile à maintenir. Smaïne Milliani nous propose une approche claire pour gérer ce type de code et améliorer sa qualité.
+Le terme **legacy** est souvent mal défini. Cela peut faire référence à du vieux code, à du code sans tests. Ou même du code qui génère des revenus pour l'entreprise, mais qui est difficile à maintenir. Smaïne Milliani nous propose une approche claire pour gérer ce type de code et améliorer sa qualité.
 
 ### Les caractéristiques d'un bon test
 
-Pour sortir du legacy, il faut d'abord comprendre comment bien tester le code. Voici quelques caractéristiques importantes à garder en tête pour des tests efficaces :
+Pour sortir du legacy il faut d'abord comprendre comment tester correctement le code. Voici quelques caractéristiques importantes à garder en tête pour des tests efficaces et pertinents :
 
-- **Rapide** : Les tests doivent s'exécuter rapidement.
-- **Isolé** : Ils ne doivent tester que le code ciblé, sans interférence avec d'autres parties.
-- **Répétable** : Les tests doivent fonctionner de manière identique en local et sur un serveur CI.
-- **Auto-validant** : Ils doivent signaler clairement si le code échoue.
-- **Exhaustif** : Plusieurs scénarios doivent être couverts.
+- **Rapide** : les tests doivent s'exécuter rapidement.
+- **Isolé** : ils ne doivent tester que le code ciblé, sans interférence avec d'autres parties.
+- **Répétable** : les tests doivent fonctionner de manière identique en local et sur un serveur CI.
+- **Auto-validant** : ils doivent signaler clairement si le code échoue.
+- **Exhaustif** : plusieurs scénarios doivent être couverts.
 
 #### Utiliser les bons outils
 
 Pour aborder le legacy, il est crucial de s'appuyer sur des outils adaptés tels que :
 
-- **Deptrac** : Pour visualiser et gérer les dépendances entre les modules.
-- **Rector** : Pour automatiser les refactorings en suivant des règles prédéfinies.
+- **Deptrac** : pour visualiser et gérer les dépendances entre les modules.
+- **Rector** : pour automatiser le refactoring en suivant des règles prédéfinies.
 
 Ces outils facilitent la transition d'un code legacy vers un code plus maintenable.
 
@@ -276,13 +276,13 @@ Il est important de s'assurer que le code fonctionne avant d'essayer de le rendr
 
 Voici quelques concepts de **Clean Code** qu'il est important de respecter :
 
-- **KISS** : Keep It Simple, Stupid. Garder le code simple et compréhensible.
-- **SOLID** : Respecter les cinq principes pour garantir une architecture modulaire et flexible.
-- **DRY** : Don't Repeat Yourself. Ne pas dupliquer le code inutilement.
+- **KISS** : _Keep It Simple, Stupid_ afin de conserver un code _simple_ et compréhensible.
+- **SOLID** : respecter les cinq principes pour garantir une architecture modulaire et flexible.
+- **DRY** : _Don't Repeat Yourself_ pour ne pas dupliquer le code inutilement.
 
 #### Utilisation des Design Patterns (quand c'est nécessaire)
 
-Les **design patterns** sont des outils puissants, mais ils doivent être utilisés à bon escient. Par exemple, il ne sert à rien d'utiliser un pattern si deux simples conditions `if` suffisent. Utilisez des patterns tels que **Strategy**, **Adapter**, et **Decorator** uniquement lorsque cela apporte une réelle valeur.
+Les **design patterns** sont des outils puissants, mais ils doivent être utilisés à bon escient. Par exemple, il ne sert à rien d'utiliser un pattern si deux simples conditions `if` suffisent. Utilisez des patterns tels que **Strategy**, **Adapter**, et **Decorator** uniquement lorsque cela apporte une vraie plus-value.
 
 > "N'utilisez des design patterns **QUE LORSQUE C'EST NÉCESSAIRE**."
 
@@ -292,8 +292,8 @@ Pour structurer et maintenir le code à long terme, une architecture solide est 
 
 - **Clean Architecture**
 - **CQRS** (Command Query Responsibility Segregation)
-- **Architecture Hexagonale**
-- **Architecture en Oignon**
+- **Hexagonal Architecture**
+- **Onion Architecture**
 - **MVC** (Model-View-Controller)
 
 Ces modèles permettent de mieux organiser le code, en le rendant modulaire, testable et évolutif.
@@ -314,7 +314,7 @@ Un principe simple mais efficace : **ne laissez jamais un code dans un état pir
 
 ### Garder les dépendances à jour
 
-Il est crucial de garder ses dépendances à jour pour éviter des problèmes de sécurité et de compatibilité. Des outils comme **RenovateBot** ou des mises à jour manuelles régulières sont indispensables pour garantir la stabilité du projet.
+Il est crucial de garder ses dépendances à jour pour éviter des problèmes de sécurité et de compatibilité. Des outils comme **[Renovate Bot](https://github.com/renovatebot)** ou des mises à jour manuelles régulières sont indispensables pour garantir la stabilité du projet.
 
 ### Comment gérer le legacy existant ?
 
@@ -330,21 +330,21 @@ Arriver sur un projet legacy peut sembler décourageant. Voici quelques pièges 
 
 Smaïne propose plusieurs méthodes pour s'attaquer au legacy de manière efficace :
 
-- **Mikado Method** : Cette approche consiste à découper un gros refactoring en plusieurs petits prérequis, à traiter un par un.
-- **Golden Master Testing** : Une technique de test qui permet de capturer le comportement actuel du système afin de le comparer après refactoring.
-- **Smoke Test** : Des tests simples pour s'assurer que le système fonctionne toujours après des modifications.
+- **Mikado Method** : cette approche consiste à découper un refactoring trop conséquent en plusieurs petites parties, à traiter une à une.
+- **Golden Master Testing** : une technique de test qui permet de capturer le comportement actuel du système afin de le comparer après refactoring.
+- **Smoke Test** : des tests simples pour s'assurer que le système fonctionne toujours après modification.
 
 ### Et pour le management ?
 
-Le refactoring ne concerne pas uniquement les développeurs, le management doit également être impliqué dans le processus. Voici quelques actions à mettre en place :
+Le refactoring ne concerne pas uniquement les développeurs : le management doit également être impliqué dans le processus. Voici quelques actions à mettre en place :
 
-- **Auditer** le projet pour identifier les points de douleur.
+- **Auditer** le projet, pour identifier les points sensibles.
 - **Documenter** les processus et les modifications apportées.
 - **Planifier** le refactoring sur le long terme.
 - **Tester** chaque modification avant de la déployer.
 - **Travailler par petits pas**, avec des déploiements progressifs.
 - **Communiquer** de manière transparente sur l'avancement.
-- **Déployer et monitorer** pour vérifier que tout fonctionne bien après un refactoring.
+- **Déployer et monitorer**, pour vérifier que tout fonctionne bien après un refactoring.
 - **Recommencer** : le refactoring est un processus continu.
 
 Avec ces stratégies, Smaïne Milliani nous offre une feuille de route claire pour aborder le code legacy de manière progressive, tout en assurant la qualité et la maintenabilité à long terme.
@@ -353,23 +353,22 @@ Avec ces stratégies, Smaïne Milliani nous offre une feuille de route claire po
 
 ### FrankenPHP : Un seul service pour PHP
 
-**FrankenPHP** est une solution innovante qui propose un seul service pour exécuter PHP. Il se distingue par plusieurs avantages majeurs :
+**FrankenPHP** est une solution innovante qui propose un seul service pour exécuter PHP. Il présente plusieurs atouts majeurs que Boas nous a exposés.
 
 #### Avantages de FrankenPHP
 
-- **Prod/CI/Dev** : Fonctionne de manière homogène en production, en intégration continue (CI), et en développement.
-- **Custom build de Caddy** : Intégration avec Caddy, un serveur web performant, pour des fonctionnalités spécifiques.
-- **Mode worker pour les performances** : Optimisation des performances avec un mode worker.
-- **Support des 103 Early Hints** : Meilleure expérience utilisateur avec des réponses HTTP anticipées.
-- **Binaire statique** : Distribution sous forme de binaire statique.
+- **Prod/CI/Dev** : fonctionne de manière homogène en production, en intégration continue (CI), et en environnement de dev.
+- **Custom build de Caddy** : intégration avec Caddy dans une version spécifique, ajoutant des fonctionnalités au serveur de base.
+- **Mode worker pour les performances** : optimisation des performances avec un mode worker.
+- **Support des 103 Early Hints** : meilleure expérience utilisateur avec des réponses HTTP anticipées.
+- **Binaire statique** : distribution sous forme de binaire statique.
 
-**La distribution par binaire statique**
+### La distribution par binaire statique
 
 L'un des aspects les plus novateurs de FrankenPHP est la **distribution sous forme de binaire statique**. Cette approche offre plusieurs avantages :
 
-- **Non conventionnel** : Ce n'est pas la méthode habituelle de distribution de PHP, ce qui en fait une solution unique.
-- **Interaction avec le système de fichiers** : Gère facilement les interactions avec le système de fichiers (FS) et les tâches programmées.
-- **Distribution simplifiée** : Le binaire peut être distribué facilement sur différentes plateformes sans dépendances externes.
+- **Interaction avec le système de fichiers** : gère facilement les interactions avec le système de fichiers (FS) et les tâches programmées.
+- **Distribution simplifiée** : le binaire peut être distribué facilement sur différentes plateformes sans dépendances externes.
 
 ### Prérequis pour la construction
 
@@ -396,8 +395,10 @@ Une fois le build terminé, il est possible de créer un **artifact** pour GitLa
 
 Pour démontrer la puissance et la simplicité de FrankenPHP, une démo live a été réalisée avec **Mailpit**, un service pour visualiser les emails générés par le système. Lorsqu'un fichier est déposé, un email est envoyé, ce qui prouve que le binaire interagit parfaitement avec le système. Cela montre non seulement la facilité d'interaction, mais aussi la rapidité et la fiabilité de cette solution.
 
-Avec FrankenPHP, la gestion des services PHP est simplifiée, que ce soit pour des environnements de production, de développement ou de CI, tout en assurant des performances optimales et une distribution facile grâce aux binaires statiques.
+Avec FrankenPHP, la gestion des services PHP est simplifiée. Que ce soit pour des environnements de production, de développement ou de CI, il assure des performances optimales et une distribution facilitée grâce aux binaires statiques.
 
 ---
 
-En conclusion, l'API Platform Conference 2024 a une nouvelle fois tenu toutes ses promesses. Les conférences étaient de qualité, la table ronde s'est révélée passionnante et a suscité des échanges enrichissants. Comme toujours, l'organisation était impeccable, permettant aux participants de profiter pleinement de chaque moment. Sans oublier l'excellent apéro, qui a permis de poursuivre les discussions dans une ambiance chaleureuse et détendue. Une édition à la hauteur des attentes, vivement la prochaine !
+En conclusion, l'API Platform Conference 2024 a une nouvelle fois tenu toutes ses promesses. Les conférences étaient de qualité, la table ronde s'est révélée passionnante et a suscité des échanges enrichissants. Comme toujours, l'organisation était irréprochable, permettant aux participants de profiter pleinement de chaque moment. Sans oublier l'excellent apéro, qui a permis de poursuivre les discussions dans une ambiance chaleureuse et détendue. 
+
+Une édition à la hauteur des attentes, vivement la prochaine !
