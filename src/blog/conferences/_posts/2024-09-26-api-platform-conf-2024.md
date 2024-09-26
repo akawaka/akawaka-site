@@ -4,8 +4,8 @@ title: L'API Platform conférence 2024 à Lille
 image: /build/front/images/blog/apip-conf-2023.png
 alt: Logo API Platform conférence 2024
 subtitle: Nous avons eu l'occasion d'assister à de nombreuses conférences durant l'API Platform Conference, et dans cet article, nous tenons à vous partager nos impressions et retours.
-date: 2024-09-26 16:00:00
-date_modified: 2024-09-26 16:00:00
+date: 2024-09-26 15:00:00
+date_modified: 2024-09-26 15:00:00
 category: conferences
 author: Équipe AKAWAKA
 ---
