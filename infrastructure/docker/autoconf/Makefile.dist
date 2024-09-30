@@ -65,7 +65,7 @@ prettier: node_modules ## Watch the assets and build their development version o
 ##---------------------------------------------------------------------------
 .PHONY: rm-docker-dev.lock
 
-build: docker-dev.lock
+build: docker-network docker-dev.lock
 
 docker-dev.lock:
 	$(DOCKER_COMPOSE) pull --ignore-pull-failures
@@ -74,6 +74,12 @@ docker-dev.lock:
 
 rm-docker-dev.lock:
 	rm -f docker-dev.lock
+
+docker-network:
+	@network_name=$$($(DOCKER_COMPOSE) config | grep -B 1 'external: true' | grep -v 'external: true' | awk '{print $$2}'); \
+	if ! $(DOCKER) network inspect "$$network_name" >/dev/null 2>&1; then \
+		$(DOCKER) network create "$$network_name"; \
+	fi
 
 node_modules: package-lock.json
 	$(EXECJS) npm install
