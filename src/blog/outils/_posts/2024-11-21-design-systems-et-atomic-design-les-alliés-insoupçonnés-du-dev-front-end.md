@@ -65,10 +65,6 @@ Oui, les développeurs aiment le design, mais souvent pas de la même manière q
 
 Exemple : Vous ne vous demandez plus si le bouton doit avoir un coin arrondi ou carré. Le design system l'a décidé pour vous. Plus de débats interminables.
 
-## Akawaka : Construire des interfaces modernes avec expertise
-
-Chez Akawaka, nous sommes spécialisés dans la création d'expériences numériques performantes, accessibles et élégantes. Notre approche repose sur des méthodologies modernes, notamment le design system, pour garantir des interfaces cohérentes et évolutives.
-
 ## Et dans la vraie vie ?
 
 Voici un exemple simple d'un workflow basé sur ces concepts :
@@ -87,7 +83,15 @@ Voici un exemple simple d'un workflow basé sur ces concepts :
 4. Tout le monde gagne du temps.
    - Le designer n'a pas besoin de réinventer la roue pour la prochaine page, et le développeur sait exactement quels composants utiliser.
 
-## Liens connexes
+
+## Akawaka : Construire des interfaces modernes avec expertise
+
+Chez Akawaka, nous sommes spécialisés dans la création d'expériences numériques performantes, accessibles et élégantes. Notre approche repose sur des méthodologies modernes, notamment le design system, pour garantir des interfaces cohérentes et évolutives.
+
+Nous avons récemment mis en œuvre un design system basé sur l'Atomic Design dans un projet à titre d'exemple. Découvrez le projet ici : [Akawaka-Design-System](https://akawaka.github.io/design-system/).
+
+
+## Pour aller plus loin
 
 - Découvrez notre article détaillé sur [Storybook, Tailwind et React, et comment ils s'intègrent parfaitement pour construire des composants réutilisables](https://www.akawaka.fr/blog/outils/storybook-react-et-tailwindcss-construire-des-interfaces-fluides-et-cohérentes.html).
 
