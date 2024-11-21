@@ -126,6 +126,10 @@ Workflow type avec Storybook, React et TailwindCSS :
 3. **Publiez votre bibliothèque** : Grâce à des outils comme Rollup ou Vite, empaquetez vos composants pour les intégrer dans vos projets.
 4. **Appliquez les changements globalement** : Modifiez un atome ou un composant, et voyez les changements se propager partout.
 
+## Akawaka : Construire des interfaces modernes avec expertise
+
+Pour mettre en pratique tout ce que nous avons exploré, nous avons concocté un petit jeu amusant en utilisant un design system basé sur l'Atomic Design, React, et TailwindCSS. Prêt à tester vos compétences et à vous amuser ? Plongez dans l'expérience et découvrez notre projet ici : [Akawaka-Design-System](https://akawaka.github.io/design-system/). 🎮
+
 ## Conclusion
 
 Avec Storybook, React, et TailwindCSS, vous avez les outils parfaits pour passer d’une approche théorique de l’atomic design et des design systems à une implémentation fluide et maintenable.
