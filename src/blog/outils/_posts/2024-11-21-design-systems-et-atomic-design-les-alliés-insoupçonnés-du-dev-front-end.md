@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Design Systems et Atomic Design - Les Alliés Insoupçonnés du Développeur Front-End
-image: /build/front/images/blog/design-systems-atomic-design.png
+image: /build/front/images/blog/atomic-design-product.jpg
 alt: Illustration représentant l'atomic design et les design systems
 date: 2024-11-21 10:00:00
 date_modified: 2024-11-21 10:00:00
