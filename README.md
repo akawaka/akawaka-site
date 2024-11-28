@@ -16,7 +16,7 @@ And extra flag for cleaning files is also available: `--clean-before-tasks`.
 Then, run `make install` and profit.
 
 _N.B : Traefik required an external network. The `make install` command will try to create it if it not exists.
-But in case an error occured, you can try to create it manuelly with `docker network create traefik` (look in `docker-compose.override.yaml` to get the exact network name)._
+But in case an error occured, you can try to create it manually with `docker network create traefik` (look in `docker-compose.override.yaml` to get the exact network name)._
 
 ## Tasks
 

@@ -1,109 +1,108 @@
+{% assign base_class_svg = "size-5" %}
 <main class="bg-gray-100">
     <div class="md:-translate-y-16 xl:-translate-y-24">
         {% if paginator.page == 1 %}
-        <article class="width height shadow-2xl bg-white">
-            <div class="container-big">
-                {% for post in paginator.posts limit:1 %}
-                <a href="{{ site.baseurl }}{{ post.url }}">
-                    <div class="flex flex-col lg:flex-row relative mx-4 md:mx-20 lg:mx-10 2xl:mx-20">
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.alt }}" class="md:w-full lg:w-2/4 xl:w-full 2xl:w-2/4">
+            {% for post in paginator.posts limit:1 %}
+                <article class="width mb-4 shadow-2xl bg-white">
+                    <div class="flex flex-col">
+                        <a href="{{ site.baseurl }}{{ post.url }}">
+                            <div class="flex flex-col lg:flex-row blog-gradient">
+                                <div class="hidden md:block lg:w-1/2">
+                                    <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.alt }}"
+                                         class="max-h-60 lg:max-h-none h-full w-full object-contain object-center">
+                                </div>
+                                <div class="h-auto p-10 md:p-12 lg:p-14 lg:w-1/2">
+                                    <h1 class="title">{{ post.title }}</h1>
+                                    {% if post.subtitle %}
+                                    <p class="main-text mt-5">{{ post.subtitle }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                        <div class="bg-pink-500 text-gray-100 py-2 px-4 md:py-3 md:px-5 flex gap-x-12 justify-start">
+                            <p class="main-text m-0 flex gap-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     class="{{ base_class_svg }}">
+                                    <path d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM14.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 18a9.953 9.953 0 0 1-5.385-1.572ZM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 0 0-1.588-3.755 4.502 4.502 0 0 1 5.874 2.636.818.818 0 0 1-.36.98A7.465 7.465 0 0 1 14.5 16Z"/>
+                                </svg>
+                                <span>{{ post.author }}</span>
+                            </p>
+                            <p class="main-text m-0 flex gap-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     class="{{ base_class_svg }}">
+                                    <path fill-rule="evenodd"
+                                          d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <span>{{ post.date | date_to_french }}</span>
+                            </p>
+                            <p class="main-text m-0 flex gap-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     class="{{ base_class_svg }}">
+                                    <path fill-rule="evenodd"
+                                          d="M4.5 2A2.5 2.5 0 0 0 2 4.5v3.879a2.5 2.5 0 0 0 .732 1.767l7.5 7.5a2.5 2.5 0 0 0 3.536 0l3.878-3.878a2.5 2.5 0 0 0 0-3.536l-7.5-7.5A2.5 2.5 0 0 0 8.38 2H4.5ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <a href="{% link _categories/{{ post.category }}.md %}"
+                                   class="text-gray-100 hover:text-gray-200 hover:underline underline-offset-2">
+                                    {{ post.category | capitalize }}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
 
-                        <div>
-                            <div class="blog blog-gradient">
-                                <h1 class="mb-5 title">{{ post.title }}</h1>
+            <article class="bg-gray-100 shadow-2xl width height">
+                <div class="container-big">
+                    <div class="mx-4 2xl:mx-10 grid grid-cols-blog gap-x-10 gap-y-4 md:grid-cols-blog-md">
+                        {% for post in paginator.posts %}
+                            <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} md:relative space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                                <p class="main-text">{{ post.date | date_to_french }}</p>
+                                <img src="{{ site.baseurl }}{{ post.image }}" alt="{{post.alt}}" class="object-contain w-full md:min-w-60 md:min-h-32 md:max-h-32">
+                                <h1 class="subtitle-blog">{{ post.title }}</h1>
                                 <p class="main-text">{{ post.subtitle }}</p>
-                            </div>
-                            <div
-                                class="bg-pink-500 text-gray-100 w-full flex flex-row text-center">
-                                <div class="space-y-2 flex-1">
-                                    <h2 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
-                                        Auteur :
-                                    </h2>
-
-                                    <p class="main-text">{{ post.author }}</p>
-                                </div>
-
-                                <div class="space-y-2 flex-1">
-                                    <h3 class="font-expletus_sans text-base font-semibold tracking-widest md:text-lg xl:text-xl">
-                                        Publication
-                                    </h3>
-
-                                    <p class="main-text">{{ post.date | date_to_french }}</p>
+                                <div class="md:absolute md:start-auto md:bottom-0 md:h-20">
+                                    <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                        <a href="{{ site.baseurl }}{{ post.url }}">
+                                            <p class="button-blog-gray">Lire l'article</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                </a>
-                {% endfor %}
-            </div>
-        </article>
-
-        <article class="bg-gray-100 shadow-2xl width height">
-            <div class="container-big">
-                <div class="mx-4 2xl:mx-10 grid grid-cols-blog gap-x-10 gap-y-4 md:grid-cols-blog-md">
-                    {% for post in paginator.posts %}
-
-                    <div class="{% if site.posts.size == 1 %}w-2/4 2xl:w-1/4{% endif %} md:relative space-y-5 flex-1 text-gray-700 card-blog card-gradient">
-                        <p class="main-text">{{ post.date | date_to_french }}</p>
-
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="image d'illustration de l'article" class="object-contain w-full md:min-w-60 md:min-h-32 md:max-h-32">
-
-                        <h1 class="subtitle-blog">{{ post.title }}</h1>
-
-                        <p class="main-text">{{ post.subtitle }}</p>
-
-                        <div class="md:absolute md:start-auto md:bottom-0 md:h-20">
-                            <div class="button-blog" title="Cliquez ici pour découvrir l'article">
-                                <a href="{{ site.baseurl }}{{ post.url }}">
-                                    <p class="button-blog-gray">Lire l'article</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                    {% if paginator.total_pages != 1 %}
+                        {% include blog/paginate.html %}
+                    {% endif %}
                 </div>
-
-                {% if paginator.total_pages != 1 %}
-                    {% include blog/paginate.html %}
-                {% endif %}
-
-            </div>
-        </article>
-
+            </article>
         {% else %}
-
-        <article class="bg-gray-100 shadow-2xl width height">
-            <div class="container-big">
-                <div class="mx-10 2xl:mx-20 grid grid-cols-blog gap-x-10 gap-y-10 md:grid-cols-blog-md">
-                    {% for post in paginator.posts %}
-
-                    <div class="space-y-5 flex-1 text-gray-700 card-blog card-gradient">
-                        <p class="main-text">{{ post.date | date_to_french }}</p>
-
-                        <img src="{{ site.baseurl }}{{ post.image }}" alt="" class="w-full">
-
-                        <h1 class="subtitle-blog">{{ post.title }}</h1>
-
-                        <p class="main-text">{{ post.subtitle }}</p>
-
-                        <div class="flex justify-center">
-                            <div class="button-blog" title="Cliquez ici pour découvrir l'article">
-                                <a href="{{ site.baseurl }}{{ post.url }}">
-                                    <p class="button-blog-gray">Lire l'article</p>
-                                </a>
+            <article class="bg-gray-100 shadow-2xl width height">
+                <div class="container-big">
+                    <div class="mx-10 2xl:mx-20 grid grid-cols-blog gap-x-10 gap-y-10 md:grid-cols-blog-md">
+                        {% for post in paginator.posts %}
+                            <div class="space-y-5 flex-1 text-gray-700 card-blog card-gradient">
+                                <p class="main-text">{{ post.date | date_to_french }}</p>
+                                <img src="{{ site.baseurl }}{{ post.image }}" alt="" class="w-full">
+                                <h1 class="subtitle-blog">{{ post.title }}</h1>
+                                <p class="main-text">{{ post.subtitle }}</p>
+                                <div class="flex justify-center">
+                                    <div class="button-blog" title="Cliquez ici pour découvrir l'article">
+                                        <a href="{{ site.baseurl }}{{ post.url }}">
+                                            <p class="button-blog-gray">Lire l'article</p>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+
+                    {% if paginator.total_pages != 1 %}
+                        {% include blog/paginate.html %}
+                    {% endif %}
                 </div>
-
-                {% if paginator.total_pages != 1 %}
-                    {% include blog/paginate.html %}
-                {% endif %}
-
-            </div>
-        </article>
-
+            </article>
         {% endif %}
     </div>
 </main>
