@@ -3,8 +3,8 @@ layout: post
 title: Design Systems et Atomic Design - Les Alliés Insoupçonnés du Développeur Front-End
 image: /build/front/images/blog/atomic-design-product.jpg
 alt: Illustration représentant l'atomic design et les design systems
-date: 2024-12-03 08:00:00
-date_modified: 2024-12-03 08:00:00
+date: 2024-11-27 08:20:00
+date_modified: 2024-11-27 08:20:00
 category: outils
 author: Équipe AKAWAKA
 ---
