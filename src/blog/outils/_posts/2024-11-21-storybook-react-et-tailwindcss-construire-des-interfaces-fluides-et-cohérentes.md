@@ -3,8 +3,8 @@ layout: post
 title: Storybook, React et TailwindCSS - Construire des Interfaces Fluides et Cohérentes
 image: /build/front/images/blog/storybook-atomic-design-system.png
 alt: Illustration représentant le lien entre Storybook, le design system et le produit
-date: 2024-11-28 08:30:00
-date_modified: 2024-11-28 08:30:00
+date: 2024-12-03 09:00:00
+date_modified: 2024-12-03 09:00:00
 category: outils
 author: Équipe AKAWAKA
 ---
