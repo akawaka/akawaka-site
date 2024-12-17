@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Hind+Guntur:wght@300;400;500;600;700&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "@glidejs/glide/src/assets/sass/glide.core";
 @import "@glidejs/glide/src/assets/sass/glide.theme";
+@import "rouge_syntax.css";
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -246,6 +247,11 @@ img {
         }
     }
 
+    blockquote.note {
+        @apply mx-4 my-4 px-8 py-6;
+        background: #f3f4f6;
+    }
+
     code {
         font-family: 'Trirong', serif !important;
         background: rgb(229 231 235);
@@ -258,16 +264,26 @@ img {
         @apply main-text text-yellow-500 mt-2;
     }
 
+    .highlighter-rouge {
+        margin-bottom: 1.5rem;
+    }
+
     .highlight {
-        background: linear-gradient(to left, rgba(242, 158, 25, 0.5), rgba(222, 30, 126, 0.5));
         padding: 1rem 1rem;
         border-radius: 5px;
         @apply text-white mb-5 font-hind_guntur text-xs md:text-sm xl:text-base;
+        margin-bottom: 0 !important;
 
         code {
             background: none;
             padding: 0 0;
+            font-family: monospace !important;
+            color: black !important;
         }
+    }
+
+    .language-plaintext {
+        font-family: monospace !important;
     }
 
     hr {

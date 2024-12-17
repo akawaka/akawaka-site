@@ -96,3 +96,8 @@ pagination:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
