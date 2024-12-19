@@ -3,8 +3,8 @@ layout: post
 title: Bring Sylius Components to Your Project
 image: /build/front/images/blog/sylius_stack.jpg
 alt: 
-date: 2024-12-19 15:00:00
-date_modified: 2024-12-18 09:00:00
+date: 2024-12-19 10:00:00
+date_modified: 2024-12-19 10:00:00
 category: outils
 author: Florian Merle
 ---
