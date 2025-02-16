@@ -2,7 +2,7 @@
 layout: post
 title: Bring Sylius Components to Your Project
 image: /build/front/images/blog/sylius_stack.jpg
-alt: 
+alt: The Loïc Fremont Key Contributor Award trophy, surrounded by two Sylius elePHPants
 date: 2024-12-19 10:00:00
 date_modified: 2024-12-19 10:00:00
 category: outils
